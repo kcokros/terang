@@ -654,7 +654,25 @@ async function loadCSV(path) {
   const res = await fetch(path);
   if (!res.ok) throw new Error(`Failed to load ${path}`);
   const text = await res.text();
-  return Papa.parse(text, { header: true, dynamicTyping: true, skipEmptyLines: true }).data;
+  // Do NOT use dynamicTyping — it mangles kode_desa (e.g. "81.01.01.1009" → 81.01)
+  // and month columns. Parse everything as strings, convert numerics explicitly.
+  const rows = Papa.parse(text, { header: true, dynamicTyping: false, skipEmptyLines: true }).data;
+  const KEEP_STRING = new Set(['kode_desa','l1_class','tech','name','kecamatan','kabupaten',
+    'hydro_grade','rationale','fired_rule','month']);
+  if (rows.length) {
+    const cols = Object.keys(rows[0]);
+    for (const row of rows) {
+      for (const col of cols) {
+        if (KEEP_STRING.has(col)) continue;
+        if (row[col] === '' || row[col] == null) { row[col] = null; continue; }
+        if (row[col] === 'True' || row[col] === 'true') { row[col] = true; continue; }
+        if (row[col] === 'False' || row[col] === 'false') { row[col] = false; continue; }
+        const num = Number(row[col]);
+        if (!isNaN(num)) row[col] = num;
+      }
+    }
+  }
+  return rows;
 }
 
 async function loadJSON(path) {
@@ -669,7 +687,7 @@ async function loadCentroids() {
     const rows = {};
     for (const feat of (gj.features || [])) {
       const p = feat.properties || {};
-      rows[p.kode_desa] = {
+      rows[String(p.kode_desa)] = {
         lat: feat.geometry.coordinates[1],
         lon: feat.geometry.coordinates[0],
       };
@@ -903,7 +921,7 @@ function renderRadianceTS(villageName) {
   ], {
     ...PLOTLY_LAYOUT,
     height: 260,
-    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Month' },
+    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Month', type: 'category' },
     yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'nW/cm²/sr' },
     shapes: [{
       type: 'line', x0: vts[0].month, x1: vts[vts.length-1].month,
@@ -1024,13 +1042,14 @@ function renderGridInfra() {
     showMapNotice('grid-map-container', 'Add centroids GeoJSON to enable map.');
   }
 
-  // Distance histogram
+  // Distance histogram — intermittent first (background), dark_settled on top
   const offGrid = L2.filter(r => ['micro_hydro','solar_battery','solar_biomass_hybrid','wind_solar_hybrid'].includes(r.tech));
-  const classes = ['dark_settled','intermittent'];
-  const traces = classes.map(cls => {
-    const vals = offGrid.filter(r => r.l1_class === cls).map(r => (r.dist_grid_m||0)/1000);
-    return { x: vals, type: 'histogram', name: CLASS_LABELS[cls], marker: { color: COLORS[cls] }, opacity: 0.7, nbinsx: 40 };
-  });
+  const intermVals = offGrid.filter(r => r.l1_class === 'intermittent').map(r => (r.dist_grid_m||0)/1000);
+  const darkVals = offGrid.filter(r => r.l1_class === 'dark_settled').map(r => (r.dist_grid_m||0)/1000);
+  const traces = [
+    { x: intermVals, type: 'histogram', name: CLASS_LABELS['intermittent'], marker: { color: COLORS['intermittent'] }, opacity: 0.55, nbinsx: 40 },
+    { x: darkVals, type: 'histogram', name: CLASS_LABELS['dark_settled'], marker: { color: COLORS['dark_settled'] }, opacity: 0.9, nbinsx: 40 },
+  ];
   Plotly.newPlot('chart-dist-hist', traces, {
     ...PLOTLY_LAYOUT, height: 280, barmode: 'overlay',
     xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Distance to grid (km)' },
