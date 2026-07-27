@@ -9,6 +9,7 @@
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -690,6 +691,77 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
 }
 .guidebook-close:hover { color: var(--text); }
 
+/* Proposal PDF viewer modal */
+.pdf-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1001;
+  flex-direction: column;
+  align-items: center;
+}
+.pdf-overlay.open { display: flex; }
+.pdf-toolbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.pdf-toolbar-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.pdf-toolbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+.pdf-toolbar-nav button {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.78rem;
+}
+.pdf-toolbar-nav button:hover { background: var(--border); }
+.pdf-toolbar-nav button:disabled { opacity: 0.3; cursor: default; }
+.pdf-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 6px;
+}
+.pdf-close-btn:hover { color: var(--text); }
+.pdf-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  width: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.pdf-scroll canvas {
+  max-width: 100%;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+  border-radius: 4px;
+}
+
 @media (max-width: 860px) {
   .landing-title { font-size: 2.2rem; }
   .landing-pipeline { flex-direction: column; }
@@ -723,8 +795,15 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
     <div class="landing-pipe-step">
       <div class="pipe-label">Layer 3 · Pool</div>
       <div class="pipe-title">Bankable portfolios</div>
-      <div class="pipe-sub">District bundles with satellite-verified milestones.</div>
+      <div class="pipe-sub">District bundles with satellite-verified milestones — paying for light that persists, not connections installed.</div>
     </div>
+  </div>
+
+  <div class="landing-stats">
+    <div class="landing-stat"><div class="ls-val" style="color:var(--dark-red)">111</div><div class="ls-label">Dark villages</div></div>
+    <div class="landing-stat"><div class="ls-val" style="color:var(--accent)">937</div><div class="ls-label">Intermittent</div></div>
+    <div class="landing-stat"><div class="ls-val" style="color:var(--green)">98%</div><div class="ls-label">ESDM-validated</div></div>
+    <div class="landing-stat"><div class="ls-val">1,233</div><div class="ls-label">Villages analysed</div></div>
   </div>
 
   <div class="landing-desc">
@@ -741,7 +820,7 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
 
   <div class="landing-buttons">
     <button class="btn-landing btn-primary" onclick="enterDemo()">▶ Launch demo</button>
-    <a class="btn-landing btn-secondary" href="Terang_Proposal.pdf" target="_blank">📄 View proposal</a>
+    <button class="btn-landing btn-secondary" onclick="openProposal()">📄 View proposal</button>
     <button class="btn-landing btn-secondary" onclick="openGuidebook()">📖 Demo guidebook</button>
   </div>
 
@@ -834,6 +913,22 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
       <li><strong>💨 Wind speed 50m</strong> — ESDM raster (m/s)</li>
     </ol>
   </div>
+</div>
+
+<!-- PROPOSAL PDF VIEWER -->
+<div class="pdf-overlay" id="pdf-viewer" oncontextmenu="return false">
+  <div class="pdf-toolbar">
+    <span class="pdf-toolbar-title">📄 Terang — Proposal</span>
+    <div class="pdf-toolbar-nav">
+      <button onclick="pdfZoom(-0.2)">−</button>
+      <span id="pdf-zoom-label">100%</span>
+      <button onclick="pdfZoom(0.2)">+</button>
+      <span style="margin:0 8px;color:var(--border)">|</span>
+      <span id="pdf-page-info">Loading…</span>
+    </div>
+    <button class="pdf-close-btn" onclick="closeProposal()">×</button>
+  </div>
+  <div class="pdf-scroll" id="pdf-scroll"></div>
 </div>
 
 <!-- DASHBOARD (hidden until "Launch demo") -->
@@ -1073,8 +1168,62 @@ document.getElementById('guidebook').addEventListener('click', function(e) {
 
 // Close guidebook on Escape
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeGuidebook();
+  if (e.key === 'Escape') { closeGuidebook(); closeProposal(); }
 });
+
+// ── Proposal PDF viewer (canvas-based, no download) ─────────────────────
+let pdfDoc = null;
+let pdfScale = 1.4;
+const PDF_PATH = 'Terang_Proposal.pdf';
+
+async function openProposal() {
+  document.getElementById('pdf-viewer').classList.add('open');
+  if (pdfDoc) return; // already loaded
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  try {
+    pdfDoc = await pdfjsLib.getDocument(PDF_PATH).promise;
+    document.getElementById('pdf-page-info').textContent =
+      `${pdfDoc.numPages} pages`;
+    renderAllPages();
+  } catch (err) {
+    document.getElementById('pdf-scroll').innerHTML =
+      `<p style="color:var(--text-dim);padding:40px;text-align:center;">
+        Could not load proposal PDF.<br>
+        Place <code>Terang_Proposal.pdf</code> alongside index.html.<br>
+        <span style="font-size:0.75rem">${err.message}</span>
+      </p>`;
+  }
+}
+
+async function renderAllPages() {
+  const container = document.getElementById('pdf-scroll');
+  container.innerHTML = '';
+  for (let i = 1; i <= pdfDoc.numPages; i++) {
+    const page = await pdfDoc.getPage(i);
+    const viewport = page.getViewport({ scale: pdfScale });
+    const canvas = document.createElement('canvas');
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    canvas.style.width = viewport.width + 'px';
+    const ctx = canvas.getContext('2d');
+    await page.render({ canvasContext: ctx, viewport }).promise;
+    container.appendChild(canvas);
+  }
+  document.getElementById('pdf-zoom-label').textContent =
+    `${Math.round(pdfScale / 1.4 * 100)}%`;
+}
+
+function pdfZoom(delta) {
+  pdfScale = Math.max(0.6, Math.min(3.0, pdfScale + delta));
+  if (pdfDoc) renderAllPages();
+}
+
+function closeProposal() {
+  document.getElementById('pdf-viewer').classList.remove('open');
+}
 </script>
 
 <script>
