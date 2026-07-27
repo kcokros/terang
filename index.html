@@ -795,9 +795,10 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
     <div class="landing-pipe-step">
       <div class="pipe-label">Layer 3 · Pool</div>
       <div class="pipe-title">Bankable portfolios</div>
-      <div class="pipe-sub">District bundles with satellite-verified milestones — paying for light that persists, not connections installed.</div>
+      <div class="pipe-sub">District bundles with satellite-verified milestones</div>
     </div>
   </div>
+
 
   <div class="landing-desc">
     <strong>Terang</strong> (Indonesian for <em>"light"</em>) is a three-layer pipeline
@@ -805,7 +806,7 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
     Applied to <strong>Maluku province</strong> as a proof of concept, the pipeline
     identifies 111 persistently dark villages and 937 with intermittent supply,
     prescribes the lowest-cost renewable technology for each, and packages them
-    into bankable district portfolios with satellite-verified disbursement triggers.
+    into bankable district portfolios with satellite-verified milestones.
     Prescriptions are cross-validated at 98% against Kementerian ESDM's official
     resource registry — an independent confirmation that the satellite-derived
     recommendations align with government-mapped potential.
@@ -818,7 +819,7 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   </div>
 
   <div class="landing-footer">
-    Built by <strong>Meiliza</strong> &amp; <strong>Kartiko</strong>  &amp; <strong>Dwiky</strong>· Ministry of Finance, Indonesia<br>
+    Built by <strong>Meiliza</strong> &amp; <strong>Kartiko</strong> &amp; <strong>Dwiky</strong> · Ministry of Finance, Indonesia<br>
     Data: VIIRS · GHSL · WDPA · Hansen · Kementerian ESDM ·
     <a href="https://developers.google.com/earth-engine" target="_blank">Google Earth Engine</a>
   </div>
@@ -1796,7 +1797,7 @@ function renderGapLeaflet(cls) {
       r => r.l1_class === 'dark_settled' ? 5 : 3.5
     );
   }
-  addEsdmOverlays(map, container, ['offgrid_generator']);
+  addEsdmOverlays(map, container, ['offgrid_generator', 'hydro_potential', 'substation', 'power_plant']);
   addSolarOverlay(map);
   addWindOverlay(map);
   setTimeout(() => map.invalidateSize(), 100);
