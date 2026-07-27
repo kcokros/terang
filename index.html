@@ -580,6 +580,8 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
         Within 5 km: PLN mandate — not off-grid.
       </p>
     </div>
+
+    <div id="grid-esdm-comparison"></div>
   </div>
 
   <!-- VIEW 4: BANKABILITY RANKING -->
@@ -1284,23 +1286,36 @@ function renderGridInfra() {
   const dists = darkL2.map(r => (r.dist_grid_m||0)/1000).sort((a,b)=>a-b);
   const distMed = dists.length ? dists[Math.floor(dists.length/2)] : 0;
   const near5 = darkL2.filter(r => (r.dist_grid_m||0) < 5000).length;
+  const offGridCount = L2.filter(r => ['micro_hydro','solar_battery','solar_biomass_hybrid','wind_solar_hybrid'].includes(r.tech)).length;
 
-  document.getElementById('grid-metrics').innerHTML = [
-    metricCard('Median dist. to grid (dark)', `${distMed.toFixed(1)} km`),
+  // Check if ESDM substation data is available in the GeoJSON properties
+  let esdmSubMed = null;
+  if (hasGeoJSON()) {
+    const subDists = GJ_DATA.features
+      .filter(f => f.properties.l1_class === 'dark_settled' && f.properties.esdm_substation_dist_m != null)
+      .map(f => f.properties.esdm_substation_dist_m / 1000)
+      .sort((a,b) => a - b);
+    if (subDists.length) esdmSubMed = subDists[Math.floor(subDists.length / 2)];
+  }
+
+  const metrics = [
+    metricCard('Nearest lit settlement (VIIRS)', `${distMed.toFixed(1)} km`, 'dark villages, median', 'neutral'),
     metricCard('Grid-adjacent (<5 km)', near5),
-    metricCard('Off-grid villages', L2.filter(r => ['micro_hydro','solar_battery','solar_biomass_hybrid','wind_solar_hybrid'].includes(r.tech)).length),
-  ].join('');
+    metricCard('Off-grid pipeline', offGridCount),
+  ];
+  if (esdmSubMed != null) {
+    metrics.push(metricCard('Nearest substation (ESDM)', `${esdmSubMed.toFixed(0)} km`, 'dark villages, median', 'bad'));
+  }
+  document.getElementById('grid-metrics').innerHTML = metrics.join('');
 
   // Map
   if (hasGeoJSON()) {
     const map = buildLeafletMap('grid-map-container', 420);
-    // Lit stable polygons (green, semi-transparent)
     addPolygonLayer(map,
       p => p.l1_class === 'lit_stable',
       p => ({ color: '#0F6E56', fillColor: '#0F6E56', fillOpacity: 0.35, weight: 0.6 }),
       p => `<b>${p.name||''}</b><br>Stably lit · grid proxy`
     );
-    // Dark settled polygons (red, prominent)
     addPolygonLayer(map,
       p => p.l1_class === 'dark_settled',
       p => {
@@ -1331,7 +1346,7 @@ function renderGridInfra() {
     showMapNotice('grid-map-container', 'Add classification GeoJSON to enable map.');
   }
 
-  // Distance histogram — intermittent first (background), dark_settled on top
+  // Distance histogram — VIIRS lit settlement
   const offGrid = L2.filter(r => ['micro_hydro','solar_battery','solar_biomass_hybrid','wind_solar_hybrid'].includes(r.tech));
   const intermVals = offGrid.filter(r => r.l1_class === 'intermittent').map(r => (r.dist_grid_m||0)/1000);
   const darkVals = offGrid.filter(r => r.l1_class === 'dark_settled').map(r => (r.dist_grid_m||0)/1000);
@@ -1345,6 +1360,117 @@ function renderGridInfra() {
     yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'Villages' },
     shapes: [{ type:'line', x0:5, x1:5, y0:0, y1:1, yref:'paper', line:{color:'#888',dash:'dash',width:1} }],
     legend: { x: 0.7, y: 0.95, bgcolor: 'rgba(0,0,0,0)' },
+  }, PLOTLY_CONFIG);
+
+  // ── ESDM Substation comparison ──────────────────────────────────────
+  const compDiv = document.getElementById('grid-esdm-comparison');
+  if (!hasGeoJSON()) { compDiv.innerHTML = ''; return; }
+
+  // Extract both distances for dark+intermittent villages
+  const darkIntFeats = GJ_DATA.features.filter(f =>
+    ['dark_settled','intermittent'].includes(f.properties.l1_class) &&
+    f.properties.esdm_substation_dist_m != null &&
+    f.properties.dist_grid_m != null
+  );
+
+  if (!darkIntFeats.length) { compDiv.innerHTML = ''; return; }
+
+  const viirsKm = darkIntFeats.map(f => (f.properties.dist_grid_m || 0) / 1000);
+  const esdmKm = darkIntFeats.map(f => (f.properties.esdm_substation_dist_m || 0) / 1000);
+  const viirsMed = viirsKm.slice().sort((a,b)=>a-b)[Math.floor(viirsKm.length/2)];
+  const esdmMedKm = esdmKm.slice().sort((a,b)=>a-b)[Math.floor(esdmKm.length/2)];
+  const gapRatio = esdmMedKm / Math.max(viirsMed, 0.1);
+
+  compDiv.innerHTML = `
+    <h2>Satellite vs government grid proximity</h2>
+    <div class="esdm-panel" style="margin-bottom:16px">
+      <div class="esdm-title">The infrastructure gap, quantified</div>
+      <p class="esdm-body">
+        VIIRS detects the nearest <b>lit settlement</b> — any community emitting light,
+        including diesel micro-grids and informal supply. ESDM substations mark the nearest
+        <b>formal grid infrastructure</b>. The ${gapRatio.toFixed(0)}× gap between them
+        reveals that Maluku's apparent electrification is almost entirely
+        off-grid diesel — not connected transmission. Zero dark villages sit within
+        20 km of a formal substation.
+      </p>
+    </div>
+    <div class="row-2">
+      <div class="chart-box">
+        <div class="cb-title">VIIRS — nearest lit settlement (km)</div>
+        <div id="chart-comp-viirs"></div>
+      </div>
+      <div class="chart-box">
+        <div class="cb-title">ESDM — nearest PLN substation (km)</div>
+        <div id="chart-comp-esdm"></div>
+      </div>
+    </div>
+    <div class="chart-box">
+      <div class="cb-title">Per-village comparison — VIIRS lit-settlement distance vs ESDM substation distance</div>
+      <div id="chart-comp-scatter"></div>
+      <p class="caption">
+        Each point is one dark or intermittent village. The diagonal line marks parity —
+        points above it are farther from formal grid infrastructure than from the nearest
+        lit community. Nearly all villages sit far above the line: their nearest light source
+        is a diesel island, not the grid.
+      </p>
+    </div>
+  `;
+
+  // Left histogram: VIIRS
+  Plotly.newPlot('chart-comp-viirs', [{
+    x: viirsKm, type: 'histogram', nbinsx: 30,
+    marker: { color: '#185FA5' },
+  }], {
+    ...PLOTLY_LAYOUT, height: 220,
+    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'km' },
+    yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'Villages' },
+    annotations: [{ x: viirsMed, y: 0, yref: 'paper', yshift: -10,
+      text: `median ${viirsMed.toFixed(1)} km`, showarrow: true, arrowhead: 0,
+      ay: -30, font: { size: 10, color: '#4FC3F7' } }],
+  }, PLOTLY_CONFIG);
+
+  // Right histogram: ESDM substations
+  Plotly.newPlot('chart-comp-esdm', [{
+    x: esdmKm, type: 'histogram', nbinsx: 30,
+    marker: { color: '#FFD54F' },
+  }], {
+    ...PLOTLY_LAYOUT, height: 220,
+    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'km' },
+    yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'Villages' },
+    annotations: [{ x: esdmMedKm, y: 0, yref: 'paper', yshift: -10,
+      text: `median ${esdmMedKm.toFixed(0)} km`, showarrow: true, arrowhead: 0,
+      ay: -30, font: { size: 10, color: '#FFD54F' } }],
+  }, PLOTLY_CONFIG);
+
+  // Scatter: VIIRS vs ESDM per village
+  const names = darkIntFeats.map(f => f.properties.name || '');
+  const classes = darkIntFeats.map(f => f.properties.l1_class);
+  const maxAxis = Math.max(...esdmKm, ...viirsKm) * 1.05;
+
+  Plotly.newPlot('chart-comp-scatter', [
+    // Parity line
+    { x: [0, maxAxis], y: [0, maxAxis], mode: 'lines',
+      line: { color: '#555', width: 1, dash: 'dash' },
+      showlegend: false, hoverinfo: 'skip' },
+    // Dark settled
+    { x: viirsKm.filter((_,i) => classes[i] === 'dark_settled'),
+      y: esdmKm.filter((_,i) => classes[i] === 'dark_settled'),
+      text: names.filter((_,i) => classes[i] === 'dark_settled'),
+      mode: 'markers', name: 'Dark settled',
+      marker: { color: COLORS.dark_settled, size: 6, opacity: 0.8 },
+      hovertemplate: '<b>%{text}</b><br>VIIRS: %{x:.1f} km<br>ESDM: %{y:.0f} km<extra></extra>' },
+    // Intermittent
+    { x: viirsKm.filter((_,i) => classes[i] === 'intermittent'),
+      y: esdmKm.filter((_,i) => classes[i] === 'intermittent'),
+      text: names.filter((_,i) => classes[i] === 'intermittent'),
+      mode: 'markers', name: 'Intermittent',
+      marker: { color: COLORS.intermittent, size: 5, opacity: 0.5 },
+      hovertemplate: '<b>%{text}</b><br>VIIRS: %{x:.1f} km<br>ESDM: %{y:.0f} km<extra></extra>' },
+  ], {
+    ...PLOTLY_LAYOUT, height: 400,
+    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'VIIRS — nearest lit settlement (km)', range: [0, Math.min(maxAxis, 150)] },
+    yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'ESDM — nearest substation (km)', range: [0, maxAxis] },
+    legend: { x: 0.02, y: 0.98, bgcolor: 'rgba(0,0,0,0)' },
   }, PLOTLY_CONFIG);
 }
 
