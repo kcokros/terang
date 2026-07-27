@@ -1,0 +1,24 @@
+{
+  "bounds": [
+    [
+      -8.395411500999945,
+      125.67252030700008
+    ],
+    [
+      -2.6754512379999484,
+      134.95845681100008
+    ]
+  ],
+  "resolution_deg": 0.004,
+  "pixels": [
+    2322,
+    1430
+  ],
+  "bins_ms": [
+    4.0,
+    6.0
+  ],
+  "unit": "m/s at 50m",
+  "source": "Kementerian ESDM \u2014 Potensi Angin",
+  "palette": "ESDM official: medium blue (4\u20136 m/s) \u2192 dark blue (>6 m/s); below 4 transparent"
+}
