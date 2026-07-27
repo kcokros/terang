@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terang · Electrification Intelligence</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀</text></svg>">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0C0F14;
+  --surface: #161B24;
+  --surface-2: #1E2530;
+  --border: #2A3140;
+  --text: #E4E8EE;
+  --text-dim: #8B95A5;
+  --accent: #BA7517;
+  --dark-red: #A32D2D;
+  --green: #0F6E56;
+  --blue: #185FA5;
+  --purple: #534AB7;
+  --gray: #888780;
+  --radius: 10px;
+  --sidebar-w: 260px;
+}
+
+html { font-size: 15px; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── SIDEBAR ─────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+.sidebar-brand span { color: var(--accent); }
+.sidebar-sub {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+
+.nav-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: left;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.nav-btn:hover { background: var(--surface-2); color: var(--text); }
+.nav-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 14px 0;
+}
+
+.sidebar-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+.sidebar-metric {
+  background: var(--surface-2);
+  border-radius: 7px;
+  padding: 10px 12px;
+}
+.sidebar-metric .label {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.sidebar-metric .value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+/* ── MAIN ────────────────────────────────────────────── */
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  padding: 32px 36px 60px;
+  max-width: 1200px;
+}
+
+.view { display: none; }
+.view.active { display: block; }
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 28px 0 12px;
+  color: var(--text);
+}
+
+.subtitle {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+/* Metric cards row */
+.metrics-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+.metric-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  min-width: 150px;
+  flex: 1;
+}
+.metric-card .mc-label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.metric-card .mc-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.metric-card .mc-delta {
+  font-size: 0.72rem;
+  margin-top: 2px;
+}
+.mc-delta.bad { color: var(--dark-red); }
+.mc-delta.good { color: var(--green); }
+.mc-delta.neutral { color: var(--text-dim); }
+
+/* Chart containers */
+.chart-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.chart-box .cb-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Map container */
+.map-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+  height: 420px;
+}
+.map-wrap .leaflet-container { height: 100%; width: 100%; }
+.map-notice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+/* Tables */
+.data-table-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+}
+table.dt {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+table.dt th {
+  background: var(--surface-2);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+table.dt td {
+  padding: 8px 14px;
+  border-top: 1px solid var(--border);
+  white-space: nowrap;
+}
+table.dt tr:hover td { background: rgba(186,117,23,0.06); }
+
+.data-table-wrap { max-height: 400px; overflow-y: auto; }
+
+/* Filter controls */
+.filter-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  align-items: center;
+}
+.filter-row select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+.filter-row select:focus { outline: 2px solid var(--accent); }
+.filter-row label {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+/* Row layouts */
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.row-3-1 { display: grid; grid-template-columns: 1fr 2fr; gap: 18px; }
+.row-1-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; }
+
+/* Score bar */
+.score-bar {
+  height: 6px;
+  background: var(--surface-2);
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+.score-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+/* Chip/tag */
+.chip {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* Caption */
+.caption {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* Info box */
+.info-box {
+  background: rgba(15,110,86,0.1);
+  border: 1px solid rgba(15,110,86,0.25);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-size: 0.84rem;
+  margin: 16px 0;
+}
+
+/* Loading */
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  gap: 16px;
+}
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Collapsible */
+details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+}
+details summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+details[open] summary { border-bottom: 1px solid var(--border); }
+details .details-body { padding: 14px 16px; font-size: 0.84rem; }
+
+/* Methodology table inside details */
+.meth-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.meth-table th, .meth-table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+.meth-table th { color: var(--text-dim); font-size: 0.7rem; text-transform: uppercase; }
+
+/* Mobile */
+@media (max-width: 860px) {
+  .sidebar { width: 100%; position: relative; min-width: 100%; }
+  .main { margin-left: 0; padding: 20px 16px; }
+  body { flex-direction: column; }
+  .row-2, .row-3-1, .row-1-2 { grid-template-columns: 1fr; }
+  .metrics-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">☀ <span>Terang</span></div>
+  <div class="sidebar-sub">Satellite electrification intelligence</div>
+
+  <button class="nav-btn active" data-view="gap-map">Gap map</button>
+  <button class="nav-btn" data-view="prescriptions">RE prescriptions</button>
+  <button class="nav-btn" data-view="grid-infra">Grid &amp; infrastructure</button>
+  <button class="nav-btn" data-view="bankability">Bankability ranking</button>
+  <button class="nav-btn" data-view="scba">SCBA impact</button>
+
+  <div class="sidebar-divider"></div>
+
+  <div style="font-size:0.78rem;font-weight:600;color:var(--text-dim);margin-bottom:6px;">
+    Pipeline — Maluku pilot
+  </div>
+  <div id="sidebar-window" style="font-size:0.72rem;color:var(--text-dim);margin-bottom:8px;"></div>
+
+  <div class="sidebar-metrics" id="sidebar-metrics"></div>
+
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-footer" id="sidebar-footer"></div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<div class="main" id="main">
+
+  <!-- Loading -->
+  <div class="loading-screen" id="loading">
+    <div class="spinner"></div>
+    <div style="color:var(--text-dim);font-size:0.88rem;">Loading pipeline data…</div>
+  </div>
+
+  <!-- VIEW 1: GAP MAP -->
+  <div class="view" id="view-gap-map">
+    <h1>Electrification gap map — Layer 1</h1>
+    <p class="subtitle">VIIRS nighttime radiance classification of 1,233 Maluku villages.</p>
+
+    <div class="filter-row">
+      <label>Filter by class</label>
+      <select id="gap-class-filter">
+        <option value="All">All</option>
+        <option value="dark_settled">Dark settled</option>
+        <option value="intermittent">Intermittent</option>
+        <option value="lit_stable">Stably lit</option>
+        <option value="data_gap">Data gap</option>
+      </select>
+    </div>
+
+    <div class="metrics-row" id="gap-metrics"></div>
+    <div id="gap-map-container"></div>
+
+    <div class="chart-box">
+      <div class="cb-title">Dark-settled villages by kabupaten</div>
+      <div id="chart-dark-kab"></div>
+    </div>
+
+    <h2>Village radiance history</h2>
+    <div class="filter-row">
+      <label>Select village</label>
+      <select id="village-select"></select>
+    </div>
+    <div class="chart-box">
+      <div id="chart-radiance-ts"></div>
+      <p class="caption">
+        Same commissioning detector used for M1 milestone verification.
+        Labuang village (Buru Selatan): January 2017 electrification identified
+        from radiance alone, without ground reporting.
+      </p>
+    </div>
+  </div>
+
+  <!-- VIEW 2: RE PRESCRIPTIONS -->
+  <div class="view" id="view-prescriptions">
+    <h1>RE prescriptions — Layer 2</h1>
+    <p class="subtitle">Conservation-screened technology decision tree outputs for 1,005 villages.</p>
+
+    <div class="filter-row">
+      <label>Filter by technology</label>
+      <select id="rx-tech-filter"></select>
+    </div>
+
+    <div class="row-3-1">
+      <div>
+        <div class="chart-box">
+          <div id="chart-tech-donut"></div>
+          <p class="caption">
+            Conservation screen (WDPA + Hansen) fires before technology assignment.
+            158 villages → policy pathway.
+          </p>
+        </div>
+      </div>
+      <div id="rx-map-container"></div>
+    </div>
+
+    <h2>Prescription detail</h2>
+    <div class="data-table-wrap" id="rx-table-wrap"></div>
+  </div>
+
+  <!-- VIEW 3: GRID & INFRASTRUCTURE -->
+  <div class="view" id="view-grid-infra">
+    <h1>Grid proximity &amp; infrastructure</h1>
+    <p class="subtitle">Distance to nearest lit settlement as a grid-extension proxy.</p>
+
+    <div class="metrics-row" id="grid-metrics"></div>
+    <div id="grid-map-container"></div>
+
+    <div class="chart-box">
+      <div class="cb-title">Distance to nearest lit settlement — off-grid pipeline</div>
+      <div id="chart-dist-hist"></div>
+      <p class="caption">
+        Villages beyond 5 km enter the off-grid pipeline.
+        Within 5 km: PLN mandate — not off-grid.
+      </p>
+    </div>
+  </div>
+
+  <!-- VIEW 4: BANKABILITY RANKING -->
+  <div class="view" id="view-bankability">
+    <h1>Bankability ranking</h1>
+    <p class="subtitle">Composite investment-readiness score for the off-grid dark + intermittent pipeline.</p>
+
+    <details>
+      <summary>Scoring methodology</summary>
+      <div class="details-body">
+        <table class="meth-table">
+          <thead><tr><th>Component</th><th>Weight</th><th>Basis</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Additionality</strong></td><td>30%</td><td>1 − lit_fraction; dark_settled +20% bonus</td></tr>
+            <tr><td><strong>RE resource quality</strong></td><td>25%</td><td>Technology-weighted composite of hydro, wind, feedstock</td></tr>
+            <tr><td><strong>Feasibility</strong></td><td>25%</td><td>Inverse dist_grid (40%) + inverse slope (30%) + log built_m² (30%)</td></tr>
+            <tr><td><strong>Environmental co-benefit</strong></td><td>20%</td><td>treecover_pct_2000 (60%) + inverse WDPA overlap (40%)</td></tr>
+          </tbody>
+        </table>
+        <p class="caption" style="margin-top:10px;">Score range: 0–100. Off-grid dark+intermittent pipeline only.</p>
+      </div>
+    </details>
+
+    <div class="filter-row">
+      <label>Kabupaten</label>
+      <select id="bank-kab-filter"></select>
+      <label>Technology</label>
+      <select id="bank-tech-filter"></select>
+      <label>Class</label>
+      <select id="bank-cls-filter">
+        <option value="All">All</option>
+        <option value="dark_settled">Dark settled</option>
+        <option value="intermittent">Intermittent</option>
+      </select>
+    </div>
+
+    <div class="metrics-row" id="bank-metrics"></div>
+    <div id="bank-map-container"></div>
+
+    <h2 id="bank-table-title">Top villages</h2>
+    <div class="data-table-wrap" id="bank-table-wrap"></div>
+
+    <div class="chart-box">
+      <div class="cb-title">Score components — Feasibility vs Additionality</div>
+      <div id="chart-bank-scatter"></div>
+    </div>
+  </div>
+
+  <!-- VIEW 5: SCBA IMPACT -->
+  <div class="view" id="view-scba">
+    <h1>SCBA impact dashboard</h1>
+    <p class="subtitle">
+      4-dimension Socioeconomic &amp; Environmental Benefit Analysis.
+      Reliability and environmental dimensions derived from v3 pipeline.
+    </p>
+
+    <h2>A · Reliability — Service Quality Index</h2>
+    <div class="metrics-row" id="scba-reliability-metrics"></div>
+    <div class="chart-box">
+      <div id="chart-sqi-bar"></div>
+    </div>
+
+    <h2>B · Environmental — CO₂ avoidance &amp; forest conservation</h2>
+    <div class="metrics-row" id="scba-env-metrics"></div>
+    <div class="chart-box">
+      <div class="cb-title">CO₂ avoided by kabupaten</div>
+      <div id="chart-co2-kab"></div>
+      <p class="caption">
+        Basis: 20 kW PLTD × 8 h/day × 365 days × IPCC AR6 EF 0.7 kgCO₂/kWh.
+      </p>
+    </div>
+
+    <h2>C · Household welfare (indicative)</h2>
+    <div class="metrics-row" id="scba-welfare-metrics"></div>
+    <div class="info-box">
+      🐟 <strong>Kepulauan Aru productive-use uplift</strong> — Cold storage extends fish catch
+      shelf life from hours to days, opening buyers outside the spoilage window.
+      Quantification pending BPS fisheries statistics.
+    </div>
+
+    <h2>D · Employment</h2>
+    <div class="metrics-row" id="scba-emp-metrics"></div>
+    <p class="caption">
+      Source: IRENA &amp; ILO, Renewable Energy and Jobs: Annual Review 2024
+      (15 person-yr/MW construction; 0.5 FTE/MW O&amp;M).
+    </p>
+  </div>
+
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════════════════════════════════
+const DATA_DIR = 'data';
+const THRESHOLD = 0.292;
+
+const COLORS = {
+  dark_settled: '#A32D2D',
+  intermittent: '#BA7517',
+  lit_stable: '#0F6E56',
+  data_gap: '#888780',
+  micro_hydro: '#185FA5',
+  solar_battery: '#BA7517',
+  solar_biomass_hybrid: '#0F6E56',
+  wind_solar_hybrid: '#534AB7',
+  grid_extension: '#5F5E5A',
+  resource_present_but_screened: '#A32D2D',
+};
+
+const TECH_LABELS = {
+  micro_hydro: 'Micro-hydro',
+  solar_battery: 'Solar-battery',
+  solar_biomass_hybrid: 'Solar-biomass hybrid',
+  wind_solar_hybrid: 'Wind-solar hybrid',
+  grid_extension: 'Grid extension',
+  resource_present_but_screened: 'Policy pathway',
+};
+
+const CLASS_LABELS = {
+  dark_settled: 'Dark settled',
+  intermittent: 'Intermittent',
+  lit_stable: 'Stably lit',
+  data_gap: 'Data gap',
+};
+
+const PLOTLY_LAYOUT = {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: { family: 'DM Sans, system-ui', color: '#E4E8EE', size: 12 },
+  margin: { l: 50, r: 20, t: 10, b: 40 },
+  xaxis: { gridcolor: '#2A3140', zerolinecolor: '#2A3140' },
+  yaxis: { gridcolor: '#2A3140', zerolinecolor: '#2A3140' },
+};
+
+const PLOTLY_CONFIG = { displayModeBar: false, responsive: true };
+
+// ══════════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════════
+let L1 = [], L2 = [], TS = [], META = {};
+let SCORED = [];
+let CENTROIDS = null;
+let leafletMaps = {};
+
+// ══════════════════════════════════════════════════════════════════
+// DATA LOADING
+// ══════════════════════════════════════════════════════════════════
+async function loadCSV(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Failed to load ${path}`);
+  const text = await res.text();
+  return Papa.parse(text, { header: true, dynamicTyping: true, skipEmptyLines: true }).data;
+}
+
+async function loadJSON(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Failed to load ${path}`);
+  return res.json();
+}
+
+async function loadCentroids() {
+  try {
+    const gj = await loadJSON(`${DATA_DIR}/terang_centroids.geojson`);
+    const rows = {};
+    for (const feat of (gj.features || [])) {
+      const p = feat.properties || {};
+      rows[p.kode_desa] = {
+        lat: feat.geometry.coordinates[1],
+        lon: feat.geometry.coordinates[0],
+      };
+    }
+    return rows;
+  } catch { return null; }
+}
+
+async function loadAllData() {
+  const [l1, l2, ts, meta] = await Promise.all([
+    loadCSV(`${DATA_DIR}/terang_layer1_maluku.csv`),
+    loadCSV(`${DATA_DIR}/terang_layer2_prescriptions.csv`),
+    loadCSV(`${DATA_DIR}/radiance_timeseries.csv`),
+    loadJSON(`${DATA_DIR}/terang_run_metadata.json`),
+  ]);
+  CENTROIDS = await loadCentroids();
+
+  // Attach lat/lon from centroids if available
+  if (CENTROIDS) {
+    l1.forEach(r => { if (CENTROIDS[r.kode_desa]) { r.lat = CENTROIDS[r.kode_desa].lat; r.lon = CENTROIDS[r.kode_desa].lon; }});
+    l2.forEach(r => { if (CENTROIDS[r.kode_desa]) { r.lat = CENTROIDS[r.kode_desa].lat; r.lon = CENTROIDS[r.kode_desa].lon; }});
+  }
+
+  L1 = l1; L2 = l2; TS = ts; META = meta;
+  SCORED = computeScores(L1, L2);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// SCORING (port of Python compute_scores)
+// ══════════════════════════════════════════════════════════════════
+function computeScores(l1, l2) {
+  const l1Map = {};
+  l1.forEach(r => { l1Map[r.kode_desa] = r; });
+
+  const OFF_GRID = new Set(['micro_hydro','solar_battery','solar_biomass_hybrid','wind_solar_hybrid']);
+  const DARK_CLS = new Set(['dark_settled','intermittent']);
+
+  const results = [];
+  for (const row of l2) {
+    if (!OFF_GRID.has(row.tech) || !DARK_CLS.has(row.l1_class)) continue;
+    const l1r = l1Map[row.kode_desa] || {};
+    const r = { ...row };
+    r.lit_fraction = l1r.lit_fraction ?? 0;
+    r.rad_cv = l1r.rad_cv ?? 0;
+    r.valid_obs = l1r.valid_obs ?? 0;
+    r.built_m2 = l1r.built_m2 ?? 0;
+    r.rad_median = l1r.rad_median ?? 0;
+
+    // Additionality
+    let addRaw = 1 - r.lit_fraction;
+    r.add_score = r.l1_class === 'dark_settled' ? Math.min(addRaw * 1.2, 1) : addRaw;
+
+    // RE resource quality
+    const hydroNorm = Math.min(Math.max(r.hydro_kw || 0, 0), 77.54) / 77.54;
+    const windNorm = Math.min(Math.max(((r.wind50 || 0) - 2.0) / (7.36 - 2.0), 0), 1);
+    const feedNorm = r.feedstock || 0;
+    if (r.tech === 'micro_hydro') r.re_score = 0.70*hydroNorm + 0.15*windNorm + 0.15*feedNorm;
+    else if (r.tech === 'wind_solar_hybrid') r.re_score = 0.20*hydroNorm + 0.60*windNorm + 0.20*feedNorm;
+    else if (r.tech === 'solar_biomass_hybrid') r.re_score = 0.20*hydroNorm + 0.10*windNorm + 0.70*feedNorm;
+    else r.re_score = 0.30*hydroNorm + 0.20*windNorm + 0.50*feedNorm;
+
+    // Feasibility
+    r.dist_km = (r.dist_grid_m || 0) / 1000;
+    results.push(r); // collect first to get maxes
+  }
+
+  // Need maxes for normalization
+  const distMax = Math.max(...results.map(r => r.dist_km), 1);
+  const builtArr = results.map(r => Math.max(r.built_m2 || 0, 1));
+  const logMax = Math.log1p(Math.max(...builtArr));
+
+  for (const r of results) {
+    const distScore = 1 - Math.min(r.dist_km / distMax, 1);
+    const slopeScore = 1 - Math.min(r.slope_deg / 30, 1);
+    const popScore = Math.log1p(Math.max(r.built_m2 || 0, 1)) / logMax;
+    r.feas_score = 0.40*distScore + 0.30*slopeScore + 0.30*popScore;
+
+    // Environmental co-benefit
+    const forestScore = Math.min((r.treecover_pct_2000 || 0) / 100, 1);
+    const wdpaPenalty = Math.min(Math.max(r.wdpa_overlap_frac || 0, 0), 1);
+    r.env_score = 0.60*forestScore + 0.40*(1 - wdpaPenalty);
+
+    // Composite
+    r.bankability = (0.30*r.add_score + 0.25*r.re_score + 0.25*r.feas_score + 0.20*r.env_score) * 100;
+
+    // SCBA
+    const sqiGap = Math.min(Math.max(0.80 - r.lit_fraction, 0), 1);
+    const popScoreB = Math.log1p(Math.max(r.built_m2 || 0, 1)) / logMax;
+    r.scba_score = (0.40*sqiGap + 0.35*popScoreB + 0.25*1.0) * 100;
+
+    // CO2
+    r.co2_t_yr = 20 * 8 * 365 * 0.7 / 1000;
+  }
+
+  results.sort((a, b) => b.bankability - a.bankability);
+  return results;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// HELPERS
+// ══════════════════════════════════════════════════════════════════
+function metricCard(label, value, delta = null, deltaClass = 'neutral') {
+  return `<div class="metric-card">
+    <div class="mc-label">${label}</div>
+    <div class="mc-value">${value}</div>
+    ${delta ? `<div class="mc-delta ${deltaClass}">${delta}</div>` : ''}
+  </div>`;
+}
+
+function hasCoords(data) {
+  return data.some(r => r.lat != null && r.lon != null && !isNaN(r.lat));
+}
+
+function buildLeafletMap(containerId, height = 420) {
+  const container = document.getElementById(containerId);
+  if (!container) return null;
+  // Clear previous
+  container.innerHTML = `<div class="map-wrap" style="height:${height}px"><div id="${containerId}-leaf" style="height:100%"></div></div>`;
+  const map = L.map(`${containerId}-leaf`).setView([-3.2, 129.5], 7);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© CartoDB © OSM',
+    maxZoom: 18,
+  }).addTo(map);
+  return map;
+}
+
+function showMapNotice(containerId, msg) {
+  const c = document.getElementById(containerId);
+  if (c) c.innerHTML = `<div class="map-notice">${msg}</div>`;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// SIDEBAR
+// ══════════════════════════════════════════════════════════════════
+function renderSidebar() {
+  document.getElementById('sidebar-window').textContent =
+    `VIIRS ${(META.window_start || '').slice(0, 7)} → 2026-06`;
+
+  document.getElementById('sidebar-metrics').innerHTML = `
+    <div class="sidebar-metric"><div class="label">Villages</div><div class="value">${(META.villages_analysed||0).toLocaleString()}</div></div>
+    <div class="sidebar-metric"><div class="label">Kabupaten</div><div class="value">${META.kabupaten_covered||0}</div></div>
+    <div class="sidebar-metric"><div class="label">Dark</div><div class="value" style="color:var(--dark-red)">${META.dark_settled||0}</div></div>
+    <div class="sidebar-metric"><div class="label">Intermittent</div><div class="value" style="color:var(--accent)">${META.intermittent||0}</div></div>
+  `;
+
+  document.getElementById('sidebar-footer').innerHTML =
+    `Threshold: ${META.detection_threshold_nWcm2sr || THRESHOLD} nW/cm²/sr<br>
+     Source: Terang v3 · VIIRS · GHSL · WDPA · Hansen`;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// VIEW 1 — GAP MAP
+// ══════════════════════════════════════════════════════════════════
+function renderGapMap() {
+  // Metrics
+  document.getElementById('gap-metrics').innerHTML = [
+    metricCard('Dark settled', META.dark_settled || 0, 'SQI 0.13 mean', 'bad'),
+    metricCard('Intermittent', META.intermittent || 0, 'SQI 0.39 mean', 'bad'),
+    metricCard('Stably lit', META.lit_stable || 0, 'SQI 0.82 mean', 'good'),
+    metricCard('Data gap', META.data_gap || 0),
+  ].join('');
+
+  // Map
+  renderGapLeaflet('All');
+  document.getElementById('gap-class-filter').onchange = function() {
+    renderGapLeaflet(this.value);
+  };
+
+  // Dark by kabupaten bar
+  const darkKab = META.dark_by_kabupaten || {};
+  const kabs = Object.keys(darkKab).sort((a,b) => darkKab[a] - darkKab[b]);
+  Plotly.newPlot('chart-dark-kab', [{
+    type: 'bar', orientation: 'h',
+    x: kabs.map(k => darkKab[k]),
+    y: kabs,
+    marker: { color: '#A32D2D' },
+  }], { ...PLOTLY_LAYOUT, height: 300, yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true } }, PLOTLY_CONFIG);
+
+  // Village select for radiance TS
+  const darkIntNames = L1
+    .filter(r => r.l1_class === 'dark_settled' || r.l1_class === 'intermittent')
+    .map(r => r.name)
+    .sort();
+  const sel = document.getElementById('village-select');
+  sel.innerHTML = darkIntNames.map(n =>
+    `<option value="${n}" ${n === 'Labuang' ? 'selected' : ''}>${n}</option>`
+  ).join('');
+
+  renderRadianceTS(sel.value);
+  sel.onchange = function() { renderRadianceTS(this.value); };
+}
+
+function renderGapLeaflet(cls) {
+  const container = 'gap-map-container';
+  if (!hasCoords(L1)) {
+    showMapNotice(container, 'Place <code>terang_centroids.geojson</code> in <code>data/</code> to enable the map.');
+    return;
+  }
+  const map = buildLeafletMap(container);
+  const filtered = cls === 'All' ? L1 : L1.filter(r => r.l1_class === cls);
+  for (const r of filtered) {
+    if (r.lat == null || r.lon == null) continue;
+    const color = COLORS[r.l1_class] || '#888';
+    L.circleMarker([r.lat, r.lon], {
+      radius: r.l1_class === 'dark_settled' ? 5 : 3.5,
+      color, fillColor: color, fillOpacity: 0.8, weight: 1,
+    }).bindPopup(`<b>${r.name}</b><br>${r.kecamatan}, ${r.kabupaten}<br>
+      Class: <b>${CLASS_LABELS[r.l1_class]||r.l1_class}</b><br>
+      SQI: ${(r.lit_fraction||0).toFixed(2)}<br>
+      Built: ${(r.built_m2||0).toLocaleString()} m²`)
+    .addTo(map);
+  }
+  setTimeout(() => map.invalidateSize(), 100);
+}
+
+function renderRadianceTS(villageName) {
+  const row = L1.find(r => r.name === villageName);
+  if (!row) return;
+  const vts = TS.filter(r => r.kode_desa === row.kode_desa);
+  if (!vts.length) return;
+
+  Plotly.newPlot('chart-radiance-ts', [
+    {
+      x: vts.map(r => r.month),
+      y: vts.map(r => r.radiance),
+      mode: 'lines+markers',
+      line: { color: '#185FA5', width: 1.5 },
+      marker: { size: 4 },
+      name: 'Monthly radiance',
+    },
+  ], {
+    ...PLOTLY_LAYOUT,
+    height: 260,
+    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Month' },
+    yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'nW/cm²/sr' },
+    shapes: [{
+      type: 'line', x0: vts[0].month, x1: vts[vts.length-1].month,
+      y0: THRESHOLD, y1: THRESHOLD,
+      line: { color: '#888', width: 1, dash: 'dash' },
+    }],
+    annotations: [{
+      x: vts[Math.floor(vts.length*0.7)].month, y: THRESHOLD,
+      text: `Threshold ${THRESHOLD}`, showarrow: false,
+      yshift: 12, font: { size: 10, color: '#888' },
+    }],
+  }, PLOTLY_CONFIG);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// VIEW 2 — RE PRESCRIPTIONS
+// ══════════════════════════════════════════════════════════════════
+function renderPrescriptions() {
+  // Tech filter
+  const techs = [...new Set(L2.map(r => r.tech))].sort();
+  const sel = document.getElementById('rx-tech-filter');
+  sel.innerHTML = '<option value="All">All</option>' +
+    techs.map(t => `<option value="${t}">${TECH_LABELS[t]||t}</option>`).join('');
+
+  const render = () => {
+    const tf = sel.value;
+    const filtered = tf === 'All' ? L2 : L2.filter(r => r.tech === tf);
+
+    // Donut
+    const mix = {};
+    L2.forEach(r => { mix[r.tech] = (mix[r.tech] || 0) + 1; });
+    const techKeys = Object.keys(mix).sort((a,b) => mix[b] - mix[a]);
+    Plotly.newPlot('chart-tech-donut', [{
+      type: 'pie', hole: 0.45,
+      labels: techKeys.map(t => TECH_LABELS[t]||t),
+      values: techKeys.map(t => mix[t]),
+      marker: { colors: techKeys.map(t => COLORS[t]||'#888') },
+      textinfo: 'label+value',
+      textfont: { size: 11 },
+    }], { ...PLOTLY_LAYOUT, height: 300, showlegend: false }, PLOTLY_CONFIG);
+
+    // Map
+    if (hasCoords(L2)) {
+      const map = buildLeafletMap('rx-map-container', 340);
+      const mapData = tf === 'All' ? L2 : L2.filter(r => r.tech === tf);
+      for (const r of mapData) {
+        if (r.lat == null) continue;
+        const color = COLORS[r.tech] || '#888';
+        L.circleMarker([r.lat, r.lon], {
+          radius: 4, color, fillColor: color, fillOpacity: 0.85, weight: 1,
+        }).bindPopup(`<b>${r.name}</b><br>${r.kabupaten}<br>
+          Tech: <b>${TECH_LABELS[r.tech]||r.tech}</b><br>
+          Rule: ${r.rationale||'—'}<br>
+          Hydro: ${(r.hydro_kw||0).toFixed(1)} kW | Wind: ${(r.wind50||0).toFixed(1)} m/s`)
+        .addTo(map);
+      }
+      setTimeout(() => map.invalidateSize(), 100);
+    } else {
+      showMapNotice('rx-map-container', 'Add centroids GeoJSON to enable map.');
+    }
+
+    // Table
+    const headers = ['Village','Kabupaten','Class','Technology','Hydro (kW)','Wind50 (m/s)','Feedstock','Dist. grid (km)','Decision rule'];
+    let html = `<table class="dt"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>`;
+    for (const r of filtered.slice(0, 200)) {
+      html += `<tr>
+        <td>${r.name||''}</td>
+        <td>${r.kabupaten||''}</td>
+        <td><span class="chip" style="background:${COLORS[r.l1_class]||'#888'}30;color:${COLORS[r.l1_class]||'#888'}">${CLASS_LABELS[r.l1_class]||r.l1_class}</span></td>
+        <td><span class="chip" style="background:${COLORS[r.tech]||'#888'}30;color:${COLORS[r.tech]||'#888'}">${TECH_LABELS[r.tech]||r.tech}</span></td>
+        <td>${(r.hydro_kw||0).toFixed(1)}</td>
+        <td>${(r.wind50||0).toFixed(1)}</td>
+        <td>${((r.feedstock||0)*100).toFixed(0)}%</td>
+        <td>${((r.dist_grid_m||0)/1000).toFixed(1)}</td>
+        <td style="white-space:normal;max-width:260px;font-size:0.78rem">${r.rationale||'—'}</td>
+      </tr>`;
+    }
+    html += '</tbody></table>';
+    document.getElementById('rx-table-wrap').innerHTML = html;
+  };
+
+  render();
+  sel.onchange = render;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// VIEW 3 — GRID & INFRASTRUCTURE
+// ══════════════════════════════════════════════════════════════════
+function renderGridInfra() {
+  const darkL2 = L2.filter(r => r.l1_class === 'dark_settled');
+  const dists = darkL2.map(r => (r.dist_grid_m||0)/1000).sort((a,b)=>a-b);
+  const distMed = dists.length ? dists[Math.floor(dists.length/2)] : 0;
+  const near5 = darkL2.filter(r => (r.dist_grid_m||0) < 5000).length;
+
+  document.getElementById('grid-metrics').innerHTML = [
+    metricCard('Median dist. to grid (dark)', `${distMed.toFixed(1)} km`),
+    metricCard('Grid-adjacent (<5 km)', near5),
+    metricCard('Off-grid villages', L2.filter(r => ['micro_hydro','solar_battery','solar_biomass_hybrid','wind_solar_hybrid'].includes(r.tech)).length),
+  ].join('');
+
+  // Map
+  if (hasCoords(L1)) {
+    const map = buildLeafletMap('grid-map-container', 420);
+    L1.filter(r => r.l1_class === 'lit_stable' && r.lat != null).forEach(r => {
+      L.circleMarker([r.lat, r.lon], {
+        radius: 5, color: '#0F6E56', fillColor: '#0F6E56', fillOpacity: 0.6, weight: 1,
+      }).bindTooltip(r.name).addTo(map);
+    });
+    darkL2.filter(r => r.lat != null).forEach(r => {
+      const dk = ((r.dist_grid_m||0)/1000).toFixed(1);
+      L.circleMarker([r.lat, r.lon], {
+        radius: 5, color: '#A32D2D', fillColor: '#A32D2D', fillOpacity: 0.8, weight: 1,
+      }).bindPopup(`<b>${r.name}</b><br>Distance to grid: <b>${dk} km</b><br>Tech: ${TECH_LABELS[r.tech]||r.tech}`)
+      .addTo(map);
+    });
+    setTimeout(() => map.invalidateSize(), 100);
+  } else {
+    showMapNotice('grid-map-container', 'Add centroids GeoJSON to enable map.');
+  }
+
+  // Distance histogram
+  const offGrid = L2.filter(r => ['micro_hydro','solar_battery','solar_biomass_hybrid','wind_solar_hybrid'].includes(r.tech));
+  const classes = ['dark_settled','intermittent'];
+  const traces = classes.map(cls => {
+    const vals = offGrid.filter(r => r.l1_class === cls).map(r => (r.dist_grid_m||0)/1000);
+    return { x: vals, type: 'histogram', name: CLASS_LABELS[cls], marker: { color: COLORS[cls] }, opacity: 0.7, nbinsx: 40 };
+  });
+  Plotly.newPlot('chart-dist-hist', traces, {
+    ...PLOTLY_LAYOUT, height: 280, barmode: 'overlay',
+    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Distance to grid (km)' },
+    yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'Villages' },
+    shapes: [{ type:'line', x0:5, x1:5, y0:0, y1:1, yref:'paper', line:{color:'#888',dash:'dash',width:1} }],
+    legend: { x: 0.7, y: 0.95, bgcolor: 'rgba(0,0,0,0)' },
+  }, PLOTLY_CONFIG);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// VIEW 4 — BANKABILITY RANKING
+// ══════════════════════════════════════════════════════════════════
+function renderBankability() {
+  // Filters
+  const kabs = [...new Set(SCORED.map(r => r.kabupaten).filter(Boolean))].sort();
+  const techs = [...new Set(SCORED.map(r => r.tech))].sort();
+  document.getElementById('bank-kab-filter').innerHTML = '<option value="All">All</option>' +
+    kabs.map(k => `<option value="${k}">${k}</option>`).join('');
+  document.getElementById('bank-tech-filter').innerHTML = '<option value="All">All</option>' +
+    techs.map(t => `<option value="${t}">${TECH_LABELS[t]||t}</option>`).join('');
+
+  const render = () => {
+    let df = [...SCORED];
+    const kf = document.getElementById('bank-kab-filter').value;
+    const tf = document.getElementById('bank-tech-filter').value;
+    const cf = document.getElementById('bank-cls-filter').value;
+    if (kf !== 'All') df = df.filter(r => r.kabupaten === kf);
+    if (tf !== 'All') df = df.filter(r => r.tech === tf);
+    if (cf !== 'All') df = df.filter(r => r.l1_class === cf);
+    df.sort((a,b) => b.bankability - a.bankability);
+
+    // Metrics
+    const topScore = df.length ? df[0].bankability.toFixed(1) : '—';
+    const meanScore = df.length ? (df.reduce((s,r) => s+r.bankability,0)/df.length).toFixed(1) : '—';
+    document.getElementById('bank-metrics').innerHTML = [
+      metricCard('Villages in view', df.length),
+      metricCard('Top score', topScore),
+      metricCard('Mean score', meanScore),
+      metricCard('Est. total capex', `USD ${(df.length*200000/1e6).toFixed(1)}M`, 'at $200k/village', 'neutral'),
+    ].join('');
+
+    document.getElementById('bank-table-title').textContent = `Top ${Math.min(50, df.length)} villages`;
+
+    // Map
+    if (hasCoords(SCORED)) {
+      const map = buildLeafletMap('bank-map-container', 360);
+      const scoreMin = Math.min(...df.map(r=>r.bankability));
+      const scoreMax = Math.max(...df.map(r=>r.bankability));
+      const range = Math.max(scoreMax - scoreMin, 1);
+      for (const r of df) {
+        if (r.lat == null) continue;
+        const norm = (r.bankability - scoreMin) / range;
+        const red = Math.round(255*(1-norm));
+        const grn = Math.round(255*norm);
+        const color = `rgb(${red},${grn},0)`;
+        L.circleMarker([r.lat, r.lon], {
+          radius: 5, color, fillColor: color, fillOpacity: 0.85, weight: 1,
+        }).bindPopup(`<b>${r.name}</b><br>${r.kabupaten}<br>
+          Bankability: <b>${r.bankability.toFixed(1)}</b><br>
+          ${TECH_LABELS[r.tech]||r.tech} · ${CLASS_LABELS[r.l1_class]||r.l1_class}<br>
+          Add: ${r.add_score.toFixed(2)} | RE: ${r.re_score.toFixed(2)}<br>
+          Feas: ${r.feas_score.toFixed(2)} | Env: ${r.env_score.toFixed(2)}`)
+        .addTo(map);
+      }
+      setTimeout(() => map.invalidateSize(), 100);
+    } else {
+      showMapNotice('bank-map-container', 'Add centroids GeoJSON to enable map.');
+    }
+
+    // Table
+    const top50 = df.slice(0, 50);
+    const headers = ['#','Village','Kabupaten','Class','Technology','Bankability','SCBA','Dist. (km)','CO₂ (t/yr)'];
+    let html = `<table class="dt"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>`;
+    top50.forEach((r, i) => {
+      const bPct = Math.round(r.bankability);
+      const sPct = Math.round(r.scba_score);
+      html += `<tr>
+        <td>${i+1}</td>
+        <td>${r.name||''}</td>
+        <td>${r.kabupaten||''}</td>
+        <td><span class="chip" style="background:${COLORS[r.l1_class]||'#888'}30;color:${COLORS[r.l1_class]||'#888'}">${CLASS_LABELS[r.l1_class]||''}</span></td>
+        <td><span class="chip" style="background:${COLORS[r.tech]||'#888'}30;color:${COLORS[r.tech]||'#888'}">${TECH_LABELS[r.tech]||r.tech}</span></td>
+        <td>${r.bankability.toFixed(1)} <span class="score-bar"><span class="score-bar-fill" style="width:${bPct}%;background:${bPct>60?'#0F6E56':bPct>40?'#BA7517':'#A32D2D'}"></span></span></td>
+        <td>${r.scba_score.toFixed(1)} <span class="score-bar"><span class="score-bar-fill" style="width:${sPct}%;background:#185FA5"></span></span></td>
+        <td>${r.dist_km.toFixed(1)}</td>
+        <td>${Math.round(r.co2_t_yr)}</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('bank-table-wrap').innerHTML = html;
+
+    // Scatter
+    Plotly.newPlot('chart-bank-scatter', [{
+      x: df.map(r => r.feas_score),
+      y: df.map(r => r.add_score),
+      mode: 'markers',
+      marker: {
+        size: df.map(r => 5 + r.re_score * 12),
+        color: df.map(r => r.bankability),
+        colorscale: 'RdYlGn',
+        colorbar: { title: 'Bankability', tickfont: { color: '#8B95A5' }, titlefont: { color: '#8B95A5' } },
+      },
+      text: df.map(r => `${r.name}<br>${r.kabupaten}<br>${TECH_LABELS[r.tech]||r.tech}<br>Score: ${r.bankability.toFixed(1)}`),
+      hoverinfo: 'text',
+    }], {
+      ...PLOTLY_LAYOUT, height: 380,
+      xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Feasibility' },
+      yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'Additionality' },
+    }, PLOTLY_CONFIG);
+  };
+
+  render();
+  document.getElementById('bank-kab-filter').onchange = render;
+  document.getElementById('bank-tech-filter').onchange = render;
+  document.getElementById('bank-cls-filter').onchange = render;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// VIEW 5 — SCBA IMPACT
+// ══════════════════════════════════════════════════════════════════
+function renderSCBA() {
+  const scored = SCORED;
+
+  // Reliability
+  const darkVillages = scored.filter(r => r.l1_class === 'dark_settled');
+  const intermVillages = scored.filter(r => r.l1_class === 'intermittent');
+  const sqiDark = darkVillages.length ? darkVillages.reduce((s,r)=>s+r.lit_fraction,0)/darkVillages.length : 0.13;
+  const sqiInterm = intermVillages.length ? intermVillages.reduce((s,r)=>s+r.lit_fraction,0)/intermVillages.length : 0.39;
+
+  document.getElementById('scba-reliability-metrics').innerHTML = [
+    metricCard('SQI — dark (baseline)', sqiDark.toFixed(2), `target +${(0.80-sqiDark).toFixed(2)}`, 'bad'),
+    metricCard('SQI — intermittent (baseline)', sqiInterm.toFixed(2), `target +${(0.80-sqiInterm).toFixed(2)}`, 'bad'),
+    metricCard('SQI target (M3 trigger)', '0.80', null, 'good'),
+  ].join('');
+
+  // SQI bar chart
+  const byClass = {};
+  scored.forEach(r => {
+    if (!byClass[r.l1_class]) byClass[r.l1_class] = { sum: 0, count: 0 };
+    byClass[r.l1_class].sum += r.lit_fraction;
+    byClass[r.l1_class].count++;
+  });
+  const clsKeys = Object.keys(byClass);
+  Plotly.newPlot('chart-sqi-bar', [{
+    type: 'bar',
+    x: clsKeys.map(k => CLASS_LABELS[k]||k),
+    y: clsKeys.map(k => byClass[k].sum/byClass[k].count),
+    marker: { color: clsKeys.map(k => COLORS[k]||'#888') },
+  }], {
+    ...PLOTLY_LAYOUT, height: 260,
+    yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'SQI (lit_fraction)', range: [0, 1] },
+    shapes: [{ type:'line', x0:-0.5, x1:clsKeys.length-0.5, y0:0.80, y1:0.80, line:{color:'#0F6E56',dash:'dash',width:1} }],
+    annotations: [{ x: clsKeys.length-1, y: 0.80, text:'SQI target 0.80', showarrow:false, yshift:12, font:{size:10,color:'#0F6E56'} }],
+  }, PLOTLY_CONFIG);
+
+  // Environmental
+  const totalCO2 = scored.reduce((s,r) => s + (r.co2_t_yr||0), 0);
+  const darkCO2 = darkVillages.reduce((s,r) => s + (r.co2_t_yr||0), 0);
+  const screened = META.conservation_screened || 158;
+
+  document.getElementById('scba-env-metrics').innerHTML = [
+    metricCard('CO₂ avoided (dark)', `${Math.round(darkCO2).toLocaleString()} t/yr`),
+    metricCard('CO₂ avoided (full)', `${Math.round(totalCO2).toLocaleString()} t/yr`),
+    metricCard('Carbon value ($50/t)', `USD ${(totalCO2*50/1e6).toFixed(2)}M/yr`),
+    metricCard('Villages screened (PA)', screened),
+  ].join('');
+
+  // CO2 by kabupaten
+  const co2Kab = {};
+  scored.forEach(r => { co2Kab[r.kabupaten] = (co2Kab[r.kabupaten]||0) + (r.co2_t_yr||0); });
+  const kabsSorted = Object.keys(co2Kab).sort((a,b) => co2Kab[a] - co2Kab[b]);
+  Plotly.newPlot('chart-co2-kab', [{
+    type: 'bar', orientation: 'h',
+    x: kabsSorted.map(k => co2Kab[k]),
+    y: kabsSorted,
+    marker: { color: '#0F6E56' },
+  }], {
+    ...PLOTLY_LAYOUT, height: 260,
+    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'tCO₂/yr avoided' },
+    yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true },
+  }, PLOTLY_CONFIG);
+
+  // Welfare
+  const hhDark = Math.round(darkVillages.reduce((s,r) => s + (r.built_m2||0)/50, 0));
+  const fuelLow = hhDark * 36000000 * 0.10 / 15000; // rough IDR→USD
+  const fuelHigh = hhDark * 36000000 * 0.20 / 15000;
+
+  document.getElementById('scba-welfare-metrics').innerHTML = [
+    metricCard('Est. households — dark †', hhDark.toLocaleString()),
+    metricCard('Annual fuel saving range †', `USD ${(fuelLow/1e6).toFixed(1)}–${(fuelHigh/1e6).toFixed(0)}M/yr`),
+  ].join('');
+
+  // Employment
+  const totalMW = scored.length * 20 / 1000; // 20kW per village
+  document.getElementById('scba-emp-metrics').innerHTML = [
+    metricCard('Construction (person-yr)', Math.round(totalMW * 15).toLocaleString()),
+    metricCard('Permanent O&M FTE', (totalMW * 0.5).toFixed(1)),
+    metricCard('Total capacity', `${totalMW.toFixed(1)} MW`),
+  ].join('');
+}
+
+// ══════════════════════════════════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════════════════════════════════
+const VIEW_RENDERERS = {
+  'gap-map': renderGapMap,
+  'prescriptions': renderPrescriptions,
+  'grid-infra': renderGridInfra,
+  'bankability': renderBankability,
+  'scba': renderSCBA,
+};
+
+let renderedViews = new Set();
+
+function switchView(viewId) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+
+  document.getElementById(`view-${viewId}`).classList.add('active');
+  document.querySelector(`[data-view="${viewId}"]`).classList.add('active');
+
+  // Lazy render
+  if (!renderedViews.has(viewId) && VIEW_RENDERERS[viewId]) {
+    VIEW_RENDERERS[viewId]();
+    renderedViews.add(viewId);
+  }
+
+  // Fix Leaflet map sizing after tab switch
+  setTimeout(() => {
+    document.querySelectorAll('.leaflet-container').forEach(c => {
+      if (c._leaflet_id) {
+        // Leaflet maps need invalidateSize after becoming visible
+      }
+    });
+  }, 150);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════════════
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchView(btn.dataset.view));
+});
+
+(async function init() {
+  try {
+    await loadAllData();
+    document.getElementById('loading').style.display = 'none';
+    renderSidebar();
+    switchView('gap-map');
+  } catch (err) {
+    document.getElementById('loading').innerHTML = `
+      <div style="text-align:center;max-width:500px;">
+        <h2 style="color:var(--dark-red);margin-bottom:12px;">Data files not found</h2>
+        <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.6;">
+          Place the pipeline CSV/JSON exports in a <code>data/</code> folder alongside this file:
+        </p>
+        <pre style="text-align:left;background:var(--surface);padding:16px;border-radius:8px;
+             font-size:0.8rem;margin-top:12px;color:var(--text-dim);overflow-x:auto;">
+data/
+  terang_layer1_maluku.csv
+  terang_layer2_prescriptions.csv
+  radiance_timeseries.csv
+  terang_run_metadata.json
+  terang_centroids.geojson  ← optional, enables maps</pre>
+        <p style="color:var(--text-dim);font-size:0.78rem;margin-top:14px;">Error: ${err.message}</p>
+      </div>`;
+  }
+})();
+</script>
+
+</body>
+</html>
