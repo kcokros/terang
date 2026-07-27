@@ -397,6 +397,62 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
 .leaflet-popup-tip { background: #1E2530 !important; }
 .leaflet-popup-close-button { color: #8B95A5 !important; }
 
+/* Leaflet layer control — dark theme */
+.leaflet-control-layers {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  color: var(--text) !important;
+  font-family: 'DM Sans', system-ui, sans-serif !important;
+  font-size: 0.78rem !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4) !important;
+}
+.leaflet-control-layers-separator {
+  border-top-color: var(--border) !important;
+}
+.leaflet-control-layers label {
+  color: var(--text) !important;
+  margin-bottom: 4px;
+}
+
+/* ESDM info panel */
+.esdm-panel {
+  background: linear-gradient(135deg, rgba(24,95,165,0.12), rgba(186,117,23,0.08));
+  border: 1px solid rgba(24,95,165,0.25);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.esdm-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.esdm-body {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.esdm-body b { color: var(--text); }
+.esdm-stats {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.esdm-stat {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface-2);
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
 /* Mobile */
 @media (max-width: 860px) {
   .sidebar { width: 100%; position: relative; min-width: 100%; }
@@ -650,6 +706,13 @@ const CLASS_LABELS = {
   data_gap: 'Data gap',
 };
 
+const ESDM_LAYERS = {
+  hydro_potential:   { label: 'Hydro potential (ESDM)',    color: '#4FC3F7', icon: '💧', radius: 5 },
+  offgrid_generator: { label: 'Off-grid generators (APBN)', color: '#FF7043', icon: '⚡', radius: 7 },
+  substation:        { label: 'Substations (PLN)',          color: '#FFD54F', icon: '🔌', radius: 6 },
+  power_plant:       { label: 'Power plants',              color: '#CE93D8', icon: '🏭', radius: 4 },
+};
+
 const PLOTLY_LAYOUT = {
   paper_bgcolor: 'rgba(0,0,0,0)',
   plot_bgcolor: 'rgba(0,0,0,0)',
@@ -667,7 +730,8 @@ const PLOTLY_CONFIG = { displayModeBar: false, responsive: true };
 let L1 = [], L2 = [], TS = [], META = {};
 let SCORED = [];
 let CENTROIDS = null;
-let GJ_DATA = null;  // terang_classification.geojson — full village polygons
+let GJ_DATA = null;
+let ESDM_DATA = null;  // esdm_overlay.json — ESDM reference layers
 let leafletMaps = {};
 
 // ══════════════════════════════════════════════════════════════════
@@ -756,6 +820,12 @@ async function loadAllData() {
 
   L1 = l1; L2 = l2; TS = ts; META = meta;
   SCORED = computeScores(L1, L2);
+
+  // Load ESDM overlay (optional — dashboard works without it)
+  try {
+    ESDM_DATA = await loadJSON(`${DATA_DIR}/esdm_overlay.json`);
+    console.log(`ESDM overlay: ${ESDM_DATA.features.length} features`);
+  } catch { ESDM_DATA = null; }
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -900,6 +970,94 @@ function addCircleMarkers(map, data, colorFn, popupFn, radiusFn) {
   }
 }
 
+/**
+ * Add ESDM reference layers as toggleable overlays on a Leaflet map.
+ * @param {L.Map} map
+ * @param {string} containerId — the parent container (for toggle UI placement)
+ * @param {string[]} layerKeys — which ESDM layers to show (e.g. ['hydro_potential','offgrid_generator'])
+ */
+function addEsdmOverlays(map, containerId, layerKeys) {
+  if (!ESDM_DATA || !ESDM_DATA.features) return;
+
+  const overlays = {};
+
+  for (const key of layerKeys) {
+    const cfg = ESDM_LAYERS[key];
+    if (!cfg) continue;
+    const features = ESDM_DATA.features.filter(f => f.properties._layer === key);
+    if (!features.length) continue;
+
+    const group = L.layerGroup();
+    for (const feat of features) {
+      const [lon, lat] = feat.geometry.coordinates;
+      const p = feat.properties;
+      let popup = `<b>${p.name || '—'}</b><br>`;
+      if (key === 'hydro_potential') {
+        popup += `${p.subdistrict || ''}, ${p.district || ''}<br>`;
+        popup += `Class: ${p.class || '—'}<br>`;
+        popup += `Capacity: ${p.capacity_mw || 0} MW`;
+      } else if (key === 'offgrid_generator') {
+        popup += `${p.subdistrict || ''}, ${p.district || ''}<br>`;
+        popup += `Type: <b>${p.type || '—'}</b><br>`;
+        popup += `Capacity: ${p.capacity_kw || 0} kW<br>`;
+        popup += `Built: ${p.year || '—'}`;
+      } else if (key === 'substation') {
+        popup += `Capacity: ${p.capacity_mva || '—'} MVA<br>`;
+        popup += `Voltage: ${p.voltage || '—'}<br>`;
+        popup += `Status: ${p.status || '—'}`;
+      } else if (key === 'power_plant') {
+        popup += `Type: ${p.type || '—'}<br>`;
+        popup += `Capacity: ${p.capacity_mw || 0} MW<br>`;
+        popup += `Fuel: ${p.fuel || '—'}`;
+      }
+
+      L.circleMarker([lat, lon], {
+        radius: cfg.radius,
+        color: cfg.color,
+        fillColor: cfg.color,
+        fillOpacity: 0.9,
+        weight: 2,
+      }).bindPopup(popup, { maxWidth: 260 })
+        .bindTooltip(`${cfg.icon} ${p.name || ''}`, { className: 'poly-tooltip' })
+        .addTo(group);
+    }
+
+    overlays[`${cfg.icon} ${cfg.label} (${features.length})`] = group;
+  }
+
+  if (Object.keys(overlays).length) {
+    L.control.layers(null, overlays, { collapsed: false, position: 'topright' }).addTo(map);
+  }
+}
+
+/**
+ * Build the ESDM cross-validation info box HTML
+ */
+function esdmInfoBox() {
+  if (!ESDM_DATA) return '';
+  const counts = {};
+  ESDM_DATA.features.forEach(f => {
+    const l = f.properties._layer;
+    counts[l] = (counts[l] || 0) + 1;
+  });
+  return `<div class="esdm-panel">
+    <div class="esdm-title">Government data cross-validation</div>
+    <p class="esdm-body">
+      These overlays cross-reference satellite-derived classifications against
+      <b>Kementerian ESDM's</b> infrastructure and resource registry.
+      Toggle layers on the map to see how pipeline prescriptions align with
+      official government data — a validation step that strengthens
+      confidence in site-level recommendations before any field survey.
+    </p>
+    <div class="esdm-stats">
+      <span class="esdm-stat">💧 ${counts.hydro_potential || 0} hydro sites</span>
+      <span class="esdm-stat">⚡ ${counts.offgrid_generator || 0} off-grid generators</span>
+      <span class="esdm-stat">🔌 ${counts.substation || 0} substations</span>
+      <span class="esdm-stat">🏭 ${counts.power_plant || 0} power plants</span>
+    </div>
+  </div>`;
+}
+
 // ══════════════════════════════════════════════════════════════════
 // SIDEBAR
 // ══════════════════════════════════════════════════════════════════
@@ -930,6 +1088,10 @@ function renderGapMap() {
     metricCard('Stably lit', META.lit_stable || 0, 'SQI 0.82 mean', 'good'),
     metricCard('Data gap', META.data_gap || 0),
   ].join('');
+
+  // ESDM info panel (inserted before map)
+  const mapContainer = document.getElementById('gap-map-container');
+  if (ESDM_DATA) mapContainer.insertAdjacentHTML('beforebegin', esdmInfoBox());
 
   // Map
   renderGapLeaflet('All');
@@ -993,6 +1155,7 @@ function renderGapLeaflet(cls) {
       r => r.l1_class === 'dark_settled' ? 5 : 3.5
     );
   }
+  addEsdmOverlays(map, container, ['offgrid_generator']);
   setTimeout(() => map.invalidateSize(), 100);
 }
 
@@ -1074,6 +1237,7 @@ function renderPrescriptions() {
         }),
         rxPopup
       );
+      addEsdmOverlays(map, 'rx-map-container', ['hydro_potential']);
       setTimeout(() => map.invalidateSize(), 100);
     } else if (hasCoords(L2)) {
       const map = buildLeafletMap('rx-map-container', 340);
@@ -1082,6 +1246,7 @@ function renderPrescriptions() {
         r => COLORS[r.tech] || '#888',
         r => rxPopup(r)
       );
+      addEsdmOverlays(map, 'rx-map-container', ['hydro_potential']);
       setTimeout(() => map.invalidateSize(), 100);
     } else {
       showMapNotice('rx-map-container', 'Add classification GeoJSON to enable map.');
@@ -1144,6 +1309,7 @@ function renderGridInfra() {
       },
       p => `<b>${p.name||''}</b><br>Distance to grid: <b>${((p.dist_grid_m||p.dist_grid_km*1000||0)/1000).toFixed(1)} km</b><br>Tech: ${TECH_LABELS[p.tech]||p.tech||'—'}`
     );
+    addEsdmOverlays(map, 'grid-map-container', ['substation', 'power_plant', 'offgrid_generator']);
     setTimeout(() => map.invalidateSize(), 100);
   } else if (hasCoords(L1)) {
     const map = buildLeafletMap('grid-map-container', 420);
@@ -1159,6 +1325,7 @@ function renderGridInfra() {
       }).bindPopup(`<b>${r.name}</b><br>Distance to grid: <b>${dk} km</b><br>Tech: ${TECH_LABELS[r.tech]||r.tech}`)
       .addTo(map);
     });
+    addEsdmOverlays(map, 'grid-map-container', ['substation', 'power_plant', 'offgrid_generator']);
     setTimeout(() => map.invalidateSize(), 100);
   } else {
     showMapNotice('grid-map-container', 'Add classification GeoJSON to enable map.');
