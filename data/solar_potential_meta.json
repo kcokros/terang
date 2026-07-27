@@ -1,0 +1,29 @@
+{
+  "bounds": [
+    [
+      -8.395411500999945,
+      125.67252030700008
+    ],
+    [
+      -2.6754512379999484,
+      134.95845681100008
+    ]
+  ],
+  "resolution_deg": 0.004,
+  "pixels": [
+    2322,
+    1430
+  ],
+  "bins_wm2": [
+    550,
+    600,
+    650,
+    700,
+    750,
+    800
+  ],
+  "unit": "W/m\u00b2",
+  "source": "Kementerian ESDM \u2014 Potensi Surya di Lahan Permukiman/Tanah Terbuka/Savana",
+  "features_rasterized": 235369,
+  "palette": "ESDM official: light yellow (550) \u2192 yellow (600) \u2192 orange (650) \u2192 orange-red (700) \u2192 red (750+)"
+}
