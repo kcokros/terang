@@ -734,7 +734,8 @@ let SCORED = [];
 let CENTROIDS = null;
 let GJ_DATA = null;
 let ESDM_DATA = null;  // esdm_overlay.json — ESDM reference layers
-let SOLAR_META = null; // solar_potential_meta.json — raster overlay bounds
+let SOLAR_META = null;
+let WIND_META = null;
 let leafletMaps = {};
 
 // ══════════════════════════════════════════════════════════════════
@@ -835,6 +836,11 @@ async function loadAllData() {
     SOLAR_META = await loadJSON(`${DATA_DIR}/solar_potential_meta.json`);
     console.log('Solar raster overlay metadata loaded');
   } catch { SOLAR_META = null; }
+
+  try {
+    WIND_META = await loadJSON(`${DATA_DIR}/wind_potential_meta.json`);
+    console.log('Wind raster overlay metadata loaded');
+  } catch { WIND_META = null; }
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -1085,6 +1091,40 @@ function addSolarOverlay(map) {
 }
 
 /**
+ * Add wind potential raster as a toggleable image overlay.
+ */
+function addWindOverlay(map) {
+  if (!WIND_META) return;
+  const bounds = WIND_META.bounds;
+  const windLayer = L.imageOverlay(`${DATA_DIR}/wind_potential_overlay.png`, bounds, { opacity: 0.7, interactive: false });
+
+  const existing = map._controlCorners?.topright?.querySelector('.leaflet-control-layers');
+  if (existing) {
+    const container = existing.querySelector('.leaflet-control-layers-overlays') ||
+                      existing.querySelector('.leaflet-control-layers-list');
+    if (container) {
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.className = 'leaflet-control-layers-selector';
+      input.addEventListener('change', function() {
+        if (this.checked) map.addLayer(windLayer);
+        else map.removeLayer(windLayer);
+      });
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = ' 💨 Wind speed 50m (ESDM raster)';
+      label.appendChild(input);
+      label.appendChild(nameSpan);
+      const overlaysList = container.closest('.leaflet-control-layers-overlays') || container;
+      overlaysList.appendChild(label);
+    }
+  } else {
+    L.control.layers(null, { '💨 Wind speed 50m (ESDM raster)': windLayer },
+      { collapsed: false, position: 'topright' }).addTo(map);
+  }
+}
+
+/**
  * Build the ESDM cross-validation info box HTML
  */
 function esdmInfoBox() {
@@ -1211,6 +1251,7 @@ function renderGapLeaflet(cls) {
   }
   addEsdmOverlays(map, container, ['offgrid_generator']);
   addSolarOverlay(map);
+  addWindOverlay(map);
   setTimeout(() => map.invalidateSize(), 100);
 }
 
@@ -1294,6 +1335,7 @@ function renderPrescriptions() {
       );
       addEsdmOverlays(map, 'rx-map-container', ['hydro_potential']);
       addSolarOverlay(map);
+  addWindOverlay(map);
       setTimeout(() => map.invalidateSize(), 100);
     } else if (hasCoords(L2)) {
       const map = buildLeafletMap('rx-map-container', 340);
@@ -1304,6 +1346,7 @@ function renderPrescriptions() {
       );
       addEsdmOverlays(map, 'rx-map-container', ['hydro_potential']);
       addSolarOverlay(map);
+  addWindOverlay(map);
       setTimeout(() => map.invalidateSize(), 100);
     } else {
       showMapNotice('rx-map-container', 'Add classification GeoJSON to enable map.');
@@ -1381,6 +1424,7 @@ function renderGridInfra() {
     );
     addEsdmOverlays(map, 'grid-map-container', ['substation', 'power_plant', 'offgrid_generator']);
     addSolarOverlay(map);
+  addWindOverlay(map);
     setTimeout(() => map.invalidateSize(), 100);
   } else if (hasCoords(L1)) {
     const map = buildLeafletMap('grid-map-container', 420);
@@ -1398,6 +1442,7 @@ function renderGridInfra() {
     });
     addEsdmOverlays(map, 'grid-map-container', ['substation', 'power_plant', 'offgrid_generator']);
     addSolarOverlay(map);
+  addWindOverlay(map);
     setTimeout(() => map.invalidateSize(), 100);
   } else {
     showMapNotice('grid-map-container', 'Add classification GeoJSON to enable map.');
