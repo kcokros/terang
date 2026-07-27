@@ -461,9 +461,390 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   .row-2, .row-3-1, .row-1-2 { grid-template-columns: 1fr; }
   .metrics-row { flex-direction: column; }
 }
+/* ── LANDING PAGE ─────────────────────────────────────────── */
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.landing.hidden { display: none; }
+.dashboard-wrap { display: none; width: 100%; }
+.dashboard-wrap.visible { display: flex; }
+
+.landing::before {
+  content: '';
+  position: absolute;
+  top: -30%; left: -10%;
+  width: 120%; height: 160%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(186,117,23,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(24,95,165,0.06) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+.landing > * { position: relative; z-index: 1; }
+
+.landing-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(186,117,23,0.15);
+  color: var(--accent);
+  border: 1px solid rgba(186,117,23,0.25);
+  margin-bottom: 24px;
+}
+
+.landing-title {
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.landing-title span { color: var(--accent); }
+
+.landing-tagline {
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+  max-width: 540px;
+  line-height: 1.55;
+}
+
+.landing-desc {
+  max-width: 680px;
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  text-align: left;
+}
+.landing-desc b, .landing-desc strong { color: var(--text); }
+
+.landing-pipeline {
+  display: flex;
+  gap: 0;
+  margin-bottom: 44px;
+  max-width: 720px;
+  width: 100%;
+}
+.landing-pipe-step {
+  flex: 1;
+  padding: 18px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.landing-pipe-step:first-child { border-radius: 10px 0 0 10px; }
+.landing-pipe-step:last-child { border-radius: 0 10px 10px 0; }
+.landing-pipe-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-size: 1.1rem;
+  z-index: 2;
+}
+.pipe-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.pipe-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.pipe-sub {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+.btn-landing {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: #d4891c; }
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover { background: var(--surface-2); border-color: var(--text-dim); }
+
+.landing-stats {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+.landing-stat {
+  text-align: center;
+}
+.landing-stat .ls-val {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.landing-stat .ls-label {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.landing-footer {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  max-width: 600px;
+}
+.landing-footer a { color: var(--accent); text-decoration: none; }
+.landing-footer a:hover { text-decoration: underline; }
+
+/* Guidebook modal */
+.guidebook-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.guidebook-overlay.open { display: flex; }
+.guidebook-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 32px 36px;
+}
+.guidebook-panel h2 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+.guidebook-panel h3 {
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin: 20px 0 8px;
+}
+.guidebook-panel p, .guidebook-panel li {
+  font-size: 0.86rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+.guidebook-panel li { margin-bottom: 6px; }
+.guidebook-panel ol { padding-left: 20px; }
+.guidebook-panel strong { color: var(--text); }
+.guidebook-close {
+  float: right;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.guidebook-close:hover { color: var(--text); }
+
+@media (max-width: 860px) {
+  .landing-title { font-size: 2.2rem; }
+  .landing-pipeline { flex-direction: column; }
+  .landing-pipe-step { border-radius: 0 !important; }
+  .landing-pipe-step:not(:last-child)::after { display: none; }
+}
 </style>
 </head>
 <body>
+
+<!-- LANDING PAGE -->
+<div class="landing" id="landing-page">
+  <div class="landing-badge">SAYEF 2026 · IRENA NewGen Hackathon</div>
+  <h1 class="landing-title">☀ <span>Terang</span></h1>
+  <p class="landing-tagline">
+    Satellite-based electrification intelligence for rural ASEAN —
+    detect darkness, prescribe renewables, finance sustained service.
+  </p>
+
+  <div class="landing-pipeline">
+    <div class="landing-pipe-step">
+      <div class="pipe-label">Layer 1 · Detect</div>
+      <div class="pipe-title">Electrification gap</div>
+      <div class="pipe-sub">VIIRS nighttime radiance classifies every village as dark, intermittent, or lit — no survey needed.</div>
+    </div>
+    <div class="landing-pipe-step">
+      <div class="pipe-label">Layer 2 · Prescribe</div>
+      <div class="pipe-title">RE technology match</div>
+      <div class="pipe-sub">Conservation-screened decision tree assigns micro-hydro, solar, wind-solar, or biomass per village.</div>
+    </div>
+    <div class="landing-pipe-step">
+      <div class="pipe-label">Layer 3 · Pool</div>
+      <div class="pipe-title">Bankable portfolios</div>
+      <div class="pipe-sub">District bundles with satellite-verified milestones.</div>
+    </div>
+  </div>
+
+  <div class="landing-stats">
+    <div class="landing-stat"><div class="ls-val" style="color:var(--dark-red)">111</div><div class="ls-label">Dark villages</div></div>
+    <div class="landing-stat"><div class="ls-val" style="color:var(--accent)">937</div><div class="ls-label">Intermittent</div></div>
+    <div class="landing-stat"><div class="ls-val" style="color:var(--green)">98%</div><div class="ls-label">ESDM-validated</div></div>
+    <div class="landing-stat"><div class="ls-val">1,233</div><div class="ls-label">Villages analysed</div></div>
+  </div>
+
+  <div class="landing-desc">
+    <strong>Terang</strong> (Indonesian for <em>"light"</em>) is a three-layer pipeline
+    that turns open satellite data into investment-grade electrification intelligence.
+    Applied to <strong>Maluku province</strong> as a proof of concept, the pipeline
+    identifies 111 persistently dark villages and 937 with intermittent supply,
+    prescribes the lowest-cost renewable technology for each, and packages them
+    into bankable district portfolios with satellite-verified disbursement triggers.
+    Prescriptions are cross-validated at 98% against Kementerian ESDM's official
+    resource registry — an independent confirmation that the satellite-derived
+    recommendations align with government-mapped potential.
+  </div>
+
+  <div class="landing-buttons">
+    <button class="btn-landing btn-primary" onclick="enterDemo()">▶ Launch demo</button>
+    <a class="btn-landing btn-secondary" href="Terang_Proposal.pdf" target="_blank">📄 View proposal</a>
+    <button class="btn-landing btn-secondary" onclick="openGuidebook()">📖 Demo guidebook</button>
+  </div>
+
+  <div class="landing-footer">
+    Built by <strong>Kartiko</strong> &amp; <strong>Meiliza Fitri</strong> · Ministry of Finance, Indonesia<br>
+    Data: VIIRS · GHSL · WDPA · Hansen · Kementerian ESDM ·
+    <a href="https://developers.google.com/earth-engine" target="_blank">Google Earth Engine</a>
+  </div>
+</div>
+
+<!-- GUIDEBOOK MODAL -->
+<div class="guidebook-overlay" id="guidebook">
+  <div class="guidebook-panel">
+    <button class="guidebook-close" onclick="closeGuidebook()">×</button>
+    <h2>Demo guidebook</h2>
+    <p>A walkthrough of the five dashboard views and what to look for in each.</p>
+
+    <h3>1 · Gap map</h3>
+    <p>
+      The entry point. Every village polygon is colored by its VIIRS classification:
+      <strong style="color:#A32D2D">dark settled</strong>,
+      <strong style="color:#BA7517">intermittent</strong>,
+      <strong style="color:#0F6E56">stably lit</strong>, or
+      <strong style="color:#888">data gap</strong>.
+      Use the class filter to isolate dark villages. Click any polygon for its
+      Service Quality Index (SQI), radiance, and built-up area.
+    </p>
+    <p>
+      Toggle <strong>⚡ Off-grid generators</strong> to see ESDM-registered
+      installations — 13 sit near villages classified dark or intermittent,
+      suggesting these 2012–2016 systems have degraded below detectable radiance.
+      This is the sustained-service gap the financing model addresses.
+    </p>
+    <p>
+      Select <strong>Labuang</strong> in the radiance history dropdown — the
+      January 2017 step-change is an independently confirmed electrification event,
+      detected from radiance alone without ground reporting.
+    </p>
+
+    <h3>2 · RE prescriptions</h3>
+    <p>
+      The conservation-screened decision tree output. Each polygon is colored by
+      prescribed technology. Filter by tech to focus on one type. The donut chart
+      shows the overall prescription mix.
+    </p>
+    <p>
+      Toggle <strong>💧 Hydro potential</strong> to see ESDM-mapped sites.
+      98% of micro-hydro prescriptions have an ESDM site within 10 km.
+      Toggle <strong>☀ Solar irradiance</strong> and <strong>💨 Wind speed</strong>
+      raster overlays to see the resource landscape underneath the prescriptions.
+    </p>
+
+    <h3>3 · Grid &amp; infrastructure</h3>
+    <p>
+      The central finding: villages are 10.5 km (median) from the nearest
+      <em>lit settlement</em> but 323 km from the nearest formal
+      <em>PLN substation</em>. The 31× gap proves Maluku's electrification is
+      entirely diesel micro-grids, not connected transmission.
+    </p>
+    <p>
+      Toggle <strong>🔌 Substations</strong> and <strong>🏭 Power plants</strong>
+      to visualize the infrastructure vacuum. The scatter plot at the bottom maps
+      every village against both distances — nearly all sit far above the parity line.
+    </p>
+
+    <h3>4 · Bankability ranking</h3>
+    <p>
+      Composite investment-readiness score (0–100) combining additionality,
+      RE resource quality, feasibility, and environmental co-benefit.
+      Use the filters to narrow by kabupaten, technology, or class.
+      The top-50 table shows score components and a SCBA cross-score.
+    </p>
+
+    <h3>5 · SCBA impact</h3>
+    <p>
+      Four-dimension socioeconomic benefit analysis: reliability (SQI gap),
+      environmental (CO₂ avoidance), household welfare (fuel saving),
+      and employment (construction + O&amp;M jobs). The Kepulauan Aru
+      cold-storage uplift is flagged as a productive-use case study.
+    </p>
+
+    <h3>Data layers available on maps</h3>
+    <ol>
+      <li><strong>Village polygons</strong> — base layer, always visible</li>
+      <li><strong>⚡ Off-grid generators</strong> — ESDM APBN-funded installations</li>
+      <li><strong>💧 Hydro potential</strong> — ESDM hydro resource sites</li>
+      <li><strong>🔌 Substations</strong> — PLN substation locations</li>
+      <li><strong>🏭 Power plants</strong> — generation facilities</li>
+      <li><strong>☀ Solar irradiance</strong> — ESDM raster (W/m²)</li>
+      <li><strong>💨 Wind speed 50m</strong> — ESDM raster (m/s)</li>
+    </ol>
+  </div>
+</div>
+
+<!-- DASHBOARD (hidden until "Launch demo") -->
+<div class="dashboard-wrap" id="dashboard-wrap">
 
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
@@ -670,7 +1051,38 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
     </p>
   </div>
 
-</div>
+</div> <!-- /dashboard-wrap -->
+
+<script>
+// ── Landing page transitions ────────────────────────────────────────────
+function enterDemo() {
+  document.getElementById('landing-page').classList.add('hidden');
+  document.getElementById('dashboard-wrap').classList.add('visible');
+  // Trigger data load if not already done
+  if (!window._demoInitialized) {
+    window._demoInitialized = true;
+    initDashboard();
+  }
+}
+
+function openGuidebook() {
+  document.getElementById('guidebook').classList.add('open');
+}
+
+function closeGuidebook() {
+  document.getElementById('guidebook').classList.remove('open');
+}
+
+// Close guidebook on overlay click
+document.getElementById('guidebook').addEventListener('click', function(e) {
+  if (e.target === this) closeGuidebook();
+});
+
+// Close guidebook on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeGuidebook();
+});
+</script>
 
 <script>
 // ══════════════════════════════════════════════════════════════════
@@ -1853,7 +2265,7 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
   btn.addEventListener('click', () => switchView(btn.dataset.view));
 });
 
-(async function init() {
+async function initDashboard() {
   try {
     await loadAllData();
     document.getElementById('loading').style.display = 'none';
@@ -1873,11 +2285,14 @@ data/
   terang_layer2_prescriptions.csv
   radiance_timeseries.csv
   terang_run_metadata.json
-  terang_centroids.geojson  ← optional, enables maps</pre>
+  terang_classification.geojson  ← enables polygon maps
+  esdm_overlay.json              ← enables ESDM layers
+  solar_potential_overlay.png    ← enables solar raster
+  wind_potential_overlay.png     ← enables wind raster</pre>
         <p style="color:var(--text-dim);font-size:0.78rem;margin-top:14px;">Error: ${err.message}</p>
       </div>`;
   }
-})();
+}
 </script>
 
 </body>
