@@ -1,0 +1,48 @@
+{
+  "type": "FeatureCollection",
+  "name": "GEM_Cement_2025",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.024306,
+          -0.997604
+        ]
+      },
+      "properties": {
+        "name": "SDIC Indonesia Manokwari Cement Plant",
+        "source": "GEM_Cement_2025",
+        "GEM Plant ID": "P100000123864",
+        "GEM Asset name (English)": "SDIC Indonesia Manokwari Cement Plant",
+        "Asset name (other language)": null,
+        "Alternative asset name(s)": "SDIC Papua Cement Indonesia plant",
+        "SFI ID": "GACTIDN0001",
+        "LeadIT Project ID": null,
+        "Coordinate accuracy": "exact",
+        "GEM wiki page": "https://www.gem.wiki/SDIC_Indonesia_Manokwari_Cement_Plant",
+        "Municipality": "Manokwari",
+        "Subnational unit": "Papua Barat",
+        "Country/Area": "Indonesia",
+        "Cement Capacity (millions metric tonnes per annum)": "1.5",
+        "Clinker Capacity (millions metric tonnes per annum)": "1.1",
+        "Majority Cement Type": "opc",
+        "Cement Color": "grey",
+        "Operating status": "operating",
+        "Start date": "2016",
+        "Owner name (English)": "PT Conch-SDIC Papua Cement Indonesia [100.0%]",
+        "Owner name (other language)": null,
+        "Owner Entity ID": "E100002007306 [100.0%]",
+        "Parent": "Anhui Conch Cement Co Ltd [unknown%]; State Development and Investment Corp [unknown%]",
+        "Parent Entity ID": "E100000179513 [unknown%]; E100000124534 [unknown%]",
+        "Plant type": "integrated",
+        "Production type": "dry",
+        "CCS/CCUS": "unknown",
+        "Alternative Fuel": "unknown",
+        "Clay Calcination": "unknown",
+        "Unnamed: 40": null
+      }
+    }
+  ]
+}
