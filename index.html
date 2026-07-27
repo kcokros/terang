@@ -734,6 +734,7 @@ let SCORED = [];
 let CENTROIDS = null;
 let GJ_DATA = null;
 let ESDM_DATA = null;  // esdm_overlay.json — ESDM reference layers
+let SOLAR_META = null; // solar_potential_meta.json — raster overlay bounds
 let leafletMaps = {};
 
 // ══════════════════════════════════════════════════════════════════
@@ -828,6 +829,12 @@ async function loadAllData() {
     ESDM_DATA = await loadJSON(`${DATA_DIR}/esdm_overlay.json`);
     console.log(`ESDM overlay: ${ESDM_DATA.features.length} features`);
   } catch { ESDM_DATA = null; }
+
+  // Load solar raster overlay metadata (optional)
+  try {
+    SOLAR_META = await loadJSON(`${DATA_DIR}/solar_potential_meta.json`);
+    console.log('Solar raster overlay metadata loaded');
+  } catch { SOLAR_META = null; }
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -1033,6 +1040,51 @@ function addEsdmOverlays(map, containerId, layerKeys) {
 }
 
 /**
+ * Add solar potential raster as a toggleable image overlay.
+ * Call after addEsdmOverlays so the layer control already exists, or standalone.
+ */
+function addSolarOverlay(map) {
+  if (!SOLAR_META) return;
+  const bounds = SOLAR_META.bounds; // [[south,west],[north,east]]
+  const imgUrl = `${DATA_DIR}/solar_potential_overlay.png`;
+
+  const solarLayer = L.imageOverlay(imgUrl, bounds, { opacity: 0.7, interactive: false });
+
+  // Add to existing layer control if present, otherwise create one
+  const existing = map._controlCorners?.topright?.querySelector('.leaflet-control-layers');
+  if (existing) {
+    // Find the Leaflet control instance and add to it
+    map.eachLayer(l => {}); // no-op, just ensuring map is ready
+    // Leaflet doesn't expose addOverlay on existing controls easily,
+    // so we add it manually via a checkbox
+    const container = existing.querySelector('.leaflet-control-layers-overlays') ||
+                      existing.querySelector('.leaflet-control-layers-list');
+    if (container) {
+      const label = document.createElement('label');
+      label.innerHTML = `<span> </span>`;
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.className = 'leaflet-control-layers-selector';
+      input.addEventListener('change', function() {
+        if (this.checked) map.addLayer(solarLayer);
+        else map.removeLayer(solarLayer);
+      });
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = ` ☀ Solar irradiance (ESDM raster)`;
+      label.prepend(nameSpan);
+      label.prepend(input);
+      // Insert into the overlays list
+      const overlaysList = container.closest('.leaflet-control-layers-overlays') || container;
+      overlaysList.appendChild(label);
+    }
+  } else {
+    // Create a new layer control with just the solar layer
+    L.control.layers(null, { '☀ Solar irradiance (ESDM raster)': solarLayer },
+      { collapsed: false, position: 'topright' }).addTo(map);
+  }
+}
+
+/**
  * Build the ESDM cross-validation info box HTML
  */
 function esdmInfoBox() {
@@ -1158,6 +1210,7 @@ function renderGapLeaflet(cls) {
     );
   }
   addEsdmOverlays(map, container, ['offgrid_generator']);
+  addSolarOverlay(map);
   setTimeout(() => map.invalidateSize(), 100);
 }
 
@@ -1240,6 +1293,7 @@ function renderPrescriptions() {
         rxPopup
       );
       addEsdmOverlays(map, 'rx-map-container', ['hydro_potential']);
+      addSolarOverlay(map);
       setTimeout(() => map.invalidateSize(), 100);
     } else if (hasCoords(L2)) {
       const map = buildLeafletMap('rx-map-container', 340);
@@ -1249,6 +1303,7 @@ function renderPrescriptions() {
         r => rxPopup(r)
       );
       addEsdmOverlays(map, 'rx-map-container', ['hydro_potential']);
+      addSolarOverlay(map);
       setTimeout(() => map.invalidateSize(), 100);
     } else {
       showMapNotice('rx-map-container', 'Add classification GeoJSON to enable map.');
@@ -1325,6 +1380,7 @@ function renderGridInfra() {
       p => `<b>${p.name||''}</b><br>Distance to grid: <b>${((p.dist_grid_m||p.dist_grid_km*1000||0)/1000).toFixed(1)} km</b><br>Tech: ${TECH_LABELS[p.tech]||p.tech||'—'}`
     );
     addEsdmOverlays(map, 'grid-map-container', ['substation', 'power_plant', 'offgrid_generator']);
+    addSolarOverlay(map);
     setTimeout(() => map.invalidateSize(), 100);
   } else if (hasCoords(L1)) {
     const map = buildLeafletMap('grid-map-container', 420);
@@ -1341,6 +1397,7 @@ function renderGridInfra() {
       .addTo(map);
     });
     addEsdmOverlays(map, 'grid-map-container', ['substation', 'power_plant', 'offgrid_generator']);
+    addSolarOverlay(map);
     setTimeout(() => map.invalidateSize(), 100);
   } else {
     showMapNotice('grid-map-container', 'Add classification GeoJSON to enable map.');
