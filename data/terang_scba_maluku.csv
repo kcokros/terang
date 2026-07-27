@@ -1,0 +1,16 @@
+dimension,metric,value,unit,indicative
+Reliability,SQI dark baseline,0.129,index 0-1,False
+Reliability,SQI intermittent baseline,0.388,index 0-1,False
+Reliability,SQI target (post-project),0.8,index 0-1,False
+Environmental,CO2 avoided (dark only),2984.0,tCO2/yr,False
+Environmental,CO2 avoided (total pipeline),20971.0,tCO2/yr,False
+Environmental,Carbon value low,314572.0,USD/yr,False
+Environmental,Carbon value high,1048572.0,USD/yr,False
+Environmental,Villages screened from PA,158.0,villages,False
+Welfare,Estimated HH dark,54694.0,households,True
+Welfare,Fuel saving low,13126673.0,USD/yr,True
+Welfare,Fuel saving high,26253346.0,USD/yr,True
+Employment,Construction person-years,253.0,person-yr,False
+Employment,Permanent O&M FTE,8.4,FTE,False
+Employment,Verifier income total,150750.0,USD,False
+Verification,Total pipeline saving,8618400.0,USD,True

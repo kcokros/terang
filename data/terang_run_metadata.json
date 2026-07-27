@@ -1,0 +1,40 @@
+{
+  "province": "Maluku",
+  "villages_analysed": 1233,
+  "kabupaten_covered": 11,
+  "detection_threshold_nWcm2sr": 0.292,
+  "noise_floor_mean": 0.201,
+  "noise_floor_std": 0.046,
+  "observation_months": 22,
+  "window_start": "2024-07-01",
+  "dark_settled": 111,
+  "intermittent": 894,
+  "lit_stable": 90,
+  "data_gap": 138,
+  "median_village_radiance": 0.251,
+  "ambon_max_radiance": 28.6,
+  "dark_by_kabupaten": {
+    "Kepulauan Aru": 26,
+    "Buru Selatan": 19,
+    "Seram Bagian Timur": 15,
+    "Kepulauan Tanimbar": 13,
+    "Buru": 11,
+    "Maluku Tenggara": 10,
+    "Maluku Tengah": 8,
+    "Seram Bagian Barat": 6,
+    "Kota Tual": 3
+  },
+  "villages_screened_layer2": 1005,
+  "prescription_mix": {
+    "grid_extension": 334,
+    "solar_biomass_hybrid": 262,
+    "resource_present_but_screened": 158,
+    "micro_hydro": 130,
+    "solar_battery": 70,
+    "wind_solar_hybrid": 51
+  },
+  "conservation_screened": 158,
+  "hydro_area_retention": 0.802,
+  "hydro_potential_weighted_retention": 0.766,
+  "note": "Radiance-only classification; official electrification claims (Podes) not yet joined. Village polygons reduced unmasked at 500 m \u2014 GHSL built-up retained as a size control only, because masking at VIIRS resolution systematically eliminated small remote settlements."
+}

@@ -1,0 +1,48 @@
+{
+  "province": "Maluku",
+  "pipeline_version": "v3",
+  "note_hh": "Household counts estimated from built_m2/50m2 \u2014 replace with BPS Podes",
+  "reliability": {
+    "sqi_dark_baseline": 0.129,
+    "sqi_interm_baseline": 0.388,
+    "sqi_stable_reference": 0.823,
+    "sqi_target": 0.8,
+    "source": "VIIRS lit_fraction, Layer 1 pipeline v3"
+  },
+  "environmental": {
+    "off_grid_dark_villages": 73,
+    "off_grid_interm_villages": 440,
+    "co2_per_village_t_yr": 40.9,
+    "co2_dark_only_t_yr": 2984.0,
+    "co2_total_t_yr": 20971.0,
+    "carbon_value_usd_low": 314572.0,
+    "carbon_value_usd_high": 1048572.0,
+    "villages_screened_pa": 158,
+    "avg_wdpa_overlap": 0.477,
+    "high_treecover_kept": 626,
+    "sources": "IPCC AR6 diesel EF; WDPA; Hansen GFC"
+  },
+  "welfare": {
+    "hh_dark_est": 54694.0,
+    "hh_interm_est": 655517.0,
+    "fuel_saving_usd_low": 13126673.0,
+    "fuel_saving_usd_high": 26253346.0,
+    "productive_use": "Pending BPS fisheries join (Kepulauan Aru cold-storage; Seram/Buru sago-coconut)",
+    "sources": "BPS Susenas 2023; built_m2 proxy"
+  },
+  "employment": {
+    "total_mw": 16.9,
+    "construction_person_yr": 253.0,
+    "permanent_om_fte": 8.4,
+    "verifier_income_usd": 150750,
+    "sources": "IRENA Renewable Energy and Jobs 2023"
+  },
+  "verification_economics": {
+    "field_audit_usd_per_ms": 8000.0,
+    "terang_cost_usd_per_ms": 2400.0,
+    "saving_pct": 0.7,
+    "commercial_villages": 513,
+    "total_saving_usd": 8618400.0,
+    "note": "ILLUSTRATIVE \u2014 validate with sector partners before publication"
+  }
+}
