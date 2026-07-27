@@ -375,6 +375,28 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
 .meth-table th, .meth-table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
 .meth-table th { color: var(--text-dim); font-size: 0.7rem; text-transform: uppercase; }
 
+/* Polygon tooltip */
+.poly-tooltip {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  font-family: 'DM Sans', system-ui, sans-serif !important;
+  font-size: 0.78rem !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
+}
+.poly-tooltip::before { border-top-color: var(--border) !important; }
+.leaflet-popup-content-wrapper {
+  background: #1E2530 !important;
+  color: #E4E8EE !important;
+  border-radius: 8px !important;
+  font-family: 'DM Sans', system-ui, sans-serif !important;
+  font-size: 0.82rem !important;
+}
+.leaflet-popup-tip { background: #1E2530 !important; }
+.leaflet-popup-close-button { color: #8B95A5 !important; }
+
 /* Mobile */
 @media (max-width: 860px) {
   .sidebar { width: 100%; position: relative; min-width: 100%; }
@@ -645,6 +667,7 @@ const PLOTLY_CONFIG = { displayModeBar: false, responsive: true };
 let L1 = [], L2 = [], TS = [], META = {};
 let SCORED = [];
 let CENTROIDS = null;
+let GJ_DATA = null;  // terang_classification.geojson — full village polygons
 let leafletMaps = {};
 
 // ══════════════════════════════════════════════════════════════════
@@ -681,6 +704,15 @@ async function loadJSON(path) {
   return res.json();
 }
 
+async function loadClassificationGeoJSON() {
+  // Try terang_classification.geojson first (full polygons), fall back to centroids
+  try {
+    const gj = await loadJSON(`${DATA_DIR}/terang_classification.geojson`);
+    if (gj.features && gj.features.length) return gj;
+  } catch {}
+  return null;
+}
+
 async function loadCentroids() {
   try {
     const gj = await loadJSON(`${DATA_DIR}/terang_centroids.geojson`);
@@ -703,10 +735,21 @@ async function loadAllData() {
     loadCSV(`${DATA_DIR}/radiance_timeseries.csv`),
     loadJSON(`${DATA_DIR}/terang_run_metadata.json`),
   ]);
+
+  // Load polygon GeoJSON (primary) or centroids (fallback)
+  GJ_DATA = await loadClassificationGeoJSON();
   CENTROIDS = await loadCentroids();
 
-  // Attach lat/lon from centroids if available
-  if (CENTROIDS) {
+  // Extract lat/lon from GeoJSON properties into CSVs if available
+  if (GJ_DATA) {
+    const coordMap = {};
+    for (const feat of GJ_DATA.features) {
+      const p = feat.properties || {};
+      if (p.lat != null && p.lon != null) coordMap[String(p.kode_desa)] = { lat: p.lat, lon: p.lon };
+    }
+    l1.forEach(r => { if (coordMap[r.kode_desa]) { r.lat = coordMap[r.kode_desa].lat; r.lon = coordMap[r.kode_desa].lon; }});
+    l2.forEach(r => { if (coordMap[r.kode_desa]) { r.lat = coordMap[r.kode_desa].lat; r.lon = coordMap[r.kode_desa].lon; }});
+  } else if (CENTROIDS) {
     l1.forEach(r => { if (CENTROIDS[r.kode_desa]) { r.lat = CENTROIDS[r.kode_desa].lat; r.lon = CENTROIDS[r.kode_desa].lon; }});
     l2.forEach(r => { if (CENTROIDS[r.kode_desa]) { r.lat = CENTROIDS[r.kode_desa].lat; r.lon = CENTROIDS[r.kode_desa].lon; }});
   }
@@ -819,6 +862,44 @@ function showMapNotice(containerId, msg) {
   if (c) c.innerHTML = `<div class="map-notice">${msg}</div>`;
 }
 
+function hasGeoJSON() { return GJ_DATA && GJ_DATA.features && GJ_DATA.features.length > 0; }
+
+/**
+ * Add GeoJSON polygon layer to a Leaflet map.
+ * @param {L.Map} map - Leaflet map instance
+ * @param {Function} filterFn - filter(properties) → boolean
+ * @param {Function} styleFn - style(properties) → {color, fillColor, fillOpacity, weight}
+ * @param {Function} popupFn - popup(properties) → HTML string
+ */
+function addPolygonLayer(map, filterFn, styleFn, popupFn) {
+  const filtered = {
+    type: 'FeatureCollection',
+    features: GJ_DATA.features.filter(f => filterFn(f.properties || {})),
+  };
+  L.geoJSON(filtered, {
+    style: feat => styleFn(feat.properties || {}),
+    onEachFeature: (feat, layer) => {
+      const p = feat.properties || {};
+      layer.bindPopup(popupFn(p), { maxWidth: 280 });
+      layer.bindTooltip(p.name || '', { sticky: true, className: 'poly-tooltip' });
+    },
+  }).addTo(map);
+}
+
+/**
+ * Fallback: add circle markers if no GeoJSON polygons available
+ */
+function addCircleMarkers(map, data, colorFn, popupFn, radiusFn) {
+  for (const r of data) {
+    if (r.lat == null || r.lon == null) continue;
+    const color = colorFn(r);
+    L.circleMarker([r.lat, r.lon], {
+      radius: radiusFn ? radiusFn(r) : 4,
+      color, fillColor: color, fillOpacity: 0.8, weight: 1,
+    }).bindPopup(popupFn(r), { maxWidth: 280 }).addTo(map);
+  }
+}
+
 // ══════════════════════════════════════════════════════════════════
 // SIDEBAR
 // ══════════════════════════════════════════════════════════════════
@@ -882,23 +963,35 @@ function renderGapMap() {
 
 function renderGapLeaflet(cls) {
   const container = 'gap-map-container';
-  if (!hasCoords(L1)) {
-    showMapNotice(container, 'Place <code>terang_centroids.geojson</code> in <code>data/</code> to enable the map.');
+  if (!hasGeoJSON() && !hasCoords(L1)) {
+    showMapNotice(container, 'Place <code>terang_classification.geojson</code> in <code>data/</code> to enable the map.');
     return;
   }
   const map = buildLeafletMap(container);
-  const filtered = cls === 'All' ? L1 : L1.filter(r => r.l1_class === cls);
-  for (const r of filtered) {
-    if (r.lat == null || r.lon == null) continue;
-    const color = COLORS[r.l1_class] || '#888';
-    L.circleMarker([r.lat, r.lon], {
-      radius: r.l1_class === 'dark_settled' ? 5 : 3.5,
-      color, fillColor: color, fillOpacity: 0.8, weight: 1,
-    }).bindPopup(`<b>${r.name}</b><br>${r.kecamatan}, ${r.kabupaten}<br>
-      Class: <b>${CLASS_LABELS[r.l1_class]||r.l1_class}</b><br>
-      SQI: ${(r.lit_fraction||0).toFixed(2)}<br>
-      Built: ${(r.built_m2||0).toLocaleString()} m²`)
-    .addTo(map);
+  const popupFn = p => `<b>${p.name||''}</b><br>${p.kecamatan||''}, ${p.kabupaten||''}<br>
+    Class: <b>${CLASS_LABELS[p.l1_class]||p.l1_class}</b><br>
+    SQI: ${(p.lit_fraction||0).toFixed(2)}<br>
+    Radiance: ${(p.rad_median||0).toFixed(3)} nW/cm²/sr<br>
+    Built: ${(p.built_m2||0).toLocaleString()} m²`;
+
+  if (hasGeoJSON()) {
+    addPolygonLayer(map,
+      p => cls === 'All' || p.l1_class === cls,
+      p => ({
+        color: COLORS[p.l1_class] || '#888',
+        fillColor: COLORS[p.l1_class] || '#888',
+        fillOpacity: 0.55,
+        weight: 0.8,
+      }),
+      popupFn
+    );
+  } else {
+    const filtered = cls === 'All' ? L1 : L1.filter(r => r.l1_class === cls);
+    addCircleMarkers(map, filtered,
+      r => COLORS[r.l1_class] || '#888',
+      r => popupFn(r),
+      r => r.l1_class === 'dark_settled' ? 5 : 3.5
+    );
   }
   setTimeout(() => map.invalidateSize(), 100);
 }
@@ -964,23 +1057,34 @@ function renderPrescriptions() {
     }], { ...PLOTLY_LAYOUT, height: 300, showlegend: false }, PLOTLY_CONFIG);
 
     // Map
-    if (hasCoords(L2)) {
+    const rxPopup = p => `<b>${p.name||''}</b><br>${p.kabupaten||''}<br>
+      Tech: <b>${TECH_LABELS[p.tech]||p.tech||'—'}</b><br>
+      Rule: ${p.rationale||'—'}<br>
+      Hydro: ${(p.hydro_kw||0).toFixed(1)} kW | Wind: ${(p.wind50||0).toFixed(1)} m/s`;
+
+    if (hasGeoJSON()) {
+      const map = buildLeafletMap('rx-map-container', 340);
+      addPolygonLayer(map,
+        p => p.tech && (tf === 'All' || p.tech === tf),
+        p => ({
+          color: COLORS[p.tech] || '#888',
+          fillColor: COLORS[p.tech] || '#888',
+          fillOpacity: 0.55,
+          weight: 0.8,
+        }),
+        rxPopup
+      );
+      setTimeout(() => map.invalidateSize(), 100);
+    } else if (hasCoords(L2)) {
       const map = buildLeafletMap('rx-map-container', 340);
       const mapData = tf === 'All' ? L2 : L2.filter(r => r.tech === tf);
-      for (const r of mapData) {
-        if (r.lat == null) continue;
-        const color = COLORS[r.tech] || '#888';
-        L.circleMarker([r.lat, r.lon], {
-          radius: 4, color, fillColor: color, fillOpacity: 0.85, weight: 1,
-        }).bindPopup(`<b>${r.name}</b><br>${r.kabupaten}<br>
-          Tech: <b>${TECH_LABELS[r.tech]||r.tech}</b><br>
-          Rule: ${r.rationale||'—'}<br>
-          Hydro: ${(r.hydro_kw||0).toFixed(1)} kW | Wind: ${(r.wind50||0).toFixed(1)} m/s`)
-        .addTo(map);
-      }
+      addCircleMarkers(map, mapData,
+        r => COLORS[r.tech] || '#888',
+        r => rxPopup(r)
+      );
       setTimeout(() => map.invalidateSize(), 100);
     } else {
-      showMapNotice('rx-map-container', 'Add centroids GeoJSON to enable map.');
+      showMapNotice('rx-map-container', 'Add classification GeoJSON to enable map.');
     }
 
     // Table
@@ -1023,7 +1127,25 @@ function renderGridInfra() {
   ].join('');
 
   // Map
-  if (hasCoords(L1)) {
+  if (hasGeoJSON()) {
+    const map = buildLeafletMap('grid-map-container', 420);
+    // Lit stable polygons (green, semi-transparent)
+    addPolygonLayer(map,
+      p => p.l1_class === 'lit_stable',
+      p => ({ color: '#0F6E56', fillColor: '#0F6E56', fillOpacity: 0.35, weight: 0.6 }),
+      p => `<b>${p.name||''}</b><br>Stably lit · grid proxy`
+    );
+    // Dark settled polygons (red, prominent)
+    addPolygonLayer(map,
+      p => p.l1_class === 'dark_settled',
+      p => {
+        const dk = ((p.dist_grid_m||p.dist_grid_km*1000||0)/1000).toFixed(1);
+        return { color: '#A32D2D', fillColor: '#A32D2D', fillOpacity: 0.6, weight: 0.8 };
+      },
+      p => `<b>${p.name||''}</b><br>Distance to grid: <b>${((p.dist_grid_m||p.dist_grid_km*1000||0)/1000).toFixed(1)} km</b><br>Tech: ${TECH_LABELS[p.tech]||p.tech||'—'}`
+    );
+    setTimeout(() => map.invalidateSize(), 100);
+  } else if (hasCoords(L1)) {
     const map = buildLeafletMap('grid-map-container', 420);
     L1.filter(r => r.l1_class === 'lit_stable' && r.lat != null).forEach(r => {
       L.circleMarker([r.lat, r.lon], {
@@ -1039,7 +1161,7 @@ function renderGridInfra() {
     });
     setTimeout(() => map.invalidateSize(), 100);
   } else {
-    showMapNotice('grid-map-container', 'Add centroids GeoJSON to enable map.');
+    showMapNotice('grid-map-container', 'Add classification GeoJSON to enable map.');
   }
 
   // Distance histogram — intermittent first (background), dark_settled on top
@@ -1094,29 +1216,71 @@ function renderBankability() {
     document.getElementById('bank-table-title').textContent = `Top ${Math.min(50, df.length)} villages`;
 
     // Map
-    if (hasCoords(SCORED)) {
+    const scoreMin = df.length ? Math.min(...df.map(r=>r.bankability)) : 0;
+    const scoreMax = df.length ? Math.max(...df.map(r=>r.bankability)) : 100;
+    const range = Math.max(scoreMax - scoreMin, 1);
+
+    function scoreToColor(score) {
+      const norm = (score - scoreMin) / range;
+      const red = Math.round(255*(1-norm));
+      const grn = Math.round(255*norm);
+      return `rgb(${red},${grn},0)`;
+    }
+
+    const bankPopup = p => `<b>${p.name||''}</b><br>${p.kabupaten||''}<br>
+      Bankability: <b>${(p._bankability||0).toFixed(1)}</b><br>
+      ${TECH_LABELS[p.tech]||p.tech||''} · ${CLASS_LABELS[p.l1_class]||p.l1_class||''}<br>
+      Add: ${(p._add||0).toFixed(2)} | RE: ${(p._re||0).toFixed(2)}<br>
+      Feas: ${(p._feas||0).toFixed(2)} | Env: ${(p._env||0).toFixed(2)}`;
+
+    if (hasGeoJSON()) {
+      // Build a lookup from scored data
+      const scoreMap = {};
+      df.forEach(r => {
+        scoreMap[r.kode_desa] = {
+          bankability: r.bankability, add: r.add_score,
+          re: r.re_score, feas: r.feas_score, env: r.env_score
+        };
+      });
       const map = buildLeafletMap('bank-map-container', 360);
-      const scoreMin = Math.min(...df.map(r=>r.bankability));
-      const scoreMax = Math.max(...df.map(r=>r.bankability));
-      const range = Math.max(scoreMax - scoreMin, 1);
+      const scoredGJ = {
+        type: 'FeatureCollection',
+        features: GJ_DATA.features.filter(f => scoreMap[f.properties.kode_desa]).map(f => {
+          const s = scoreMap[f.properties.kode_desa];
+          return {
+            ...f,
+            properties: {
+              ...f.properties,
+              _bankability: s.bankability, _add: s.add, _re: s.re, _feas: s.feas, _env: s.env
+            }
+          };
+        }),
+      };
+      L.geoJSON(scoredGJ, {
+        style: feat => {
+          const color = scoreToColor(feat.properties._bankability || 0);
+          return { color, fillColor: color, fillOpacity: 0.6, weight: 0.8 };
+        },
+        onEachFeature: (feat, layer) => {
+          layer.bindPopup(bankPopup(feat.properties), { maxWidth: 280 });
+          layer.bindTooltip(`${feat.properties.name||''} — ${(feat.properties._bankability||0).toFixed(0)}`,
+            { sticky: true, className: 'poly-tooltip' });
+        },
+      }).addTo(map);
+      setTimeout(() => map.invalidateSize(), 100);
+    } else if (hasCoords(SCORED)) {
+      const map = buildLeafletMap('bank-map-container', 360);
       for (const r of df) {
         if (r.lat == null) continue;
-        const norm = (r.bankability - scoreMin) / range;
-        const red = Math.round(255*(1-norm));
-        const grn = Math.round(255*norm);
-        const color = `rgb(${red},${grn},0)`;
+        const color = scoreToColor(r.bankability);
         L.circleMarker([r.lat, r.lon], {
           radius: 5, color, fillColor: color, fillOpacity: 0.85, weight: 1,
-        }).bindPopup(`<b>${r.name}</b><br>${r.kabupaten}<br>
-          Bankability: <b>${r.bankability.toFixed(1)}</b><br>
-          ${TECH_LABELS[r.tech]||r.tech} · ${CLASS_LABELS[r.l1_class]||r.l1_class}<br>
-          Add: ${r.add_score.toFixed(2)} | RE: ${r.re_score.toFixed(2)}<br>
-          Feas: ${r.feas_score.toFixed(2)} | Env: ${r.env_score.toFixed(2)}`)
+        }).bindPopup(bankPopup({...r, _bankability: r.bankability, _add: r.add_score, _re: r.re_score, _feas: r.feas_score, _env: r.env_score}))
         .addTo(map);
       }
       setTimeout(() => map.invalidateSize(), 100);
     } else {
-      showMapNotice('bank-map-container', 'Add centroids GeoJSON to enable map.');
+      showMapNotice('bank-map-container', 'Add classification GeoJSON to enable map.');
     }
 
     // Table
