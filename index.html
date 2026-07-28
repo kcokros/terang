@@ -795,7 +795,7 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
     <div class="landing-pipe-step">
       <div class="pipe-label">Layer 3 · Pool</div>
       <div class="pipe-title">Bankable portfolios</div>
-      <div class="pipe-sub">District bundles with satellite-verified milestones</div>
+      <div class="pipe-sub">District bundles validated by SCBA and environmental benefit analysis; milestone verification as future extension.</div>
     </div>
   </div>
 
@@ -804,12 +804,14 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
     <strong>Terang</strong> (Indonesian for <em>"light"</em>) is a three-layer pipeline
     that turns open satellite data into investment-grade electrification intelligence.
     Applied to <strong>Maluku province</strong> as a proof of concept, the pipeline
-    identifies 111 persistently dark villages and 937 with intermittent supply,
+    identifies 111 persistently dark villages and 894 with intermittent supply,
     prescribes the lowest-cost renewable technology for each, and packages them
-    into bankable district portfolios with satellite-verified milestones.
+    into district portfolios validated by indicative SCBA and environmental benefit analysis.
     Prescriptions are cross-validated at 98% against Kementerian ESDM's official
     resource registry — an independent confirmation that the satellite-derived
     recommendations align with government-mapped potential.
+    Bankability scoring and socioeconomic impact figures are <strong>indicative</strong>,
+    pending population data (WorldPop) and ground-truthing.
   </div>
 
   <div class="landing-buttons">
@@ -1050,7 +1052,8 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   <!-- VIEW 4: BANKABILITY RANKING -->
   <div class="view" id="view-bankability">
     <h1>Bankability ranking</h1>
-    <p class="subtitle">Composite investment-readiness score for the off-grid dark + intermittent pipeline.</p>
+    <p class="subtitle">Composite investment-readiness score for the off-grid dark + intermittent pipeline.
+      <span style="color:var(--accent);font-weight:600;">Indicative</span> — pending population join (WorldPop) and ground-truthing.</p>
 
     <details>
       <summary>Scoring methodology</summary>
@@ -1099,6 +1102,7 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
     <p class="subtitle">
       4-dimension Socioeconomic &amp; Environmental Benefit Analysis.
       Reliability and environmental dimensions derived from v3 pipeline.
+      <span style="color:var(--accent);font-weight:600;">Indicative</span> — values pending population join (WorldPop), household counts, and ground-truthing.
     </p>
 
     <h2>A · Reliability — Service Quality Index</h2>
@@ -1704,8 +1708,14 @@ function esdmInfoBox() {
 // SIDEBAR
 // ══════════════════════════════════════════════════════════════════
 function renderSidebar() {
+  // Compute window end from start + observation_months
+  const wsRaw = META.window_start || '2024-07-01';
+  const wsDate = new Date(wsRaw);
+  const nMonths = META.observation_months || 22;
+  const weDate = new Date(wsDate.getFullYear(), wsDate.getMonth() + nMonths - 1, 1);
+  const weStr = `${weDate.getFullYear()}-${String(weDate.getMonth()+1).padStart(2,'0')}`;
   document.getElementById('sidebar-window').textContent =
-    `VIIRS ${(META.window_start || '').slice(0, 7)} → 2026-06`;
+    `VIIRS ${wsRaw.slice(0, 7)} → ${weStr}`;
 
   document.getElementById('sidebar-metrics').innerHTML = `
     <div class="sidebar-metric"><div class="label">Villages</div><div class="value">${(META.villages_analysed||0).toLocaleString()}</div></div>
