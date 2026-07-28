@@ -93,23 +93,44 @@ body {
 }
 .nav-btn .nav-badge {
   display: inline-block;
-  font-size: 0.58rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 1px 6px;
-  border-radius: 3px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  border-radius: 50%;
   margin-left: 6px;
   vertical-align: middle;
-  background: rgba(186,117,23,0.18);
+  background: rgba(186,117,23,0.22);
   color: var(--accent);
-  border: 1px solid rgba(186,117,23,0.3);
+  border: 1px solid rgba(186,117,23,0.35);
+  cursor: default;
+  position: relative;
 }
 .nav-btn.active .nav-badge {
   background: rgba(255,255,255,0.18);
   color: #fff;
   border-color: rgba(255,255,255,0.3);
 }
+.nav-badge .nav-tip {
+  display: none;
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 5px;
+  z-index: 200;
+  pointer-events: none;
+}
+.nav-badge:hover .nav-tip { display: block; }
 
 .sidebar-divider {
   height: 1px;
@@ -958,8 +979,8 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   <button class="nav-btn active" data-view="gap-map">Gap map</button>
   <button class="nav-btn" data-view="prescriptions">RE prescriptions</button>
   <button class="nav-btn" data-view="grid-infra">Grid &amp; infrastructure</button>
-  <button class="nav-btn" data-view="bankability">Bankability ranking <span class="nav-badge">indicative</span></button>
-  <button class="nav-btn" data-view="scba">SCBA impact <span class="nav-badge">indicative</span></button>
+  <button class="nav-btn" data-view="bankability">Bankability ranking <span class="nav-badge">! <span class="nav-tip">Indicative — framework under design</span></span></button>
+  <button class="nav-btn" data-view="scba">SCBA impact <span class="nav-badge">! <span class="nav-tip">Indicative — framework under design</span></span></button>
 
   <div class="sidebar-divider"></div>
 
@@ -1395,6 +1416,12 @@ async function loadAllData() {
   }
 
   L1 = l1; L2 = l2; TS = ts; META = meta;
+
+  // Enrich L2 with l1_class from L1 if missing (prescriptions_1.csv lacks it)
+  const l1ClassMap = {};
+  L1.forEach(r => { l1ClassMap[r.kode_desa] = r.l1_class; });
+  L2.forEach(r => { if (!r.l1_class && l1ClassMap[r.kode_desa]) r.l1_class = l1ClassMap[r.kode_desa]; });
+
   SCORED = computeScores(L1, L2);
 
   // Load ESDM overlay (optional — dashboard works without it)
@@ -1427,9 +1454,12 @@ function computeScores(l1, l2) {
 
   const results = [];
   for (const row of l2) {
-    if (!OFF_GRID.has(row.tech) || !DARK_CLS.has(row.l1_class)) continue;
+    // Fall back to L1 for l1_class if missing from L2 CSV
     const l1r = l1Map[row.kode_desa] || {};
+    const cls = row.l1_class || l1r.l1_class;
+    if (!OFF_GRID.has(row.tech) || !DARK_CLS.has(cls)) continue;
     const r = { ...row };
+    r.l1_class = cls;
     r.lit_fraction = l1r.lit_fraction ?? 0;
     r.rad_cv = l1r.rad_cv ?? 0;
     r.valid_obs = l1r.valid_obs ?? 0;
