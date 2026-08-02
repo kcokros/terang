@@ -1106,7 +1106,8 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   <div class="view" id="view-bankability">
     <h1>Bankability ranking</h1>
     <p class="subtitle">Composite investment-readiness score for the off-grid dark + intermittent pipeline.
-      <span style="color:var(--accent);font-weight:600;">Indicative</span> — scoring dimensions, weightings, and metric selection are under active design.</p>
+      <span style="color:var(--accent);font-weight:600;">Indicative</span> — scoring dimensions, weightings, and metric selection are under active design.
+      Bundles that fail validation are iteratively re-assembled or routed to alternative capital pathways (see methodology).</p>
 
     <details>
       <summary>Scoring methodology</summary>
@@ -1121,6 +1122,19 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
           </tbody>
         </table>
         <p class="caption" style="margin-top:10px;">Score range: 0–100. Off-grid dark+intermittent pipeline only.</p>
+
+        <h4 style="margin:18px 0 8px;color:var(--accent);">Iterative validation and exit pathways</h4>
+        <p style="margin:0 0 8px;">Village-level scores above are inputs to a <strong>bundle-level</strong> validation stage. Villages are grouped into kabupaten-level bundles by geographic proximity, technology homogeneity, and beneficiary profile. Each candidate bundle is then evaluated for both economic return and socio-environmental impact. The SCBA scoring formula is deterministic — given a fixed bundle composition, the output does not change — but the <em>composition</em> of the bundle itself is iteratively re-assembled when a candidate grouping fails validation.</p>
+        <p style="margin:0 0 6px;">The iterative process converges to one of three exit pathways:</p>
+        <table class="meth-table" style="margin-bottom:10px;">
+          <thead><tr><th>Exit pathway</th><th>Condition</th><th>Capital route</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. Blended finance</strong></td><td>Clears both economic return and socio-environmental impact</td><td>District portfolio vehicle (concessional + commercial + guarantee)</td></tr>
+            <tr><td><strong>2. Public good</strong></td><td>Clears impact but not economics</td><td>Purely concessional or grant-funded (ACGF, MDB climate funds)</td></tr>
+            <tr><td><strong>3. Deferred</strong></td><td>Clears neither after re-assembly</td><td>Parked; reassessed when new data (WorldPop, ground-truth) becomes available</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">The distribution across pathways is itself a finding — a large concentration in the public good pathway constitutes evidence that the market alone cannot close the access gap, informing the appropriate ratio of concessional to commercial capital. Validation thresholds, metric weights, and exit criteria are under active design.</p>
       </div>
     </details>
 
