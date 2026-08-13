@@ -1355,67 +1355,91 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   </div>
 
   <div class="view" id="view-bankability">
-    <h1>Bankability ranking</h1>
-    <p class="subtitle">Composite investment-readiness score for the off-grid dark + intermittent pipeline.
-      <span style="color:var(--accent);font-weight:600;">Indicative</span> — scoring dimensions, weightings, and metric selection are under active design.
-      Bundles are routed to one of three capital pathways based on validation results (see methodology).</p>
+    <h1>Financial viability</h1>
+    <p class="subtitle">Component-based CAPEX, net cash flow, and investment metrics per village and bundle.
+      <span style="color:var(--accent);font-weight:600;">Indicative</span> — all figures are pre-feasibility estimates
+      based on published benchmarks, not site-specific procurement data.</p>
 
     <details>
-      <summary>Scoring methodology</summary>
+      <summary>Financial methodology</summary>
       <div class="details-body">
         <div class="meth-columns">
           <div class="meth-col">
-            <h4>Village-level scoring</h4>
+            <h4>CAPEX (component build-up)</h4>
             <table class="meth-table">
-              <thead><tr><th>Component</th><th>Weight</th><th>Basis</th></tr></thead>
+              <thead><tr><th>Component</th><th>Source</th><th>Value</th></tr></thead>
               <tbody>
-                <tr><td><strong>Additionality</strong></td><td>30%</td><td>1 − lit_fraction; dark_settled +20% bonus</td></tr>
-                <tr><td><strong>RE resource quality</strong></td><td>25%</td><td>Technology-weighted composite of hydro, wind, feedstock</td></tr>
-                <tr><td><strong>Feasibility</strong></td><td>25%</td><td>Inverse dist_grid (40%) + inverse slope (30%) + log built_m² (30%)</td></tr>
-                <tr><td><strong>Environmental co-benefit</strong></td><td>20%</td><td>treecover_pct_2000 (60%) + inverse WDPA overlap (40%)</td></tr>
+                <tr><td>Solar PV</td><td>IRENA 2026 Table 6</td><td>$658/kW nameplate</td></tr>
+                <tr><td>Onshore wind</td><td>IRENA 2026 Table 7</td><td>$1,034/kW</td></tr>
+                <tr><td>BESS (4hr LFP)</td><td>IRENA 2026 Table 10</td><td>$171/kWh</td></tr>
+                <tr><td>Co-location</td><td>BNEF 2025</td><td>0.70&times; standalone BESS</td></tr>
+                <tr><td>Distribution</td><td>ESMAP 2022</td><td>$600&ndash;800/kW firm</td></tr>
+                <tr><td>Maluku factor</td><td>Perpres 112/2022</td><td>1.275&times;</td></tr>
               </tbody>
             </table>
-            <p class="caption" style="margin-top:10px;">Score range: 0–100. Off-grid dark+intermittent pipeline only.</p>
+            <p class="caption" style="margin-top:8px;">System sized to ESMAP firm capacity convention (= peak demand). No capacity-factor division.</p>
           </div>
           <div class="meth-col">
-            <h4 class="col-accent">Iterative validation → exit pathways</h4>
-            <p>Village scores feed into <strong>bundle-level</strong> validation. Villages are grouped into kabupaten bundles by proximity, technology, and beneficiary profile. Each bundle is scored and routed to one of three exit pathways.</p>
+            <h4 class="col-accent">Revenue &amp; cash flow</h4>
             <table class="meth-table">
-              <thead><tr><th>Exit</th><th>Condition</th><th>Capital route</th></tr></thead>
+              <thead><tr><th>Parameter</th><th>Value</th><th>Source</th></tr></thead>
               <tbody>
-                <tr><td><strong>1. Blended finance</strong></td><td>Clears economic + impact</td><td>Portfolio vehicle (concessional + commercial + guarantee)</td></tr>
-                <tr><td><strong>2. Public good</strong></td><td>Clears impact, not economics</td><td>Purely concessional / grant (ACGF, MDB climate funds)</td></tr>
-                <tr><td><strong>3. Deferred</strong></td><td>Clears neither</td><td>Parked; reassessed with new data (WorldPop, ground-truth)</td></tr>
+                <tr><td>Demand/HH</td><td>200 W peak</td><td>ESMAP MTF Tier 2&ndash;3</td></tr>
+                <tr><td>Tariff (HPT)</td><td>85% &times; BPP &times; LF</td><td>Perpres 112/2022</td></tr>
+                <tr><td>BPP Maluku</td><td>Rp 2,750/kWh</td><td>INDEF/LEAP 2023</td></tr>
+                <tr><td>O&amp;M</td><td>2&ndash;3% CAPEX/yr</td><td>IRENA 2026 Annex C</td></tr>
+                <tr><td>WACC (base)</td><td>7.5% real</td><td>IRENA 2026 Annex D</td></tr>
+                <tr><td>Lifetime</td><td>20 years</td><td>LFP battery design life</td></tr>
               </tbody>
             </table>
-            <p class="caption" style="margin-top:10px;">How bundles distribute across these pathways may indicate whether commercial capital alone is sufficient for a given province. Thresholds and exit criteria under active design.</p>
+            <p class="caption" style="margin-top:8px;">NPV = &sum; discounted NCF. IRR = rate where NPV=0. LCOE = (annualised CAPEX + O&amp;M) / annual kWh.</p>
           </div>
         </div>
+        <p class="caption" style="margin-top:12px;color:var(--accent);">
+          <strong>Caveats:</strong> No battery replacement at year 8&ndash;10 modelled. Tariff assumes regulatory ceiling (85% BPP).
+          Exchange rate fixed at Rp 16,000/$. No economies of scale from bundling included (CAPEX is conservative).
+          All figures indicative &mdash; subject to field validation and actual procurement.</p>
       </div>
     </details>
 
     <div class="filter-row">
       <label>Kabupaten</label>
-      <select id="bank-kab-filter"></select>
+      <select id="fin-kab-filter"></select>
       <label>Technology</label>
-      <select id="bank-tech-filter"></select>
-      <label>Class</label>
-      <select id="bank-cls-filter">
+      <select id="fin-tech-filter"></select>
+      <label>Exit route</label>
+      <select id="fin-exit-filter">
         <option value="All">All</option>
-        <option value="dark_settled">Dark settled</option>
-        <option value="intermittent">Intermittent</option>
+        <option value="blended_finance">Blended finance</option>
+        <option value="public_good">Public good</option>
       </select>
     </div>
 
-    <div class="metrics-row" id="bank-metrics"></div>
-    <div id="bank-map-container"></div>
+    <div class="metrics-row" id="fin-metrics"></div>
 
-    <h2 id="bank-table-title">Top villages</h2>
-    <div class="data-table-wrap" id="bank-table-wrap"></div>
+    <div class="chart-row" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;">
+      <div class="chart-box">
+        <div class="cb-title">LCOE vs tariff by technology</div>
+        <div id="chart-fin-lcoe"></div>
+      </div>
+      <div class="chart-box">
+        <div class="cb-title">IRR distribution</div>
+        <div id="chart-fin-irr"></div>
+      </div>
+    </div>
 
-    <div class="chart-box">
-      <div class="cb-title">Score components — Feasibility vs Additionality</div>
-      <div id="chart-bank-scatter"></div>
+    <h2>Bundle financial summary</h2>
+    <div class="data-table-wrap" id="fin-table-wrap"></div>
+
+    <div class="chart-row" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;">
+      <div class="chart-box">
+        <div class="cb-title">NPV vs CAPEX — by exit route</div>
+        <div id="chart-fin-npv"></div>
+      </div>
+      <div class="chart-box">
+        <div class="cb-title">Payback period distribution</div>
+        <div id="chart-fin-payback"></div>
+      </div>
     </div>
   </div>
 
@@ -2477,150 +2501,176 @@ function renderGridInfra() {
 // VIEW 4 — BANKABILITY RANKING
 // ══════════════════════════════════════════════════════════════════
 function renderBankability() {
-  // Filters
-  const kabs = [...new Set(SCORED.map(r => r.kabupaten).filter(Boolean))].sort();
-  const techs = [...new Set(SCORED.map(r => r.tech))].sort();
-  document.getElementById('bank-kab-filter').innerHTML = '<option value="All">All</option>' +
-    kabs.map(k => `<option value="${k}">${k}</option>`).join('');
-  document.getElementById('bank-tech-filter').innerHTML = '<option value="All">All</option>' +
-    techs.map(t => `<option value="${t}">${TECH_LABELS[t]||t}</option>`).join('');
+  Papa.parse('data/terang_financials_bundle.csv', {
+    download: true, header: true, dynamicTyping: true,
+    complete: function(res) {
+      const bundles = res.data.filter(r => r.bundle_id);
+      buildFinancialView(bundles);
+    }
+  });
+}
 
-  const render = () => {
-    let df = [...SCORED];
-    const kf = document.getElementById('bank-kab-filter').value;
-    const tf = document.getElementById('bank-tech-filter').value;
-    const cf = document.getElementById('bank-cls-filter').value;
-    if (kf !== 'All') df = df.filter(r => r.kabupaten === kf);
-    if (tf !== 'All') df = df.filter(r => r.tech === tf);
-    if (cf !== 'All') df = df.filter(r => r.l1_class === cf);
-    df.sort((a,b) => b.bankability - a.bankability);
+function buildFinancialView(bundles) {
+  const TECH_COL = { micro_hydro:'#2B5F8F', solar_biomass_hybrid:'#8B5A3C',
+                     solar_battery:'#D4A017', wind_solar_hybrid:'#4A7A9C' };
+  const EXIT_COL = { blended_finance:'#0F6E56', public_good:'#185FA5', deferred:'#BA7517' };
+  const TARIFF = 0.1862;
 
-    // Metrics
-    const topScore = df.length ? df[0].bankability.toFixed(1) : '—';
-    const meanScore = df.length ? (df.reduce((s,r) => s+r.bankability,0)/df.length).toFixed(1) : '—';
-    document.getElementById('bank-metrics').innerHTML = [
-      metricCard('Villages in view', df.length),
-      metricCard('Top score', topScore),
-      metricCard('Mean score', meanScore),
-      metricCard('Est. total capex', `USD ${(df.length*200000/1e6).toFixed(1)}M`, 'at $200k/village', 'neutral'),
+  const kabs = [...new Set(bundles.map(b=>b.kabupaten))].sort();
+  const techs = [...new Set(bundles.map(b=>b.tech_dom))].sort();
+  const kabSel = document.getElementById('fin-kab-filter');
+  const techSel = document.getElementById('fin-tech-filter');
+  const exitSel = document.getElementById('fin-exit-filter');
+
+  kabSel.innerHTML = '<option value="All">All</option>' +
+    kabs.map(k=>`<option value="${k}">${k}</option>`).join('');
+  techSel.innerHTML = '<option value="All">All</option>' +
+    techs.map(t=>`<option value="${t}">${t.replace(/_/g,' ')}</option>`).join('');
+
+  function getF() {
+    let f = bundles;
+    if (kabSel.value!=='All') f=f.filter(b=>b.kabupaten===kabSel.value);
+    if (techSel.value!=='All') f=f.filter(b=>b.tech_dom===techSel.value);
+    if (exitSel.value!=='All') f=f.filter(b=>b.exit===exitSel.value);
+    return f;
+  }
+
+  function update() {
+    const f = getF();
+    const capex = f.reduce((s,b)=>s+(b.capex_usd||0),0);
+    const npv = f.reduce((s,b)=>s+(b.npv_usd||0),0);
+    const irr = f.length ? f.reduce((s,b)=>s+(b.irr_mean||0),0)/f.length : 0;
+    const pb = f.length ? f.reduce((s,b)=>s+(b.payback_mean||0),0)/f.length : 0;
+    const lcoe = f.length ? f.reduce((s,b)=>s+(b.lcoe_mean||0),0)/f.length : 0;
+    const hh = f.reduce((s,b)=>s+(b.hh_2026||0),0);
+    const perConn = hh > 0 ? capex / hh : 0;
+
+    document.getElementById('fin-metrics').innerHTML = [
+      `<div class="metric-card"><div class="mc-val">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">Total CAPEX</div></div>`,
+      `<div class="metric-card"><div class="mc-val">$${(npv/1e6).toFixed(1)}M</div><div class="mc-label">Total NPV</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${(irr*100).toFixed(1)}%</div><div class="mc-label">Mean IRR</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${pb.toFixed(1)}y</div><div class="mc-label">Avg payback</div></div>`,
+      `<div class="metric-card"><div class="mc-val">$${lcoe.toFixed(3)}</div><div class="mc-label">Mean LCOE/kWh</div></div>`,
+      `<div class="metric-card"><div class="mc-val">$${perConn.toLocaleString(undefined,{maximumFractionDigits:0})}</div><div class="mc-label">$/connection</div></div>`,
     ].join('');
 
-    document.getElementById('bank-table-title').textContent = `Top ${Math.min(50, df.length)} villages`;
+    // LCOE vs tariff by tech
+    const techGroups = {};
+    f.forEach(b => {
+      if (!techGroups[b.tech_dom]) techGroups[b.tech_dom] = [];
+      techGroups[b.tech_dom].push(b.lcoe_mean||0);
+    });
+    const tNames = Object.keys(techGroups).sort();
+    const lcoeTrace = {
+      y: tNames.map(t=>t.replace(/_/g,' ')),
+      x: tNames.map(t=>techGroups[t].reduce((s,v)=>s+v,0)/techGroups[t].length),
+      type: 'bar', orientation: 'h', name: 'LCOE',
+      marker: { color: tNames.map(t=>TECH_COL[t]||'#888') },
+      hovertemplate: '%{y}: $%{x:.4f}/kWh<extra></extra>',
+    };
+    const tariffLine = {
+      y: tNames.map(t=>t.replace(/_/g,' ')),
+      x: tNames.map(()=>TARIFF),
+      type: 'scatter', mode: 'lines+markers', name: 'HPT tariff',
+      line: { color: '#A32D2D', dash: 'dot', width: 2 },
+      marker: { size: 6 },
+    };
+    Plotly.newPlot('chart-fin-lcoe', [lcoeTrace, tariffLine], {
+      xaxis: { title: '$/kWh', gridcolor: '#2A3140' },
+      yaxis: { automargin: true },
+      paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+      font: { color: '#E4E8EE', family: 'DM Sans' },
+      legend: { x: 0.7, y: 0.05, bgcolor: 'rgba(0,0,0,0)' },
+      margin: { t: 10, r: 20, b: 50, l: 150 },
+    }, { responsive: true });
 
-    // Map
-    const scoreMin = df.length ? Math.min(...df.map(r=>r.bankability)) : 0;
-    const scoreMax = df.length ? Math.max(...df.map(r=>r.bankability)) : 100;
-    const range = Math.max(scoreMax - scoreMin, 1);
+    // IRR histogram
+    Plotly.newPlot('chart-fin-irr', [{
+      x: f.map(b=>(b.irr_mean||0)*100),
+      type: 'histogram', xbins: { size: 2 },
+      marker: { color: '#0F6E56', line: { color: '#0C0F14', width: 1 } },
+    }], {
+      xaxis: { title: 'IRR (%)', gridcolor: '#2A3140' },
+      yaxis: { title: 'Bundles', gridcolor: '#2A3140' },
+      paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+      font: { color: '#E4E8EE', family: 'DM Sans' },
+      margin: { t: 10, r: 20, b: 50, l: 50 },
+      shapes: [{ type:'line', x0:7.5, x1:7.5, y0:0, y1:1, yref:'paper',
+                 line:{color:'#A32D2D',dash:'dot',width:1.5} }],
+      annotations: [{ x:8, y:0.95, yref:'paper', text:'WACC 7.5%',
+                       showarrow:false, font:{color:'#A32D2D',size:10} }],
+    }, { responsive: true });
 
-    function scoreToColor(score) {
-      const norm = (score - scoreMin) / range;
-      const red = Math.round(255*(1-norm));
-      const grn = Math.round(255*norm);
-      return `rgb(${red},${grn},0)`;
-    }
-
-    const bankPopup = p => `<b>${p.name||''}</b><br>${p.kabupaten||''}<br>
-      Bankability: <b>${(p._bankability||0).toFixed(1)}</b><br>
-      ${TECH_LABELS[p.tech]||p.tech||''} · ${CLASS_LABELS[p.l1_class]||p.l1_class||''}<br>
-      Add: ${(p._add||0).toFixed(2)} | RE: ${(p._re||0).toFixed(2)}<br>
-      Feas: ${(p._feas||0).toFixed(2)} | Env: ${(p._env||0).toFixed(2)}`;
-
-    if (hasGeoJSON()) {
-      // Build a lookup from scored data
-      const scoreMap = {};
-      df.forEach(r => {
-        scoreMap[r.kode_desa] = {
-          bankability: r.bankability, add: r.add_score,
-          re: r.re_score, feas: r.feas_score, env: r.env_score
-        };
-      });
-      const map = buildLeafletMap('bank-map-container', 360);
-      const scoredGJ = {
-        type: 'FeatureCollection',
-        features: GJ_DATA.features.filter(f => scoreMap[f.properties.kode_desa]).map(f => {
-          const s = scoreMap[f.properties.kode_desa];
-          return {
-            ...f,
-            properties: {
-              ...f.properties,
-              _bankability: s.bankability, _add: s.add, _re: s.re, _feas: s.feas, _env: s.env
-            }
-          };
-        }),
+    // NPV vs CAPEX scatter
+    const exits = ['blended_finance','public_good','deferred'];
+    const npvTraces = exits.map(ex => {
+      const sub = f.filter(b=>b.exit===ex);
+      return {
+        x: sub.map(b=>(b.capex_usd||0)/1000),
+        y: sub.map(b=>(b.npv_usd||0)/1000),
+        text: sub.map(b=>`B${b.bundle_id} ${b.kecamatan||''}<br>${(b.tech_dom||'').replace(/_/g,' ')}<br>IRR: ${((b.irr_mean||0)*100).toFixed(1)}%`),
+        mode: 'markers',
+        marker: { size: sub.map(b=>Math.max(6,b.n*3)), color: EXIT_COL[ex], opacity: 0.7 },
+        name: ex.replace(/_/g,' '),
+        hovertemplate: '%{text}<br>CAPEX: $%{x:,.0f}K<br>NPV: $%{y:,.0f}K<extra></extra>',
       };
-      L.geoJSON(scoredGJ, {
-        style: feat => {
-          const color = scoreToColor(feat.properties._bankability || 0);
-          return { color, fillColor: color, fillOpacity: 0.6, weight: 0.8 };
-        },
-        onEachFeature: (feat, layer) => {
-          layer.bindPopup(bankPopup(feat.properties), { maxWidth: 280 });
-          layer.bindTooltip(`${feat.properties.name||''} — ${(feat.properties._bankability||0).toFixed(0)}`,
-            { sticky: true, className: 'poly-tooltip' });
-        },
-      }).addTo(map);
-      setTimeout(() => map.invalidateSize(), 100);
-    } else if (hasCoords(SCORED)) {
-      const map = buildLeafletMap('bank-map-container', 360);
-      for (const r of df) {
-        if (r.lat == null) continue;
-        const color = scoreToColor(r.bankability);
-        L.circleMarker([r.lat, r.lon], {
-          radius: 5, color, fillColor: color, fillOpacity: 0.85, weight: 1,
-        }).bindPopup(bankPopup({...r, _bankability: r.bankability, _add: r.add_score, _re: r.re_score, _feas: r.feas_score, _env: r.env_score}))
-        .addTo(map);
-      }
-      setTimeout(() => map.invalidateSize(), 100);
-    } else {
-      showMapNotice('bank-map-container', 'Add classification GeoJSON to enable map.');
-    }
+    });
+    npvTraces.push({
+      x: [0, Math.max(...f.map(b=>(b.capex_usd||0)/1000))*1.1],
+      y: [0, 0], mode: 'lines', line: { dash:'dot', color:'#555', width:1 },
+      name: 'NPV=0', showlegend: false,
+    });
+    Plotly.newPlot('chart-fin-npv', npvTraces, {
+      xaxis: { title: 'CAPEX ($K)', gridcolor: '#2A3140' },
+      yaxis: { title: 'NPV ($K)', gridcolor: '#2A3140' },
+      paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+      font: { color: '#E4E8EE', family: 'DM Sans' },
+      legend: { x: 0.02, y: 0.98, bgcolor: 'rgba(0,0,0,0)' },
+      margin: { t: 10, r: 20, b: 50, l: 60 },
+    }, { responsive: true });
+
+    // Payback histogram
+    Plotly.newPlot('chart-fin-payback', [{
+      x: f.map(b=>b.payback_mean||0),
+      type: 'histogram', xbins: { size: 1 },
+      marker: { color: '#185FA5', line: { color: '#0C0F14', width: 1 } },
+    }], {
+      xaxis: { title: 'Payback (years)', dtick: 2, gridcolor: '#2A3140' },
+      yaxis: { title: 'Bundles', gridcolor: '#2A3140' },
+      paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+      font: { color: '#E4E8EE', family: 'DM Sans' },
+      margin: { t: 10, r: 20, b: 50, l: 50 },
+    }, { responsive: true });
 
     // Table
-    const top50 = df.slice(0, 50);
-    const headers = ['#','Village','Kabupaten','Class','Technology','Bankability','SCBA','Dist. (km)','CO₂ (t/yr)'];
-    let html = `<table class="dt"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>`;
-    top50.forEach((r, i) => {
-      const bPct = Math.round(r.bankability);
-      const sPct = Math.round(r.scba_score);
-      html += `<tr>
-        <td>${i+1}</td>
-        <td>${r.name||''}</td>
-        <td>${r.kabupaten||''}</td>
-        <td><span class="chip" style="background:${COLORS[r.l1_class]||'#888'}30;color:${COLORS[r.l1_class]||'#888'}">${CLASS_LABELS[r.l1_class]||''}</span></td>
-        <td><span class="chip" style="background:${COLORS[r.tech]||'#888'}30;color:${COLORS[r.tech]||'#888'}">${TECH_LABELS[r.tech]||r.tech}</span></td>
-        <td>${r.bankability.toFixed(1)} <span class="score-bar"><span class="score-bar-fill" style="width:${bPct}%;background:${bPct>60?'#0F6E56':bPct>40?'#BA7517':'#A32D2D'}"></span></span></td>
-        <td>${r.scba_score.toFixed(1)} <span class="score-bar"><span class="score-bar-fill" style="width:${sPct}%;background:#185FA5"></span></span></td>
-        <td>${r.dist_km.toFixed(1)}</td>
-        <td>${Math.round(r.co2_t_yr)}</td>
+    const sorted = [...f].sort((a,b)=>(b.npv_usd||0)-(a.npv_usd||0));
+    let html = `<table class="data-table"><thead><tr>
+      <th>ID</th><th>Kecamatan</th><th>Kabupaten</th><th>n</th><th>Tech</th>
+      <th>CAPEX $K</th><th>NPV $K</th><th>IRR</th><th>Payback</th>
+      <th>LCOE</th><th>$/conn</th><th>Exit</th></tr></thead><tbody>`;
+    sorted.forEach(b => {
+      const ec = b.exit==='blended_finance'?'color:#0F6E56':b.exit==='public_good'?'color:#185FA5':'color:#BA7517';
+      const viable = (b.npv_usd||0) > 0;
+      html += `<tr style="${viable?'':'opacity:0.6'}">
+        <td>${b.bundle_id}</td>
+        <td>${b.kecamatan||''}</td><td>${b.kabupaten||''}</td>
+        <td>${b.n}</td>
+        <td>${(b.tech_dom||'').replace(/_/g,' ')}</td>
+        <td>$${((b.capex_usd||0)/1000).toFixed(0)}</td>
+        <td style="${viable?'color:#0F6E56':'color:#A32D2D'}">$${((b.npv_usd||0)/1000).toFixed(0)}</td>
+        <td>${((b.irr_mean||0)*100).toFixed(1)}%</td>
+        <td>${(b.payback_mean||0).toFixed(1)}y</td>
+        <td>$${(b.lcoe_mean||0).toFixed(4)}</td>
+        <td>$${(b.per_connection||0).toLocaleString()}</td>
+        <td style="${ec};font-weight:600">${(b.exit||'').replace(/_/g,' ')}</td>
       </tr>`;
     });
     html += '</tbody></table>';
-    document.getElementById('bank-table-wrap').innerHTML = html;
+    document.getElementById('fin-table-wrap').innerHTML = html;
+  }
 
-    // Scatter
-    Plotly.newPlot('chart-bank-scatter', [{
-      x: df.map(r => r.feas_score),
-      y: df.map(r => r.add_score),
-      mode: 'markers',
-      marker: {
-        size: df.map(r => 5 + r.re_score * 12),
-        color: df.map(r => r.bankability),
-        colorscale: 'RdYlGn',
-        colorbar: { title: 'Bankability', tickfont: { color: '#8B95A5' }, titlefont: { color: '#8B95A5' } },
-      },
-      text: df.map(r => `${r.name}<br>${r.kabupaten}<br>${TECH_LABELS[r.tech]||r.tech}<br>Score: ${r.bankability.toFixed(1)}`),
-      hoverinfo: 'text',
-    }], {
-      ...PLOTLY_LAYOUT, height: 380,
-      xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Feasibility' },
-      yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'Additionality' },
-    }, PLOTLY_CONFIG);
-  };
-
-  render();
-  document.getElementById('bank-kab-filter').onchange = render;
-  document.getElementById('bank-tech-filter').onchange = render;
-  document.getElementById('bank-cls-filter').onchange = render;
+  [kabSel,techSel,exitSel].forEach(s=>s.addEventListener('change',update));
+  update();
 }
 
 // ══════════════════════════════════════════════════════════════════
