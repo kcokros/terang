@@ -993,6 +993,13 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   position: absolute;
   left: 0; top: 0;
 }
+
+.bndl-detail-map {
+  height: 300px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
+}
 .bndl-section-title {
   font-size: 1.1rem;
   font-weight: 600;
@@ -2770,6 +2777,9 @@ function openBundleDetail(bid) {
       <div class="bndl-dm-card"><div class="bndl-dm-val">${avgGridDist.toFixed(1)} km</div><div class="bndl-dm-label">Avg grid distance</div></div>
     </div>
 
+    <div class="bndl-section-title">Village locations</div>
+    <div class="bndl-detail-map" id="bndl-detail-map"></div>
+
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
       <div>
         <div class="bndl-section-title">Aggregate RE potential</div>
@@ -2841,6 +2851,79 @@ function openBundleDetail(bid) {
   }, { responsive: true });
 
   overlay.classList.add('open');
+
+  // ── Leaflet map for bundle villages ──
+  setTimeout(() => {
+    const mapEl = document.getElementById('bndl-detail-map');
+    if (!mapEl) return;
+    if (mapEl._leaflet_id) { mapEl._leaflet_id = null; mapEl.innerHTML = ''; }
+
+    const TECH_COL_MAP = { micro_hydro:'#2B5F8F', solar_biomass_hybrid:'#D4A017',
+                           solar_battery:'#F0C040', wind_solar_hybrid:'#4A7A9C' };
+
+    const points = villages.map(v => {
+      let lat = v.lat, lon = v.lon;
+      if ((!lat || !lon) && CENTROIDS && CENTROIDS[v.kode_desa]) {
+        lat = CENTROIDS[v.kode_desa].lat;
+        lon = CENTROIDS[v.kode_desa].lon;
+      }
+      return lat && lon ? { ...v, lat: +lat, lon: +lon } : null;
+    }).filter(Boolean);
+
+    if (points.length === 0) {
+      mapEl.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-dim);font-size:0.85rem;">No coordinates available for these villages</div>';
+      return;
+    }
+
+    const map = L.map(mapEl, { scrollWheelZoom: true, attributionControl: false });
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 16,
+    }).addTo(map);
+
+    const markers = [];
+    points.forEach(v => {
+      const col = TECH_COL_MAP[v.tech] || '#888';
+      const isDark = v.l1_class === 'dark_settled';
+      const radius = isDark ? 8 : 6;
+
+      const marker = L.circleMarker([v.lat, v.lon], {
+        radius: radius,
+        fillColor: col,
+        color: isDark ? '#A32D2D' : '#fff',
+        weight: isDark ? 2.5 : 1,
+        opacity: 1,
+        fillOpacity: 0.85,
+      }).addTo(map);
+
+      marker.bindPopup(`
+        <div style="font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.5;">
+          <strong>${v.name || v.kode_desa}</strong><br>
+          <span style="color:${col}">${(v.tech||'').replace(/_/g,' ')}</span>
+          · ${v.l1_class === 'dark_settled' ? '<span style="color:#A32D2D">dark</span>' : 'intermittent'}<br>
+          Pop: ${(v.pop_2026||0).toLocaleString()} · HH: ${(v.hh_2026||0).toLocaleString()}<br>
+          Demand: ${(v.demand_kw||0).toFixed(1)} kW · CAPEX: $${((v.capex_mid_usd||0)/1000).toFixed(0)}K<br>
+          ${v.hydro_kw ? 'Hydro: ' + v.hydro_kw.toFixed(1) + ' kW · ' : ''}${v.wind50 ? 'Wind: ' + v.wind50.toFixed(1) + ' m/s' : ''}
+        </div>
+      `, { maxWidth: 260 });
+
+      markers.push(marker);
+    });
+
+    const group = L.featureGroup(markers);
+    map.fitBounds(group.getBounds().pad(0.15));
+
+    // Legend
+    const legend = L.control({ position: 'bottomright' });
+    legend.onAdd = function() {
+      const div = L.DomUtil.create('div');
+      div.style.cssText = 'background:rgba(12,15,20,0.85);padding:8px 12px;border-radius:6px;font-size:11px;color:#E4E8EE;line-height:1.8;';
+      div.innerHTML = Object.entries(TECH_COL_MAP).map(([t,c]) =>
+        `<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${c};margin-right:5px;vertical-align:middle;"></span>${t.replace(/_/g,' ')}`
+      ).join('<br>') + '<br><span style="display:inline-block;width:10px;height:10px;border-radius:50%;border:2px solid #A32D2D;margin-right:5px;vertical-align:middle;"></span>dark settled';
+      return div;
+    };
+    legend.addTo(map);
+  }, 100);
 }
 
 function reBar(label, val, max, unit, color) {
