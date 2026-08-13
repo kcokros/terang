@@ -824,6 +824,182 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   .landing-pipe-step { border-radius: 0 !important; }
   .landing-pipe-step:not(:last-child)::after { display: none; }
 }
+
+/* ── BUNDLE CATALOG ─────────────────────────────────────── */
+.bndl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+.bndl-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.bndl-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.bndl-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.bndl-card-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+.bndl-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.bndl-card-sub {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+.bndl-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.bndl-badge.bf { background: rgba(15,110,86,0.2); color: #2ECC9B; }
+.bndl-badge.pg { background: rgba(24,95,165,0.2); color: #5BA3E6; }
+.bndl-badge.def { background: rgba(186,117,23,0.2); color: #D4A017; }
+.bndl-card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+.bndl-stat-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.bndl-stat-label {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  margin-top: 1px;
+}
+.bndl-tech-pills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.bndl-tech-pill {
+  font-size: 0.66rem;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.bndl-detail-overlay {
+  position: fixed;
+  top: 0; left: var(--sidebar-w); right: 0; bottom: 0;
+  background: var(--bg);
+  z-index: 90;
+  overflow-y: auto;
+  padding: 30px 40px;
+  display: none;
+}
+.bndl-detail-overlay.open { display: block; }
+.bndl-back-btn {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+.bndl-back-btn:hover { border-color: var(--accent); }
+.bndl-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.bndl-detail-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.bndl-dm-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.bndl-dm-val {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.bndl-dm-label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 3px;
+}
+.bndl-village-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin-top: 8px;
+}
+.bndl-village-table th {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 2px solid var(--border);
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.bndl-village-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.bndl-village-table tr:hover td { background: var(--surface-2); }
+.bndl-re-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+  position: relative;
+  min-width: 60px;
+}
+.bndl-re-fill {
+  height: 100%;
+  border-radius: 3px;
+  position: absolute;
+  left: 0; top: 0;
+}
+.bndl-section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 24px 0 12px 0;
+  color: var(--text);
+}
+
 </style>
 </head>
 <body>
@@ -996,6 +1172,7 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   <button class="nav-btn active" data-view="gap-map">Gap map</button>
   <button class="nav-btn" data-view="prescriptions">RE prescriptions</button>
   <button class="nav-btn" data-view="grid-infra">Grid &amp; infrastructure</button>
+  <button class="nav-btn" data-view="bundles">Investment bundles</button>
   <button class="nav-btn" data-view="bankability">Bankability ranking <span class="nav-badge">! <span class="nav-tip">Indicative: framework under design</span></span></button>
   <button class="nav-btn" data-view="scba">SCBA impact <span class="nav-badge">! <span class="nav-tip">Indicative: framework under design</span></span></button>
 
@@ -1108,6 +1285,68 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   </div>
 
   <!-- VIEW 4: BANKABILITY RANKING -->
+  <!-- VIEW: INVESTMENT BUNDLES -->
+  <div class="view" id="view-bundles">
+    <h1>Investment bundles</h1>
+    <p class="subtitle">Browse investable village portfolios. Each card is a bundle produced by
+      Ward-linkage clustering within kecamatan boundaries. Click any card to see village-level
+      RE potential, demand sizing, and cost breakdown.</p>
+
+    <details>
+      <summary>Bundling methodology</summary>
+      <div class="details-body">
+        <div class="meth-columns">
+          <div class="meth-col">
+            <h4>Clustering approach</h4>
+            <table class="meth-table">
+              <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Method</td><td>Ward-linkage agglomerative clustering</td></tr>
+                <tr><td>Scope</td><td>Per-kecamatan (kabupaten = SPV portfolio)</td></tr>
+                <tr><td>Distance threshold</td><td>0.55 (dendrogram cut height)</td></tr>
+                <tr><td>Min/max bundle size</td><td>None (natural stopping)</td></tr>
+                <tr><td>Pop projection</td><td>2017 Podes &rarr; 2026 (compound growth)</td></tr>
+                <tr><td>CAPEX basis</td><td>ESMAP firm-capacity benchmarks + Maluku multiplier</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="meth-col">
+            <h4 class="col-accent">Feature weights (bundling axes)</h4>
+            <table class="meth-table">
+              <thead><tr><th>Axis</th><th>Weight</th><th>Features</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Technology</strong></td><td>0.30</td><td>One-hot encoded prescription (4 techs)</td></tr>
+                <tr><td><strong>Beneficiary</strong></td><td>0.30</td><td>Projected HH, density, lit_fraction</td></tr>
+                <tr><td><strong>Resource</strong></td><td>0.25</td><td>Slope, grid dist, hydro, wind, feedstock, rain</td></tr>
+                <tr><td><strong>Intervention</strong></td><td>0.15</td><td>Binary: dark_settled vs intermittent</td></tr>
+              </tbody>
+            </table>
+            <p class="caption" style="margin-top:10px;">Geographic proximity implicit via kecamatan scoping. Weights indicative &mdash; to be calibrated with financier feedback.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <div class="filter-row">
+      <label>Kabupaten</label>
+      <select id="bndl-kab-filter"></select>
+      <label>Exit route</label>
+      <select id="bndl-exit-filter">
+        <option value="All">All</option>
+        <option value="blended_finance">Blended finance</option>
+        <option value="public_good">Public good</option>
+        <option value="deferred">Deferred</option>
+      </select>
+      <label>Tech</label>
+      <select id="bndl-tech-filter"></select>
+      <label style="margin-left:auto;color:var(--text-dim);font-size:0.8rem;" id="bndl-count-label"></label>
+    </div>
+
+    <div class="metrics-row" id="bndl-metrics"></div>
+    <div class="bndl-grid" id="bndl-grid"></div>
+    <div class="bndl-detail-overlay" id="bndl-detail"></div>
+  </div>
+
   <div class="view" id="view-bankability">
     <h1>Bankability ranking</h1>
     <p class="subtitle">Composite investment-readiness score for the off-grid dark + intermittent pipeline.
@@ -2380,6 +2619,248 @@ function renderBankability() {
 // ══════════════════════════════════════════════════════════════════
 // VIEW 5 — SCBA IMPACT
 // ══════════════════════════════════════════════════════════════════
+
+// ══════════════════════════════════════════════════════════════════
+// INVESTMENT BUNDLES — card catalog with drill-down
+// ══════════════════════════════════════════════════════════════════
+let _bndlSummary = null;
+let _bndlAssign = null;
+let _bndlPipeline = null;
+
+function renderBundles() {
+  Promise.all([
+    new Promise(res => Papa.parse('data/terang_layer3_bundle_summary.csv',
+      { download:true, header:true, dynamicTyping:true, complete: r => res(r.data.filter(x=>x.bundle_id)) })),
+    new Promise(res => Papa.parse('data/terang_layer3_bundles.csv',
+      { download:true, header:true, dynamicTyping:true, complete: r => res(r.data.filter(x=>x.kode_desa)) })),
+    new Promise(res => Papa.parse('data/terang_pipeline_with_pop.csv',
+      { download:true, header:true, dynamicTyping:true, complete: r => res(r.data.filter(x=>x.kode_desa)) })),
+  ]).then(([summary, assign, pipeline]) => {
+    _bndlSummary = summary;
+    _bndlAssign = assign;
+    _bndlPipeline = pipeline;
+    buildBundleCatalog();
+  });
+}
+
+function buildBundleCatalog() {
+  const bundles = _bndlSummary;
+  const TECH_COL = { micro_hydro:'#2B5F8F', solar_biomass_hybrid:'#8B5A3C',
+                     solar_battery:'#D4A017', wind_solar_hybrid:'#4A7A9C' };
+
+  const kabs = [...new Set(bundles.map(b=>b.kabupaten))].sort();
+  const techs = [...new Set(bundles.map(b=>b.tech_dom))].sort();
+  const kabSel = document.getElementById('bndl-kab-filter');
+  const exitSel = document.getElementById('bndl-exit-filter');
+  const techSel = document.getElementById('bndl-tech-filter');
+
+  kabSel.innerHTML = '<option value="All">All kabupaten</option>' +
+    kabs.map(k=>`<option value="${k}">${k}</option>`).join('');
+  techSel.innerHTML = '<option value="All">All techs</option>' +
+    techs.map(t=>`<option value="${t}">${t.replace(/_/g,' ')}</option>`).join('');
+
+  function getFiltered() {
+    let f = bundles;
+    if (kabSel.value!=='All') f=f.filter(b=>b.kabupaten===kabSel.value);
+    if (exitSel.value!=='All') f=f.filter(b=>b.exit===exitSel.value);
+    if (techSel.value!=='All') f=f.filter(b=>b.tech_dom===techSel.value);
+    return f;
+  }
+
+  function badgeCls(exit) {
+    return exit==='blended_finance'?'bf':exit==='public_good'?'pg':'def';
+  }
+
+  function renderCards() {
+    const f = getFiltered().sort((a,b)=>(b.capex_mid_usd||0)-(a.capex_mid_usd||0));
+    const nV = f.reduce((s,b)=>s+b.n,0);
+    const pop = f.reduce((s,b)=>s+(b.pop_2026||0),0);
+    const capex = f.reduce((s,b)=>s+(b.capex_mid_usd||0),0);
+    const avgBcs = f.length ? f.reduce((s,b)=>s+b.bcs,0)/f.length : 0;
+
+    document.getElementById('bndl-count-label').textContent =
+      `${f.length} bundles \u00b7 ${nV} villages \u00b7 ${pop.toLocaleString()} people`;
+
+    document.getElementById('bndl-metrics').innerHTML = [
+      `<div class="metric-card"><div class="mc-val">${f.length}</div><div class="mc-label">Bundles</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${nV}</div><div class="mc-label">Villages</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${pop.toLocaleString()}</div><div class="mc-label">Beneficiaries</div></div>`,
+      `<div class="metric-card"><div class="mc-val">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">CAPEX (mid)</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${avgBcs.toFixed(3)}</div><div class="mc-label">Avg BCS</div></div>`,
+    ].join('');
+
+    const grid = document.getElementById('bndl-grid');
+    grid.innerHTML = f.map(b => {
+      const techMix = (b.tech_mix_str||'').split('; ').filter(Boolean).map(t => {
+        const [name,cnt] = t.split(':');
+        const col = TECH_COL[name] || '#888';
+        return `<span class="bndl-tech-pill" style="background:${col}22;color:${col}">${(name||'').replace(/_/g,' ')} \u00d7${cnt}</span>`;
+      }).join('');
+
+      return `<div class="bndl-card" data-bid="${b.bundle_id}">
+        <div class="bndl-card-head">
+          <div>
+            <div class="bndl-card-id">Bundle ${b.bundle_id}</div>
+            <div class="bndl-card-title">${b.kecamatan || b.kec_dominant || ''}</div>
+            <div class="bndl-card-sub">${b.kabupaten} \u00b7 ${b.n} village${b.n>1?'s':''}</div>
+          </div>
+          <span class="bndl-badge ${badgeCls(b.exit)}">${(b.exit||'').replace(/_/g,' ')}</span>
+        </div>
+        <div class="bndl-card-stats">
+          <div><div class="bndl-stat-val">${(b.pop_2026||0).toLocaleString()}</div><div class="bndl-stat-label">People</div></div>
+          <div><div class="bndl-stat-val">$${((b.capex_mid_usd||0)/1000).toFixed(0)}K</div><div class="bndl-stat-label">CAPEX</div></div>
+          <div><div class="bndl-stat-val">${(b.bcs||0).toFixed(3)}</div><div class="bndl-stat-label">BCS</div></div>
+        </div>
+        <div class="bndl-tech-pills">${techMix}</div>
+      </div>`;
+    }).join('');
+
+    grid.querySelectorAll('.bndl-card').forEach(card => {
+      card.addEventListener('click', () => openBundleDetail(+card.dataset.bid));
+    });
+  }
+
+  [kabSel,exitSel,techSel].forEach(s=>s.addEventListener('change',renderCards));
+  renderCards();
+}
+
+function openBundleDetail(bid) {
+  const b = _bndlSummary.find(x=>x.bundle_id===bid);
+  if (!b) return;
+
+  const villages = _bndlAssign.filter(a=>a.bundle_id===bid)
+    .map(a => {
+      const v = _bndlPipeline.find(p=>p.kode_desa===a.kode_desa);
+      return v || a;
+    });
+
+  const TECH_COL = { micro_hydro:'#2B5F8F', solar_biomass_hybrid:'#8B5A3C',
+                     solar_battery:'#D4A017', wind_solar_hybrid:'#4A7A9C' };
+
+  const overlay = document.getElementById('bndl-detail');
+  const badgeC = b.exit==='blended_finance'?'bf':b.exit==='public_good'?'pg':'def';
+
+  const maxHydro = Math.max(0, ...villages.map(v=>v.hydro_kw||0));
+  const maxWind = Math.max(0, ...villages.map(v=>v.wind50||0));
+  const avgFeedstock = villages.reduce((s,v)=>s+(v.feedstock||0),0) / (villages.length||1);
+  const avgSlope = villages.reduce((s,v)=>s+(v.slope_deg||0),0) / (villages.length||1);
+  const avgGridDist = villages.reduce((s,v)=>s+(v.dist_grid_m||0),0) / (villages.length||1) / 1000;
+  const totalDemand = villages.reduce((s,v)=>s+(v.demand_kw||0),0);
+  const totalCapexLo = villages.reduce((s,v)=>s+(v.capex_low_usd||0),0);
+  const totalCapexHi = villages.reduce((s,v)=>s+(v.capex_high_usd||0),0);
+
+  overlay.innerHTML = `
+    <button class="bndl-back-btn" onclick="closeBundleDetail()">\u2190 Back to catalog</button>
+    <div class="bndl-detail-header">
+      <div>
+        <h1 style="margin-bottom:4px;">Bundle ${b.bundle_id} \u2014 ${b.kecamatan || ''}</h1>
+        <p style="color:var(--text-dim);font-size:0.9rem;">${b.kabupaten} \u00b7 ${b.interv_type==='new_build'?'New build':'Retrofit / augmentation'}</p>
+      </div>
+      <span class="bndl-badge ${badgeC}" style="font-size:0.85rem;padding:5px 14px;">${(b.exit||'').replace(/_/g,' ')}</span>
+    </div>
+
+    <div class="bndl-detail-metrics">
+      <div class="bndl-dm-card"><div class="bndl-dm-val">${b.n}</div><div class="bndl-dm-label">Villages</div></div>
+      <div class="bndl-dm-card"><div class="bndl-dm-val">${(b.pop_2026||0).toLocaleString()}</div><div class="bndl-dm-label">Beneficiaries (2026)</div></div>
+      <div class="bndl-dm-card"><div class="bndl-dm-val">${(b.hh_2026||0).toLocaleString()}</div><div class="bndl-dm-label">Households</div></div>
+      <div class="bndl-dm-card"><div class="bndl-dm-val">${totalDemand.toFixed(0)} kW</div><div class="bndl-dm-label">Peak demand</div></div>
+      <div class="bndl-dm-card"><div class="bndl-dm-val">$${(totalCapexLo/1e6).toFixed(1)}\u2013${(totalCapexHi/1e6).toFixed(1)}M</div><div class="bndl-dm-label">CAPEX range</div></div>
+      <div class="bndl-dm-card"><div class="bndl-dm-val">${(b.bcs||0).toFixed(3)}</div><div class="bndl-dm-label">Bundle coherence</div></div>
+      <div class="bndl-dm-card"><div class="bndl-dm-val">${b.n_dark||0}</div><div class="bndl-dm-label">Dark villages</div></div>
+      <div class="bndl-dm-card"><div class="bndl-dm-val">${avgGridDist.toFixed(1)} km</div><div class="bndl-dm-label">Avg grid distance</div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+      <div>
+        <div class="bndl-section-title">Aggregate RE potential</div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px;">
+          ${reBar('Hydro', maxHydro, 100, 'kW peak', '#2B5F8F')}
+          ${reBar('Wind (50m)', maxWind, 10, 'm/s', '#4A7A9C')}
+          ${reBar('Biomass feedstock', avgFeedstock*100, 100, '%', '#8B5A3C')}
+          ${reBar('Avg slope', avgSlope, 30, '\u00b0', '#888')}
+        </div>
+      </div>
+      <div>
+        <div class="bndl-section-title">Technology mix</div>
+        <div id="bndl-detail-techpie" style="height:220px;"></div>
+      </div>
+    </div>
+
+    <div class="bndl-section-title">Village-level breakdown</div>
+    <div style="overflow-x:auto;">
+      <table class="bndl-village-table">
+        <thead><tr>
+          <th>Village</th><th>Tech</th><th>Class</th>
+          <th>Pop 2026</th><th>HH</th><th>Demand kW</th><th>CAPEX $K</th>
+          <th>Hydro kW</th><th>Wind m/s</th><th>Feedstock</th>
+          <th>Slope \u00b0</th><th>Grid km</th><th>Lit frac</th>
+        </tr></thead>
+        <tbody>
+          ${villages.map(v => {
+            const techCol = TECH_COL[v.tech] || '#888';
+            return `<tr>
+              <td><strong>${v.name||v.kode_desa}</strong></td>
+              <td><span style="color:${techCol}">${(v.tech||'').replace(/_/g,' ')}</span></td>
+              <td>${v.l1_class==='dark_settled'?'<span style="color:#A32D2D">dark</span>':'intermittent'}</td>
+              <td>${(v.pop_2026||0).toLocaleString()}</td>
+              <td>${(v.hh_2026||0).toLocaleString()}</td>
+              <td>${(v.demand_kw||0).toFixed(1)}</td>
+              <td>$${((v.capex_mid_usd||0)/1000).toFixed(0)}</td>
+              <td>${v.hydro_kw ? v.hydro_kw.toFixed(1) : '\u2014'}</td>
+              <td>${v.wind50 ? v.wind50.toFixed(1) : '\u2014'}</td>
+              <td>${v.feedstock ? (v.feedstock*100).toFixed(0)+'%' : '\u2014'}</td>
+              <td>${v.slope_deg ? v.slope_deg.toFixed(1) : '\u2014'}</td>
+              <td>${v.dist_grid_m ? (v.dist_grid_m/1000).toFixed(1) : '\u2014'}</td>
+              <td>${v.lit_fraction!=null ? v.lit_fraction.toFixed(2) : '\u2014'}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:20px;font-size:0.75rem;color:var(--text-dim);font-style:italic;">
+      Population projected from 2017 Podes census using village-level compound growth rates.
+      CAPEX based on ESMAP firm-capacity benchmarks with Maluku remoteness multiplier. All figures indicative.
+    </div>
+  `;
+
+  const techMix = (b.tech_mix_str||'').split('; ').filter(Boolean);
+  const tLabels = techMix.map(t=>t.split(':')[0].replace(/_/g,' '));
+  const tVals = techMix.map(t=>+t.split(':')[1]);
+  const tCols = techMix.map(t=>TECH_COL[t.split(':')[0]]||'#888');
+  Plotly.newPlot('bndl-detail-techpie', [{
+    labels: tLabels, values: tVals, type: 'pie', hole: 0.45,
+    marker: { colors: tCols },
+    textinfo: 'label+value',
+    textfont: { size: 11, color: '#E4E8EE' },
+  }], {
+    paper_bgcolor: 'transparent',
+    font: { color: '#E4E8EE', family: 'DM Sans' },
+    margin: { t: 10, b: 10, l: 10, r: 10 },
+    showlegend: false,
+  }, { responsive: true });
+
+  overlay.classList.add('open');
+}
+
+function reBar(label, val, max, unit, color) {
+  const pct = Math.min(100, (val / max) * 100);
+  return `<div style="margin-bottom:12px;">
+    <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:3px;">
+      <span>${label}</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-weight:600;">${typeof val==='number'?val.toFixed(1):val} ${unit}</span>
+    </div>
+    <div class="bndl-re-bar">
+      <div class="bndl-re-fill" style="width:${pct}%;background:${color};"></div>
+    </div>
+  </div>`;
+}
+
+function closeBundleDetail() {
+  document.getElementById('bndl-detail').classList.remove('open');
+}
+
+
 function renderSCBA() {
   const scored = SCORED;
 
@@ -2470,6 +2951,7 @@ function renderSCBA() {
 // NAVIGATION
 // ══════════════════════════════════════════════════════════════════
 const VIEW_RENDERERS = {
+  'bundles': renderBundles,
   'gap-map': renderGapMap,
   'prescriptions': renderPrescriptions,
   'grid-infra': renderGridInfra,
