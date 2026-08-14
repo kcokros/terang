@@ -1,0 +1,61 @@
+{
+  "parameters": {
+    "social_discount_rate": 0.09,
+    "asset_life_years": 25,
+    "crf": 0.1018,
+    "bcr_market": 3.43,
+    "diesel_ef_gco2eq_kwh": 900,
+    "diesel_ops_hrs_day": 8,
+    "re_ef_gco2eq_kwh": {
+      "micro_hydro": 24,
+      "solar_battery": 27,
+      "solar_biomass_hybrid": 88,
+      "wind_solar_hybrid": 15
+    }
+  },
+  "sources": {
+    "social_discount_rate": "ADB (2017). Guidelines for the Economic Analysis of Projects. Manila.",
+    "asset_life": "IRENA (2026). 24/7 Renewables: The Economics of Firm Solar and Wind.",
+    "bcr": "Wibisono, Lovett, Wen & Suryani (2023). DOI: 10.21203/rs.3.rs-3132228/v1",
+    "ghg_lifecycle": "UNECE (2022); IPCC AR5 Annex III (Schl\u00f6mer et al. 2014).",
+    "employment": "IRENA & ILO (2024). Renewable Energy and Jobs: Annual Review."
+  },
+  "environmental": {
+    "co2_avoided_t_yr": 230355.0,
+    "co2_avoided_25yr": 5758870.0,
+    "by_tech": {
+      "micro_hydro": 72707.0,
+      "solar_battery": 25151.0,
+      "solar_biomass_hybrid": 98852.0,
+      "wind_solar_hybrid": 33644.0
+    },
+    "by_class": {
+      "dark_settled": 33372.0,
+      "intermittent": 196983.0
+    }
+  },
+  "socioeconomic": {
+    "total_capex_usd": 254679184,
+    "annualised_capex_usd_yr": 25927933.0,
+    "annual_om_usd_yr": 5490100,
+    "annual_cost_usd_yr": 31418033.0,
+    "annual_benefit_usd_yr": 107763853.0,
+    "benefit_25yr_usd": 2694096313.0,
+    "per_hh_usd_yr": 844.0,
+    "benefit_to_investment": 10.6
+  },
+  "employment": {
+    "total_mw": 33.7,
+    "construction_person_yr": 505.0,
+    "permanent_om_fte": 16.8
+  },
+  "reliability": {
+    "baseline_sqi_mean": 0.278,
+    "target_sqi": 0.95,
+    "sqi_uplift": 0.672,
+    "by_class": {
+      "dark_settled": 0.127,
+      "intermittent": 0.304
+    }
+  }
+}
