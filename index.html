@@ -300,11 +300,6 @@ table.dt td {
   border-top: 1px solid var(--border);
   white-space: nowrap;
 }
-table.dt td.num {
-  text-align: right;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-}
 table.dt tr:hover td { background: rgba(186,117,23,0.06); }
 
 .data-table-wrap { max-height: 400px; overflow-y: auto; }
@@ -1185,7 +1180,7 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   <button class="nav-btn" data-view="prescriptions">RE prescriptions</button>
   <button class="nav-btn" data-view="grid-infra">Grid &amp; infrastructure</button>
   <button class="nav-btn" data-view="bundles">Investment bundles</button>
-  <button class="nav-btn" data-view="bankability">Financial Benefit Analysis<span class="nav-badge">! <span class="nav-tip">Indicative: framework under design</span></span></button>
+  <button class="nav-btn" data-view="bankability">Financial Benefit Analysis <span class="nav-badge">! <span class="nav-tip">Indicative: framework under design</span></span></button>
   <button class="nav-btn" data-view="scba">SCBA impact <span class="nav-badge">! <span class="nav-tip">Indicative: framework under design</span></span></button>
 
   <div class="sidebar-divider"></div>
@@ -1377,33 +1372,34 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
                 <tr><td>Solar PV</td><td><a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_TEC_24-7_renewables_2026.pdf#page=56" target="_blank" style="color:var(--accent)">IRENA 2026 Table 6</a></td><td>$658/kW nameplate</td></tr>
                 <tr><td>Onshore wind</td><td><a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_TEC_24-7_renewables_2026.pdf#page=56" target="_blank" style="color:var(--accent)">IRENA 2026 Table 7</a></td><td>$1,034/kW</td></tr>
                 <tr><td>BESS (4hr LFP)</td><td><a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_TEC_24-7_renewables_2026.pdf#page=57" target="_blank" style="color:var(--accent)">IRENA 2026 Table 10</a></td><td>$171/kWh</td></tr>
-                <tr><td>Co-location</td><td><a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_TEC_24-7_renewables_2026.pdf#page=55" target="_blank" style="color:var(--accent)">BNEF 2025</a></td><td>0.70&times; standalone BESS</td></tr>
-                <tr><td>Distribution</td><td><a href="https://openknowledge.worldbank.org/server/api/core/bitstreams/32287154-1ccb-46ce-83af-08facf7a3b49/content" target="_blank" style="color:var(--accent)">ESMAP 2022</a></td><td>$600&ndash;800/kW firm</td></tr>
-                <tr><td>Maluku factor</td><td><a href="https://jdih.kemenkeu.go.id/api/download/7332a343-0623-4d26-80f2-9d8f62a5c2ba/2022perpres112.pdf" target="_blank" style="color:var(--accent)">Perpres 112/2022</a></td><td>1.275&times;</td></tr>
+                <tr><td>Co-location</td><td><a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_TEC_24-7_renewables_2026.pdf#page=55" target="_blank" style="color:var(--accent)">IRENA 2026 Annex B (citing BNEF 2025c)</a></td><td>0.70&times; standalone BESS</td></tr>
+                <tr><td>Distribution</td><td><a href="https://openknowledge.worldbank.org/server/api/core/bitstreams/32287154-1ccb-46ce-83af-08facf7a3b49/content" target="_blank" style="color:var(--accent)">ESMAP 2022</a></td><td>$988/kW firm (27% of all-in)</td></tr>
+                <tr><td>Location factor F</td><td><a href="https://jdih.kemenkeu.go.id/api/download/7332a343-0623-4d26-80f2-9d8f62a5c2ba/2022perpres112.pdf" target="_blank" style="color:var(--accent)">Perpres 112/2022 Lampiran II</a></td><td>1.30 (Maluku Pulau Kecil)</td></tr>
               </tbody>
             </table>
-            <p class="caption" style="margin-top:8px;">System sized to ESMAP firm capacity convention (= peak demand). No capacity-factor division.</p>
+            <p class="caption" style="margin-top:8px;">System sized to ESMAP firm capacity convention (= peak demand). BNEF co-location formula applied to BESS.</p>
           </div>
           <div class="meth-col">
             <h4 class="col-accent">Revenue &amp; cash flow</h4>
             <table class="meth-table">
               <thead><tr><th>Parameter</th><th>Value</th><th>Source</th></tr></thead>
               <tbody>
-                <tr><td>Demand/HH</td><td>200 W peak</td><td><a href="https://openknowledge.worldbank.org/server/api/core/bitstreams/32287154-1ccb-46ce-83af-08facf7a3b49/content" target="_blank" style="color:var(--accent)">ESMAP MTF Tier 2&ndash;3</a></td></tr>
-                <tr><td>Tariff (HPT)</td><td>85% &times; BPP &times; LF</td><td><a href="https://jdih.kemenkeu.go.id/api/download/7332a343-0623-4d26-80f2-9d8f62a5c2ba/2022perpres112.pdf" target="_blank" style="color:var(--accent)">Perpres 112/2022</a></td></tr>
-                <tr><td>BPP Maluku</td><td>Rp 2,750/kWh</td><td><a href="https://www.scribd.com/document/988727771/Materi-Mirah-Midadan-INDEF" target="_blank" style="color:var(--accent)">INDEF/LEAP 2023</a></td></tr>
-                <tr><td>O&amp;M</td><td>2&ndash;3% CAPEX/yr</td><td><a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_TEC_24-7_renewables_2026.pdf#page=58" target="_blank" style="color:var(--accent)">IRENA 2026 Annex C</a></td></tr>
-                <tr><td>WACC (base)</td><td>7.5% real</td><td><a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_TEC_24-7_renewables_2026.pdf#page=59" target="_blank" style="color:var(--accent)">IRENA 2026 Annex D</a></td></tr>
-                <tr><td>Lifetime</td><td>20 years</td><td>LFP battery design life</td></tr>
+                <tr><td>Demand/HH</td><td>200 W peak (Tier 3)</td><td>ESMAP/World Bank MTF methodology</td></tr>
+                <tr><td>Tariff (HPT)</td><td>Lampiran I &times; F (yr 1&ndash;10); flat (yr 11+)</td><td><a href="https://jdih.kemenkeu.go.id/api/download/7332a343-0623-4d26-80f2-9d8f62a5c2ba/2022perpres112.pdf" target="_blank" style="color:var(--accent)">Perpres 112/2022 Lampiran I</a></td></tr>
+                <tr><td>Battery adder</td><td>&le; 60% of generation HPT</td><td>Perpres 112/2022 Pasal 10</td></tr>
+                <tr><td>O&amp;M</td><td>Solar 2.0%, Wind 3.0%, BESS 2.5%</td><td><a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_TEC_24-7_renewables_2026.pdf#page=58" target="_blank" style="color:var(--accent)">IRENA 2026 Annex C</a></td></tr>
+                <tr><td>WACC (base)</td><td>7.5% real (non-OECD)</td><td><a href="https://www.irena.org/-/media/Files/IRENA/Agency/Publication/2026/May/IRENA_TEC_24-7_renewables_2026.pdf#page=59" target="_blank" style="color:var(--accent)">IRENA 2026 Annex D</a></td></tr>
+                <tr><td>Lifetime</td><td>20 years</td><td>IRENA 2026 Annex D</td></tr>
               </tbody>
             </table>
-            <p class="caption" style="margin-top:8px;">NPV = &sum; discounted NCF. IRR = rate where NPV=0. LCOE = (annualised CAPEX + O&amp;M) / annual kWh.</p>
+            <p class="caption" style="margin-top:8px;">Tariff is tech-specific and time-varying: yr 1&ndash;10 HPT &times; F=1.30, yr 11&ndash;20 flat (no F). PLTS &le;1 MW: 14.91&cent;/11.01&cent; with BESS. NPV = &sum; discounted NCF.</p>
           </div>
         </div>
         <p class="caption" style="margin-top:12px;color:var(--accent);">
-          <strong>Caveats:</strong> No battery replacement at year 8&ndash;10 modelled. Tariff assumes regulatory ceiling (85% BPP).
-          Exchange rate fixed at Rp 16,000/$. No economies of scale from bundling included (CAPEX is conservative).
-          All figures indicative &mdash; subject to field validation and actual procurement.</p>
+          <strong>Caveats:</strong> No battery replacement at yr 8&ndash;10 modelled (LFP cycle life 10&ndash;15 yr; 20-yr assumption is optimistic).
+          FX fixed at Rp 16,000/$ (Bank Indonesia ref. date TBD). Distribution CAPEX derived from ESMAP 2022 (SSA/SA context) &mdash;
+          Indonesia-specific PLN data preferred. No bundling economies of scale (CAPEX conservative).
+          All figures <strong>indicative</strong> &mdash; subject to field validation and actual procurement.</p>
       </div>
     </details>
 
@@ -2519,7 +2515,7 @@ function buildFinancialView(bundles) {
   const TECH_COL = { micro_hydro:'#2B5F8F', solar_biomass_hybrid:'#8B5A3C',
                      solar_battery:'#D4A017', wind_solar_hybrid:'#4A7A9C' };
   const EXIT_COL = { blended_finance:'#0F6E56', public_good:'#185FA5', deferred:'#BA7517' };
-  const TARIFF = 0.1862;
+  // Tariff now read per-bundle from CSV (tariff_avg column)
 
   const kabs = [...new Set(bundles.map(b=>b.kabupaten))].sort();
   const techs = [...new Set(bundles.map(b=>b.tech_dom))].sort();
@@ -2551,12 +2547,12 @@ function buildFinancialView(bundles) {
     const perConn = hh > 0 ? capex / hh : 0;
 
     document.getElementById('fin-metrics').innerHTML = [
-      `<div class="metric-card"><div class="mc-value">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">Total CAPEX</div></div>`,
-      `<div class="metric-card"><div class="mc-value">$${(npv/1e6).toFixed(1)}M</div><div class="mc-label">Total NPV</div></div>`,
-      `<div class="metric-card"><div class="mc-value">${(irr*100).toFixed(1)}%</div><div class="mc-label">Mean IRR</div></div>`,
-      `<div class="metric-card"><div class="mc-value">${pb.toFixed(1)}y</div><div class="mc-label">Avg payback</div></div>`,
-      `<div class="metric-card"><div class="mc-value">$${lcoe.toFixed(3)}</div><div class="mc-label">Mean LCOE/kWh</div></div>`,
-      `<div class="metric-card"><div class="mc-value">$${perConn.toLocaleString(undefined,{maximumFractionDigits:0})}</div><div class="mc-label">$/connection</div></div>`,
+      `<div class="metric-card"><div class="mc-val">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">Total CAPEX</div></div>`,
+      `<div class="metric-card"><div class="mc-val">$${(npv/1e6).toFixed(1)}M</div><div class="mc-label">Total NPV</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${(irr*100).toFixed(1)}%</div><div class="mc-label">Mean IRR</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${pb.toFixed(1)}y</div><div class="mc-label">Avg payback</div></div>`,
+      `<div class="metric-card"><div class="mc-val">$${lcoe.toFixed(3)}</div><div class="mc-label">Mean LCOE/kWh</div></div>`,
+      `<div class="metric-card"><div class="mc-val">$${perConn.toLocaleString(undefined,{maximumFractionDigits:0})}</div><div class="mc-label">$/connection</div></div>`,
     ].join('');
 
     // LCOE vs tariff by tech
@@ -2573,10 +2569,19 @@ function buildFinancialView(bundles) {
       marker: { color: tNames.map(t=>TECH_COL[t]||'#888') },
       hovertemplate: '%{y}: $%{x:.4f}/kWh<extra></extra>',
     };
+    // Per-tech average tariff from Perpres 112/2022 HPT (yr1-10 × F + yr11-20 flat) / 20
+    const techTariffs = {};
+    f.forEach(b => {
+      if (!techTariffs[b.tech_dom]) techTariffs[b.tech_dom] = [];
+      techTariffs[b.tech_dom].push(b.tariff_avg||0);
+    });
     const tariffLine = {
       y: tNames.map(t=>t.replace(/_/g,' ')),
-      x: tNames.map(()=>TARIFF),
-      type: 'scatter', mode: 'lines+markers', name: 'HPT tariff',
+      x: tNames.map(t=> {
+        const vals = techTariffs[t];
+        return vals && vals.length ? vals.reduce((s,v)=>s+v,0)/vals.length : 0;
+      }),
+      type: 'scatter', mode: 'lines+markers', name: 'HPT tariff (20yr avg)',
       line: { color: '#A32D2D', dash: 'dot', width: 2 },
       marker: { size: 6 },
     };
@@ -2649,7 +2654,7 @@ function buildFinancialView(bundles) {
 
     // Table
     const sorted = [...f].sort((a,b)=>(b.npv_usd||0)-(a.npv_usd||0));
-    let html = `<table class="dt"><thead><tr>
+    let html = `<table class="data-table"><thead><tr>
       <th>ID</th><th>Kecamatan</th><th>Kabupaten</th><th>n</th><th>Tech</th>
       <th>CAPEX $K</th><th>NPV $K</th><th>IRR</th><th>Payback</th>
       <th>LCOE</th><th>$/conn</th><th>Exit</th></tr></thead><tbody>`;
@@ -2659,14 +2664,14 @@ function buildFinancialView(bundles) {
       html += `<tr style="${viable?'':'opacity:0.6'}">
         <td>${b.bundle_id}</td>
         <td>${b.kecamatan||''}</td><td>${b.kabupaten||''}</td>
-        <td class="num">${b.n}</td>
+        <td>${b.n}</td>
         <td>${(b.tech_dom||'').replace(/_/g,' ')}</td>
-        <td class="num">$${((b.capex_usd||0)/1000).toFixed(0)}</td>
-        <td class="num" style="${viable?'color:#0F6E56':'color:#A32D2D'}">$${((b.npv_usd||0)/1000).toFixed(0)}</td>
-        <td class="num">${((b.irr_mean||0)*100).toFixed(1)}%</td>
-        <td class="num">${(b.payback_mean||0).toFixed(1)}y</td>
-        <td class="num">$${(b.lcoe_mean||0).toFixed(4)}</td>
-        <td class="num">$${(b.per_connection||0).toLocaleString()}</td>
+        <td>$${((b.capex_usd||0)/1000).toFixed(0)}</td>
+        <td style="${viable?'color:#0F6E56':'color:#A32D2D'}">$${((b.npv_usd||0)/1000).toFixed(0)}</td>
+        <td>${((b.irr_mean||0)*100).toFixed(1)}%</td>
+        <td>${(b.payback_mean||0).toFixed(1)}y</td>
+        <td>$${(b.lcoe_mean||0).toFixed(4)}</td>
+        <td>$${(b.per_connection||0).toLocaleString()}</td>
         <td style="${ec};font-weight:600">${(b.exit||'').replace(/_/g,' ')}</td>
       </tr>`;
     });
@@ -2744,11 +2749,11 @@ function buildBundleCatalog() {
       `${f.length} bundles \u00b7 ${nV} villages \u00b7 ${pop.toLocaleString()} people`;
 
     document.getElementById('bndl-metrics').innerHTML = [
-      `<div class="metric-card"><div class="mc-value">${f.length}</div><div class="mc-label">Bundles</div></div>`,
-      `<div class="metric-card"><div class="mc-value">${nV}</div><div class="mc-label">Villages</div></div>`,
-      `<div class="metric-card"><div class="mc-value">${pop.toLocaleString()}</div><div class="mc-label">Beneficiaries</div></div>`,
-      `<div class="metric-card"><div class="mc-value">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">CAPEX (mid)</div></div>`,
-      `<div class="metric-card"><div class="mc-value">${avgBcs.toFixed(3)}</div><div class="mc-label">Avg BCS</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${f.length}</div><div class="mc-label">Bundles</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${nV}</div><div class="mc-label">Villages</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${pop.toLocaleString()}</div><div class="mc-label">Beneficiaries</div></div>`,
+      `<div class="metric-card"><div class="mc-val">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">CAPEX (mid)</div></div>`,
+      `<div class="metric-card"><div class="mc-val">${avgBcs.toFixed(3)}</div><div class="mc-label">Avg BCS</div></div>`,
     ].join('');
 
     const grid = document.getElementById('bndl-grid');
