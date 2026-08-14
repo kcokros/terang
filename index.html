@@ -282,6 +282,11 @@ table.dt {
   border-collapse: collapse;
   font-size: 0.82rem;
 }
+table.dt td.num {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+}
 table.dt th {
   background: var(--surface-2);
   padding: 10px 14px;
@@ -2654,7 +2659,7 @@ function buildFinancialView(bundles) {
 
     // Table
     const sorted = [...f].sort((a,b)=>(b.npv_usd||0)-(a.npv_usd||0));
-    let html = `<table class="data-table"><thead><tr>
+    let html = `<table class="dt"><thead><tr>
       <th>ID</th><th>Kecamatan</th><th>Kabupaten</th><th>n</th><th>Tech</th>
       <th>CAPEX $K</th><th>NPV $K</th><th>IRR</th><th>Payback</th>
       <th>LCOE</th><th>$/conn</th><th>Exit</th></tr></thead><tbody>`;
@@ -2664,14 +2669,14 @@ function buildFinancialView(bundles) {
       html += `<tr style="${viable?'':'opacity:0.6'}">
         <td>${b.bundle_id}</td>
         <td>${b.kecamatan||''}</td><td>${b.kabupaten||''}</td>
-        <td>${b.n}</td>
+        <td class="num">${b.n}</td>
         <td>${(b.tech_dom||'').replace(/_/g,' ')}</td>
-        <td>$${((b.capex_usd||0)/1000).toFixed(0)}</td>
-        <td style="${viable?'color:#0F6E56':'color:#A32D2D'}">$${((b.npv_usd||0)/1000).toFixed(0)}</td>
-        <td>${((b.irr_mean||0)*100).toFixed(1)}%</td>
-        <td>${(b.payback_mean||0).toFixed(1)}y</td>
-        <td>$${(b.lcoe_mean||0).toFixed(4)}</td>
-        <td>$${(b.per_connection||0).toLocaleString()}</td>
+        <td class="num">$${((b.capex_usd||0)/1000).toFixed(0)}</td>
+        <td class="num" style="${viable?'color:#0F6E56':'color:#A32D2D'}">$${((b.npv_usd||0)/1000).toFixed(0)}</td>
+        <td class="num">${((b.irr_mean||0)*100).toFixed(1)}%</td>
+        <td class="num">${(b.payback_mean||0).toFixed(1)}y</td>
+        <td class="num">$${(b.lcoe_mean||0).toFixed(4)}</td>
+        <td class="num">$${(b.per_connection||0).toLocaleString()}</td>
         <td style="${ec};font-weight:600">${(b.exit||'').replace(/_/g,' ')}</td>
       </tr>`;
     });
@@ -2749,11 +2754,11 @@ function buildBundleCatalog() {
       `${f.length} bundles \u00b7 ${nV} villages \u00b7 ${pop.toLocaleString()} people`;
 
     document.getElementById('bndl-metrics').innerHTML = [
-      `<div class="metric-card"><div class="mc-val">${f.length}</div><div class="mc-label">Bundles</div></div>`,
-      `<div class="metric-card"><div class="mc-val">${nV}</div><div class="mc-label">Villages</div></div>`,
-      `<div class="metric-card"><div class="mc-val">${pop.toLocaleString()}</div><div class="mc-label">Beneficiaries</div></div>`,
-      `<div class="metric-card"><div class="mc-val">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">CAPEX (mid)</div></div>`,
-      `<div class="metric-card"><div class="mc-val">${avgBcs.toFixed(3)}</div><div class="mc-label">Avg BCS</div></div>`,
+      `<div class="metric-card"><div class="mc-value">${f.length}</div><div class="mc-label">Bundles</div></div>`,
+      `<div class="metric-card"><div class="mc-value">${nV}</div><div class="mc-label">Villages</div></div>`,
+      `<div class="metric-card"><div class="mc-value">${pop.toLocaleString()}</div><div class="mc-label">Beneficiaries</div></div>`,
+      `<div class="metric-card"><div class="mc-value">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">CAPEX (mid)</div></div>`,
+      `<div class="metric-card"><div class="mc-value">${avgBcs.toFixed(3)}</div><div class="mc-label">Avg BCS</div></div>`,
     ].join('');
 
     const grid = document.getElementById('bndl-grid');
