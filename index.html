@@ -1452,7 +1452,6 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   <div class="view" id="view-scba">
     <h1>Environmental &amp; SCBA Analysis</h1>
     <p class="subtitle">
-      Four-dimension socioeconomic and environmental benefit analysis.
       CO₂ avoidance uses lifecycle emission factors
       (<a href="https://unece.org/sed/documents/2021/10/reports/life-cycle-assessment-electricity-generation-options" target="_blank">UNECE 2022</a> /
       IPCC AR5 Annex III).
@@ -1492,19 +1491,6 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
       <a href="https://www.adb.org/documents/guidelines-economic-analysis-projects" target="_blank">ADB 2017</a>,
       25-year asset life per IRENA 2026).
     </p>
-
-    <h2>C · Employment</h2>
-    <div class="metrics-row" id="scba-emp-metrics"></div>
-    <p class="caption">
-      Source: <a href="https://www.irena.org/Publications/2024/Oct/Renewable-energy-and-jobs-Annual-review-2024" target="_blank">IRENA &amp; ILO, Renewable Energy and Jobs: Annual Review 2024</a>
-      (15 person-yr/MW construction; 0.5 FTE/MW O&amp;M).
-    </p>
-
-    <h2>D · Reliability — Service Quality Index</h2>
-    <div class="metrics-row" id="scba-reliability-metrics"></div>
-    <div class="chart-box">
-      <div id="chart-sqi-bar"></div>
-    </div>
   </div>
 
 </div> <!-- /dashboard-wrap -->
@@ -3033,20 +3019,23 @@ function closeBundleDetail() {
 
 
 function renderSCBA() {
-  const scored = SCORED;
+  // Load from L3-SCBA v2 cell outputs
+  Promise.all([
+    new Promise(res => Papa.parse('data/terang_scba_village.csv',
+      { download:true, header:true, dynamicTyping:true, complete: r => res(r.data.filter(x=>x.kode_desa)) })),
+    new Promise(res => Papa.parse('data/terang_scba_bundle.csv',
+      { download:true, header:true, dynamicTyping:true, complete: r => res(r.data.filter(x=>x.bundle_id)) })),
+  ]).then(([villages, bundles]) => buildSCBA(villages, bundles));
+}
+
+function buildSCBA(villages, bundles) {
   const TECH_COL = { micro_hydro:'#2B5F8F', solar_biomass_hybrid:'#8B5A3C',
                      solar_battery:'#D4A017', wind_solar_hybrid:'#4A7A9C' };
+  const ASSET_LIFE = 25;
 
-  // ── Constants ──
-  const SDR = 0.09, ASSET_LIFE = 25, BCR = 3.43;
-  const CRF = SDR * Math.pow(1+SDR, ASSET_LIFE) / (Math.pow(1+SDR, ASSET_LIFE) - 1);
-
-  const darkVillages = scored.filter(r => r.l1_class === 'dark_settled');
-  const intermVillages = scored.filter(r => r.l1_class === 'intermittent');
-
-  // ── A. Environmental — CO₂ lifecycle ──
-  const totalCO2 = scored.reduce((s,r) => s + (r.co2_t_yr||0), 0);
-  const darkCO2 = darkVillages.reduce((s,r) => s + (r.co2_t_yr||0), 0);
+  // ── A. Environmental — CO₂ (pre-computed in SCBA cell) ──
+  const totalCO2 = villages.reduce((s,v) => s + (v.co2_avoided_t||0), 0);
+  const darkCO2 = villages.filter(v=>v.l1_class==='dark_settled').reduce((s,v) => s + (v.co2_avoided_t||0), 0);
   const co2_25yr = totalCO2 * ASSET_LIFE;
 
   document.getElementById('scba-env-metrics').innerHTML = [
@@ -3058,7 +3047,7 @@ function renderSCBA() {
 
   // CO2 by kabupaten
   const co2Kab = {};
-  scored.forEach(r => { co2Kab[r.kabupaten] = (co2Kab[r.kabupaten]||0) + (r.co2_t_yr||0); });
+  villages.forEach(v => { co2Kab[v.kabupaten] = (co2Kab[v.kabupaten]||0) + (v.co2_avoided_t||0); });
   const kabsSorted = Object.keys(co2Kab).sort((a,b) => co2Kab[a] - co2Kab[b]);
   Plotly.newPlot('chart-co2-kab', [{
     type: 'bar', orientation: 'h',
@@ -3076,10 +3065,7 @@ function renderSCBA() {
 
   // CO2 by technology
   const co2Tech = {};
-  scored.forEach(r => {
-    const t = r.tech || 'unknown';
-    co2Tech[t] = (co2Tech[t]||0) + (r.co2_t_yr||0);
-  });
+  villages.forEach(v => { co2Tech[v.tech] = (co2Tech[v.tech]||0) + (v.co2_avoided_t||0); });
   const techKeys = Object.keys(co2Tech).sort((a,b) => co2Tech[b] - co2Tech[a]);
   Plotly.newPlot('chart-co2-tech', [{
     labels: techKeys.map(t => t.replace(/_/g,' ')),
@@ -3092,21 +3078,11 @@ function renderSCBA() {
     ...PLOTLY_LAYOUT, height: 300, showlegend: false,
   }, PLOTLY_CONFIG);
 
-  // ── B. Socioeconomic — BCR transfer ──
-  // Use bundle-level CAPEX + O&M if available, else estimate from village data
-  let totalCapex = 0, totalOM = 0;
-  if (typeof BUNDLE_DATA !== 'undefined' && BUNDLE_DATA.length) {
-    totalCapex = BUNDLE_DATA.reduce((s,b) => s + (b.capex_usd||0), 0);
-    totalOM = BUNDLE_DATA.reduce((s,b) => s + (b.annual_om||0), 0);
-  } else {
-    totalCapex = scored.reduce((s,r) => s + (r.capex_usd||0), 0);
-    totalOM = totalCapex * 0.023; // blended 2.3%
-  }
-  const annualisedCapex = totalCapex * CRF;
-  const annualCost = annualisedCapex + totalOM;
-  const annualBenefit = BCR * annualCost;
+  // ── B. Socioeconomic — BCR (pre-computed in SCBA cell) ──
+  const totalCapex = bundles.reduce((s,b) => s + (b.capex_usd||0), 0);
+  const annualBenefit = bundles.reduce((s,b) => s + (b.socec_benefit_yr||0), 0);
   const benefit25yr = annualBenefit * ASSET_LIFE;
-  const totalHH = scored.reduce((s,r) => s + (r.hh_2026||0), 0);
+  const totalHH = villages.reduce((s,v) => s + (v.hh_2026||0), 0);
   const perHH = totalHH > 0 ? annualBenefit / totalHH : 0;
 
   document.getElementById('scba-socec-metrics').innerHTML = [
@@ -3116,13 +3092,12 @@ function renderSCBA() {
     metricCard('Benefit-to-investment', `${(benefit25yr/totalCapex).toFixed(1)}×`),
   ].join('');
 
-  // Socioeconomic by kabupaten
+  // Socioeconomic by kabupaten (from village-level capex)
+  const SDR = 0.09, CRF = SDR * Math.pow(1+SDR,25) / (Math.pow(1+SDR,25)-1), BCR = 3.43;
   const socecKab = {};
-  scored.forEach(r => {
-    const capex = r.capex_usd || 0;
-    const om = capex * 0.023;
-    const cost = capex * CRF + om;
-    socecKab[r.kabupaten] = (socecKab[r.kabupaten]||0) + BCR * cost;
+  villages.forEach(v => {
+    const cost = (v.capex_usd||0) * CRF + (v.annual_om_usd || (v.capex_usd||0)*0.023);
+    socecKab[v.kabupaten] = (socecKab[v.kabupaten]||0) + BCR * cost;
   });
   const socecKabsSorted = Object.keys(socecKab).sort((a,b) => socecKab[a] - socecKab[b]);
   Plotly.newPlot('chart-socec-kab', [{
@@ -3137,51 +3112,6 @@ function renderSCBA() {
     ...PLOTLY_LAYOUT, height: 300,
     xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Annual socioeconomic benefit (USD)' },
     yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true },
-  }, PLOTLY_CONFIG);
-
-  // ── C. Employment ──
-  const totalMW = scored.reduce((s,r) => s + (r.demand_kw||0), 0) / 1000;
-  document.getElementById('scba-emp-metrics').innerHTML = [
-    metricCard('Total RE capacity', `${totalMW.toFixed(1)} MW`),
-    metricCard('Construction (person-yr)', Math.round(totalMW * 15).toLocaleString()),
-    metricCard('Permanent O&M FTE', (totalMW * 0.5).toFixed(1)),
-  ].join('');
-
-  // ── D. Reliability ──
-  const sqiDark = darkVillages.length ? darkVillages.reduce((s,r)=>s+r.lit_fraction,0)/darkVillages.length : 0;
-  const sqiInterm = intermVillages.length ? intermVillages.reduce((s,r)=>s+r.lit_fraction,0)/intermVillages.length : 0;
-  const sqiMean = scored.length ? scored.reduce((s,r)=>s+r.lit_fraction,0)/scored.length : 0;
-
-  document.getElementById('scba-reliability-metrics').innerHTML = [
-    metricCard('SQI — dark (baseline)', sqiDark.toFixed(2), `target +${(0.95-sqiDark).toFixed(2)}`, 'bad'),
-    metricCard('SQI — intermittent (baseline)', sqiInterm.toFixed(2), `target +${(0.95-sqiInterm).toFixed(2)}`, 'bad'),
-    metricCard('Pipeline mean', sqiMean.toFixed(2), `uplift +${(0.95-sqiMean).toFixed(2)}`),
-    metricCard('SQI target (Tier 3)', '0.95', null, 'good'),
-  ].join('');
-
-  // SQI bar chart
-  const byClass = {};
-  scored.forEach(r => {
-    if (!byClass[r.l1_class]) byClass[r.l1_class] = { sum: 0, count: 0 };
-    byClass[r.l1_class].sum += r.lit_fraction;
-    byClass[r.l1_class].count++;
-  });
-  const clsKeys = Object.keys(byClass);
-  const clsLabels = clsKeys.map(k => CLASS_LABELS[k]||k);
-  Plotly.newPlot('chart-sqi-bar', [{
-    type: 'bar',
-    x: clsLabels,
-    y: clsKeys.map(k => byClass[k].sum/byClass[k].count),
-    marker: { color: clsKeys.map(k => COLORS[k]||'#888') },
-    text: clsKeys.map(k => (byClass[k].sum/byClass[k].count).toFixed(2)),
-    textposition: 'outside',
-    textfont: { color: '#E4E8EE', size: 12 },
-  }], {
-    ...PLOTLY_LAYOUT, height: 280,
-    xaxis: { ...PLOTLY_LAYOUT.xaxis, type: 'category' },
-    yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'SQI (lit_fraction)', range: [0, 1.05] },
-    shapes: [{ type:'line', x0:0, x1:1, xref:'paper', y0:0.95, y1:0.95, line:{color:'#0F6E56',dash:'dash',width:1} }],
-    annotations: [{ x: clsLabels[clsLabels.length-1] || '', y: 0.97, text:'SQI target 0.95', showarrow:false, font:{size:10,color:'#0F6E56'} }],
   }, PLOTLY_CONFIG);
 }
 
