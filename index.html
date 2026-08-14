@@ -282,11 +282,6 @@ table.dt {
   border-collapse: collapse;
   font-size: 0.82rem;
 }
-table.dt td.num {
-  text-align: right;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-}
 table.dt th {
   background: var(--surface-2);
   padding: 10px 14px;
@@ -306,6 +301,11 @@ table.dt td {
   white-space: nowrap;
 }
 table.dt tr:hover td { background: rgba(186,117,23,0.06); }
+table.dt td.num {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+}
 
 .data-table-wrap { max-height: 400px; overflow-y: auto; }
 
@@ -1054,9 +1054,8 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
     Prescriptions are cross-validated at 98% against Kementerian ESDM's official
     resource registry, an independent confirmation that the satellite-derived
     recommendations align with government-mapped potential.
-    <span style="color:var(--accent);">Bankability scoring and socioeconomic impact analysis are
-    <strong>indicative</strong>: the metrics, weightings, and framework design
-    are still being refined alongside pending population and ground-truth data.</span>
+    <span style="color:var(--accent);">All figures are pre-feasibility estimates
+    derived from open satellite and census data — subject to field validation.</span>
   </div>
 
   <div class="landing-buttons">
@@ -1132,15 +1131,15 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
       Composite investment-readiness score (0–100) combining additionality,
       RE resource quality, feasibility, and environmental co-benefit.
       Use the filters to narrow by kabupaten, technology, or class.
-      The top-50 table shows score components and a SCBA cross-score.
+      The top-50 table shows score components.
     </p>
 
-    <h3>5 · SCBA impact</h3>
+    <h3>5 · Env. &amp; SCBA Analysis</h3>
     <p>
-      Four-dimension socioeconomic benefit analysis: reliability (SQI gap),
-      environmental (CO₂ avoidance), household welfare (fuel saving),
-      and employment (construction + O&amp;M jobs). The Kepulauan Aru
-      cold-storage uplift is flagged as a productive-use case study.
+      Four-dimension analysis: environmental (lifecycle CO₂ avoidance per UNECE 2022),
+      socioeconomic benefit (BCR transfer from Wibisono et al. 2023 Sumba study,
+      9% social discount rate per ADB 2017), employment (IRENA multipliers),
+      and reliability (SQI uplift to Tier 3).
     </p>
 
     <h3>Data layers available on maps</h3>
@@ -1185,8 +1184,8 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
   <button class="nav-btn" data-view="prescriptions">RE prescriptions</button>
   <button class="nav-btn" data-view="grid-infra">Grid &amp; infrastructure</button>
   <button class="nav-btn" data-view="bundles">Investment bundles</button>
-  <button class="nav-btn" data-view="bankability">Financial Benefit Analysis <span class="nav-badge">! <span class="nav-tip">Indicative: framework under design</span></span></button>
-  <button class="nav-btn" data-view="scba">SCBA impact <span class="nav-badge">! <span class="nav-tip">Indicative: framework under design</span></span></button>
+  <button class="nav-btn" data-view="bankability">Financial Benefit Analysis</button>
+  <button class="nav-btn" data-view="scba">Env. &amp; SCBA Analysis</button>
 
   <div class="sidebar-divider"></div>
 
@@ -1449,45 +1448,63 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
     </div>
   </div>
 
-  <!-- VIEW 5: SCBA IMPACT -->
+  <!-- VIEW 5: ENV. & SCBA ANALYSIS -->
   <div class="view" id="view-scba">
-    <h1>SCBA impact dashboard</h1>
+    <h1>Environmental &amp; SCBA Analysis</h1>
     <p class="subtitle">
-      4-dimension Socioeconomic &amp; Environmental Benefit Analysis.
-      <span style="color:var(--accent);font-weight:600;">Indicative</span> — benefit dimensions, metrics, and monetisation approach are under active design;
-      population data (WorldPop) and ground-truth validation pending.
+      Four-dimension socioeconomic and environmental benefit analysis.
+      CO₂ avoidance uses lifecycle emission factors
+      (<a href="https://unece.org/sed/documents/2021/10/reports/life-cycle-assessment-electricity-generation-options" target="_blank">UNECE 2022</a> /
+      IPCC AR5 Annex III).
+      Socioeconomic benefit transferred from
+      <a href="https://www.researchgate.net/publication/372277691_Estimating_the_value_of_off-grid_electricity_benefits_for_rural_households_Evidence_from_rural_Sumba_Indonesia" target="_blank">Wibisono et al. (2023)</a> Sumba BCR study.
     </p>
 
-    <h2>A · Reliability — Service Quality Index</h2>
+    <h2>A · Environmental — lifecycle CO₂ avoidance</h2>
+    <div class="metrics-row" id="scba-env-metrics"></div>
+    <div class="chart-row" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;">
+      <div class="chart-box">
+        <div class="cb-title">CO₂ avoided by kabupaten</div>
+        <div id="chart-co2-kab"></div>
+      </div>
+      <div class="chart-box">
+        <div class="cb-title">CO₂ avoided by technology</div>
+        <div id="chart-co2-tech"></div>
+      </div>
+    </div>
+    <p class="caption">
+      Lifecycle basis: diesel 900 gCO₂eq/kWh
+      (<a href="https://unece.org/sed/documents/2021/10/reports/life-cycle-assessment-electricity-generation-options" target="_blank">UNECE 2022</a>)
+      minus tech-specific RE emission factors (IPCC AR5 Annex III, Schlömer et al. 2014).
+      Micro-hydro 24, solar PV 27, solar-biomass hybrid 88, wind-solar hybrid 15 gCO₂eq/kWh.
+    </p>
+
+    <h2>B · Socioeconomic benefit — BCR transfer</h2>
+    <div class="metrics-row" id="scba-socec-metrics"></div>
+    <div class="chart-box">
+      <div class="cb-title">Socioeconomic benefit by kabupaten</div>
+      <div id="chart-socec-kab"></div>
+    </div>
+    <p class="caption">
+      BCR 3.43 (market benefits incl. installation,
+      <a href="https://www.researchgate.net/publication/372277691_Estimating_the_value_of_off-grid_electricity_benefits_for_rural_households_Evidence_from_rural_Sumba_Indonesia" target="_blank">Wibisono et al. 2023</a>, Sumba) &times;
+      annualised cost (9% SDR per
+      <a href="https://www.adb.org/documents/guidelines-economic-analysis-projects" target="_blank">ADB 2017</a>,
+      25-year asset life per IRENA 2026).
+    </p>
+
+    <h2>C · Employment</h2>
+    <div class="metrics-row" id="scba-emp-metrics"></div>
+    <p class="caption">
+      Source: <a href="https://www.irena.org/Publications/2024/Oct/Renewable-energy-and-jobs-Annual-review-2024" target="_blank">IRENA &amp; ILO, Renewable Energy and Jobs: Annual Review 2024</a>
+      (15 person-yr/MW construction; 0.5 FTE/MW O&amp;M).
+    </p>
+
+    <h2>D · Reliability — Service Quality Index</h2>
     <div class="metrics-row" id="scba-reliability-metrics"></div>
     <div class="chart-box">
       <div id="chart-sqi-bar"></div>
     </div>
-
-    <h2>B · Environmental — CO₂ avoidance &amp; forest conservation</h2>
-    <div class="metrics-row" id="scba-env-metrics"></div>
-    <div class="chart-box">
-      <div class="cb-title">CO₂ avoided by kabupaten</div>
-      <div id="chart-co2-kab"></div>
-      <p class="caption">
-        Basis: 20 kW PLTD × 8 h/day × 365 days × IPCC AR6 EF 0.7 kgCO₂/kWh.
-      </p>
-    </div>
-
-    <h2>C · Household welfare (indicative)</h2>
-    <div class="metrics-row" id="scba-welfare-metrics"></div>
-    <div class="info-box">
-      🐟 <strong>Kepulauan Aru productive-use uplift</strong> — Cold storage extends fish catch
-      shelf life from hours to days, opening buyers outside the spoilage window.
-      Quantification pending BPS fisheries statistics.
-    </div>
-
-    <h2>D · Employment</h2>
-    <div class="metrics-row" id="scba-emp-metrics"></div>
-    <p class="caption">
-      Source: IRENA &amp; ILO, Renewable Energy and Jobs: Annual Review 2024
-      (15 person-yr/MW construction; 0.5 FTE/MW O&amp;M).
-    </p>
   </div>
 
 </div> <!-- /dashboard-wrap -->
@@ -1827,8 +1844,14 @@ function computeScores(l1, l2) {
     const popScoreB = Math.log1p(Math.max(r.built_m2 || 0, 1)) / logMax;
     r.scba_score = (0.40*sqiGap + 0.35*popScoreB + 0.25*1.0) * 100;
 
-    // CO2
-    r.co2_t_yr = 20 * 8 * 365 * 0.7 / 1000;
+    // CO2 — lifecycle (UNECE 2022 / IPCC AR5)
+    const RE_EF = { micro_hydro: 24, solar_battery: 27, solar_biomass_hybrid: 88, wind_solar_hybrid: 15 };
+    const dieselEF = 900; // gCO2eq/kWh lifecycle
+    const reEF = RE_EF[r.tech] || 27;
+    const annualKwh = (r.demand_kw || 0) * 8 * 365;
+    r.co2_t_yr = annualKwh * (dieselEF - reEF) / 1e6;
+    r.annual_kwh = annualKwh;
+    r.re_ef = reEF;
   }
 
   results.sort((a, b) => b.bankability - a.bankability);
@@ -2552,12 +2575,12 @@ function buildFinancialView(bundles) {
     const perConn = hh > 0 ? capex / hh : 0;
 
     document.getElementById('fin-metrics').innerHTML = [
-      `<div class="metric-card"><div class="mc-val">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">Total CAPEX</div></div>`,
-      `<div class="metric-card"><div class="mc-val">$${(npv/1e6).toFixed(1)}M</div><div class="mc-label">Total NPV</div></div>`,
-      `<div class="metric-card"><div class="mc-val">${(irr*100).toFixed(1)}%</div><div class="mc-label">Mean IRR</div></div>`,
-      `<div class="metric-card"><div class="mc-val">${pb.toFixed(1)}y</div><div class="mc-label">Avg payback</div></div>`,
-      `<div class="metric-card"><div class="mc-val">$${lcoe.toFixed(3)}</div><div class="mc-label">Mean LCOE/kWh</div></div>`,
-      `<div class="metric-card"><div class="mc-val">$${perConn.toLocaleString(undefined,{maximumFractionDigits:0})}</div><div class="mc-label">$/connection</div></div>`,
+      `<div class="metric-card"><div class="mc-value">$${(capex/1e6).toFixed(1)}M</div><div class="mc-label">Total CAPEX</div></div>`,
+      `<div class="metric-card"><div class="mc-value">$${(npv/1e6).toFixed(1)}M</div><div class="mc-label">Total NPV</div></div>`,
+      `<div class="metric-card"><div class="mc-value">${(irr*100).toFixed(1)}%</div><div class="mc-label">Mean IRR</div></div>`,
+      `<div class="metric-card"><div class="mc-value">${pb.toFixed(1)}y</div><div class="mc-label">Avg payback</div></div>`,
+      `<div class="metric-card"><div class="mc-value">$${lcoe.toFixed(3)}</div><div class="mc-label">Mean LCOE/kWh</div></div>`,
+      `<div class="metric-card"><div class="mc-value">$${perConn.toLocaleString(undefined,{maximumFractionDigits:0})}</div><div class="mc-label">$/connection</div></div>`,
     ].join('');
 
     // LCOE vs tariff by tech
@@ -3011,17 +3034,129 @@ function closeBundleDetail() {
 
 function renderSCBA() {
   const scored = SCORED;
+  const TECH_COL = { micro_hydro:'#2B5F8F', solar_biomass_hybrid:'#8B5A3C',
+                     solar_battery:'#D4A017', wind_solar_hybrid:'#4A7A9C' };
 
-  // Reliability
+  // ── Constants ──
+  const SDR = 0.09, ASSET_LIFE = 25, BCR = 3.43;
+  const CRF = SDR * Math.pow(1+SDR, ASSET_LIFE) / (Math.pow(1+SDR, ASSET_LIFE) - 1);
+
   const darkVillages = scored.filter(r => r.l1_class === 'dark_settled');
   const intermVillages = scored.filter(r => r.l1_class === 'intermittent');
-  const sqiDark = darkVillages.length ? darkVillages.reduce((s,r)=>s+r.lit_fraction,0)/darkVillages.length : 0.13;
-  const sqiInterm = intermVillages.length ? intermVillages.reduce((s,r)=>s+r.lit_fraction,0)/intermVillages.length : 0.39;
+
+  // ── A. Environmental — CO₂ lifecycle ──
+  const totalCO2 = scored.reduce((s,r) => s + (r.co2_t_yr||0), 0);
+  const darkCO2 = darkVillages.reduce((s,r) => s + (r.co2_t_yr||0), 0);
+  const co2_25yr = totalCO2 * ASSET_LIFE;
+
+  document.getElementById('scba-env-metrics').innerHTML = [
+    metricCard('CO₂ avoided (annual)', `${Math.round(totalCO2).toLocaleString()} tCO₂eq/yr`),
+    metricCard('CO₂ avoided (25-year)', `${Math.round(co2_25yr).toLocaleString()} tCO₂eq`),
+    metricCard('Dark villages', `${Math.round(darkCO2).toLocaleString()} tCO₂eq/yr`),
+    metricCard('Intermittent villages', `${Math.round(totalCO2 - darkCO2).toLocaleString()} tCO₂eq/yr`),
+  ].join('');
+
+  // CO2 by kabupaten
+  const co2Kab = {};
+  scored.forEach(r => { co2Kab[r.kabupaten] = (co2Kab[r.kabupaten]||0) + (r.co2_t_yr||0); });
+  const kabsSorted = Object.keys(co2Kab).sort((a,b) => co2Kab[a] - co2Kab[b]);
+  Plotly.newPlot('chart-co2-kab', [{
+    type: 'bar', orientation: 'h',
+    x: kabsSorted.map(k => co2Kab[k]),
+    y: kabsSorted,
+    marker: { color: '#0F6E56' },
+    text: kabsSorted.map(k => Math.round(co2Kab[k]).toLocaleString()),
+    textposition: 'outside',
+    textfont: { color: '#E4E8EE', size: 10 },
+  }], {
+    ...PLOTLY_LAYOUT, height: 300,
+    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'tCO₂eq/yr avoided' },
+    yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true },
+  }, PLOTLY_CONFIG);
+
+  // CO2 by technology
+  const co2Tech = {};
+  scored.forEach(r => {
+    const t = r.tech || 'unknown';
+    co2Tech[t] = (co2Tech[t]||0) + (r.co2_t_yr||0);
+  });
+  const techKeys = Object.keys(co2Tech).sort((a,b) => co2Tech[b] - co2Tech[a]);
+  Plotly.newPlot('chart-co2-tech', [{
+    labels: techKeys.map(t => t.replace(/_/g,' ')),
+    values: techKeys.map(t => co2Tech[t]),
+    type: 'pie', hole: 0.45,
+    marker: { colors: techKeys.map(t => TECH_COL[t]||'#888') },
+    textinfo: 'label+percent',
+    textfont: { size: 11, color: '#E4E8EE' },
+  }], {
+    ...PLOTLY_LAYOUT, height: 300, showlegend: false,
+  }, PLOTLY_CONFIG);
+
+  // ── B. Socioeconomic — BCR transfer ──
+  // Use bundle-level CAPEX + O&M if available, else estimate from village data
+  let totalCapex = 0, totalOM = 0;
+  if (typeof BUNDLE_DATA !== 'undefined' && BUNDLE_DATA.length) {
+    totalCapex = BUNDLE_DATA.reduce((s,b) => s + (b.capex_usd||0), 0);
+    totalOM = BUNDLE_DATA.reduce((s,b) => s + (b.annual_om||0), 0);
+  } else {
+    totalCapex = scored.reduce((s,r) => s + (r.capex_usd||0), 0);
+    totalOM = totalCapex * 0.023; // blended 2.3%
+  }
+  const annualisedCapex = totalCapex * CRF;
+  const annualCost = annualisedCapex + totalOM;
+  const annualBenefit = BCR * annualCost;
+  const benefit25yr = annualBenefit * ASSET_LIFE;
+  const totalHH = scored.reduce((s,r) => s + (r.hh_2026||0), 0);
+  const perHH = totalHH > 0 ? annualBenefit / totalHH : 0;
+
+  document.getElementById('scba-socec-metrics').innerHTML = [
+    metricCard('Annual socioeconomic benefit', `$${(annualBenefit/1e6).toFixed(1)}M/yr`),
+    metricCard('25-year cumulative', `$${(benefit25yr/1e6).toFixed(0)}M`),
+    metricCard('Per household', `$${Math.round(perHH).toLocaleString()}/yr`),
+    metricCard('Benefit-to-investment', `${(benefit25yr/totalCapex).toFixed(1)}×`),
+  ].join('');
+
+  // Socioeconomic by kabupaten
+  const socecKab = {};
+  scored.forEach(r => {
+    const capex = r.capex_usd || 0;
+    const om = capex * 0.023;
+    const cost = capex * CRF + om;
+    socecKab[r.kabupaten] = (socecKab[r.kabupaten]||0) + BCR * cost;
+  });
+  const socecKabsSorted = Object.keys(socecKab).sort((a,b) => socecKab[a] - socecKab[b]);
+  Plotly.newPlot('chart-socec-kab', [{
+    type: 'bar', orientation: 'h',
+    x: socecKabsSorted.map(k => socecKab[k]),
+    y: socecKabsSorted,
+    marker: { color: '#185FA5' },
+    text: socecKabsSorted.map(k => '$' + (socecKab[k]/1e6).toFixed(1) + 'M'),
+    textposition: 'outside',
+    textfont: { color: '#E4E8EE', size: 10 },
+  }], {
+    ...PLOTLY_LAYOUT, height: 300,
+    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Annual socioeconomic benefit (USD)' },
+    yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true },
+  }, PLOTLY_CONFIG);
+
+  // ── C. Employment ──
+  const totalMW = scored.reduce((s,r) => s + (r.demand_kw||0), 0) / 1000;
+  document.getElementById('scba-emp-metrics').innerHTML = [
+    metricCard('Total RE capacity', `${totalMW.toFixed(1)} MW`),
+    metricCard('Construction (person-yr)', Math.round(totalMW * 15).toLocaleString()),
+    metricCard('Permanent O&M FTE', (totalMW * 0.5).toFixed(1)),
+  ].join('');
+
+  // ── D. Reliability ──
+  const sqiDark = darkVillages.length ? darkVillages.reduce((s,r)=>s+r.lit_fraction,0)/darkVillages.length : 0;
+  const sqiInterm = intermVillages.length ? intermVillages.reduce((s,r)=>s+r.lit_fraction,0)/intermVillages.length : 0;
+  const sqiMean = scored.length ? scored.reduce((s,r)=>s+r.lit_fraction,0)/scored.length : 0;
 
   document.getElementById('scba-reliability-metrics').innerHTML = [
-    metricCard('SQI — dark (baseline)', sqiDark.toFixed(2), `target +${(0.80-sqiDark).toFixed(2)}`, 'bad'),
-    metricCard('SQI — intermittent (baseline)', sqiInterm.toFixed(2), `target +${(0.80-sqiInterm).toFixed(2)}`, 'bad'),
-    metricCard('SQI target (M3 trigger)', '0.80', null, 'good'),
+    metricCard('SQI — dark (baseline)', sqiDark.toFixed(2), `target +${(0.95-sqiDark).toFixed(2)}`, 'bad'),
+    metricCard('SQI — intermittent (baseline)', sqiInterm.toFixed(2), `target +${(0.95-sqiInterm).toFixed(2)}`, 'bad'),
+    metricCard('Pipeline mean', sqiMean.toFixed(2), `uplift +${(0.95-sqiMean).toFixed(2)}`),
+    metricCard('SQI target (Tier 3)', '0.95', null, 'good'),
   ].join('');
 
   // SQI bar chart
@@ -3045,54 +3180,9 @@ function renderSCBA() {
     ...PLOTLY_LAYOUT, height: 280,
     xaxis: { ...PLOTLY_LAYOUT.xaxis, type: 'category' },
     yaxis: { ...PLOTLY_LAYOUT.yaxis, title: 'SQI (lit_fraction)', range: [0, 1.05] },
-    shapes: [{ type:'line', x0:0, x1:1, xref:'paper', y0:0.80, y1:0.80, line:{color:'#0F6E56',dash:'dash',width:1} }],
-    annotations: [{ x: clsLabels[clsLabels.length-1] || '', y: 0.82, text:'SQI target 0.80', showarrow:false, font:{size:10,color:'#0F6E56'} }],
+    shapes: [{ type:'line', x0:0, x1:1, xref:'paper', y0:0.95, y1:0.95, line:{color:'#0F6E56',dash:'dash',width:1} }],
+    annotations: [{ x: clsLabels[clsLabels.length-1] || '', y: 0.97, text:'SQI target 0.95', showarrow:false, font:{size:10,color:'#0F6E56'} }],
   }, PLOTLY_CONFIG);
-
-  // Environmental
-  const totalCO2 = scored.reduce((s,r) => s + (r.co2_t_yr||0), 0);
-  const darkCO2 = darkVillages.reduce((s,r) => s + (r.co2_t_yr||0), 0);
-  const screened = META.conservation_screened || 158;
-
-  document.getElementById('scba-env-metrics').innerHTML = [
-    metricCard('CO₂ avoided (dark)', `${Math.round(darkCO2).toLocaleString()} t/yr`),
-    metricCard('CO₂ avoided (full)', `${Math.round(totalCO2).toLocaleString()} t/yr`),
-    metricCard('Carbon value ($50/t)', `USD ${(totalCO2*50/1e6).toFixed(2)}M/yr`),
-    metricCard('Villages screened (PA)', screened),
-  ].join('');
-
-  // CO2 by kabupaten
-  const co2Kab = {};
-  scored.forEach(r => { co2Kab[r.kabupaten] = (co2Kab[r.kabupaten]||0) + (r.co2_t_yr||0); });
-  const kabsSorted = Object.keys(co2Kab).sort((a,b) => co2Kab[a] - co2Kab[b]);
-  Plotly.newPlot('chart-co2-kab', [{
-    type: 'bar', orientation: 'h',
-    x: kabsSorted.map(k => co2Kab[k]),
-    y: kabsSorted,
-    marker: { color: '#0F6E56' },
-  }], {
-    ...PLOTLY_LAYOUT, height: 260,
-    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'tCO₂/yr avoided' },
-    yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true },
-  }, PLOTLY_CONFIG);
-
-  // Welfare
-  const hhDark = Math.round(darkVillages.reduce((s,r) => s + (r.built_m2||0)/50, 0));
-  const fuelLow = hhDark * 36000000 * 0.10 / 15000; // rough IDR→USD
-  const fuelHigh = hhDark * 36000000 * 0.20 / 15000;
-
-  document.getElementById('scba-welfare-metrics').innerHTML = [
-    metricCard('Est. households — dark †', hhDark.toLocaleString()),
-    metricCard('Annual fuel saving range †', `USD ${(fuelLow/1e6).toFixed(1)}–${(fuelHigh/1e6).toFixed(0)}M/yr`),
-  ].join('');
-
-  // Employment
-  const totalMW = scored.length * 20 / 1000; // 20kW per village
-  document.getElementById('scba-emp-metrics').innerHTML = [
-    metricCard('Construction (person-yr)', Math.round(totalMW * 15).toLocaleString()),
-    metricCard('Permanent O&M FTE', (totalMW * 0.5).toFixed(1)),
-    metricCard('Total capacity', `${totalMW.toFixed(1)} MW`),
-  ].join('');
 }
 
 // ══════════════════════════════════════════════════════════════════
