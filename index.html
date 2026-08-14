@@ -1459,6 +1459,56 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
       <a href="https://www.researchgate.net/publication/372277691_Estimating_the_value_of_off-grid_electricity_benefits_for_rural_households_Evidence_from_rural_Sumba_Indonesia" target="_blank">Wibisono et al. (2023)</a> Sumba BCR study.
     </p>
 
+    <details>
+      <summary>SCBA methodology</summary>
+      <div class="details-body">
+        <div class="meth-columns">
+          <div class="meth-col">
+            <h4>Environmental — lifecycle CO₂ avoidance</h4>
+            <table class="meth-table">
+              <thead><tr><th>Parameter</th><th>Value</th><th>Source</th></tr></thead>
+              <tbody>
+                <tr><td>Diesel lifecycle EF</td><td>900 gCO₂eq/kWh</td><td><a href="https://unece.org/sed/documents/2021/10/reports/life-cycle-assessment-electricity-generation-options" target="_blank" style="color:var(--accent)">UNECE 2022</a>; IPCC AR5 Annex III</td></tr>
+                <tr><td>Diesel efficiency</td><td>33%</td><td>IPCC EFDB (266.76 g/kWh_fuel &div; 0.33)</td></tr>
+                <tr><td>Upstream multiplier</td><td>+15%</td><td>Extraction, refining, transport</td></tr>
+                <tr><td>Diesel operating hours</td><td>8 h/day, 365 d/yr</td><td>Standard rural PLTD runtime</td></tr>
+              </tbody>
+            </table>
+            <table class="meth-table" style="margin-top:12px;">
+              <thead><tr><th>RE technology</th><th>Lifecycle EF (gCO₂eq/kWh)</th><th>Net avoided</th></tr></thead>
+              <tbody>
+                <tr><td>Micro-hydro (run-of-river)</td><td>24</td><td>876 g/kWh</td></tr>
+                <tr><td>Solar PV (utility-scale)</td><td>27</td><td>873 g/kWh</td></tr>
+                <tr><td>Solar-biomass hybrid (70/30)</td><td>88</td><td>812 g/kWh</td></tr>
+                <tr><td>Wind-solar hybrid (60/40)</td><td>15</td><td>885 g/kWh</td></tr>
+              </tbody>
+            </table>
+            <p class="caption" style="margin-top:8px;">CO₂ avoided = annual_kWh &times; (diesel EF &minus; RE EF) / 10⁶. Hybrid weights are assumptions based on system design (solar primary + biomass/wind backup).</p>
+          </div>
+          <div class="meth-col">
+            <h4 class="col-accent">Socioeconomic — BCR transfer</h4>
+            <table class="meth-table">
+              <thead><tr><th>Parameter</th><th>Value</th><th>Source</th></tr></thead>
+              <tbody>
+                <tr><td>Benefit-cost ratio</td><td>3.43 (market benefits)</td><td><a href="https://www.researchgate.net/publication/372277691_Estimating_the_value_of_off-grid_electricity_benefits_for_rural_households_Evidence_from_rural_Sumba_Indonesia" target="_blank" style="color:var(--accent)">Wibisono et al. 2023</a>, Table 5</td></tr>
+                <tr><td>BCR components</td><td>Kerosene substitution + productive-use uplift</td><td>Market benefits only, incl. installation cost</td></tr>
+                <tr><td>Social discount rate</td><td>9%</td><td><a href="https://www.adb.org/documents/guidelines-economic-analysis-projects" target="_blank" style="color:var(--accent)">ADB 2017</a>, min. EIRR for DMCs</td></tr>
+                <tr><td>Asset life</td><td>25 years</td><td>IRENA 2026, standard RE economic life</td></tr>
+                <tr><td>Capital recovery factor</td><td>0.1018</td><td>Derived: 9% / 25 yr</td></tr>
+                <tr><td>Transfer context</td><td>Rural Sumba &rarr; rural Maluku</td><td>Similar: eastern Indonesia, subsistence agriculture, kerosene baseline, off-grid RE</td></tr>
+              </tbody>
+            </table>
+            <p class="caption" style="margin-top:8px;">Annual benefit = BCR &times; (CAPEX &times; CRF + annual O&amp;M). The BCR captures market benefits only (not WTP-based non-market benefits), making the estimate conservative.</p>
+          </div>
+        </div>
+        <p class="caption" style="margin-top:12px;color:var(--accent);">
+          <strong>Caveats:</strong> Biomass lifecycle EF (230 g mid) assumes sustainably sourced dedicated feedstock — land-use-change-linked biomass could exceed diesel.
+          Hybrid technology splits (70/30 solar-biomass, 60/40 wind-solar) are design assumptions, not measured.
+          BCR transfer from Sumba to Maluku assumes comparable rural context — site-specific WTP survey would strengthen the estimate.
+          All figures pre-feasibility — subject to field validation.</p>
+      </div>
+    </details>
+
     <div class="filter-row">
       <label>Kabupaten</label>
       <select id="scba-kab-filter"></select>
