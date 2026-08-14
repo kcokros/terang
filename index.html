@@ -1459,8 +1459,21 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
       <a href="https://www.researchgate.net/publication/372277691_Estimating_the_value_of_off-grid_electricity_benefits_for_rural_households_Evidence_from_rural_Sumba_Indonesia" target="_blank">Wibisono et al. (2023)</a> Sumba BCR study.
     </p>
 
-    <h2>A · Environmental — lifecycle CO₂ avoidance</h2>
+    <div class="filter-row">
+      <label>Kabupaten</label>
+      <select id="scba-kab-filter"></select>
+      <label>Technology</label>
+      <select id="scba-tech-filter"></select>
+      <label>Exit route</label>
+      <select id="scba-exit-filter">
+        <option value="All">All</option>
+        <option value="blended_finance">Blended finance</option>
+        <option value="public_good">Public good</option>
+      </select>
+    </div>
+
     <div class="metrics-row" id="scba-env-metrics"></div>
+
     <div class="chart-row" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;">
       <div class="chart-box">
         <div class="cb-title">CO₂ avoided by kabupaten</div>
@@ -1478,11 +1491,18 @@ details .details-body { padding: 14px 16px; font-size: 0.84rem; }
       Micro-hydro 24, solar PV 27, solar-biomass hybrid 88, wind-solar hybrid 15 gCO₂eq/kWh.
     </p>
 
-    <h2>B · Socioeconomic benefit — BCR transfer</h2>
-    <div class="metrics-row" id="scba-socec-metrics"></div>
-    <div class="chart-box">
-      <div class="cb-title">Socioeconomic benefit by kabupaten</div>
-      <div id="chart-socec-kab"></div>
+    <h2>Bundle environmental &amp; socioeconomic summary</h2>
+    <div class="data-table-wrap" id="scba-table-wrap"></div>
+
+    <div class="chart-row" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;">
+      <div class="chart-box">
+        <div class="cb-title">Socioeconomic benefit by kabupaten</div>
+        <div id="chart-socec-kab"></div>
+      </div>
+      <div class="chart-box">
+        <div class="cb-title">CO₂ avoided vs CAPEX — by exit route</div>
+        <div id="chart-co2-capex"></div>
+      </div>
     </div>
     <p class="caption">
       BCR 3.43 (market benefits incl. installation,
@@ -3019,7 +3039,6 @@ function closeBundleDetail() {
 
 
 function renderSCBA() {
-  // Load from L3-SCBA v2 cell outputs
   Promise.all([
     new Promise(res => Papa.parse('data/terang_scba_village.csv',
       { download:true, header:true, dynamicTyping:true, complete: r => res(r.data.filter(x=>x.kode_desa)) })),
@@ -3031,88 +3050,165 @@ function renderSCBA() {
 function buildSCBA(villages, bundles) {
   const TECH_COL = { micro_hydro:'#2B5F8F', solar_biomass_hybrid:'#8B5A3C',
                      solar_battery:'#D4A017', wind_solar_hybrid:'#4A7A9C' };
+  const EXIT_COL = { blended_finance:'#0F6E56', public_good:'#185FA5', deferred:'#BA7517' };
   const ASSET_LIFE = 25;
 
-  // ── A. Environmental — CO₂ (pre-computed in SCBA cell) ──
-  const totalCO2 = villages.reduce((s,v) => s + (v.co2_avoided_t||0), 0);
-  const darkCO2 = villages.filter(v=>v.l1_class==='dark_settled').reduce((s,v) => s + (v.co2_avoided_t||0), 0);
-  const co2_25yr = totalCO2 * ASSET_LIFE;
+  // ── Populate filters ──
+  const kabs = [...new Set(bundles.map(b=>b.kabupaten))].sort();
+  const techs = [...new Set(bundles.map(b=>b.tech_dom))].sort();
+  const kabSel = document.getElementById('scba-kab-filter');
+  const techSel = document.getElementById('scba-tech-filter');
+  const exitSel = document.getElementById('scba-exit-filter');
 
-  document.getElementById('scba-env-metrics').innerHTML = [
-    metricCard('CO₂ avoided (annual)', `${Math.round(totalCO2).toLocaleString()} tCO₂eq/yr`),
-    metricCard('CO₂ avoided (25-year)', `${Math.round(co2_25yr).toLocaleString()} tCO₂eq`),
-    metricCard('Dark villages', `${Math.round(darkCO2).toLocaleString()} tCO₂eq/yr`),
-    metricCard('Intermittent villages', `${Math.round(totalCO2 - darkCO2).toLocaleString()} tCO₂eq/yr`),
-  ].join('');
+  kabSel.innerHTML = '<option value="All">All</option>' +
+    kabs.map(k=>`<option value="${k}">${k}</option>`).join('');
+  techSel.innerHTML = '<option value="All">All</option>' +
+    techs.map(t=>`<option value="${t}">${t.replace(/_/g,' ')}</option>`).join('');
 
-  // CO2 by kabupaten
-  const co2Kab = {};
-  villages.forEach(v => { co2Kab[v.kabupaten] = (co2Kab[v.kabupaten]||0) + (v.co2_avoided_t||0); });
-  const kabsSorted = Object.keys(co2Kab).sort((a,b) => co2Kab[a] - co2Kab[b]);
-  Plotly.newPlot('chart-co2-kab', [{
-    type: 'bar', orientation: 'h',
-    x: kabsSorted.map(k => co2Kab[k]),
-    y: kabsSorted,
-    marker: { color: '#0F6E56' },
-    text: kabsSorted.map(k => Math.round(co2Kab[k]).toLocaleString()),
-    textposition: 'outside',
-    textfont: { color: '#E4E8EE', size: 10 },
-  }], {
-    ...PLOTLY_LAYOUT, height: 300,
-    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'tCO₂eq/yr avoided' },
-    yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true },
-  }, PLOTLY_CONFIG);
+  function getF() {
+    let f = bundles;
+    if (kabSel.value!=='All') f=f.filter(b=>b.kabupaten===kabSel.value);
+    if (techSel.value!=='All') f=f.filter(b=>b.tech_dom===techSel.value);
+    if (exitSel.value!=='All') f=f.filter(b=>b.exit===exitSel.value);
+    return f;
+  }
 
-  // CO2 by technology
-  const co2Tech = {};
-  villages.forEach(v => { co2Tech[v.tech] = (co2Tech[v.tech]||0) + (v.co2_avoided_t||0); });
-  const techKeys = Object.keys(co2Tech).sort((a,b) => co2Tech[b] - co2Tech[a]);
-  Plotly.newPlot('chart-co2-tech', [{
-    labels: techKeys.map(t => t.replace(/_/g,' ')),
-    values: techKeys.map(t => co2Tech[t]),
-    type: 'pie', hole: 0.45,
-    marker: { colors: techKeys.map(t => TECH_COL[t]||'#888') },
-    textinfo: 'label+percent',
-    textfont: { size: 11, color: '#E4E8EE' },
-  }], {
-    ...PLOTLY_LAYOUT, height: 300, showlegend: false,
-  }, PLOTLY_CONFIG);
+  function getVF() {
+    let v = villages;
+    if (kabSel.value!=='All') v=v.filter(r=>r.kabupaten===kabSel.value);
+    if (techSel.value!=='All') v=v.filter(r=>r.tech===techSel.value);
+    return v;
+  }
 
-  // ── B. Socioeconomic — BCR (pre-computed in SCBA cell) ──
-  const totalCapex = bundles.reduce((s,b) => s + (b.capex_usd||0), 0);
-  const annualBenefit = bundles.reduce((s,b) => s + (b.socec_benefit_yr||0), 0);
-  const benefit25yr = annualBenefit * ASSET_LIFE;
-  const totalHH = villages.reduce((s,v) => s + (v.hh_2026||0), 0);
-  const perHH = totalHH > 0 ? annualBenefit / totalHH : 0;
+  function update() {
+    const f = getF();
+    const vf = getVF();
 
-  document.getElementById('scba-socec-metrics').innerHTML = [
-    metricCard('Annual socioeconomic benefit', `$${(annualBenefit/1e6).toFixed(1)}M/yr`),
-    metricCard('25-year cumulative', `$${(benefit25yr/1e6).toFixed(0)}M`),
-    metricCard('Per household', `$${Math.round(perHH).toLocaleString()}/yr`),
-    metricCard('Benefit-to-investment', `${(benefit25yr/totalCapex).toFixed(1)}×`),
-  ].join('');
+    // ── Metric cards ──
+    const totalCO2 = vf.reduce((s,v) => s + (v.co2_avoided_t||0), 0);
+    const darkCO2 = vf.filter(v=>v.l1_class==='dark_settled').reduce((s,v) => s + (v.co2_avoided_t||0), 0);
+    const co2_25yr = totalCO2 * ASSET_LIFE;
+    const annualBenefit = f.reduce((s,b) => s + (b.socec_benefit_yr||0), 0);
+    const totalHH = vf.reduce((s,v) => s + (v.hh_2026||0), 0);
+    const perHH = totalHH > 0 ? annualBenefit / totalHH : 0;
 
-  // Socioeconomic by kabupaten (from village-level capex)
-  const SDR = 0.09, CRF = SDR * Math.pow(1+SDR,25) / (Math.pow(1+SDR,25)-1), BCR = 3.43;
-  const socecKab = {};
-  villages.forEach(v => {
-    const cost = (v.capex_usd||0) * CRF + (v.annual_om_usd || (v.capex_usd||0)*0.023);
-    socecKab[v.kabupaten] = (socecKab[v.kabupaten]||0) + BCR * cost;
-  });
-  const socecKabsSorted = Object.keys(socecKab).sort((a,b) => socecKab[a] - socecKab[b]);
-  Plotly.newPlot('chart-socec-kab', [{
-    type: 'bar', orientation: 'h',
-    x: socecKabsSorted.map(k => socecKab[k]),
-    y: socecKabsSorted,
-    marker: { color: '#185FA5' },
-    text: socecKabsSorted.map(k => '$' + (socecKab[k]/1e6).toFixed(1) + 'M'),
-    textposition: 'outside',
-    textfont: { color: '#E4E8EE', size: 10 },
-  }], {
-    ...PLOTLY_LAYOUT, height: 300,
-    xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Annual socioeconomic benefit (USD)' },
-    yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true },
-  }, PLOTLY_CONFIG);
+    document.getElementById('scba-env-metrics').innerHTML = [
+      metricCard('CO₂ avoided (annual)', `${Math.round(totalCO2).toLocaleString()} tCO₂eq/yr`),
+      metricCard('CO₂ avoided (25-yr)', `${Math.round(co2_25yr).toLocaleString()} tCO₂eq`),
+      metricCard('Socioeconomic benefit', `$${(annualBenefit/1e6).toFixed(1)}M/yr`),
+      metricCard('Per household', `$${Math.round(perHH).toLocaleString()}/yr`),
+    ].join('');
+
+    // ── CO₂ by kabupaten ──
+    const co2Kab = {};
+    vf.forEach(v => { co2Kab[v.kabupaten] = (co2Kab[v.kabupaten]||0) + (v.co2_avoided_t||0); });
+    const kabsSorted = Object.keys(co2Kab).sort((a,b) => co2Kab[a] - co2Kab[b]);
+    Plotly.newPlot('chart-co2-kab', [{
+      type: 'bar', orientation: 'h',
+      x: kabsSorted.map(k => co2Kab[k]),
+      y: kabsSorted,
+      marker: { color: '#0F6E56' },
+      text: kabsSorted.map(k => Math.round(co2Kab[k]).toLocaleString()),
+      textposition: 'outside',
+      textfont: { color: '#E4E8EE', size: 10 },
+    }], {
+      ...PLOTLY_LAYOUT, height: 300,
+      xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'tCO₂eq/yr avoided' },
+      yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true },
+    }, PLOTLY_CONFIG);
+
+    // ── CO₂ by technology ──
+    const co2Tech = {};
+    vf.forEach(v => { co2Tech[v.tech] = (co2Tech[v.tech]||0) + (v.co2_avoided_t||0); });
+    const techKeys = Object.keys(co2Tech).sort((a,b) => co2Tech[b] - co2Tech[a]);
+    Plotly.newPlot('chart-co2-tech', [{
+      labels: techKeys.map(t => t.replace(/_/g,' ')),
+      values: techKeys.map(t => co2Tech[t]),
+      type: 'pie', hole: 0.45,
+      marker: { colors: techKeys.map(t => TECH_COL[t]||'#888') },
+      textinfo: 'label+percent',
+      textfont: { size: 11, color: '#E4E8EE' },
+    }], {
+      ...PLOTLY_LAYOUT, height: 300, showlegend: false,
+    }, PLOTLY_CONFIG);
+
+    // ── Bundle table ──
+    const sorted = [...f].sort((a,b) => (b.co2_avoided_t||0) - (a.co2_avoided_t||0));
+    let html = `<table class="dt"><thead><tr>
+      <th>ID</th><th>Kecamatan</th><th>Kabupaten</th><th>n</th><th>Tech</th>
+      <th>CO₂ t/yr</th><th>CO₂ 25yr</th><th>CAPEX $K</th>
+      <th>Socec $/yr</th><th>$/tCO₂</th><th>Exit</th></tr></thead><tbody>`;
+    sorted.forEach(b => {
+      const ec = b.exit==='blended_finance'?'color:#0F6E56':b.exit==='public_good'?'color:#185FA5':'color:#BA7517';
+      const co2yr = b.co2_avoided_t || 0;
+      const co2_25 = b.co2_avoided_25yr || 0;
+      const socec = b.socec_benefit_yr || 0;
+      const capex = b.capex_usd || 0;
+      const costPerT = co2yr > 0 ? capex / (co2yr * ASSET_LIFE) : 0;
+      html += `<tr>
+        <td>${b.bundle_id}</td>
+        <td>${b.kecamatan||''}</td><td>${b.kabupaten||''}</td>
+        <td class="num">${b.n}</td>
+        <td>${(b.tech_dom||'').replace(/_/g,' ')}</td>
+        <td class="num">${Math.round(co2yr).toLocaleString()}</td>
+        <td class="num">${Math.round(co2_25).toLocaleString()}</td>
+        <td class="num">$${(capex/1000).toFixed(0)}</td>
+        <td class="num">$${(socec/1000).toFixed(0)}K</td>
+        <td class="num">$${costPerT.toFixed(0)}</td>
+        <td style="${ec};font-weight:600">${(b.exit||'').replace(/_/g,' ')}</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('scba-table-wrap').innerHTML = html;
+
+    // ── Socioeconomic by kabupaten ──
+    const SDR = 0.09, CRF = SDR * Math.pow(1+SDR,25) / (Math.pow(1+SDR,25)-1), BCR = 3.43;
+    const socecKab = {};
+    vf.forEach(v => {
+      const cost = (v.capex_usd||0) * CRF + (v.annual_om_usd || (v.capex_usd||0)*0.023);
+      socecKab[v.kabupaten] = (socecKab[v.kabupaten]||0) + BCR * cost;
+    });
+    const socecKabsSorted = Object.keys(socecKab).sort((a,b) => socecKab[a] - socecKab[b]);
+    Plotly.newPlot('chart-socec-kab', [{
+      type: 'bar', orientation: 'h',
+      x: socecKabsSorted.map(k => socecKab[k]),
+      y: socecKabsSorted,
+      marker: { color: '#185FA5' },
+      text: socecKabsSorted.map(k => '$' + (socecKab[k]/1e6).toFixed(1) + 'M'),
+      textposition: 'outside',
+      textfont: { color: '#E4E8EE', size: 10 },
+    }], {
+      ...PLOTLY_LAYOUT, height: 300,
+      xaxis: { ...PLOTLY_LAYOUT.xaxis, title: 'Annual socioeconomic benefit (USD)' },
+      yaxis: { ...PLOTLY_LAYOUT.yaxis, automargin: true },
+    }, PLOTLY_CONFIG);
+
+    // ── CO₂ vs CAPEX scatter ──
+    const exitTypes = [...new Set(f.map(b=>b.exit))];
+    const scatterTraces = exitTypes.map(ex => {
+      const sub = f.filter(b=>b.exit===ex);
+      return {
+        x: sub.map(b=>(b.capex_usd||0)/1000),
+        y: sub.map(b=>b.co2_avoided_t||0),
+        text: sub.map(b=>`Bundle ${b.bundle_id}<br>${b.kecamatan}<br>${(b.tech_dom||'').replace(/_/g,' ')}`),
+        mode: 'markers',
+        type: 'scatter',
+        name: ex.replace(/_/g,' '),
+        marker: { color: EXIT_COL[ex]||'#888', size: 8 },
+      };
+    });
+    Plotly.newPlot('chart-co2-capex', scatterTraces, {
+      xaxis: { title: 'CAPEX ($K)', gridcolor: '#2A3140' },
+      yaxis: { title: 'CO₂ avoided (tCO₂eq/yr)', gridcolor: '#2A3140' },
+      paper_bgcolor: 'transparent', plot_bgcolor: 'transparent',
+      font: { color: '#E4E8EE', family: 'DM Sans' },
+      legend: { x: 0.02, y: 0.98, bgcolor: 'rgba(0,0,0,0)' },
+      margin: { t: 10, r: 20, b: 50, l: 60 },
+    }, { responsive: true });
+  }
+
+  [kabSel,techSel,exitSel].forEach(s=>s.addEventListener('change',update));
+  update();
 }
 
 // ══════════════════════════════════════════════════════════════════
