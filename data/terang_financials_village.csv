@@ -1,514 +1,514 @@
-kode_desa,name,kecamatan,kabupaten,tech,l1_class,pop_2026,hh_2026,demand_kw,capex_usd,annual_kwh,annual_revenue_usd,annual_om_usd,annual_ncf_usd,npv_usd,irr,payback_yrs,lcoe_usd_kwh
-81.01.01.1009,Hollo,Amahai,Maluku Tengah,solar_battery,intermittent,2058,590,155.76,970004.0,1255301.0,233824.0,21340.0,212484.0,1196165.0,0.2146,5.0,0.0928
-81.01.01.2021,Nua Nea,Amahai,Maluku Tengah,solar_biomass_hybrid,intermittent,593,151,39.86,190085.0,321240.0,59837.0,4752.0,55085.0,371479.0,0.288,4.0,0.0728
-81.01.06.2011,Roho,Seram Utara,Maluku Tengah,micro_hydro,dark_settled,598,151,39.86,434250.0,321240.0,59837.0,8685.0,51152.0,87220.0,0.1004,9.0,0.1596
-81.01.06.2021,Rumahsokat,Seram Utara,Maluku Tengah,solar_battery,intermittent,724,198,52.27,325527.0,421254.0,78467.0,7162.0,71305.0,401394.0,0.2146,5.0,0.0928
-81.01.06.2022,Sawai,Seram Utara,Maluku Tengah,micro_hydro,intermittent,4101,1066,281.42,3081444.0,2268020.0,422463.0,61629.0,360834.0,597077.0,0.0995,9.0,0.1604
-81.01.06.2044,Besi,Seram Utara,Maluku Tengah,solar_biomass_hybrid,intermittent,1035,274,72.34,283726.0,583003.0,108596.0,7093.0,101502.0,751040.0,0.3569,3.0,0.0599
-81.01.06.2045,Malaku,Seram Utara,Maluku Tengah,solar_biomass_hybrid,intermittent,1670,483,127.51,496001.0,1027629.0,191416.0,12400.0,179016.0,1328975.0,0.3601,3.0,0.0594
-81.01.06.2052,Oping,Seram Utara,Maluku Tengah,solar_biomass_hybrid,intermittent,208,59,15.58,60543.0,125562.0,23388.0,1514.0,21875.0,162460.0,0.3605,3.0,0.0594
-81.01.09.2006,Pulau Hatta,Banda,Maluku Tengah,solar_biomass_hybrid,intermittent,795,239,63.1,261454.0,508536.0,94725.0,6536.0,88188.0,637581.0,0.3363,3.0,0.0633
-81.01.09.2009,Pulau Ay,Banda,Maluku Tengah,solar_biomass_hybrid,intermittent,1695,521,137.54,541746.0,1108462.0,206473.0,13544.0,192929.0,1425068.0,0.3553,3.0,0.0602
-81.01.09.2010,Pulau Rhun,Banda,Maluku Tengah,solar_biomass_hybrid,intermittent,1726,537,141.77,594925.0,1142553.0,212823.0,14873.0,197950.0,1423071.0,0.3316,4.0,0.0641
-81.01.09.2016,Uring Tutra,Banda,Maluku Tengah,solar_biomass_hybrid,intermittent,430,123,32.47,140544.0,261682.0,48743.0,3514.0,45230.0,320551.0,0.3206,4.0,0.0661
-81.01.11.2020,Salamahu,Tehoru,Maluku Tengah,micro_hydro,intermittent,515,152,40.13,495039.0,323416.0,60242.0,9901.0,50342.0,18169.0,0.0798,10.0,0.1808
-81.01.12.2006,Kulur,Saparua,Maluku Tengah,solar_biomass_hybrid,intermittent,1196,372,98.21,383236.0,791494.0,147431.0,9581.0,137850.0,1022078.0,0.3589,3.0,0.0596
-81.01.13.2001,Aboru,Pulau Haruku,Maluku Tengah,solar_biomass_hybrid,intermittent,2214,737,194.57,791260.0,1568079.0,292085.0,19782.0,272304.0,1984738.0,0.3432,3.0,0.0621
-81.01.13.2002,Wassu,Pulau Haruku,Maluku Tengah,solar_biomass_hybrid,intermittent,841,253,66.79,293123.0,538274.0,100264.0,7328.0,92936.0,654312.0,0.3157,4.0,0.067
-81.01.13.2005,Sameth,Pulau Haruku,Maluku Tengah,solar_biomass_hybrid,intermittent,628,195,51.48,206018.0,414888.0,77281.0,5150.0,72130.0,529315.0,0.3492,3.0,0.0611
-81.01.13.2011,Hulaliu,Pulau Haruku,Maluku Tengah,solar_biomass_hybrid,intermittent,1866,617,162.89,642344.0,1312763.0,244528.0,16059.0,228469.0,1686783.0,0.3549,3.0,0.0602
-81.01.15.2006,Asilulu,Leihitu,Maluku Tengah,wind_solar_hybrid,intermittent,6249,1715,452.76,3304528.0,3648883.0,679676.0,89222.0,590454.0,2714846.0,0.1711,6.0,0.1133
-81.01.15.2007,Ureng,Leihitu,Maluku Tengah,wind_solar_hybrid,intermittent,5024,1349,356.14,2627529.0,2870203.0,534631.0,70943.0,463688.0,2099536.0,0.1687,6.0,0.1145
-81.01.16.2002,Titawaai,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,1984,641,169.22,713112.0,1363778.0,254030.0,17828.0,236202.0,1694852.0,0.3301,4.0,0.0644
-81.01.16.2003,Abubu,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,790,261,68.9,285318.0,555279.0,103432.0,7133.0,96299.0,696397.0,0.3365,3.0,0.0632
-81.01.16.2004,Akoon,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,658,230,60.72,252375.0,489355.0,91152.0,6309.0,84842.0,612551.0,0.3351,3.0,0.0635
-81.01.16.2005,Nalahia,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,523,196,51.74,229299.0,416983.0,77671.0,5732.0,71939.0,504080.0,0.3124,4.0,0.0677
-81.01.16.2006,Sila,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,329,114,30.1,128311.0,242582.0,45186.0,3208.0,41978.0,299632.0,0.326,4.0,0.0651
-81.01.16.2007,Leinitu,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,306,116,30.62,126489.0,246773.0,45966.0,3162.0,42804.0,309876.0,0.3374,3.0,0.0631
-81.01.20.2002,Horale,Seram Utara Barat,Maluku Tengah,micro_hydro,intermittent,1825,516,136.22,1533588.0,1097824.0,204491.0,30672.0,173819.0,238413.0,0.0948,9.0,0.165
-81.01.20.2003,Wailulu,Seram Utara Barat,Maluku Tengah,micro_hydro,intermittent,669,177,46.73,511553.0,376606.0,70150.0,10231.0,59919.0,99293.0,0.0996,9.0,0.1604
-81.01.20.2004,Paa,Seram Utara Barat,Maluku Tengah,solar_biomass_hybrid,intermittent,505,129,34.06,133709.0,274496.0,51130.0,3343.0,47788.0,353461.0,0.3566,3.0,0.06
-81.01.20.2005,Karlutu Kara,Seram Utara Barat,Maluku Tengah,solar_biomass_hybrid,intermittent,620,178,46.99,182656.0,378702.0,70541.0,4566.0,65974.0,489917.0,0.3604,3.0,0.0594
-81.01.20.2007,Labuan,Seram Utara Barat,Maluku Tengah,solar_biomass_hybrid,intermittent,1176,362,95.57,371469.0,770218.0,143468.0,9287.0,134181.0,996442.0,0.3605,3.0,0.0594
-81.01.20.2008,Gale-gale,Seram Utara Barat,Maluku Tengah,micro_hydro,intermittent,2183,621,163.94,1845558.0,1321225.0,246104.0,36911.0,209193.0,287057.0,0.0948,9.0,0.165
-81.01.20.2009,Latea,Seram Utara Barat,Maluku Tengah,micro_hydro,dark_settled,1578,444,117.22,1327189.0,944699.0,175969.0,26544.0,149425.0,196122.0,0.0939,9.0,0.1659
-81.01.20.2010,Lisabata Timur,Seram Utara Barat,Maluku Tengah,micro_hydro,dark_settled,914,246,64.94,761265.0,523364.0,97487.0,15225.0,82262.0,77350.0,0.0881,10.0,0.1718
-81.01.20.2011,Rumahwey,Seram Utara Barat,Maluku Tengah,micro_hydro,intermittent,506,134,35.38,432448.0,285134.0,53112.0,8649.0,44463.0,20829.0,0.0813,10.0,0.1791
-81.01.20.2012,Warasiwa,Seram Utara Barat,Maluku Tengah,micro_hydro,dark_settled,807,229,60.46,712463.0,487259.0,90762.0,14249.0,76512.0,67541.0,0.0872,10.0,0.1727
-81.01.20.2013,Herlau Pauni,Seram Utara Barat,Maluku Tengah,solar_biomass_hybrid,intermittent,30,10,2.64,10262.0,21276.0,3963.0,257.0,3707.0,27525.0,0.3604,3.0,0.0594
-81.01.21.2002,Tananahu,Teluk Elpaputih,Maluku Tengah,micro_hydro,intermittent,3882,1062,280.37,3236085.0,2259558.0,420887.0,64722.0,356165.0,394837.0,0.0907,10.0,0.1691
-81.01.21.2003,Liang,Teluk Elpaputih,Maluku Tengah,micro_hydro,intermittent,2710,784,206.98,2540311.0,1668093.0,310715.0,50806.0,259909.0,109326.0,0.0806,10.0,0.1798
-81.01.21.2004,Sahulauw,Teluk Elpaputih,Maluku Tengah,micro_hydro,intermittent,1883,540,142.56,1682201.0,1148920.0,214009.0,33644.0,180365.0,156525.0,0.087,10.0,0.1729
-81.01.22.2001,Larike,Leihitu Barat,Maluku Tengah,wind_solar_hybrid,intermittent,5466,1503,396.79,2836586.0,3197810.0,595655.0,76588.0,519067.0,2455035.0,0.1758,6.0,0.111
-81.01.22.2002,Wakasihu,Leihitu Barat,Maluku Tengah,wind_solar_hybrid,intermittent,3534,965,254.76,1728807.0,2053162.0,382441.0,46678.0,335764.0,1694133.0,0.188,6.0,0.1053
-81.01.23.2001,Ulahahan,Telutih,Maluku Tengah,micro_hydro,intermittent,958,233,61.51,691372.0,495721.0,92338.0,13827.0,78510.0,109001.0,0.0951,9.0,0.1647
-81.01.24.2010,Namto,Seram Utara Timur Seti,Maluku Tengah,solar_biomass_hybrid,intermittent,594,185,48.84,189839.0,393611.0,73318.0,4746.0,68572.0,509216.0,0.3604,3.0,0.0594
-81.01.25.2009,Way Asih,Seram Utara Timur Kobi,Maluku Tengah,solar_biomass_hybrid,intermittent,728,241,63.62,247304.0,512726.0,95505.0,6183.0,89323.0,663295.0,0.3604,3.0,0.0594
-81.02.01.2018,Ngabub,Kei Kecil,Maluku Tenggara,solar_biomass_hybrid,intermittent,702,176,46.46,180604.0,374430.0,69745.0,4515.0,65230.0,484381.0,0.3604,3.0,0.0594
-81.02.03.2025,Harangur,Kei Besar,Maluku Tenggara,solar_biomass_hybrid,intermittent,205,49,12.94,53053.0,104286.0,19425.0,1326.0,18099.0,131457.0,0.3402,3.0,0.0626
-81.02.04.2005,Tamangil Nuhuten,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,545,146,38.54,161463.0,310602.0,57856.0,4037.0,53819.0,387195.0,0.3322,4.0,0.064
-81.02.04.2006,Tamangil Nuhuyanat,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,247,82,21.65,96104.0,174482.0,32501.0,2403.0,30098.0,210730.0,0.3118,4.0,0.0678
-81.02.04.2012,Kilwat,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,860,211,55.7,242158.0,448897.0,83616.0,6054.0,77562.0,548547.0,0.319,4.0,0.0664
-81.02.04.2013,Sather,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,1204,319,84.22,354430.0,678746.0,126430.0,8861.0,117569.0,844125.0,0.3306,4.0,0.0643
-81.02.04.2014,Tutrean,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,530,147,38.81,168934.0,312778.0,58261.0,4223.0,54038.0,381952.0,0.3186,4.0,0.0665
-81.02.04.2016,Soindat,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,278,70,18.48,76561.0,148934.0,27742.0,1914.0,25828.0,186741.0,0.3363,3.0,0.0633
-81.02.13.2001,Wain,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,1540,427,112.73,674211.0,908514.0,169228.0,18204.0,151025.0,865409.0,0.2198,5.0,0.0928
-81.02.13.2002,Rewav,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,911,245,64.68,251409.0,521269.0,97097.0,6285.0,90811.0,674366.0,0.3604,3.0,0.0594
-81.02.13.2003,Rumaat,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,937,274,72.34,281168.0,583003.0,108596.0,7029.0,101566.0,754250.0,0.3605,3.0,0.0594
-81.02.13.2004,Rat,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,340,100,26.4,157895.0,212763.0,39631.0,4263.0,35368.0,202665.0,0.2198,5.0,0.0928
-81.02.13.2005,Abean,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,621,193,50.95,304737.0,410616.0,76485.0,8228.0,68257.0,391112.0,0.2198,5.0,0.0928
-81.02.13.2006,Mastur,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,620,178,46.99,281053.0,378702.0,70541.0,7588.0,62952.0,360712.0,0.2198,5.0,0.0928
-81.02.13.2014,Semawi,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,536,138,36.43,141610.0,293597.0,54688.0,3540.0,51148.0,379816.0,0.3604,3.0,0.0594
-81.02.13.2015,Iso,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,175,56,14.78,57465.0,119115.0,22187.0,1437.0,20751.0,154080.0,0.3603,3.0,0.0594
-81.02.13.2016,Disuk,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,431,136,35.9,140325.0,289325.0,53892.0,3508.0,50384.0,373318.0,0.3583,3.0,0.0597
-81.02.13.2017,Wain Baru,Kei Kecil Timur,Maluku Tenggara,solar_battery,intermittent,369,88,23.23,144679.0,187215.0,34872.0,3183.0,31690.0,178380.0,0.2145,5.0,0.0928
-81.02.13.2019,Watngon,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,246,82,21.65,129474.0,174482.0,32501.0,3496.0,29005.0,166215.0,0.2198,5.0,0.0928
-81.02.13.2020,Yafavun,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,608,193,50.95,304737.0,410616.0,76485.0,8228.0,68257.0,391112.0,0.2198,5.0,0.0928
-81.02.13.2021,Mastur Baru,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,628,162,42.77,255790.0,344692.0,64206.0,6906.0,57299.0,328347.0,0.2198,5.0,0.0928
-81.02.13.2022,Ohoilus,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,576,155,40.92,244737.0,329782.0,61428.0,6608.0,54821.0,314130.0,0.2198,5.0,0.0928
-81.02.13.2023,Tenbuk,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,294,80,21.12,126316.0,170210.0,31705.0,3411.0,28294.0,162132.0,0.2198,5.0,0.0928
-81.02.13.2024,Denwet,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,571,157,41.45,247895.0,334054.0,62224.0,6693.0,55531.0,318214.0,0.2198,5.0,0.0928
-81.02.18.2001,Hoat,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,354,98,25.87,110160.0,208492.0,38836.0,2754.0,36082.0,257674.0,0.3264,4.0,0.065
-81.02.18.2002,Ngafan,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,455,123,32.47,145802.0,261682.0,48743.0,3645.0,45098.0,313953.0,0.3079,4.0,0.0686
-81.02.18.2004,Rerean,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,201,55,14.52,61262.0,117020.0,21797.0,1532.0,20266.0,145336.0,0.3297,4.0,0.0644
-81.02.18.2006,Hoko,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,389,107,28.25,125295.0,227672.0,42408.0,3132.0,39276.0,275104.0,0.3121,4.0,0.0677
-81.02.18.2007,Weduar Fer,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,281,63,16.63,69173.0,134024.0,24965.0,1729.0,23235.0,167700.0,0.3349,3.0,0.0635
-81.02.18.2010,Watkidat,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,403,89,23.5,101496.0,189391.0,35278.0,2537.0,32740.0,232276.0,0.3214,4.0,0.066
-81.02.18.2013,Rahangiar,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,588,164,43.3,206028.0,348963.0,65001.0,5151.0,59851.0,404118.0,0.2887,4.0,0.0727
-81.02.19.2011,Garara,Kei Kecil Timur Selatan,Maluku Tenggara,wind_solar_hybrid,intermittent,359,93,24.55,146842.0,197853.0,36854.0,3965.0,32889.0,188448.0,0.2198,5.0,0.0928
-81.03.01.2009,Latdalam,Tanimbar Selatan,Kepulauan Tanimbar,wind_solar_hybrid,intermittent,3790,1018,268.75,1607371.0,2165910.0,403443.0,43399.0,360044.0,2063095.0,0.2198,5.0,0.0928
-81.03.01.2011,Matakus,Tanimbar Selatan,Kepulauan Tanimbar,wind_solar_hybrid,intermittent,654,160,42.24,252632.0,340421.0,63410.0,6821.0,56589.0,324263.0,0.2198,5.0,0.0928
-81.03.02.2005,Fursuy,Selaru,Kepulauan Tanimbar,solar_battery,intermittent,1414,332,87.65,545833.0,706389.0,131579.0,12008.0,119570.0,673126.0,0.2146,5.0,0.0928
-81.03.02.2006,Werain,Selaru,Kepulauan Tanimbar,solar_battery,intermittent,1049,329,86.86,540900.0,700022.0,130393.0,11900.0,118493.0,667076.0,0.2146,5.0,0.0928
-81.03.02.2007,Eliasa,Selaru,Kepulauan Tanimbar,solar_battery,intermittent,911,216,57.02,355120.0,459536.0,85597.0,7813.0,77785.0,437857.0,0.2145,5.0,0.0928
-81.03.03.2004,Amdasa,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1013,311,82.1,322500.0,661660.0,123247.0,8062.0,115185.0,851749.0,0.3564,3.0,0.06
-81.03.03.2005,Sangliat Krawain,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1099,325,85.8,337368.0,691479.0,128802.0,8434.0,120367.0,889716.0,0.356,3.0,0.0601
-81.03.03.2006,Arui Bab,Wertamrian,Kepulauan Tanimbar,micro_hydro,intermittent,2508,696,183.74,1993419.0,1480797.0,275827.0,39868.0,235959.0,412064.0,0.1011,9.0,0.159
-81.03.03.2007,Arui Das,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1131,326,86.06,340705.0,693575.0,129192.0,8518.0,120674.0,889507.0,0.3534,3.0,0.0605
-81.03.03.2008,Sangliat Dol,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1101,320,84.48,332232.0,680841.0,126820.0,8306.0,118514.0,875960.0,0.3559,3.0,0.0601
-81.03.03.2009,Atubul Da,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,1629,411,108.5,422972.0,874423.0,162878.0,10574.0,152304.0,1129691.0,0.3593,3.0,0.0595
-81.03.04.2006,Wermatang,Wermaktian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1165,300,79.2,307848.0,638289.0,118894.0,7696.0,111198.0,825754.0,0.3604,3.0,0.0594
-81.03.04.2007,Otemer,Wermaktian,Kepulauan Tanimbar,wind_solar_hybrid,dark_settled,1722,474,125.14,748422.0,1008528.0,187858.0,20207.0,167651.0,960692.0,0.2198,5.0,0.0928
-81.03.04.2009,Marantutul,Wermaktian,Kepulauan Tanimbar,wind_solar_hybrid,dark_settled,860,214,56.5,337895.0,455345.0,84817.0,9123.0,75694.0,433764.0,0.2198,5.0,0.0928
-81.03.05.2007,Lamdesar Barat,Tanimbar Utara,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1059,332,87.65,340685.0,706389.0,131579.0,8517.0,123062.0,913865.0,0.3605,3.0,0.0594
-81.03.05.2008,Lamdesar Timur,Tanimbar Utara,Kepulauan Tanimbar,solar_battery,intermittent,1940,609,160.78,1001241.0,1295758.0,241360.0,22027.0,219333.0,1234747.0,0.2146,5.0,0.0928
-81.03.06.2001,Romean,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1879,531,140.18,561039.0,1129739.0,210436.0,14026.0,196410.0,1441260.0,0.3492,3.0,0.0611
-81.03.06.2002,Rumngeur,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,386,112,29.57,119752.0,238311.0,44390.0,2994.0,41396.0,302261.0,0.3448,3.0,0.0619
-81.03.06.2003,Awear,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,391,110,29.04,114791.0,234039.0,43594.0,2870.0,40725.0,300375.0,0.3539,3.0,0.0604
-81.03.06.2004,Sofyanin,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1152,346,91.34,369850.0,736127.0,137118.0,9246.0,127872.0,933738.0,0.3448,3.0,0.0618
-81.03.06.2005,Walerang,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,887,260,68.64,286505.0,553183.0,103041.0,7163.0,95879.0,690929.0,0.3336,3.0,0.0638
-81.03.06.2006,Adodo Fordata,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1077,355,93.72,383518.0,755308.0,140691.0,9588.0,131103.0,953010.0,0.3409,3.0,0.0625
-81.03.07.2008,Watmasa,Wuar Labobar,Kepulauan Tanimbar,wind_solar_hybrid,intermittent,1272,320,84.48,505264.0,680841.0,126820.0,13642.0,113178.0,648527.0,0.2198,5.0,0.0928
-81.03.07.2009,Awear Rumngeur,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,960,268,70.75,275011.0,570188.0,106209.0,6875.0,99333.0,737643.0,0.3604,3.0,0.0594
-81.03.07.2010,Karatat,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,966,245,64.68,251409.0,521269.0,97097.0,6285.0,90811.0,674366.0,0.3604,3.0,0.0594
-81.03.07.2011,Wunlah,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1045,282,74.45,289377.0,600007.0,111763.0,7234.0,104529.0,776240.0,0.3605,3.0,0.0594
-81.03.07.2012,Kiloon,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,1133,290,76.56,298655.0,617012.0,114931.0,7466.0,107464.0,796888.0,0.359,3.0,0.0596
-81.03.07.2014,Teineman,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,864,203,53.59,213759.0,431893.0,80448.0,5344.0,75104.0,551893.0,0.3505,3.0,0.0609
-81.03.08.2008,Alusi Batjas,Kormomolin,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,724,231,60.98,240232.0,491450.0,91542.0,6006.0,85536.0,631768.0,0.3552,3.0,0.0602
-81.03.08.2009,Lorwembun,Kormomolin,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1272,381,100.58,397455.0,810594.0,150989.0,9936.0,141053.0,1040505.0,0.3541,3.0,0.0604
-81.03.09.2001,Arma,Nirunmas,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,2781,805,212.52,840253.0,1712741.0,319031.0,21006.0,298025.0,2197962.0,0.3539,3.0,0.0604
-81.03.09.2002,Watmuri,Nirunmas,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,2656,772,203.81,799576.0,1642546.0,305956.0,19989.0,285967.0,2115710.0,0.3568,3.0,0.0599
-81.03.18.2003,Wulmasa,Molu Maru,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,741,203,53.59,210094.0,431893.0,80448.0,5252.0,75196.0,556492.0,0.3571,3.0,0.0599
-81.03.18.2004,Tutunametal,Molu Maru,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,812,215,56.76,220624.0,457440.0,85207.0,5516.0,79692.0,591791.0,0.3604,3.0,0.0594
-81.03.18.2005,Nurkat,Molu Maru,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,1073,293,77.35,304551.0,623379.0,116117.0,7614.0,108503.0,801579.0,0.3555,3.0,0.0601
-81.04.02.2007,Tanjung Karang,Air Buaya,Buru,micro_hydro,intermittent,2033,508,134.11,1698942.0,1080819.0,201324.0,33979.0,167345.0,7054.0,0.0755,11.0,0.1856
-81.04.02.2008,Bara,Air Buaya,Buru,micro_hydro,dark_settled,2560,638,168.43,2170053.0,1357411.0,252844.0,43401.0,209443.0,-34885.0,0.0729,11.0,0.1888
-81.04.02.2019,Kampung Baru,Air Buaya,Buru,micro_hydro,intermittent,686,185,48.84,630075.0,393611.0,73318.0,12602.0,60716.0,-11103.0,0.0727,11.0,0.189
-81.04.06.2004,Samalagi,Waplau,Buru,solar_battery,intermittent,555,165,43.56,285432.0,351059.0,65392.0,6280.0,59112.0,317185.0,0.2019,5.0,0.0976
-81.04.06.2005,Namsina,Waplau,Buru,solar_biomass_hybrid,intermittent,1637,435,114.84,470315.0,925519.0,172396.0,11758.0,160638.0,1167308.0,0.3406,3.0,0.0626
-81.04.06.2006,Hatawano,Waplau,Buru,solar_biomass_hybrid,intermittent,1562,433,114.31,474210.0,921247.0,171600.0,11855.0,159745.0,1154309.0,0.3358,3.0,0.0634
-81.04.06.2007,Waelihang,Waplau,Buru,solar_biomass_hybrid,intermittent,1327,365,96.36,408585.0,776585.0,144654.0,10215.0,134439.0,961956.0,0.3279,4.0,0.0648
-81.04.06.2008,Waprea,Waplau,Buru,solar_biomass_hybrid,intermittent,1223,319,84.22,353706.0,678746.0,126430.0,8843.0,117587.0,845034.0,0.3314,4.0,0.0641
-81.04.06.2009,Waepotih,Waplau,Buru,solar_biomass_hybrid,intermittent,1841,508,134.11,561187.0,1080819.0,201324.0,14030.0,187294.0,1348180.0,0.3327,3.0,0.0639
-81.04.06.2010,Skikilale,Waplau,Buru,solar_biomass_hybrid,intermittent,445,115,30.36,129373.0,244677.0,45576.0,3234.0,42342.0,302278.0,0.3261,4.0,0.0651
-81.04.10.2006,Namlea Ilath,Batabual,Buru,solar_biomass_hybrid,intermittent,2241,564,148.9,690221.0,1200015.0,223526.0,17256.0,206271.0,1412604.0,0.2972,4.0,0.0708
-81.04.13.2004,Waedanga,Fena Leisela,Buru,micro_hydro,intermittent,351,101,26.66,345540.0,214858.0,40022.0,6911.0,33111.0,-7993.0,0.0719,11.0,0.1899
-81.04.13.2005,Lemanpoli,Fena Leisela,Buru,micro_hydro,intermittent,262,71,18.74,245121.0,151029.0,28132.0,4902.0,23230.0,-8305.0,0.0705,11.0,0.1917
-81.04.13.2006,Waelana-lana,Fena Leisela,Buru,micro_hydro,intermittent,907,266,70.22,841903.0,565917.0,105413.0,16838.0,88575.0,61074.0,0.0844,10.0,0.1757
-81.04.13.2007,Waereman,Fena Leisela,Buru,micro_hydro,intermittent,747,208,54.91,664784.0,442531.0,82430.0,13296.0,69134.0,40005.0,0.0828,10.0,0.1774
-81.04.13.2008,Waemite,Fena Leisela,Buru,micro_hydro,intermittent,470,178,46.99,562438.0,378702.0,70541.0,11249.0,59292.0,42012.0,0.0847,10.0,0.1754
-81.04.13.2009,Wasi,Fena Leisela,Buru,micro_hydro,intermittent,634,188,49.63,608403.0,399978.0,74504.0,12168.0,62336.0,27077.0,0.0808,10.0,0.1796
-81.04.13.2011,Wamana Baru,Fena Leisela,Buru,micro_hydro,intermittent,1155,297,78.41,933364.0,631922.0,117708.0,18667.0,99041.0,76304.0,0.0856,10.0,0.1744
-81.04.13.2012,Raheriat,Fena Leisela,Buru,solar_biomass_hybrid,dark_settled,358,86,22.7,96293.0,182944.0,34077.0,2407.0,31670.0,226562.0,0.3278,4.0,0.0648
-81.04.13.2013,Waenibe,Fena Leisela,Buru,micro_hydro,intermittent,1244,369,97.42,1181228.0,785127.0,146245.0,23625.0,122621.0,68828.0,0.0826,10.0,0.1777
-81.04.14.2005,Seith,Teluk Kaiely,Buru,solar_biomass_hybrid,intermittent,1168,320,84.48,339304.0,680841.0,126820.0,8483.0,118337.0,867085.0,0.3479,3.0,0.0613
-81.05.02.2005,Keffing,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,635,194,51.22,318950.0,412792.0,76891.0,7017.0,69874.0,393377.0,0.2146,5.0,0.0928
-81.05.02.2006,Urung,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,1559,454,119.86,764668.0,965976.0,179932.0,16823.0,163109.0,898147.0,0.2085,5.0,0.0951
-81.05.02.2046,Kwawor Kecil Mata Ata,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,519,137,36.17,225238.0,291501.0,54298.0,4955.0,49343.0,277784.0,0.2146,5.0,0.0928
-81.05.02.2047,Kwawor Kecil Mata Wawa,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,627,179,47.26,294289.0,380878.0,70946.0,6474.0,64472.0,362966.0,0.2146,5.0,0.0928
-81.05.02.2048,Kwawor Besar Ena,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,209,51,13.46,83848.0,108477.0,20206.0,1845.0,18361.0,103336.0,0.2145,5.0,0.0928
-81.05.02.2049,Kwawor Besar Witau,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,486,148,39.07,243323.0,314873.0,58651.0,5353.0,53298.0,300024.0,0.2146,5.0,0.0928
-81.05.02.2050,Guli-Guli,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,733,197,52.01,202153.0,419159.0,78077.0,5054.0,73023.0,542277.0,0.3605,3.0,0.0594
-81.05.02.2051,Manggis,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,326,87,22.97,90417.0,185120.0,34482.0,2260.0,32222.0,238067.0,0.3556,3.0,0.0601
-81.05.02.2052,Ainena,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,612,157,41.45,171858.0,334054.0,62224.0,4296.0,57928.0,418684.0,0.336,3.0,0.0633
-81.05.02.2053,Mugusinis,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,274,74,19.54,81261.0,157477.0,29333.0,2032.0,27302.0,197065.0,0.3349,3.0,0.0635
-81.05.02.2054,Akatfadedo,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,137,34,8.98,35083.0,72372.0,13481.0,877.0,12604.0,93404.0,0.3585,3.0,0.0597
-81.05.03.2001,Batuasa,Werinama,Seram Bagian Timur,micro_hydro,dark_settled,847,253,66.79,751684.0,538274.0,100264.0,15034.0,85230.0,117196.0,0.0949,9.0,0.1649
-81.05.03.2002,Hatuimeten,Werinama,Seram Bagian Timur,micro_hydro,dark_settled,368,115,30.36,348778.0,244677.0,45576.0,6976.0,38600.0,44733.0,0.0914,10.0,0.1683
-81.05.03.2003,Werinama,Werinama,Seram Bagian Timur,micro_hydro,dark_settled,2344,751,198.26,2251865.0,1597817.0,297625.0,45037.0,252587.0,323134.0,0.0933,9.0,0.1664
-81.05.03.2004,Bemo,Werinama,Seram Bagian Timur,solar_biomass_hybrid,intermittent,859,281,74.18,310439.0,597831.0,111358.0,7761.0,103597.0,745678.0,0.3326,3.0,0.0639
-81.05.03.2015,Tum,Werinama,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,609,182,48.05,186761.0,387245.0,72132.0,4669.0,67463.0,500988.0,0.3605,3.0,0.0594
-81.05.03.2016,Gusalaut,Werinama,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,497,131,34.58,136176.0,278687.0,51911.0,3404.0,48507.0,358323.0,0.3554,3.0,0.0601
-81.05.03.2018,Tobo,Werinama,Seram Bagian Timur,micro_hydro,dark_settled,306,88,23.23,253119.0,187215.0,34872.0,5062.0,29810.0,50780.0,0.1004,9.0,0.1597
-81.05.03.2021,Bemo Perak,Werinama,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,376,142,37.49,145869.0,302139.0,56279.0,3647.0,52633.0,390694.0,0.3601,3.0,0.0594
-81.05.04.2003,Amarsekaru,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,8469,2128,561.79,2263637.0,4527578.0,843350.0,56591.0,786759.0,5756970.0,0.3467,3.0,0.0615
-81.05.04.2006,Mida,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,446,147,38.81,151217.0,312778.0,58261.0,3780.0,54481.0,404184.0,0.3595,3.0,0.0595
-81.05.04.2032,Ilili,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,341,102,26.93,105357.0,217034.0,40427.0,2634.0,37793.0,279923.0,0.3579,3.0,0.0598
-81.05.04.2048,Arewang,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,119,33,8.71,34225.0,70196.0,13075.0,856.0,12220.0,90348.0,0.3562,3.0,0.06
-81.05.04.2052,Sikaro Kataloka,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,425,127,33.53,131994.0,270225.0,50335.0,3300.0,47035.0,347502.0,0.3555,3.0,0.0601
-81.05.05.2001,Ilili,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,614,175,46.2,199632.0,372335.0,69355.0,4991.0,64364.0,456525.0,0.3212,4.0,0.066
-81.05.05.2002,Effa,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,576,149,39.34,168870.0,317049.0,59057.0,4222.0,54835.0,390143.0,0.3235,4.0,0.0656
-81.05.05.2004,Utta,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,640,192,50.69,205766.0,408521.0,76095.0,5144.0,70951.0,517542.0,0.3439,3.0,0.062
-81.05.05.2005,Kelangan,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,410,113,29.83,125284.0,240406.0,44780.0,3132.0,41648.0,299298.0,0.3313,4.0,0.0641
-81.05.05.2006,Amarlaut,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1029,313,82.63,344070.0,665932.0,124043.0,8602.0,115441.0,832793.0,0.3345,3.0,0.0636
-81.05.05.2008,Tamher Timur,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,754,212,55.97,234000.0,451073.0,84021.0,5850.0,78171.0,562916.0,0.333,3.0,0.0639
-81.05.05.2010,Wunin Eldedora,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,285,84,22.18,94471.0,178753.0,33296.0,2362.0,30934.0,220890.0,0.3263,4.0,0.0651
-81.05.05.2021,Tanah Baru,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1108,308,81.31,344918.0,655294.0,122061.0,8623.0,113438.0,811527.0,0.3278,4.0,0.0648
-81.05.05.2022,Guliar,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,610,195,51.48,232850.0,414888.0,77281.0,5821.0,71460.0,495645.0,0.3054,4.0,0.0691
-81.05.05.2023,Karlomin,Wakate,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,411,135,35.64,146793.0,287230.0,53502.0,3670.0,49832.0,361222.0,0.3385,3.0,0.0629
-81.05.05.2024,Otademan,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,416,107,28.25,118465.0,227672.0,42408.0,2962.0,39447.0,283675.0,0.3319,4.0,0.064
-81.05.06.2001,Danama,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1129,324,85.54,344381.0,689384.0,128411.0,8610.0,119802.0,876936.0,0.347,3.0,0.0615
-81.05.06.2002,Kilmoy,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,614,172,45.41,181479.0,365968.0,68169.0,4537.0,63632.0,467214.0,0.3498,3.0,0.061
-81.05.06.2003,Kilbat,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,991,297,78.41,310826.0,631922.0,117708.0,7771.0,109937.0,809927.0,0.3529,3.0,0.0605
-81.05.06.2004,Sesar,Tutuk Tolu,Seram Bagian Timur,micro_hydro,intermittent,562,162,42.77,463946.0,344692.0,64206.0,9279.0,54927.0,96004.0,0.1012,9.0,0.1589
-81.05.06.2005,Airkasar,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,252,89,23.5,91328.0,189391.0,35278.0,2283.0,32995.0,245035.0,0.3605,3.0,0.0594
-81.05.06.2006,Waras-Waras,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1159,352,92.93,361208.0,748941.0,139505.0,9030.0,130475.0,968916.0,0.3605,3.0,0.0594
-81.05.06.2007,Gah,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1112,290,76.56,298686.0,617012.0,114931.0,7467.0,107463.0,796849.0,0.359,3.0,0.0596
-81.05.06.2008,Walang Tenga,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,714,199,52.54,206461.0,423430.0,78872.0,5162.0,73711.0,544982.0,0.3562,3.0,0.06
-81.05.06.2010,Taruy,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,663,197,52.01,210674.0,419159.0,78077.0,5267.0,72810.0,531584.0,0.3447,3.0,0.0619
-81.05.06.2011,Kufar,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,948,220,58.08,225755.0,468078.0,87189.0,5644.0,81545.0,605553.0,0.3604,3.0,0.0594
-81.05.07.2001,Dihil,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,491,136,35.9,401235.0,289325.0,53892.0,8025.0,45868.0,66364.0,0.0961,9.0,0.1638
-81.05.07.2002,Liliama,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,425,128,33.79,398101.0,272320.0,50725.0,7962.0,42763.0,37846.0,0.0873,10.0,0.1726
-81.05.07.2003,Naiwel Ahinulin,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,453,135,35.64,412979.0,287230.0,53502.0,8260.0,45243.0,48246.0,0.09,10.0,0.1698
-81.05.07.2004,Polin,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,890,249,65.74,774628.0,529812.0,98688.0,15493.0,83195.0,73505.0,0.0872,10.0,0.1727
-81.05.07.2005,Tunsai,Siwalalat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,899,261,68.9,291808.0,555279.0,103432.0,7295.0,96136.0,688253.0,0.3283,4.0,0.0647
-81.05.07.2006,Lapela,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,469,124,32.74,377401.0,263858.0,49149.0,7548.0,41601.0,46697.0,0.0909,10.0,0.1689
-81.05.07.2007,Nayet,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,258,60,15.84,182053.0,127658.0,23779.0,3641.0,20138.0,23240.0,0.0914,10.0,0.1684
-81.05.07.2008,Elnusa,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,808,248,65.47,760351.0,527636.0,98282.0,15207.0,83075.0,86561.0,0.0896,10.0,0.1702
-81.05.07.2009,Atiahu,Siwalalat,Seram Bagian Timur,micro_hydro,dark_settled,1559,480,126.72,1425585.0,1021262.0,190230.0,28512.0,161718.0,223050.0,0.095,9.0,0.1648
-81.05.07.2010,Sabuai,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,357,106,27.98,313414.0,225496.0,42003.0,6268.0,35735.0,50884.0,0.0957,9.0,0.1641
-81.05.07.2011,Abulate,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,264,81,21.38,247390.0,172306.0,32095.0,4948.0,27148.0,29365.0,0.0902,10.0,0.1696
-81.05.07.2012,Adabai,Siwalalat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,385,99,26.14,101590.0,210667.0,39241.0,2540.0,36701.0,272560.0,0.3605,3.0,0.0594
-81.05.08.2001,Selor,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,543,159,41.98,466517.0,338325.0,63020.0,9330.0,53689.0,80819.0,0.097,9.0,0.1628
-81.05.08.2002,Nekan,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,307,73,19.27,76157.0,155301.0,28928.0,1904.0,27024.0,199338.0,0.354,3.0,0.0604
-81.05.08.2003,Afang Kota,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,296,86,22.7,249457.0,182944.0,34077.0,4989.0,29088.0,47078.0,0.0989,9.0,0.161
-81.05.08.2004,Afang Defol,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,457,140,36.96,406035.0,297868.0,55484.0,8121.0,47363.0,76807.0,0.099,9.0,0.161
-81.05.08.2005,Kumelang,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,388,93,24.55,270990.0,197853.0,36854.0,5420.0,31434.0,49466.0,0.0982,9.0,0.1617
-81.05.08.2006,Undur,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,496,145,38.28,151494.0,308506.0,57465.0,3787.0,53678.0,395725.0,0.3535,3.0,0.0604
-81.05.08.2007,Kamar,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,831,222,58.61,229772.0,472350.0,87984.0,5744.0,82240.0,608624.0,0.3571,3.0,0.0599
-81.05.08.2008,Gunak,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,687,198,52.27,205385.0,421254.0,78467.0,5135.0,73332.0,542200.0,0.3562,3.0,0.06
-81.05.08.2009,Sumbawa,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,305,78,20.59,80178.0,165939.0,30909.0,2004.0,28905.0,214493.0,0.3597,3.0,0.0595
-81.05.08.2010,Kilmury,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,1230,348,91.87,1015029.0,740399.0,137914.0,20301.0,117613.0,183977.0,0.098,9.0,0.1619
-81.05.08.2012,Mising,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,602,171,45.14,510998.0,363792.0,67763.0,10220.0,57543.0,75628.0,0.0939,9.0,0.1659
-81.05.08.2013,Bitorik,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,250,69,18.22,70998.0,146839.0,27352.0,1775.0,25577.0,189743.0,0.3595,3.0,0.0595
-81.05.08.2014,Taa,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,375,98,25.87,103190.0,208492.0,38836.0,2580.0,36256.0,266420.0,0.3505,3.0,0.0609
-81.05.09.2001,Pulau Panjang,Pulau Panjang,Seram Bagian Timur,solar_battery,intermittent,1020,284,74.98,466917.0,604279.0,112559.0,10272.0,102287.0,575842.0,0.2146,5.0,0.0928
-81.05.09.2002,Argam,Pulau Panjang,Seram Bagian Timur,solar_battery,intermittent,516,129,34.06,212086.0,274496.0,51130.0,4666.0,46464.0,261595.0,0.2146,5.0,0.0928
-81.05.09.2003,Lalasa,Pulau Panjang,Seram Bagian Timur,solar_biomass_hybrid,intermittent,886,235,62.04,241147.0,499993.0,93133.0,6029.0,87105.0,646842.0,0.3604,3.0,0.0594
-81.05.09.2004,Magat,Pulau Panjang,Seram Bagian Timur,solar_biomass_hybrid,intermittent,142,47,12.41,48229.0,100015.0,18630.0,1206.0,17424.0,129399.0,0.3605,3.0,0.0594
-81.05.09.2006,Perik Basaranggi,Pulau Panjang,Seram Bagian Timur,solar_biomass_hybrid,intermittent,193,56,14.78,57465.0,119115.0,22187.0,1437.0,20751.0,154080.0,0.3603,3.0,0.0594
-81.05.10.2001,Teor,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,494,135,35.64,145310.0,287230.0,53502.0,3633.0,49869.0,363083.0,0.3422,3.0,0.0623
-81.05.10.2002,Kartutin Kartenga,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,204,53,13.99,62775.0,112748.0,21002.0,1569.0,19432.0,135326.0,0.3081,4.0,0.0685
-81.05.10.2004,Duryar Rumoy,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,646,194,51.22,227802.0,412792.0,76891.0,5695.0,71196.0,498001.0,0.3111,4.0,0.0679
-81.05.10.2005,Lapang Kampung Jawa,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,251,68,17.95,72604.0,144663.0,26946.0,1815.0,25131.0,183595.0,0.3452,3.0,0.0618
-81.05.10.2007,Kampung Baru,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,180,48,12.67,51786.0,102110.0,19020.0,1295.0,17725.0,128915.0,0.3413,3.0,0.0624
-81.05.10.2009,Kiliwouw,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,763,198,52.27,225435.0,421254.0,78467.0,5636.0,72831.0,517040.0,0.3219,4.0,0.0659
-81.05.11.2004,Amarwatu,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,950,269,71.02,278378.0,572364.0,106614.0,6959.0,99655.0,737550.0,0.3572,3.0,0.0599
-81.05.11.2005,Aran,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,548,133,35.11,140757.0,282959.0,52707.0,3519.0,49188.0,360686.0,0.3486,3.0,0.0612
-81.05.11.2008,Tunas Ilur,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,299,91,24.02,93380.0,193582.0,36058.0,2334.0,33724.0,250418.0,0.3604,3.0,0.0594
-81.05.11.2009,Sagey,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,643,187,49.37,193944.0,397883.0,74113.0,4849.0,69265.0,512176.0,0.3563,3.0,0.06
-81.05.11.2012,Basarin,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,399,117,30.89,120061.0,248949.0,46372.0,3002.0,43370.0,322074.0,0.3605,3.0,0.0594
-81.05.11.2013,Goha,Gorom Timur,Seram Bagian Timur,solar_battery,intermittent,202,50,13.2,82204.0,106381.0,19816.0,1808.0,18007.0,101370.0,0.2146,5.0,0.0928
-81.05.12.2001,Hote,Bula Barat,Seram Bagian Timur,micro_hydro,intermittent,428,130,34.32,377230.0,276592.0,51521.0,7545.0,43976.0,71083.0,0.0989,9.0,0.1611
-81.05.12.2002,Banggoi,Bula Barat,Seram Bagian Timur,micro_hydro,intermittent,544,160,42.24,464823.0,340421.0,63410.0,9296.0,54114.0,86837.0,0.0987,9.0,0.1612
-81.05.12.2003,Waematakabo,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,840,291,76.82,478426.0,619108.0,115321.0,10525.0,104796.0,589911.0,0.2146,5.0,0.0928
-81.05.12.2004,Waiketam Baru,Bula Barat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1454,448,118.27,459719.0,953162.0,177545.0,11493.0,166052.0,1233097.0,0.3604,3.0,0.0594
-81.05.12.2005,Waisamet,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,992,306,80.78,503087.0,651022.0,121266.0,11068.0,110198.0,620322.0,0.2146,5.0,0.0928
-81.05.12.2006,Aki Jaya,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,962,271,71.54,445544.0,576555.0,107395.0,9802.0,97593.0,549364.0,0.2146,5.0,0.0928
-81.05.12.2009,Sumber Agung,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,927,268,70.75,440612.0,570188.0,106209.0,9693.0,96515.0,543312.0,0.2146,5.0,0.0928
-81.05.12.2011,Jembatan Basah,Bula Barat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,725,218,57.55,223703.0,463807.0,86393.0,5593.0,80801.0,600017.0,0.3604,3.0,0.0594
-81.05.12.2012,Dreamland Hills,Bula Barat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,583,172,45.41,176499.0,365968.0,68169.0,4412.0,63756.0,473464.0,0.3605,3.0,0.0594
-81.05.12.2013,Banggoi Pancorang,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,264,79,20.86,129882.0,168115.0,31315.0,2857.0,28457.0,160226.0,0.2146,5.0,0.0928
-81.05.13.2005,Kelaba,Kian Darat,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,736,189,49.9,194429.0,402154.0,74909.0,4861.0,70048.0,519678.0,0.3595,3.0,0.0595
-81.05.13.2006,Kilga Kilwouw,Kian Darat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,945,243,64.15,249357.0,516998.0,96301.0,6234.0,90067.0,668830.0,0.3604,3.0,0.0594
-81.05.13.2007,Kilga Watubau,Kian Darat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1091,294,77.62,301691.0,625555.0,116522.0,7542.0,108980.0,809300.0,0.3605,3.0,0.0594
-81.05.13.2009,Kileser,Kian Darat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,440,117,30.89,122761.0,248949.0,46372.0,3069.0,43303.0,318686.0,0.3519,3.0,0.0607
-81.05.14.2002,Kuwaos,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,997,300,79.2,327718.0,638289.0,118894.0,8193.0,110701.0,800820.0,0.3368,3.0,0.0632
-81.05.14.2003,Salagor Air,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,794,214,56.5,228943.0,455345.0,84817.0,5724.0,79093.0,577373.0,0.3445,3.0,0.0619
-81.05.14.2004,Salagor Kota,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,831,240,63.36,260232.0,510631.0,95115.0,6506.0,88609.0,643094.0,0.3395,3.0,0.0627
-81.05.14.2005,Aruan Gaur,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,608,162,42.77,166238.0,344692.0,64206.0,4156.0,60050.0,445938.0,0.3605,3.0,0.0594
-81.05.14.2006,Keta Rumadan,Siritaun Wida Timur,Seram Bagian Timur,micro_hydro,dark_settled,429,124,32.74,355506.0,263858.0,49149.0,7110.0,42039.0,73056.0,0.101,9.0,0.1591
-81.05.14.2007,Lian Tasik,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,751,204,53.86,213331.0,434069.0,80854.0,5333.0,75520.0,556562.0,0.3532,3.0,0.0605
-81.05.14.2008,Keta,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,421,125,33.0,128551.0,265954.0,49539.0,3214.0,46325.0,343712.0,0.3596,3.0,0.0595
-81.05.14.2009,Air Nanang,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,697,197,52.01,202872.0,419159.0,78077.0,5072.0,73005.0,541374.0,0.3591,3.0,0.0596
-81.05.15.2002,Bellis,Teluk Waru,Seram Bagian Timur,micro_hydro,dark_settled,788,209,55.18,597232.0,444707.0,82835.0,11945.0,70891.0,125462.0,0.1015,9.0,0.1586
-81.05.15.2003,Dawang,Teluk Waru,Seram Bagian Timur,micro_hydro,dark_settled,673,189,49.9,552176.0,402154.0,74909.0,11044.0,63866.0,98901.0,0.0978,9.0,0.1621
-81.05.15.2004,Solang,Teluk Waru,Seram Bagian Timur,micro_hydro,dark_settled,526,134,35.38,395643.0,285134.0,53112.0,7913.0,45199.0,65138.0,0.096,9.0,0.1639
-81.05.15.2005,Karay,Teluk Waru,Seram Bagian Timur,solar_biomass_hybrid,intermittent,887,207,54.65,212415.0,440435.0,82040.0,5310.0,76729.0,569801.0,0.3605,3.0,0.0594
-81.05.15.2007,Nama Andan,Teluk Waru,Seram Bagian Timur,solar_battery,intermittent,424,107,28.25,175916.0,227672.0,42408.0,3870.0,38538.0,216962.0,0.2146,5.0,0.0928
-81.05.15.2009,Kampung Baru,Teluk Waru,Seram Bagian Timur,solar_biomass_hybrid,intermittent,313,75,19.8,76962.0,159572.0,29723.0,1924.0,27799.0,206439.0,0.3604,3.0,0.0594
-81.05.15.2010,Boinfia,Teluk Waru,Seram Bagian Timur,solar_biomass_hybrid,intermittent,296,77,20.33,79014.0,163844.0,30519.0,1975.0,28544.0,211975.0,0.3605,3.0,0.0594
-81.06.03.2001,Murnaten,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,2385,547,144.41,1687832.0,1163829.0,216786.0,33757.0,183029.0,178058.0,0.0886,10.0,0.1713
-81.06.03.2002,Nikulukan,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,775,190,50.16,591212.0,404249.0,75299.0,11824.0,63475.0,55885.0,0.0872,10.0,0.1727
-81.06.03.2003,Niwelehu,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,858,232,61.25,718878.0,493626.0,91947.0,14378.0,77570.0,71908.0,0.0879,10.0,0.172
-81.06.03.2004,Nuniali,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,746,181,47.78,544626.0,385069.0,71727.0,10893.0,60834.0,75546.0,0.0927,9.0,0.167
-81.06.03.2005,Lisabata,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,1362,363,95.83,1158671.0,772313.0,143858.0,23173.0,120685.0,71651.0,0.083,10.0,0.1772
-81.06.03.2006,Wakolo,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,393,108,28.51,332542.0,229768.0,42799.0,6651.0,36148.0,35967.0,0.0889,10.0,0.1709
-81.06.03.2007,Patahuwe,Taniwel,Seram Bagian Barat,micro_hydro,dark_settled,449,104,27.46,332406.0,221306.0,41222.0,6648.0,34574.0,20062.0,0.0828,10.0,0.1774
-81.06.03.2008,Taniwel,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,2008,562,148.37,1684218.0,1195744.0,222731.0,33684.0,189046.0,243012.0,0.0934,9.0,0.1663
-81.06.03.2009,Hulung,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,971,260,68.64,790847.0,553183.0,103041.0,15817.0,87224.0,98360.0,0.091,10.0,0.1688
-81.06.03.2010,Kasieh,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,1410,354,93.46,1092757.0,753213.0,140301.0,21855.0,118445.0,114734.0,0.0885,10.0,0.1713
-81.06.03.2011,Nukuhai,Taniwel,Seram Bagian Barat,solar_biomass_hybrid,intermittent,399,111,29.3,134128.0,236135.0,43985.0,3353.0,40631.0,280089.0,0.3014,4.0,0.0699
-81.06.03.2012,Pasinalo,Taniwel,Seram Bagian Barat,solar_biomass_hybrid,intermittent,468,125,33.0,138447.0,265954.0,49539.0,3461.0,46078.0,331294.0,0.3317,4.0,0.0641
-81.06.03.2028,Uweth,Taniwel,Seram Bagian Barat,solar_biomass_hybrid,intermittent,812,205,54.12,210363.0,436164.0,81244.0,5259.0,75985.0,564265.0,0.3604,3.0,0.0594
-81.06.03.2029,Laturake,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,736,197,52.01,659166.0,419159.0,78077.0,13183.0,64893.0,2387.0,0.0755,11.0,0.1857
-81.06.03.2030,Buria,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,2111,497,131.21,1645520.0,1057448.0,196970.0,32910.0,164060.0,26987.0,0.0771,11.0,0.1838
-81.06.03.2032,Rumahsoal,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,391,101,26.66,327033.0,214858.0,40022.0,6541.0,33481.0,14288.0,0.0807,10.0,0.1797
-81.06.03.2034,Niniari,Taniwel,Seram Bagian Barat,micro_hydro,dark_settled,735,157,41.45,495691.0,334054.0,62224.0,9914.0,52310.0,37585.0,0.0848,10.0,0.1752
-81.06.04.2002,Allang Asaude,Huamual Belakang,Seram Bagian Barat,micro_hydro,intermittent,1366,363,95.83,1059112.0,772313.0,143858.0,21182.0,122676.0,191509.0,0.098,9.0,0.1619
-81.06.04.2003,Sole,Huamual Belakang,Seram Bagian Barat,solar_biomass_hybrid,intermittent,3499,877,231.53,1032856.0,1865947.0,347569.0,25821.0,321748.0,2247197.0,0.3101,4.0,0.0681
-81.06.04.2004,Tonu Jaya,Huamual Belakang,Seram Bagian Barat,solar_biomass_hybrid,intermittent,2512,621,163.94,754307.0,1321225.0,246104.0,18858.0,227246.0,1562354.0,0.2997,4.0,0.0703
-81.06.04.2005,Tahalupu,Huamual Belakang,Seram Bagian Barat,micro_hydro,intermittent,9029,2173,573.67,6920838.0,4623321.0,861184.0,138417.0,722767.0,447405.0,0.0834,10.0,0.1768
-81.06.05.2001,Tihulale,Amalatu,Seram Bagian Barat,micro_hydro,intermittent,2230,611,161.3,2030215.0,1299949.0,242141.0,40604.0,201537.0,24348.0,0.0766,11.0,0.1844
-81.06.05.2002,Rumahkay,Amalatu,Seram Bagian Barat,micro_hydro,dark_settled,2568,724,191.14,2484354.0,1540435.0,286936.0,49687.0,237249.0,-65720.0,0.0715,11.0,0.1905
-81.06.05.2003,Latu,Amalatu,Seram Bagian Barat,micro_hydro,intermittent,5004,1385,365.64,4139939.0,2946766.0,548893.0,82799.0,466094.0,611651.0,0.0939,9.0,0.1659
-81.06.05.2004,Tomalehu,Amalatu,Seram Bagian Barat,solar_biomass_hybrid,intermittent,938,249,65.74,281734.0,529812.0,98688.0,7043.0,91644.0,652535.0,0.3241,4.0,0.0655
-81.06.05.2005,Hualoy,Amalatu,Seram Bagian Barat,micro_hydro,intermittent,2530,678,178.99,2187491.0,1442516.0,268697.0,43750.0,224947.0,105729.0,0.0813,10.0,0.1791
-81.06.05.2006,Seriholo,Amalatu,Seram Bagian Barat,solar_biomass_hybrid,dark_settled,1062,265,69.96,305709.0,563822.0,105023.0,7643.0,97380.0,687031.0,0.3173,4.0,0.0667
-81.06.05.2007,Tala,Amalatu,Seram Bagian Barat,micro_hydro,intermittent,626,164,43.3,504880.0,348963.0,65001.0,10098.0,54904.0,54835.0,0.089,10.0,0.1709
-81.06.06.2002,Rambatu,Inamosol,Seram Bagian Barat,micro_hydro,intermittent,1207,307,81.05,966065.0,653198.0,121671.0,19321.0,102350.0,77337.0,0.0854,10.0,0.1747
-81.06.06.2005,Hukuanakota,Inamosol,Seram Bagian Barat,micro_hydro,intermittent,1020,248,65.47,774432.0,527636.0,98282.0,15489.0,82794.0,69609.0,0.0866,10.0,0.1733
-81.06.08.2005,Kulur,Huamual,Seram Bagian Barat,solar_battery,intermittent,1097,298,78.67,500942.0,634017.0,118098.0,11021.0,107077.0,590657.0,0.2089,5.0,0.0949
-81.06.10.2001,Sohuwe,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,757,196,51.74,674792.0,416983.0,77671.0,13496.0,64175.0,-20557.0,0.071,11.0,0.1911
-81.06.10.2003,Lumahlatal,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,509,133,35.11,448671.0,282959.0,52707.0,8973.0,43733.0,-2834.0,0.0742,11.0,0.1873
-81.06.10.2005,Seakasale,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,419,117,30.89,397021.0,248949.0,46372.0,7940.0,38431.0,-5235.0,0.0733,11.0,0.1883
-81.06.10.2006,Makububui,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,887,239,63.1,799811.0,508536.0,94725.0,15996.0,78728.0,2786.0,0.0755,11.0,0.1857
-81.06.10.2007,Sukaraja,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,614,177,46.73,193776.0,376606.0,70150.0,4844.0,65306.0,471984.0,0.336,3.0,0.0633
-81.06.10.2008,Uwen Pantai,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,602,179,47.26,597123.0,380878.0,70946.0,11942.0,59003.0,4387.0,0.076,11.0,0.1851
-81.06.10.2009,Tounussa,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,394,109,28.78,113621.0,231944.0,43204.0,2841.0,40364.0,297865.0,0.3544,3.0,0.0603
-81.06.10.2010,Musihuwey,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,592,164,43.3,173692.0,348963.0,65001.0,4342.0,60659.0,444695.0,0.3483,3.0,0.0613
-81.06.10.2011,Solea,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,754,213,56.23,218572.0,453169.0,84412.0,5464.0,78947.0,586255.0,0.3604,3.0,0.0594
-81.06.10.2012,Waraloin,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,350,110,29.04,365879.0,234039.0,43594.0,7318.0,36277.0,3944.0,0.0764,11.0,0.1846
-81.06.10.2013,Walakone,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,712,171,45.14,175473.0,363792.0,67763.0,4387.0,63377.0,470619.0,0.3604,3.0,0.0594
-81.06.10.2014,Hatunuru,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,534,136,35.9,404698.0,289325.0,53892.0,8094.0,45799.0,62195.0,0.0946,9.0,0.1652
-81.06.10.2015,Lumahpelu,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,758,215,56.76,226865.0,457440.0,85207.0,5672.0,79536.0,583959.0,0.3497,3.0,0.061
-81.06.11.2002,Sanahu,Elpaputih,Seram Bagian Barat,micro_hydro,dark_settled,1231,321,84.74,1017317.0,682937.0,127210.0,20346.0,106864.0,72107.0,0.0842,10.0,0.1759
-81.06.11.2003,Wasia,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,362,102,26.93,345198.0,217034.0,40427.0,6904.0,33523.0,-3449.0,0.0737,11.0,0.1878
-81.06.11.2004,Sumeith Pasinaro,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,316,74,19.54,234100.0,157477.0,29333.0,4682.0,24651.0,17206.0,0.0845,10.0,0.1756
-81.06.11.2006,Abio Ahiolo,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,1280,276,72.86,876459.0,587193.0,109376.0,17529.0,91847.0,59875.0,0.0839,10.0,0.1763
-81.06.11.2007,Huku Kecil,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,457,100,26.4,333256.0,212763.0,39631.0,6665.0,32966.0,2817.0,0.0761,11.0,0.185
-81.06.11.2008,Elpaputih,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,2224,628,165.79,2019989.0,1336135.0,248881.0,40400.0,208481.0,105373.0,0.0818,10.0,0.1785
-81.07.01.2003,Kobraur,Pulau-Pulau Aru,Kepulauan Aru,solar_biomass_hybrid,dark_settled,228,60,15.84,61570.0,127658.0,23779.0,1539.0,22239.0,165150.0,0.3604,3.0,0.0594
-81.07.01.2004,Lau-Lau,Pulau-Pulau Aru,Kepulauan Aru,solar_biomass_hybrid,dark_settled,592,167,44.09,171369.0,355330.0,66187.0,4284.0,61903.0,459700.0,0.3605,3.0,0.0594
-81.07.01.2005,Gorar,Pulau-Pulau Aru,Kepulauan Aru,solar_biomass_hybrid,dark_settled,514,152,40.13,155976.0,323416.0,60242.0,3899.0,56343.0,418413.0,0.3605,3.0,0.0594
-81.07.01.2006,Tungu,Pulau-Pulau Aru,Kepulauan Aru,solar_battery,intermittent,329,95,25.08,156187.0,202125.0,37650.0,3436.0,34214.0,192603.0,0.2146,5.0,0.0928
-81.07.01.2007,Tunguwatu,Pulau-Pulau Aru,Kepulauan Aru,solar_biomass_hybrid,intermittent,795,222,58.61,227807.0,472350.0,87984.0,5695.0,82289.0,611089.0,0.3605,3.0,0.0594
-81.07.02.2001,Jerol,Aru Selatan,Kepulauan Aru,solar_battery,intermittent,841,209,55.18,343611.0,444707.0,82835.0,7559.0,75276.0,423788.0,0.2146,5.0,0.0928
-81.07.02.2003,Kabalukin,Aru Selatan,Kepulauan Aru,solar_battery,intermittent,700,163,43.03,267984.0,346787.0,64596.0,5896.0,58700.0,330435.0,0.2146,5.0,0.0928
-81.07.02.2004,Kalar-Kalar,Aru Selatan,Kepulauan Aru,solar_battery,intermittent,1519,362,95.57,595155.0,770218.0,143468.0,13093.0,130375.0,733949.0,0.2146,5.0,0.0928
-81.07.02.2006,Ngaiguli,Aru Selatan,Kepulauan Aru,solar_biomass_hybrid,intermittent,264,76,20.06,77988.0,161668.0,30114.0,1950.0,28164.0,209130.0,0.3604,3.0,0.0594
-81.07.02.2008,Ngaibor,Aru Selatan,Kepulauan Aru,wind_solar_hybrid,intermittent,564,155,40.92,244737.0,329782.0,61428.0,6608.0,54821.0,314130.0,0.2198,5.0,0.0928
-81.07.02.2026,Lor-lor,Aru Selatan,Kepulauan Aru,solar_biomass_hybrid,intermittent,900,251,66.26,257566.0,534003.0,99468.0,6439.0,93029.0,690820.0,0.3604,3.0,0.0594
-81.07.02.2027,Gaimar,Aru Selatan,Kepulauan Aru,solar_battery,intermittent,257,68,17.95,111797.0,144663.0,26946.0,2460.0,24487.0,137833.0,0.2145,5.0,0.0928
-81.07.02.2029,Doka Barat,Aru Selatan,Kepulauan Aru,solar_biomass_hybrid,intermittent,515,148,39.07,151871.0,314873.0,58651.0,3797.0,54854.0,407342.0,0.3604,3.0,0.0594
-81.07.02.2031,Jelia,Aru Selatan,Kepulauan Aru,solar_biomass_hybrid,intermittent,346,89,23.5,91328.0,189391.0,35278.0,2283.0,32995.0,245035.0,0.3605,3.0,0.0594
-81.07.03.2003,Gardakau,Aru Tengah,Kepulauan Aru,solar_battery,dark_settled,1288,343,90.55,563917.0,729761.0,135932.0,12406.0,123526.0,695368.0,0.2146,5.0,0.0928
-81.07.03.2006,Lorang,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,dark_settled,274,72,19.01,73883.0,153205.0,28537.0,1847.0,26690.0,198212.0,0.3605,3.0,0.0594
-81.07.03.2008,Manjau,Aru Tengah,Kepulauan Aru,solar_battery,dark_settled,407,127,33.53,208797.0,270225.0,50335.0,4594.0,45741.0,257511.0,0.2146,5.0,0.0928
-81.07.03.2009,Kwarbola,Aru Tengah,Kepulauan Aru,solar_battery,intermittent,226,63,16.63,103577.0,134024.0,24965.0,2279.0,22686.0,127695.0,0.2145,5.0,0.0928
-81.07.03.2030,Kobasel Timur,Aru Tengah,Kepulauan Aru,solar_battery,intermittent,283,129,34.06,212086.0,274496.0,51130.0,4666.0,46464.0,261595.0,0.2146,5.0,0.0928
-81.07.03.2031,Fatlabata,Aru Tengah,Kepulauan Aru,solar_battery,intermittent,442,126,33.26,207153.0,268049.0,49929.0,4557.0,45372.0,255391.0,0.2145,5.0,0.0928
-81.07.03.2033,Wakua,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,intermittent,1572,447,118.01,458693.0,951066.0,177155.0,11467.0,165687.0,1230405.0,0.3605,3.0,0.0594
-81.07.03.2037,Tanah Miring,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,intermittent,459,137,36.17,140584.0,291501.0,54298.0,3515.0,50783.0,377125.0,0.3605,3.0,0.0594
-81.07.03.2043,Maijuring,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,dark_settled,964,294,77.62,301691.0,625555.0,116522.0,7542.0,108980.0,809300.0,0.3605,3.0,0.0594
-81.07.03.2045,Selibata-bata,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,dark_settled,1087,332,87.65,340685.0,706389.0,131579.0,8517.0,123062.0,913865.0,0.3605,3.0,0.0594
-81.07.04.2001,Marlasi,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,1925,525,138.6,828948.0,1117005.0,208064.0,22382.0,185682.0,1063990.0,0.2198,5.0,0.0928
-81.07.04.2002,Kolamar,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,837,223,58.87,352106.0,474445.0,88375.0,9507.0,78868.0,451911.0,0.2198,5.0,0.0928
-81.07.04.2004,Tasinwaha,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,537,120,31.68,189474.0,255315.0,47557.0,5116.0,42442.0,243197.0,0.2198,5.0,0.0928
-81.07.04.2005,Foket,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,685,188,49.63,296843.0,399978.0,74504.0,8015.0,66489.0,380978.0,0.2198,5.0,0.0928
-81.07.04.2006,Kaibolafin,Aru Utara,Kepulauan Aru,solar_battery,dark_settled,355,94,24.82,154543.0,200029.0,37259.0,3400.0,33859.0,190637.0,0.2146,5.0,0.0928
-81.07.04.2007,Wahangula-Ngula,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,262,78,20.59,123158.0,165939.0,30909.0,3325.0,27584.0,158048.0,0.2198,5.0,0.0928
-81.07.04.2008,Wahayum,Aru Utara,Kepulauan Aru,solar_biomass_hybrid,dark_settled,489,129,34.06,132374.0,274496.0,51130.0,3309.0,47821.0,355136.0,0.3605,3.0,0.0594
-81.07.04.2009,Warialau,Aru Utara,Kepulauan Aru,solar_battery,dark_settled,835,245,64.68,422206.0,521269.0,97097.0,9289.0,87808.0,472952.0,0.2028,5.0,0.0973
-81.07.04.2010,Jerwatu,Aru Utara,Kepulauan Aru,solar_biomass_hybrid,dark_settled,449,123,32.47,126218.0,261682.0,48743.0,3155.0,45588.0,338528.0,0.3604,3.0,0.0594
-81.07.04.2013,Selmona,Aru Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,558,149,39.34,152898.0,317049.0,59057.0,3822.0,55234.0,410186.0,0.3605,3.0,0.0594
-81.07.05.2001,Kabalsiang,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,intermittent,937,262,69.17,430747.0,557455.0,103837.0,9476.0,94360.0,531210.0,0.2146,5.0,0.0928
-81.07.05.2002,Benjuring,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,intermittent,798,217,57.29,356764.0,461712.0,86003.0,7849.0,78154.0,439976.0,0.2146,5.0,0.0928
-81.07.05.2003,Batuley,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,intermittent,358,107,28.25,175916.0,227672.0,42408.0,3870.0,38538.0,216962.0,0.2146,5.0,0.0928
-81.07.05.2004,Kumul,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,intermittent,1039,276,72.86,453764.0,587193.0,109376.0,9983.0,99393.0,559501.0,0.2146,5.0,0.0928
-81.07.05.2006,Sewer,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,dark_settled,536,154,40.66,253187.0,327687.0,61038.0,5570.0,55468.0,312281.0,0.2146,5.0,0.0928
-81.07.05.2008,Kompane,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,dark_settled,588,172,45.41,282781.0,365968.0,68169.0,6221.0,61948.0,348743.0,0.2146,5.0,0.0928
-81.07.05.2009,Kobamar,Aru Utara Timur Batuley,Kepulauan Aru,solar_biomass_hybrid,intermittent,335,99,26.14,101590.0,210667.0,39241.0,2540.0,36701.0,272560.0,0.3605,3.0,0.0594
-81.07.06.2006,Leiting,Sir-Sir,Kepulauan Aru,solar_biomass_hybrid,intermittent,773,203,53.59,208310.0,431893.0,80448.0,5208.0,75241.0,558730.0,0.3604,3.0,0.0594
-81.07.06.2007,Bardefan,Sir-Sir,Kepulauan Aru,solar_biomass_hybrid,dark_settled,266,80,21.12,82093.0,170210.0,31705.0,2052.0,29653.0,220201.0,0.3604,3.0,0.0594
-81.07.06.2008,Mohongsel,Sir-Sir,Kepulauan Aru,solar_battery,intermittent,336,93,24.55,152899.0,197853.0,36854.0,3364.0,33490.0,188517.0,0.2145,5.0,0.0928
-81.07.06.2009,Kolaha,Sir-Sir,Kepulauan Aru,solar_biomass_hybrid,dark_settled,595,169,44.62,173421.0,359602.0,66983.0,4336.0,62647.0,465236.0,0.3605,3.0,0.0594
-81.07.06.2010,Goda-Goda,Sir-Sir,Kepulauan Aru,solar_biomass_hybrid,dark_settled,695,194,51.22,199075.0,412792.0,76891.0,4977.0,71914.0,534049.0,0.3605,3.0,0.0594
-81.07.07.2001,Koijabi,Aru Tengah Timur,Kepulauan Aru,solar_battery,intermittent,1135,289,76.3,475137.0,614917.0,114540.0,10453.0,104087.0,585980.0,0.2146,5.0,0.0928
-81.07.07.2004,Warjukur,Aru Tengah Timur,Kepulauan Aru,solar_biomass_hybrid,dark_settled,570,134,35.38,137505.0,285134.0,53112.0,3438.0,49674.0,368899.0,0.3605,3.0,0.0594
-81.07.07.2008,Kaiwabar,Aru Tengah Timur,Kepulauan Aru,solar_battery,intermittent,252,65,17.16,106865.0,138296.0,25760.0,2351.0,23409.0,131781.0,0.2146,5.0,0.0928
-81.07.07.2009,Ponom,Aru Tengah Timur,Kepulauan Aru,solar_battery,intermittent,268,68,17.95,111797.0,144663.0,26946.0,2460.0,24487.0,137833.0,0.2145,5.0,0.0928
-81.07.07.2010,Lola,Aru Tengah Timur,Kepulauan Aru,solar_biomass_hybrid,intermittent,340,101,26.66,103642.0,214858.0,40022.0,2591.0,37430.0,277943.0,0.3604,3.0,0.0594
-81.07.07.2011,Mariri,Aru Tengah Timur,Kepulauan Aru,solar_battery,dark_settled,463,141,37.22,231814.0,299963.0,55874.0,5100.0,50774.0,285803.0,0.2145,5.0,0.0928
-81.07.07.2012,Dosinamalau,Aru Tengah Timur,Kepulauan Aru,solar_biomass_hybrid,dark_settled,925,245,64.68,251409.0,521269.0,97097.0,6285.0,90811.0,674366.0,0.3604,3.0,0.0594
-81.07.07.2013,Karawai,Aru Tengah Timur,Kepulauan Aru,solar_battery,dark_settled,360,103,27.19,169340.0,219130.0,40817.0,3725.0,37092.0,208791.0,0.2145,5.0,0.0928
-81.07.08.2006,Jambu Air,Aru Tengah Selatan,Kepulauan Aru,solar_battery,intermittent,552,162,42.77,266340.0,344692.0,64206.0,5859.0,58346.0,328469.0,0.2146,5.0,0.0928
-81.07.08.2007,Warabal,Aru Tengah Selatan,Kepulauan Aru,wind_solar_hybrid,intermittent,466,154,40.66,243158.0,327687.0,61038.0,6565.0,54473.0,312165.0,0.2198,5.0,0.0928
-81.07.09.2002,Dosimar,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,168,51,13.46,80526.0,108477.0,20206.0,2174.0,18032.0,103298.0,0.2197,5.0,0.0929
-81.07.09.2003,Batugoyang,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,641,184,48.58,290527.0,391516.0,72927.0,7844.0,65083.0,372964.0,0.2198,5.0,0.0928
-81.07.09.2004,Salarem,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,550,146,38.54,230527.0,310602.0,57856.0,6224.0,51631.0,295829.0,0.2198,5.0,0.0928
-81.07.09.2005,Siya,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,376,106,27.98,167369.0,225496.0,42003.0,4519.0,37484.0,214763.0,0.2197,5.0,0.0928
-81.07.09.2006,Beltubur,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,878,211,55.7,333158.0,448897.0,83616.0,8995.0,74621.0,427562.0,0.2198,5.0,0.0928
-81.07.09.2009,Gomar Sungai,Aru Selatan Timur,Kepulauan Aru,solar_biomass_hybrid,intermittent,490,123,32.47,126218.0,261682.0,48743.0,3155.0,45588.0,338528.0,0.3604,3.0,0.0594
-81.07.10.2001,Tabarfane,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,919,292,77.09,299638.0,621284.0,115726.0,7491.0,108235.0,803766.0,0.3605,3.0,0.0594
-81.07.10.2002,Rebi,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,720,218,57.55,223703.0,463807.0,86393.0,5593.0,80801.0,600017.0,0.3604,3.0,0.0594
-81.07.10.2003,Lutur,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,655,197,52.01,202153.0,419159.0,78077.0,5054.0,73023.0,542277.0,0.3605,3.0,0.0594
-81.07.10.2004,Hokmar,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,386,102,26.93,104668.0,217034.0,40427.0,2617.0,37810.0,280787.0,0.3605,3.0,0.0594
-81.07.10.2005,Juring,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,630,174,45.94,178552.0,370240.0,68964.0,4464.0,64501.0,478998.0,0.3605,3.0,0.0594
-81.07.10.2006,Erersin,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,405,103,27.19,105694.0,219130.0,40817.0,2642.0,38175.0,283479.0,0.3604,3.0,0.0594
-81.07.10.2007,Maekor,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,dark_settled,790,228,60.19,233964.0,485083.0,90356.0,5849.0,84507.0,627543.0,0.3604,3.0,0.0594
-81.08.01.2001,Klis,Moa,Maluku Barat Daya,wind_solar_hybrid,intermittent,3211,843,222.55,1331054.0,1793575.0,334088.0,35938.0,298150.0,1708433.0,0.2198,5.0,0.0928
-81.08.01.2005,Werwaru,Moa,Maluku Barat Daya,wind_solar_hybrid,intermittent,1103,311,82.1,491053.0,661660.0,123247.0,13258.0,109989.0,630226.0,0.2198,5.0,0.0928
-81.08.01.2006,Tounwawan,Moa,Maluku Barat Daya,wind_solar_hybrid,intermittent,3482,932,246.05,1471581.0,1982966.0,369366.0,39733.0,329633.0,1888865.0,0.2198,5.0,0.0928
-81.08.01.2007,Moain,Moa,Maluku Barat Daya,wind_solar_hybrid,intermittent,551,148,39.07,233685.0,314873.0,58651.0,6309.0,52342.0,299912.0,0.2198,5.0,0.0928
-81.08.02.2003,Kuaimelu,Damer,Maluku Barat Daya,solar_biomass_hybrid,intermittent,428,125,33.0,140966.0,265954.0,49539.0,3524.0,46015.0,328133.0,0.3253,4.0,0.0652
-81.08.02.2004,Kumur,Damer,Maluku Barat Daya,solar_biomass_hybrid,intermittent,658,169,44.62,186248.0,359602.0,66983.0,4656.0,62327.0,449140.0,0.3336,3.0,0.0638
-81.08.02.2005,Bebar Timur,Damer,Maluku Barat Daya,solar_biomass_hybrid,intermittent,1132,318,83.95,359921.0,676570.0,126024.0,8998.0,117026.0,833103.0,0.324,4.0,0.0655
-81.08.02.2007,Kehli,Damer,Maluku Barat Daya,solar_biomass_hybrid,intermittent,1263,357,94.25,419100.0,759580.0,141487.0,10478.0,131009.0,916470.0,0.3112,4.0,0.0679
-81.08.03.2001,Luang Barat,Mdona Hyera,Maluku Barat Daya,solar_battery,intermittent,1011,318,83.95,558497.0,676570.0,126024.0,12287.0,113737.0,600998.0,0.1982,5.0,0.0991
-81.08.03.2002,Luang Timur,Mdona Hyera,Maluku Barat Daya,solar_battery,intermittent,1368,371,97.94,614740.0,789318.0,147026.0,13524.0,133502.0,746241.0,0.2126,5.0,0.0935
-81.08.03.2004,Rumkisar,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,336,97,25.61,101272.0,206396.0,38445.0,2532.0,35914.0,264848.0,0.3538,3.0,0.0604
-81.08.03.2005,Lelang,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,527,150,39.6,158862.0,319144.0,59447.0,3972.0,55475.0,406681.0,0.3483,3.0,0.0613
-81.08.03.2006,Mahaleta,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,498,141,37.22,155369.0,299963.0,55874.0,3884.0,51990.0,374641.0,0.3336,3.0,0.0638
-81.08.03.2008,Rotnama,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,283,88,23.23,97090.0,187215.0,34872.0,2427.0,32445.0,233673.0,0.3331,3.0,0.0638
-81.08.03.2009,Batugajah,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,411,132,34.85,148336.0,280863.0,52316.0,3708.0,48608.0,347196.0,0.3265,4.0,0.065
-81.08.03.2010,Pupliora,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,650,184,48.58,201645.0,391516.0,72927.0,5041.0,67886.0,490422.0,0.3356,3.0,0.0634
-81.08.03.2011,Regoha,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,513,140,36.96,152404.0,297868.0,55484.0,3810.0,51674.0,374382.0,0.3381,3.0,0.063
-81.08.04.2003,Tela,Babar Barat,Maluku Barat Daya,wind_solar_hybrid,intermittent,1715,495,130.68,825707.0,1053176.0,196175.0,22294.0,173881.0,946917.0,0.2056,5.0,0.0981
-81.08.04.2004,Yaltubung,Babar Barat,Maluku Barat Daya,wind_solar_hybrid,intermittent,532,147,38.81,236827.0,312778.0,58261.0,6394.0,51867.0,291927.0,0.2145,5.0,0.0947
-81.08.04.2005,Wanuwui,Babar Barat,Maluku Barat Daya,wind_solar_hybrid,intermittent,663,181,47.78,293809.0,385069.0,71727.0,7933.0,63794.0,356535.0,0.2125,5.0,0.0954
-81.08.04.2015,Lewah,Babar Barat,Maluku Barat Daya,solar_biomass_hybrid,intermittent,376,94,24.82,135689.0,200029.0,37259.0,3392.0,33867.0,209569.0,0.2466,5.0,0.0835
-81.08.04.2016,Hertuti,Babar Barat,Maluku Barat Daya,solar_biomass_hybrid,intermittent,317,82,21.65,106668.0,174482.0,32501.0,2667.0,29834.0,197474.0,0.2776,4.0,0.0753
-81.08.04.2017,Sinairusi,Babar Barat,Maluku Barat Daya,solar_biomass_hybrid,intermittent,465,125,33.0,167860.0,265954.0,49539.0,4196.0,45343.0,294384.0,0.2678,4.0,0.0777
-81.08.05.2002,Yatoke,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,728,216,57.02,361265.0,459536.0,85597.0,9754.0,75843.0,411919.0,0.2049,5.0,0.0983
-81.08.05.2004,Nakarhamto,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,566,159,41.98,267576.0,338325.0,63020.0,7225.0,55795.0,301227.0,0.2034,5.0,0.0989
-81.08.05.2005,Emplawas,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,427,124,32.74,203205.0,263858.0,49149.0,5487.0,43662.0,241909.0,0.2101,5.0,0.0963
-81.08.05.2007,Ahanari,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,964,268,70.75,433506.0,570188.0,106209.0,11705.0,94504.0,529915.0,0.2134,5.0,0.0951
-81.08.05.2008,Wakpapapi,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,743,223,58.87,359313.0,474445.0,88375.0,9701.0,78673.0,442720.0,0.2145,5.0,0.0947
-81.08.05.2009,Analutur,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,328,90,23.76,144776.0,191487.0,35668.0,3909.0,31759.0,178993.0,0.2149,5.0,0.0946
-81.08.05.2010,Manuweri,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,498,137,36.17,222862.0,291501.0,54298.0,6017.0,48281.0,269333.0,0.212,5.0,0.0956
-81.08.05.2011,Tutuwawang,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,464,133,35.11,215669.0,282959.0,52707.0,5823.0,46883.0,262284.0,0.2128,5.0,0.0953
-81.08.06.2004,Masapun,Wetar Selatan,Maluku Barat Daya,solar_biomass_hybrid,intermittent,630,167,44.09,214882.0,355330.0,66187.0,5372.0,60815.0,405097.0,0.281,4.0,0.0744
-81.08.06.2023,Hiay,Wetar Selatan,Maluku Barat Daya,solar_biomass_hybrid,intermittent,470,129,34.06,165448.0,274496.0,51130.0,4136.0,46994.0,313633.0,0.2821,4.0,0.0742
-81.08.09.2001,Latalola Besar,Pulau Masela,Maluku Barat Daya,solar_battery,intermittent,450,138,36.43,226882.0,293597.0,54688.0,4991.0,49697.0,279751.0,0.2146,5.0,0.0928
-81.08.09.2002,Serili,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,346,96,25.34,98511.0,204220.0,38040.0,2463.0,35577.0,264181.0,0.3604,3.0,0.0594
-81.08.09.2003,Latalola Kecil,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,219,63,16.63,64648.0,134024.0,24965.0,1616.0,23348.0,173378.0,0.3604,3.0,0.0594
-81.08.09.2004,Telalora,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,203,69,18.22,71904.0,146839.0,27352.0,1798.0,25554.0,188606.0,0.3546,3.0,0.0603
-81.08.09.2005,Marsela,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,196,72,19.01,74547.0,153205.0,28537.0,1864.0,26674.0,197379.0,0.357,3.0,0.0599
-81.08.09.2006,Babiotang,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,303,90,23.76,92354.0,191487.0,35668.0,2309.0,33359.0,247727.0,0.3604,3.0,0.0594
-81.08.09.2007,Iblatmuntah,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,139,46,12.14,47345.0,97839.0,18224.0,1184.0,17041.0,126377.0,0.3591,3.0,0.0596
-81.08.09.2008,Ilbutung,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,192,65,17.16,68150.0,138296.0,25760.0,1704.0,24057.0,177094.0,0.3521,3.0,0.0607
-81.08.09.2009,Lawawang,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,300,93,24.55,95433.0,197853.0,36854.0,2386.0,34468.0,255953.0,0.3604,3.0,0.0594
-81.08.09.2010,Nura,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,596,186,49.1,190866.0,395707.0,73708.0,4772.0,68936.0,511906.0,0.3604,3.0,0.0594
-81.08.09.2011,Bululora,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,240,76,20.06,77988.0,161668.0,30114.0,1950.0,28164.0,209130.0,0.3604,3.0,0.0594
-81.08.10.2001,Watuwei,Dawelor Dawera,Maluku Barat Daya,solar_battery,intermittent,533,151,39.86,265516.0,321240.0,59837.0,5841.0,53996.0,284944.0,0.1979,5.0,0.0993
-81.08.10.2002,Ilmarang,Dawelor Dawera,Maluku Barat Daya,solar_battery,intermittent,269,85,22.44,144933.0,180848.0,33687.0,3189.0,30498.0,165979.0,0.2054,5.0,0.0962
-81.08.10.2003,Letmasa,Dawelor Dawera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,179,52,13.73,57115.0,110653.0,20611.0,1428.0,19183.0,138450.0,0.3348,3.0,0.0635
-81.08.10.2004,Welora,Dawelor Dawera,Maluku Barat Daya,solar_battery,intermittent,202,74,19.54,132189.0,157477.0,29333.0,2908.0,26425.0,137200.0,0.1942,6.0,0.1008
-81.08.10.2005,Wiratan,Dawelor Dawera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,270,82,21.65,91621.0,174482.0,32501.0,2291.0,30210.0,216356.0,0.3286,4.0,0.0646
-81.08.10.2006,Nurnyaman,Dawelor Dawera,Maluku Barat Daya,solar_battery,intermittent,220,64,16.9,112281.0,136200.0,25370.0,2470.0,22900.0,121171.0,0.1985,5.0,0.099
-81.08.11.2003,Pota Besar,Pulau Wetang,Maluku Barat Daya,wind_solar_hybrid,intermittent,245,64,16.9,108386.0,136200.0,25370.0,2926.0,22444.0,120415.0,0.2018,5.0,0.0995
-81.08.11.2004,Pota Kecil,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,247,75,19.8,128709.0,159572.0,29723.0,2832.0,26892.0,145440.0,0.2038,5.0,0.0969
-81.08.11.2005,Wasarili,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,362,110,29.04,183005.0,234039.0,43594.0,4026.0,39568.0,220373.0,0.2116,5.0,0.0939
-81.08.11.2006,Rumahlewang Kecil,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,276,92,24.29,155016.0,195758.0,36464.0,3410.0,33053.0,181947.0,0.2084,5.0,0.0951
-81.08.11.2007,Rumahlewang Besar,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,457,136,35.9,223594.0,289325.0,53892.0,4919.0,48973.0,275665.0,0.2145,5.0,0.0928
-81.08.11.2008,Nusiata,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,284,72,19.01,124323.0,153205.0,28537.0,2735.0,25802.0,138719.0,0.2023,5.0,0.0975
-81.08.12.2001,Ketty,Pulau Lakor,Maluku Barat Daya,solar_battery,intermittent,587,161,42.5,264696.0,342516.0,63800.0,5823.0,57977.0,326350.0,0.2145,5.0,0.0928
-81.08.12.2002,Letoda,Pulau Lakor,Maluku Barat Daya,wind_solar_hybrid,intermittent,1211,343,90.55,541580.0,729761.0,135932.0,14623.0,121309.0,695109.0,0.2198,5.0,0.0928
-81.08.12.2003,Sera,Pulau Lakor,Maluku Barat Daya,solar_battery,intermittent,452,127,33.53,208797.0,270225.0,50335.0,4594.0,45741.0,257511.0,0.2146,5.0,0.0928
-81.08.12.2004,Yamluli,Pulau Lakor,Maluku Barat Daya,solar_battery,intermittent,431,116,30.62,190713.0,246773.0,45966.0,4196.0,41771.0,235117.0,0.2145,5.0,0.0928
-81.08.12.2005,Lolotuara,Pulau Lakor,Maluku Barat Daya,solar_battery,intermittent,549,151,39.86,248255.0,321240.0,59837.0,5462.0,54376.0,306076.0,0.2145,5.0,0.0928
-81.08.14.2002,Karbubu,Wetar Barat,Maluku Barat Daya,wind_solar_hybrid,intermittent,584,142,37.49,273506.0,302139.0,56279.0,7385.0,48895.0,224951.0,0.1712,6.0,0.1132
-81.08.15.2001,Moning,Wetar Timur,Maluku Barat Daya,solar_biomass_hybrid,intermittent,341,89,23.5,110835.0,189391.0,35278.0,2771.0,32507.0,220557.0,0.2915,4.0,0.072
-81.08.15.2002,Arwala,Wetar Timur,Maluku Barat Daya,solar_biomass_hybrid,intermittent,390,108,28.51,127783.0,229768.0,42799.0,3195.0,39604.0,275961.0,0.3085,4.0,0.0685
-81.08.15.2003,Ilway,Wetar Timur,Maluku Barat Daya,solar_biomass_hybrid,intermittent,270,80,21.12,88752.0,170210.0,31705.0,2219.0,29486.0,211845.0,0.3311,4.0,0.0642
-81.08.15.2004,Kahilin,Wetar Timur,Maluku Barat Daya,solar_biomass_hybrid,intermittent,661,165,43.56,198144.0,351059.0,65392.0,4954.0,60438.0,417990.0,0.3035,4.0,0.0695
-81.08.16.2001,Hila,Kepulauan Roma,Maluku Barat Daya,solar_biomass_hybrid,intermittent,1695,453,119.59,513785.0,963800.0,179527.0,12845.0,166682.0,1185452.0,0.3232,4.0,0.0656
-81.08.16.2002,Jerusu,Kepulauan Roma,Maluku Barat Daya,solar_biomass_hybrid,intermittent,2761,746,196.94,839846.0,1587179.0,295643.0,20996.0,274647.0,1960040.0,0.3259,4.0,0.0651
-81.08.16.2003,Solath,Kepulauan Roma,Maluku Barat Daya,solar_biomass_hybrid,intermittent,645,191,50.42,223709.0,406345.0,75690.0,5593.0,70097.0,490894.0,0.312,4.0,0.0678
-81.09.01.2001,Wamkana,Namrole,Buru Selatan,micro_hydro,dark_settled,1186,277,73.13,948570.0,589369.0,109782.0,18971.0,90810.0,-22807.0,0.0718,11.0,0.1901
-81.09.01.2007,Oki Baru,Namrole,Buru Selatan,micro_hydro,dark_settled,1919,467,123.29,1543133.0,993619.0,185081.0,30863.0,154218.0,29044.0,0.0775,11.0,0.1834
-81.09.01.2008,Oki Lama,Namrole,Buru Selatan,micro_hydro,intermittent,2324,555,146.52,1823259.0,1180834.0,219953.0,36465.0,183488.0,47310.0,0.0784,10.0,0.1823
-81.09.01.2011,Tikbary,Namrole,Buru Selatan,micro_hydro,dark_settled,589,149,39.34,470027.0,317049.0,59057.0,9401.0,49656.0,36191.0,0.085,10.0,0.1751
-81.09.01.2017,Batu Tulis,Namrole,Buru Selatan,solar_biomass_hybrid,intermittent,305,101,26.66,111592.0,214858.0,40022.0,2790.0,37232.0,267967.0,0.3326,3.0,0.0639
-81.09.02.2001,Waetawa,Waesama,Buru Selatan,solar_biomass_hybrid,intermittent,1604,363,95.83,435227.0,772313.0,143858.0,10881.0,132978.0,920413.0,0.304,4.0,0.0694
-81.09.02.2002,Waesili,Waesama,Buru Selatan,micro_hydro,dark_settled,1787,482,127.25,1657790.0,1025533.0,191026.0,33156.0,157870.0,-48388.0,0.0711,11.0,0.1909
-81.09.02.2003,Lena,Waesama,Buru Selatan,micro_hydro,dark_settled,2035,489,129.1,1640271.0,1040443.0,193803.0,32805.0,160997.0,1015.0,0.0751,11.0,0.1862
-81.09.02.2004,Simi,Waesama,Buru Selatan,micro_hydro,dark_settled,1999,448,118.27,1500434.0,953162.0,177545.0,30009.0,147536.0,3623.0,0.0753,11.0,0.1859
-81.09.02.2005,Waelikut,Waesama,Buru Selatan,micro_hydro,dark_settled,1773,470,124.08,1564597.0,999986.0,186267.0,31292.0,154975.0,15293.0,0.0763,11.0,0.1848
-81.09.02.2006,Wamsisi,Waesama,Buru Selatan,micro_hydro,dark_settled,3287,819,216.22,2686097.0,1742560.0,324586.0,53722.0,270864.0,75223.0,0.0787,10.0,0.182
-81.09.02.2007,Pohon Batu,Waesama,Buru Selatan,micro_hydro,dark_settled,1542,367,96.89,1254302.0,780856.0,145450.0,25086.0,120364.0,-27256.0,0.0721,11.0,0.1897
-81.09.02.2008,Waeteba,Waesama,Buru Selatan,micro_hydro,dark_settled,1009,230,60.72,751006.0,489355.0,91152.0,15020.0,76132.0,25118.0,0.0794,10.0,0.1812
-81.09.02.2009,Hote,Waesama,Buru Selatan,micro_hydro,dark_settled,1023,235,62.04,753877.0,499993.0,93133.0,15078.0,78056.0,41863.0,0.0822,10.0,0.1781
-81.09.02.2010,Waemasing,Waesama,Buru Selatan,micro_hydro,intermittent,1375,347,91.61,1064308.0,738303.0,137523.0,21286.0,116237.0,120672.0,0.0896,10.0,0.1702
-81.09.02.2011,Batu Kasa,Waesama,Buru Selatan,solar_biomass_hybrid,intermittent,1098,242,63.89,266947.0,514902.0,95911.0,6674.0,89237.0,642778.0,0.3332,3.0,0.0638
-81.09.03.2003,Ulima,Ambalau,Buru Selatan,solar_biomass_hybrid,intermittent,1359,353,93.19,397501.0,751037.0,139895.0,9938.0,129958.0,927352.0,0.3258,4.0,0.0651
-81.09.04.2001,Balpetu,Kepala Madan,Buru Selatan,solar_biomass_hybrid,intermittent,1231,298,78.67,330659.0,634017.0,118098.0,8266.0,109832.0,789019.0,0.3311,4.0,0.0642
-81.09.04.2002,Waekeka,Kepala Madan,Buru Selatan,micro_hydro,dark_settled,860,227,59.93,746755.0,482988.0,89966.0,14935.0,75031.0,18146.0,0.0782,10.0,0.1826
-81.09.04.2003,Biloro,Kepala Madan,Buru Selatan,solar_biomass_hybrid,dark_settled,927,241,63.62,283624.0,512726.0,95505.0,7091.0,88415.0,617719.0,0.3103,4.0,0.0681
-81.09.04.2004,Nanali,Kepala Madan,Buru Selatan,solar_biomass_hybrid,intermittent,1656,365,96.36,465965.0,776585.0,144654.0,11649.0,133005.0,889952.0,0.2835,4.0,0.0739
-81.09.04.2005,Pasir Putih,Kepala Madan,Buru Selatan,solar_battery,intermittent,2869,705,186.12,1233204.0,1499978.0,279400.0,27130.0,252270.0,1338558.0,0.1992,5.0,0.0987
-81.09.04.2006,Fogi,Kepala Madan,Buru Selatan,micro_hydro,intermittent,806,183,48.31,582216.0,389340.0,72522.0,11644.0,60878.0,38403.0,0.0836,10.0,0.1766
-81.09.04.2007,Waepandan,Kepala Madan,Buru Selatan,micro_hydro,intermittent,1863,480,126.72,1515091.0,1021262.0,190230.0,30302.0,159928.0,115295.0,0.0849,10.0,0.1752
-81.09.04.2008,Walbele,Kepala Madan,Buru Selatan,micro_hydro,intermittent,865,224,59.14,711113.0,476621.0,88780.0,14222.0,74558.0,48965.0,0.0839,10.0,0.1762
-81.09.04.2009,Air Ternate,Kepala Madan,Buru Selatan,micro_hydro,dark_settled,1000,232,61.25,777793.0,493626.0,91947.0,15556.0,76392.0,981.0,0.0752,11.0,0.1861
-81.09.04.2010,Sekat,Kepala Madan,Buru Selatan,solar_battery,intermittent,1116,310,81.84,538400.0,659565.0,122857.0,11845.0,111012.0,593311.0,0.2009,5.0,0.098
-81.09.04.2011,Waeha,Kepala Madan,Buru Selatan,micro_hydro,intermittent,304,76,20.06,248028.0,161668.0,30114.0,4961.0,25153.0,8396.0,0.0794,10.0,0.1812
-81.09.04.2012,Bala-bala,Kepala Madan,Buru Selatan,solar_biomass_hybrid,intermittent,505,116,30.62,131457.0,246773.0,45966.0,3286.0,42680.0,303642.0,0.3235,4.0,0.0656
-81.09.04.2013,Batu Layar,Kepala Madan,Buru Selatan,solar_biomass_hybrid,intermittent,366,90,23.76,100246.0,191487.0,35668.0,2506.0,33162.0,237823.0,0.3297,4.0,0.0644
-81.09.04.2014,Siopot,Kepala Madan,Buru Selatan,micro_hydro,intermittent,488,102,26.93,310938.0,217034.0,40427.0,6219.0,34208.0,37796.0,0.0906,10.0,0.1692
-81.09.04.2015,Emguhen,Kepala Madan,Buru Selatan,micro_hydro,intermittent,283,68,17.95,222543.0,144663.0,26946.0,4451.0,22495.0,6786.0,0.079,10.0,0.1817
-81.09.05.2001,Waemulang,Leksula,Buru Selatan,micro_hydro,intermittent,1483,365,96.36,1160251.0,776585.0,144654.0,23205.0,121449.0,77860.0,0.0837,10.0,0.1764
-81.09.05.2002,Waeturen,Leksula,Buru Selatan,micro_hydro,intermittent,1129,258,68.11,814177.0,548912.0,102246.0,16284.0,85962.0,62162.0,0.0849,10.0,0.1752
-81.09.05.2003,Waehaka,Leksula,Buru Selatan,micro_hydro,intermittent,508,139,36.7,439641.0,295773.0,55093.0,8793.0,46301.0,32370.0,0.0845,10.0,0.1755
-81.09.05.2004,Waemala,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,727,201,53.06,206258.0,427621.0,79653.0,5156.0,74496.0,553194.0,0.3604,3.0,0.0594
-81.09.05.2005,Erwiri,Leksula,Buru Selatan,micro_hydro,intermittent,1599,364,96.1,1140587.0,774489.0,144264.0,22812.0,121452.0,97554.0,0.0861,10.0,0.1739
-81.09.05.2006,Tifu,Leksula,Buru Selatan,solar_battery,intermittent,434,110,29.04,206326.0,234039.0,43594.0,4539.0,39055.0,191822.0,0.1827,6.0,0.1059
-81.09.05.2007,Mepa,Leksula,Buru Selatan,micro_hydro,intermittent,620,155,40.92,516554.0,329782.0,61428.0,10331.0,51097.0,4357.0,0.0761,11.0,0.185
-81.09.05.2008,Leksula,Leksula,Buru Selatan,micro_hydro,intermittent,3785,1005,265.32,3087596.0,2138267.0,398294.0,61752.0,336542.0,343279.0,0.0893,10.0,0.1705
-81.09.05.2009,Nalbessy,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,1404,392,103.49,463950.0,834047.0,155357.0,11599.0,143759.0,1001597.0,0.3084,4.0,0.0685
-81.09.05.2010,Kase,Leksula,Buru Selatan,micro_hydro,dark_settled,599,140,36.96,487553.0,297868.0,55484.0,9751.0,45733.0,-21332.0,0.0692,11.0,0.1933
-81.09.05.2015,Neath,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,748,163,43.03,190526.0,346787.0,64596.0,4763.0,59833.0,419439.0,0.3127,4.0,0.0676
-81.09.05.2016,Liang,Leksula,Buru Selatan,micro_hydro,intermittent,779,173,45.67,585441.0,368064.0,68559.0,11709.0,56850.0,-5882.0,0.0737,11.0,0.1878
-81.09.05.2018,Slealale,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,741,169,44.62,189592.0,359602.0,66983.0,4740.0,62243.0,444944.0,0.3272,4.0,0.0649
-81.09.05.2023,Walunhelat,Leksula,Buru Selatan,solar_battery,intermittent,255,59,15.58,98333.0,125562.0,23388.0,2163.0,21225.0,118046.0,0.2112,5.0,0.094
-81.09.05.2024,Wahaolon,Leksula,Buru Selatan,micro_hydro,intermittent,357,67,17.69,212903.0,142567.0,26556.0,4258.0,22298.0,14412.0,0.0838,10.0,0.1764
-81.09.05.2025,Waewali,Leksula,Buru Selatan,micro_hydro,intermittent,295,65,17.16,194509.0,138296.0,25760.0,3890.0,21870.0,28446.0,0.0937,9.0,0.1661
-81.09.05.2029,Grahwaen,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,397,86,22.7,95744.0,182944.0,34077.0,2394.0,31683.0,227251.0,0.3298,4.0,0.0644
-81.09.05.2030,Terkuri,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,239,57,15.05,63490.0,121291.0,22593.0,1587.0,21006.0,150651.0,0.3297,4.0,0.0644
-81.09.06.2001,Nusarua,Fena Fafan,Buru Selatan,micro_hydro,intermittent,471,104,27.46,322668.0,221306.0,41222.0,6453.0,34769.0,31786.0,0.0877,10.0,0.1722
-81.09.06.2002,Mangeswaen,Fena Fafan,Buru Selatan,micro_hydro,intermittent,1072,233,61.51,710547.0,495721.0,92338.0,14211.0,78127.0,85917.0,0.0905,10.0,0.1693
-81.09.06.2003,Waekatin,Fena Fafan,Buru Selatan,micro_hydro,intermittent,815,194,51.22,573920.0,412792.0,76891.0,11478.0,65412.0,92924.0,0.0956,9.0,0.1642
-81.09.06.2004,Fakal,Fena Fafan,Buru Selatan,micro_hydro,intermittent,454,97,25.61,307912.0,206396.0,38445.0,6158.0,32287.0,21238.0,0.0839,10.0,0.1762
-81.09.06.2005,Uneth,Fena Fafan,Buru Selatan,micro_hydro,intermittent,535,115,30.36,345331.0,244677.0,45576.0,6907.0,38669.0,48883.0,0.0931,9.0,0.1667
-81.09.06.2006,Waeraman,Fena Fafan,Buru Selatan,micro_hydro,intermittent,649,136,35.9,422126.0,289325.0,53892.0,8443.0,45450.0,41213.0,0.0876,10.0,0.1723
-81.09.06.2007,Waelo,Fena Fafan,Buru Selatan,micro_hydro,intermittent,520,121,31.94,365546.0,257411.0,47948.0,7311.0,40637.0,48726.0,0.0921,9.0,0.1677
-81.09.06.2008,Siwatlahin,Fena Fafan,Buru Selatan,micro_hydro,intermittent,159,31,8.18,91712.0,65924.0,12280.0,1834.0,10445.0,14774.0,0.0955,9.0,0.1643
-81.09.06.2009,Trukat,Fena Fafan,Buru Selatan,micro_hydro,intermittent,202,43,11.35,130333.0,91472.0,17038.0,2607.0,14432.0,16792.0,0.0915,10.0,0.1683
-81.09.06.2010,Waeken,Fena Fafan,Buru Selatan,micro_hydro,intermittent,168,42,11.09,129495.0,89377.0,16648.0,2590.0,14058.0,13821.0,0.0887,10.0,0.1711
-81.71.01.1013,Silale,Nusaniwe,Kota Ambon,wind_solar_hybrid,intermittent,3667,1233,325.51,1946845.0,2623350.0,488650.0,52565.0,436085.0,2498824.0,0.2198,5.0,0.0928
-81.72.03.2001,Tam Ngurhir,Tayando Tam,Kota Tual,solar_biomass_hybrid,intermittent,2379,600,158.4,615695.0,1276577.0,237787.0,15392.0,222395.0,1651510.0,0.3604,3.0,0.0594
-81.72.03.2002,Tayando Langgiar,Tayando Tam,Kota Tual,solar_biomass_hybrid,dark_settled,1008,272,71.81,279115.0,578731.0,107800.0,6978.0,100822.0,748715.0,0.3605,3.0,0.0594
-81.72.03.2003,Tayando Yamtel,Tayando Tam,Kota Tual,solar_biomass_hybrid,intermittent,2951,850,224.4,872235.0,1808484.0,336866.0,21806.0,315060.0,2339638.0,0.3604,3.0,0.0594
-81.72.03.2004,Tayando Ohoiel,Tayando Tam,Kota Tual,solar_biomass_hybrid,intermittent,1668,448,118.27,459719.0,953162.0,177545.0,11493.0,166052.0,1233097.0,0.3604,3.0,0.0594
-81.72.03.2005,Tayando Yamru,Tayando Tam,Kota Tual,solar_biomass_hybrid,intermittent,773,219,57.82,224729.0,465983.0,86798.0,5618.0,81180.0,602862.0,0.3605,3.0,0.0594
-81.72.04.2001,Tubyal,Pulau-Pulau Kur,Kota Tual,solar_biomass_hybrid,intermittent,456,131,34.58,134427.0,278687.0,51911.0,3361.0,48550.0,360518.0,0.3604,3.0,0.0594
-81.72.04.2002,Kaimear,Pulau-Pulau Kur,Kota Tual,solar_battery,intermittent,740,210,55.44,360689.0,446802.0,83226.0,7935.0,75290.0,406859.0,0.2036,5.0,0.0969
-81.72.04.2004,Lokwirin,Pulau-Pulau Kur,Kota Tual,solar_biomass_hybrid,intermittent,775,225,59.4,234490.0,478716.0,89170.0,5862.0,83308.0,614793.0,0.3545,3.0,0.0603
-81.72.05.2001,Kanara,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,495,136,35.9,142927.0,289325.0,53892.0,3573.0,50319.0,370053.0,0.3512,3.0,0.0608
-81.72.05.2002,Warkar,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,592,139,36.7,148319.0,295773.0,55093.0,3708.0,51385.0,375530.0,0.3455,3.0,0.0617
-81.72.05.2003,Yapas,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,231,58,15.31,62722.0,123386.0,22983.0,1568.0,21415.0,155594.0,0.3405,3.0,0.0626
-81.72.05.2004,Rumoin,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,1274,335,88.44,360801.0,712756.0,132765.0,9020.0,123745.0,900713.0,0.342,3.0,0.0623
-81.72.05.2005,Hirit,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,409,110,29.04,120427.0,234039.0,43594.0,3011.0,40584.0,293303.0,0.336,3.0,0.0633
-81.72.05.2006,Tiflen,Kur Selatan,Kota Tual,solar_biomass_hybrid,dark_settled,474,110,29.04,118759.0,234039.0,43594.0,2969.0,40625.0,295396.0,0.3411,3.0,0.0625
-81.72.05.2007,Niela,Kur Selatan,Kota Tual,solar_biomass_hybrid,dark_settled,664,171,45.14,175473.0,363792.0,67763.0,4387.0,63377.0,470619.0,0.3604,3.0,0.0594
+kode_desa,name,kecamatan,kabupaten,tech,l1_class,pop_2026,hh_2026,demand_kw,capex_usd,annual_kwh,tariff_yr1_10,tariff_yr11_20,tariff_avg20,annual_om_usd,npv_usd,irr,payback_yrs,lcoe_usd_kwh
+81.01.01.1009,Hollo,Amahai,Maluku Tengah,solar_battery,intermittent,2058,590,155.76,1037216.0,1255301.0,0.2386,0.1101,0.1743,22300.0,1251340.0,0.2491,4.0,0.0988
+81.01.01.2021,Nua Nea,Amahai,Maluku Tengah,solar_biomass_hybrid,intermittent,593,151,39.86,208943.0,321240.0,0.2402,0.1478,0.194,4649.0,431564.0,0.3388,3.0,0.0783
+81.01.06.2011,Roho,Seram Utara,Maluku Tengah,micro_hydro,dark_settled,598,151,39.86,463271.0,321240.0,0.146,0.0702,0.1081,9265.0,-160713.0,0.012,17.0,0.1703
+81.01.06.2021,Rumahsokat,Seram Utara,Maluku Tengah,solar_battery,intermittent,724,198,52.27,348083.0,421254.0,0.2386,0.1101,0.1743,7484.0,419909.0,0.2491,4.0,0.0988
+81.01.06.2022,Sawai,Seram Utara,Maluku Tengah,micro_hydro,intermittent,4101,1066,281.42,3287373.0,2268020.0,0.146,0.0702,0.1081,65747.0,-1154630.0,0.0111,17.0,0.1712
+81.01.06.2044,Besi,Seram Utara,Maluku Tengah,solar_biomass_hybrid,intermittent,1035,274,72.34,311873.0,583003.0,0.2402,0.1478,0.194,6939.0,865824.0,0.4215,3.0,0.0644
+81.01.06.2045,Malaku,Seram Utara,Maluku Tengah,solar_biomass_hybrid,intermittent,1670,483,127.51,545208.0,1027629.0,0.2402,0.1478,0.194,12131.0,1531682.0,0.4253,3.0,0.0638
+81.01.06.2052,Oping,Seram Utara,Maluku Tengah,solar_biomass_hybrid,intermittent,208,59,15.58,66550.0,125562.0,0.2402,0.1478,0.194,1481.0,187233.0,0.4258,3.0,0.0638
+81.01.09.2006,Pulau Hatta,Banda,Maluku Tengah,solar_biomass_hybrid,intermittent,795,239,63.1,287392.0,508536.0,0.2402,0.1478,0.194,6394.0,736395.0,0.3968,3.0,0.068
+81.01.09.2009,Pulau Ay,Banda,Maluku Tengah,solar_biomass_hybrid,intermittent,1695,521,137.54,595491.0,1108462.0,0.2402,0.1478,0.194,13250.0,1643091.0,0.4195,3.0,0.0647
+81.01.09.2010,Pulau Rhun,Banda,Maluku Tengah,solar_biomass_hybrid,intermittent,1726,537,141.77,653946.0,1142553.0,0.2402,0.1478,0.194,14550.0,1644378.0,0.3912,3.0,0.0689
+81.01.09.2016,Uring Tutra,Banda,Maluku Tengah,solar_biomass_hybrid,intermittent,430,123,32.47,154487.0,261682.0,0.2402,0.1478,0.194,3437.0,370836.0,0.378,3.0,0.071
+81.01.11.2020,Salamahu,Tehoru,Maluku Tengah,micro_hydro,intermittent,515,152,40.13,528122.0,323416.0,0.146,0.0702,0.1081,10562.0,-236097.0,-0.0097,,0.1928
+81.01.12.2006,Kulur,Saparua,Maluku Tengah,solar_biomass_hybrid,intermittent,1196,372,98.21,421255.0,791494.0,0.2402,0.1478,0.194,9373.0,1178094.0,0.4238,3.0,0.064
+81.01.13.2001,Aboru,Pulau Haruku,Maluku Tengah,solar_biomass_hybrid,intermittent,2214,737,194.57,869759.0,1568079.0,0.2402,0.1478,0.194,19352.0,2290831.0,0.405,3.0,0.0667
+81.01.13.2002,Wassu,Pulau Haruku,Maluku Tengah,solar_biomass_hybrid,intermittent,841,253,66.79,322202.0,538274.0,0.2402,0.1478,0.194,7169.0,757371.0,0.3722,3.0,0.072
+81.01.13.2005,Sameth,Pulau Haruku,Maluku Tengah,solar_biomass_hybrid,intermittent,628,195,51.48,226456.0,414888.0,0.2402,0.1478,0.194,5039.0,610616.0,0.4123,3.0,0.0657
+81.01.13.2011,Hulaliu,Pulau Haruku,Maluku Tengah,solar_biomass_hybrid,intermittent,1866,617,162.89,706069.0,1312763.0,0.2402,0.1478,0.194,15710.0,1944919.0,0.419,3.0,0.0647
+81.01.15.2006,Asilulu,Leihitu,Maluku Tengah,wind_solar_hybrid,intermittent,6249,1715,452.76,3504358.0,3648883.0,0.2334,0.1077,0.1705,92865.0,2702672.0,0.1911,5.0,0.1197
+81.01.15.2007,Ureng,Leihitu,Maluku Tengah,wind_solar_hybrid,intermittent,5024,1349,356.14,2786420.0,2870203.0,0.2334,0.1077,0.1705,73840.0,2087938.0,0.1881,5.0,0.121
+81.01.16.2002,Titawaai,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,1984,641,169.22,783857.0,1363778.0,0.2402,0.1478,0.194,17441.0,1958729.0,0.3894,3.0,0.0692
+81.01.16.2003,Abubu,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,790,261,68.9,313623.0,555279.0,0.2402,0.1478,0.194,6978.0,804310.0,0.397,3.0,0.068
+81.01.16.2004,Akoon,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,658,230,60.72,277413.0,489355.0,0.2402,0.1478,0.194,6172.0,707564.0,0.3954,3.0,0.0682
+81.01.16.2005,Nalahia,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,523,196,51.74,252047.0,416983.0,0.2402,0.1478,0.194,5608.0,583707.0,0.3681,3.0,0.0727
+81.01.16.2006,Sila,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,329,114,30.1,141040.0,242582.0,0.2402,0.1478,0.194,3138.0,346432.0,0.3845,3.0,0.07
+81.01.16.2007,Leinitu,Nusa Laut,Maluku Tengah,solar_biomass_hybrid,intermittent,306,116,30.62,139038.0,246773.0,0.2402,0.1478,0.194,3094.0,357862.0,0.3981,3.0,0.0678
+81.01.20.2002,Horale,Seram Utara Barat,Maluku Tengah,micro_hydro,intermittent,1825,516,136.22,1636076.0,1097824.0,0.146,0.0702,0.1081,32722.0,-612874.0,0.0062,19.0,0.176
+81.01.20.2003,Wailulu,Seram Utara Barat,Maluku Tengah,micro_hydro,intermittent,669,177,46.73,545739.0,376606.0,0.146,0.0702,0.1081,10915.0,-191569.0,0.0111,17.0,0.1711
+81.01.20.2004,Paa,Seram Utara Barat,Maluku Tengah,solar_biomass_hybrid,intermittent,505,129,34.06,146974.0,274496.0,0.2402,0.1478,0.194,3270.0,407493.0,0.4211,3.0,0.0644
+81.01.20.2005,Karlutu Kara,Seram Utara Barat,Maluku Tengah,solar_biomass_hybrid,intermittent,620,178,46.99,200777.0,378702.0,0.2402,0.1478,0.194,4467.0,564631.0,0.4256,3.0,0.0638
+81.01.20.2007,Labuan,Seram Utara Barat,Maluku Tengah,solar_biomass_hybrid,intermittent,1176,362,95.57,408322.0,770218.0,0.2402,0.1478,0.194,9085.0,1148400.0,0.4257,3.0,0.0638
+81.01.20.2008,Gale-gale,Seram Utara Barat,Maluku Tengah,micro_hydro,intermittent,2183,621,163.94,1968894.0,1321225.0,0.146,0.0702,0.1081,39378.0,-737453.0,0.0062,19.0,0.176
+81.01.20.2009,Latea,Seram Utara Barat,Maluku Tengah,micro_hydro,dark_settled,1578,444,117.22,1415884.0,944699.0,0.146,0.0702,0.1081,28318.0,-537031.0,0.0052,19.0,0.177
+81.01.20.2010,Lisabata Timur,Seram Utara Barat,Maluku Tengah,micro_hydro,dark_settled,914,246,64.94,812139.0,523364.0,0.146,0.0702,0.1081,16243.0,-330909.0,-0.0008,,0.1833
+81.01.20.2011,Rumahwey,Seram Utara Barat,Maluku Tengah,micro_hydro,intermittent,506,134,35.38,461348.0,285134.0,0.146,0.0702,0.1081,9227.0,-203020.0,-0.0081,,0.1911
+81.01.20.2012,Warasiwa,Seram Utara Barat,Maluku Tengah,micro_hydro,dark_settled,807,229,60.46,760077.0,487259.0,0.146,0.0702,0.1081,15202.0,-312854.0,-0.0018,,0.1842
+81.01.20.2013,Herlau Pauni,Seram Utara Barat,Maluku Tengah,solar_biomass_hybrid,intermittent,30,10,2.64,11280.0,21276.0,0.2402,0.1478,0.194,251.0,31722.0,0.4257,3.0,0.0638
+81.01.21.2002,Tananahu,Teluk Elpaputih,Maluku Tengah,micro_hydro,intermittent,3882,1062,280.37,3452349.0,2259558.0,0.146,0.0702,0.1081,69047.0,-1363701.0,0.0019,20.0,0.1804
+81.01.21.2003,Liang,Teluk Elpaputih,Maluku Tengah,micro_hydro,intermittent,2710,784,206.98,2710077.0,1668093.0,0.146,0.0702,0.1081,54202.0,-1201068.0,-0.0088,,0.1919
+81.01.21.2004,Sahulauw,Teluk Elpaputih,Maluku Tengah,micro_hydro,intermittent,1883,540,142.56,1794621.0,1148920.0,0.146,0.0702,0.1081,35892.0,-740597.0,-0.002,,0.1845
+81.01.22.2001,Larike,Leihitu Barat,Maluku Tengah,wind_solar_hybrid,intermittent,5466,1503,396.79,3008119.0,3197810.0,0.2334,0.1077,0.1705,79715.0,2448629.0,0.1971,5.0,0.1172
+81.01.22.2002,Wakasihu,Leihitu Barat,Maluku Tengah,wind_solar_hybrid,intermittent,3534,965,254.76,1833350.0,2053162.0,0.2334,0.1077,0.1705,48584.0,1696649.0,0.2123,5.0,0.1113
+81.01.23.2001,Ulahahan,Telutih,Maluku Tengah,micro_hydro,intermittent,958,233,61.51,737576.0,495721.0,0.146,0.0702,0.1081,14752.0,-275307.0,0.0065,19.0,0.1757
+81.01.24.2010,Namto,Seram Utara Timur Seti,Maluku Tengah,solar_biomass_hybrid,intermittent,594,185,48.84,208673.0,393611.0,0.2402,0.1478,0.194,4643.0,586871.0,0.4257,3.0,0.0638
+81.01.25.2009,Way Asih,Seram Utara Timur Kobi,Maluku Tengah,solar_biomass_hybrid,intermittent,728,241,63.62,271839.0,512726.0,0.2402,0.1478,0.194,6048.0,764450.0,0.4256,3.0,0.0638
+81.02.01.2018,Ngabub,Kei Kecil,Maluku Tenggara,solar_biomass_hybrid,intermittent,702,176,46.46,198521.0,374430.0,0.2402,0.1478,0.194,4417.0,558252.0,0.4256,3.0,0.0638
+81.02.03.2025,Harangur,Kei Besar,Maluku Tenggara,solar_biomass_hybrid,intermittent,205,49,12.94,58316.0,104286.0,0.2402,0.1478,0.194,1298.0,151774.0,0.4014,3.0,0.0673
+81.02.04.2005,Tamangil Nuhuten,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,545,146,38.54,177481.0,310602.0,0.2402,0.1478,0.194,3949.0,447382.0,0.3919,3.0,0.0688
+81.02.04.2006,Tamangil Nuhuyanat,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,247,82,21.65,105638.0,174482.0,0.2402,0.1478,0.194,2350.0,244035.0,0.3675,3.0,0.0729
+81.02.04.2012,Kilwat,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,860,211,55.7,266182.0,448897.0,0.2402,0.1478,0.194,5923.0,634707.0,0.3761,3.0,0.0714
+81.02.04.2013,Sather,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,1204,319,84.22,389592.0,678746.0,0.2402,0.1478,0.194,8668.0,975501.0,0.39,3.0,0.0691
+81.02.04.2014,Tutrean,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,530,147,38.81,185693.0,312778.0,0.2402,0.1478,0.194,4132.0,441967.0,0.3756,3.0,0.0714
+81.02.04.2016,Soindat,Kei Besar Selatan,Maluku Tenggara,solar_biomass_hybrid,intermittent,278,70,18.48,84157.0,148934.0,0.2402,0.1478,0.194,1872.0,215680.0,0.3968,3.0,0.068
+81.02.13.2001,Wain,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,1540,427,112.73,714982.0,908514.0,0.2334,0.1077,0.1705,18947.0,873031.0,0.2519,4.0,0.0981
+81.02.13.2002,Rewav,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,911,245,64.68,276350.0,521269.0,0.2402,0.1478,0.194,6149.0,777209.0,0.4257,3.0,0.0638
+81.02.13.2003,Rumaat,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,937,274,72.34,309061.0,583003.0,0.2402,0.1478,0.194,6877.0,869274.0,0.4257,3.0,0.0638
+81.02.13.2004,Rat,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,340,100,26.4,167443.0,212763.0,0.2334,0.1077,0.1705,4437.0,204450.0,0.2519,4.0,0.0981
+81.02.13.2005,Abean,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,621,193,50.95,323165.0,410616.0,0.2334,0.1077,0.1705,8564.0,394556.0,0.2519,4.0,0.0981
+81.02.13.2006,Mastur,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,620,178,46.99,298049.0,378702.0,0.2334,0.1077,0.1705,7898.0,363888.0,0.2519,4.0,0.0981
+81.02.13.2014,Semawi,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,536,138,36.43,155659.0,293597.0,0.2402,0.1478,0.194,3463.0,437740.0,0.4256,3.0,0.0638
+81.02.13.2015,Iso,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,175,56,14.78,63166.0,119115.0,0.2402,0.1478,0.194,1405.0,177578.0,0.4255,3.0,0.0638
+81.02.13.2016,Disuk,Kei Kecil Timur,Maluku Tenggara,solar_biomass_hybrid,intermittent,431,136,35.9,154246.0,289325.0,0.2402,0.1478,0.194,3432.0,430326.0,0.4231,3.0,0.0642
+81.02.13.2017,Wain Baru,Kei Kecil Timur,Maluku Tenggara,solar_battery,intermittent,369,88,23.23,154703.0,187215.0,0.2386,0.1101,0.1743,3326.0,186609.0,0.2491,4.0,0.0988
+81.02.13.2019,Watngon,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,246,82,21.65,137303.0,174482.0,0.2334,0.1077,0.1705,3639.0,167681.0,0.252,4.0,0.098
+81.02.13.2020,Yafavun,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,608,193,50.95,323165.0,410616.0,0.2334,0.1077,0.1705,8564.0,394556.0,0.2519,4.0,0.0981
+81.02.13.2021,Mastur Baru,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,628,162,42.77,271258.0,344692.0,0.2334,0.1077,0.1705,7188.0,331240.0,0.2519,4.0,0.098
+81.02.13.2022,Ohoilus,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,576,155,40.92,259537.0,329782.0,0.2334,0.1077,0.1705,6878.0,316897.0,0.2519,4.0,0.0981
+81.02.13.2023,Tenbuk,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,294,80,21.12,133954.0,170210.0,0.2334,0.1077,0.1705,3550.0,163560.0,0.2519,4.0,0.0981
+81.02.13.2024,Denwet,Kei Kecil Timur,Maluku Tenggara,wind_solar_hybrid,intermittent,571,157,41.45,262886.0,334054.0,0.2334,0.1077,0.1705,6966.0,321017.0,0.2519,4.0,0.098
+81.02.18.2001,Hoat,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,354,98,25.87,121089.0,208492.0,0.2402,0.1478,0.194,2694.0,297907.0,0.3849,3.0,0.0699
+81.02.18.2002,Ngafan,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,455,123,32.47,160266.0,261682.0,0.2402,0.1478,0.194,3566.0,363746.0,0.3627,3.0,0.0737
+81.02.18.2004,Rerean,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,201,55,14.52,67340.0,117020.0,0.2402,0.1478,0.194,1498.0,167971.0,0.3889,3.0,0.0693
+81.02.18.2006,Hoko,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,389,107,28.25,137726.0,227672.0,0.2402,0.1478,0.194,3064.0,318570.0,0.3678,3.0,0.0728
+81.02.18.2007,Weduar Fer,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,281,63,16.63,76035.0,134024.0,0.2402,0.1478,0.194,1692.0,193718.0,0.3951,3.0,0.0683
+81.02.18.2010,Watkidat,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,403,89,23.5,111565.0,189391.0,0.2402,0.1478,0.194,2482.0,268690.0,0.3789,3.0,0.0709
+81.02.18.2013,Rahangiar,Kei Besar Selatan Barat,Maluku Tenggara,solar_biomass_hybrid,intermittent,588,164,43.3,226468.0,348963.0,0.2402,0.1478,0.194,5039.0,469431.0,0.3397,3.0,0.0781
+81.02.19.2011,Garara,Kei Kecil Timur Selatan,Maluku Tenggara,wind_solar_hybrid,intermittent,359,93,24.55,155722.0,197853.0,0.2334,0.1077,0.1705,4127.0,190107.0,0.2519,4.0,0.0981
+81.03.01.2009,Latdalam,Tanimbar Selatan,Kepulauan Tanimbar,wind_solar_hybrid,intermittent,3790,1018,268.75,1704571.0,2165910.0,0.2334,0.1077,0.1705,45171.0,2081265.0,0.2519,4.0,0.0981
+81.03.01.2011,Matakus,Tanimbar Selatan,Kepulauan Tanimbar,wind_solar_hybrid,intermittent,654,160,42.24,267909.0,340421.0,0.2334,0.1077,0.1705,7100.0,327119.0,0.2519,4.0,0.0981
+81.03.02.2005,Fursuy,Selaru,Kepulauan Tanimbar,solar_battery,intermittent,1414,332,87.65,583653.0,706389.0,0.2386,0.1101,0.1743,12549.0,704177.0,0.2491,4.0,0.0988
+81.03.02.2006,Werain,Selaru,Kepulauan Tanimbar,solar_battery,intermittent,1049,329,86.86,578380.0,700022.0,0.2386,0.1101,0.1743,12435.0,697846.0,0.2491,4.0,0.0988
+81.03.02.2007,Eliasa,Selaru,Kepulauan Tanimbar,solar_battery,intermittent,911,216,57.02,379726.0,459536.0,0.2386,0.1101,0.1743,8164.0,458054.0,0.2491,4.0,0.0988
+81.03.03.2004,Amdasa,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1013,311,82.1,354495.0,661660.0,0.2402,0.1478,0.194,7888.0,981972.0,0.4208,3.0,0.0645
+81.03.03.2005,Sangliat Krawain,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1099,325,85.8,370837.0,691479.0,0.2402,0.1478,0.194,8251.0,1025777.0,0.4203,3.0,0.0645
+81.03.03.2006,Arui Bab,Wertamrian,Kepulauan Tanimbar,micro_hydro,intermittent,2508,696,183.74,2126637.0,1480797.0,0.146,0.0702,0.1081,42533.0,-730146.0,0.0127,17.0,0.1696
+81.03.03.2007,Arui Das,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1131,326,86.06,374506.0,693575.0,0.2402,0.1478,0.194,8333.0,1025763.0,0.4172,3.0,0.065
+81.03.03.2008,Sangliat Dol,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1101,320,84.48,365192.0,680841.0,0.2402,0.1478,0.194,8126.0,1009922.0,0.4203,3.0,0.0645
+81.03.03.2009,Atubul Da,Wertamrian,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,1629,411,108.5,464934.0,874423.0,0.2402,0.1478,0.194,10345.0,1302091.0,0.4243,3.0,0.064
+81.03.04.2006,Wermatang,Wermaktian,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1165,300,79.2,338388.0,638289.0,0.2402,0.1478,0.194,7529.0,951684.0,0.4257,3.0,0.0638
+81.03.04.2007,Otemer,Wermaktian,Kepulauan Tanimbar,wind_solar_hybrid,dark_settled,1722,474,125.14,793680.0,1008528.0,0.2334,0.1077,0.1705,21033.0,969154.0,0.2519,4.0,0.0981
+81.03.04.2009,Marantutul,Wermaktian,Kepulauan Tanimbar,wind_solar_hybrid,dark_settled,860,214,56.5,358328.0,455345.0,0.2334,0.1077,0.1705,9496.0,437586.0,0.2519,4.0,0.098
+81.03.05.2007,Lamdesar Barat,Tanimbar Utara,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1059,332,87.65,374483.0,706389.0,0.2402,0.1478,0.194,8332.0,1053231.0,0.4257,3.0,0.0638
+81.03.05.2008,Lamdesar Timur,Tanimbar Utara,Kepulauan Tanimbar,solar_battery,intermittent,1940,609,160.78,1070617.0,1295758.0,0.2386,0.1101,0.1743,23018.0,1291703.0,0.2491,4.0,0.0988
+81.03.06.2001,Romean,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1879,531,140.18,616698.0,1129739.0,0.2402,0.1478,0.194,13722.0,1662634.0,0.4122,3.0,0.0657
+81.03.06.2002,Rumngeur,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,386,112,29.57,131633.0,238311.0,0.2402,0.1478,0.194,2929.0,348826.0,0.4069,3.0,0.0665
+81.03.06.2003,Awear,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,391,110,29.04,126179.0,234039.0,0.2402,0.1478,0.194,2807.0,346370.0,0.4179,3.0,0.0649
+81.03.06.2004,Sofyanin,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1152,346,91.34,406542.0,736127.0,0.2402,0.1478,0.194,9046.0,1077582.0,0.407,3.0,0.0665
+81.03.06.2005,Walerang,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,887,260,68.64,314928.0,553183.0,0.2402,0.1478,0.194,7007.0,798222.0,0.3936,3.0,0.0685
+81.03.06.2006,Adodo Fordata,Fordata,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1077,355,93.72,421565.0,755308.0,0.2402,0.1478,0.194,9380.0,1100226.0,0.4023,3.0,0.0672
+81.03.07.2008,Watmasa,Wuar Labobar,Kepulauan Tanimbar,wind_solar_hybrid,intermittent,1272,320,84.48,535818.0,680841.0,0.2334,0.1077,0.1705,14199.0,654238.0,0.2519,4.0,0.0981
+81.03.07.2009,Awear Rumngeur,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,960,268,70.75,302294.0,570188.0,0.2402,0.1478,0.194,6726.0,850136.0,0.4257,3.0,0.0638
+81.03.07.2010,Karatat,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,966,245,64.68,276350.0,521269.0,0.2402,0.1478,0.194,6149.0,777209.0,0.4257,3.0,0.0638
+81.03.07.2011,Wunlah,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1045,282,74.45,318085.0,600007.0,0.2402,0.1478,0.194,7077.0,894617.0,0.4257,3.0,0.0638
+81.03.07.2012,Kiloon,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,1133,290,76.56,328283.0,617012.0,0.2402,0.1478,0.194,7304.0,918520.0,0.424,3.0,0.064
+81.03.07.2014,Teineman,Wuar Labobar,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,864,203,53.59,234966.0,431893.0,0.2402,0.1478,0.194,5228.0,636590.0,0.4138,3.0,0.0655
+81.03.08.2008,Alusi Batjas,Kormomolin,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,724,231,60.98,264064.0,491450.0,0.2402,0.1478,0.194,5875.0,728427.0,0.4195,3.0,0.0647
+81.03.08.2009,Lorwembun,Kormomolin,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,1272,381,100.58,436886.0,810594.0,0.2402,0.1478,0.194,9721.0,1199819.0,0.418,3.0,0.0649
+81.03.09.2001,Arma,Nirunmas,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,2781,805,212.52,923613.0,1712741.0,0.2402,0.1478,0.194,20550.0,2534541.0,0.4178,3.0,0.0649
+81.03.09.2002,Watmuri,Nirunmas,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,2656,772,203.81,878900.0,1642546.0,0.2402,0.1478,0.194,19556.0,2439080.0,0.4214,3.0,0.0644
+81.03.18.2003,Wulmasa,Molu Maru,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,741,203,53.59,230937.0,431893.0,0.2402,0.1478,0.194,5138.0,641533.0,0.4217,3.0,0.0643
+81.03.18.2004,Tutunametal,Molu Maru,Kepulauan Tanimbar,solar_biomass_hybrid,intermittent,812,215,56.76,242512.0,457440.0,0.2402,0.1478,0.194,5396.0,682040.0,0.4257,3.0,0.0638
+81.03.18.2005,Nurkat,Molu Maru,Kepulauan Tanimbar,solar_biomass_hybrid,dark_settled,1073,293,77.35,334765.0,623379.0,0.2402,0.1478,0.194,7449.0,924202.0,0.4197,3.0,0.0646
+81.04.02.2007,Tanjung Karang,Air Buaya,Buru,micro_hydro,intermittent,2033,508,134.11,1812480.0,1080819.0,0.146,0.0702,0.1081,36250.0,-846261.0,-0.0143,,0.198
+81.04.02.2008,Bara,Air Buaya,Buru,micro_hydro,dark_settled,2560,638,168.43,2315075.0,1357411.0,0.146,0.0702,0.1081,46302.0,-1109495.0,-0.0172,,0.2014
+81.04.02.2019,Kampung Baru,Air Buaya,Buru,micro_hydro,intermittent,686,185,48.84,672182.0,393611.0,0.146,0.0702,0.1081,13444.0,-322776.0,-0.0174,,0.2017
+81.04.06.2004,Samalagi,Waplau,Buru,solar_battery,intermittent,555,165,43.56,305209.0,351059.0,0.2386,0.1101,0.1743,6562.0,331493.0,0.2331,4.0,0.104
+81.04.06.2005,Namsina,Waplau,Buru,solar_biomass_hybrid,intermittent,1637,435,114.84,516973.0,925519.0,0.2402,0.1478,0.194,11503.0,1347664.0,0.4019,3.0,0.0672
+81.04.06.2006,Hatawano,Waplau,Buru,solar_biomass_hybrid,intermittent,1562,433,114.31,521255.0,921247.0,0.2402,0.1478,0.194,11598.0,1333264.0,0.3962,3.0,0.0681
+81.04.06.2007,Waelihang,Waplau,Buru,solar_biomass_hybrid,intermittent,1327,365,96.36,449119.0,776585.0,0.2402,0.1478,0.194,9993.0,1111982.0,0.3867,3.0,0.0696
+81.04.06.2008,Waprea,Waplau,Buru,solar_biomass_hybrid,intermittent,1223,319,84.22,388797.0,678746.0,0.2402,0.1478,0.194,8651.0,976476.0,0.3909,3.0,0.0689
+81.04.06.2009,Waepotih,Waplau,Buru,solar_biomass_hybrid,intermittent,1841,508,134.11,616861.0,1080819.0,0.2402,0.1478,0.194,13725.0,1557679.0,0.3925,3.0,0.0687
+81.04.06.2010,Skikilale,Waplau,Buru,solar_biomass_hybrid,intermittent,445,115,30.36,142207.0,244677.0,0.2402,0.1478,0.194,3164.0,349487.0,0.3846,3.0,0.0699
+81.04.10.2006,Namlea Ilath,Batabual,Buru,solar_biomass_hybrid,intermittent,2241,564,148.9,758696.0,1200015.0,0.2402,0.1478,0.194,16881.0,1638916.0,0.3499,3.0,0.0761
+81.04.13.2004,Waedanga,Fena Leisela,Buru,micro_hydro,intermittent,351,101,26.66,368632.0,214858.0,0.146,0.0702,0.1081,7373.0,-178253.0,-0.0183,,0.2026
+81.04.13.2005,Lemanpoli,Fena Leisela,Buru,micro_hydro,intermittent,262,71,18.74,261502.0,151029.0,0.146,0.0702,0.1081,5230.0,-128165.0,-0.0198,,0.2045
+81.04.13.2006,Waelana-lana,Fena Leisela,Buru,micro_hydro,intermittent,907,266,70.22,898166.0,565917.0,0.146,0.0702,0.1081,17963.0,-381886.0,-0.0048,,0.1874
+81.04.13.2007,Waereman,Fena Leisela,Buru,micro_hydro,intermittent,747,208,54.91,709210.0,442531.0,0.146,0.0702,0.1081,14184.0,-306895.0,-0.0064,,0.1893
+81.04.13.2008,Waemite,Fena Leisela,Buru,micro_hydro,intermittent,470,178,46.99,600025.0,378702.0,0.146,0.0702,0.1081,12000.0,-254333.0,-0.0045,,0.1871
+81.04.13.2009,Wasi,Fena Leisela,Buru,micro_hydro,intermittent,634,188,49.63,649062.0,399978.0,0.146,0.0702,0.1081,12981.0,-287073.0,-0.0086,,0.1916
+81.04.13.2011,Wamana Baru,Fena Leisela,Buru,micro_hydro,intermittent,1155,297,78.41,995740.0,631922.0,0.146,0.0702,0.1081,19915.0,-417780.0,-0.0035,,0.1861
+81.04.13.2012,Raheriat,Fena Leisela,Buru,solar_biomass_hybrid,dark_settled,358,86,22.7,105846.0,182944.0,0.2402,0.1478,0.194,2355.0,261900.0,0.3866,3.0,0.0696
+81.04.13.2013,Waenibe,Fena Leisela,Buru,micro_hydro,intermittent,1244,369,97.42,1260168.0,785127.0,0.146,0.0702,0.1081,25203.0,-546779.0,-0.0067,,0.1895
+81.04.14.2005,Seith,Teluk Kaiely,Buru,solar_biomass_hybrid,intermittent,1168,320,84.48,372966.0,680841.0,0.2402,0.1478,0.194,8298.0,1000385.0,0.4106,3.0,0.0659
+81.05.02.2005,Keffing,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,635,194,51.22,341051.0,412792.0,0.2386,0.1101,0.1743,7333.0,411522.0,0.2491,4.0,0.0988
+81.05.02.2006,Urung,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,1559,454,119.86,817652.0,965976.0,0.2386,0.1101,0.1743,17580.0,939158.0,0.2415,4.0,0.1012
+81.05.02.2046,Kwawor Kecil Mata Ata,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,519,137,36.17,240845.0,291501.0,0.2386,0.1101,0.1743,5178.0,290598.0,0.2491,4.0,0.0988
+81.05.02.2047,Kwawor Kecil Mata Wawa,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,627,179,47.26,314681.0,380878.0,0.2386,0.1101,0.1743,6766.0,379708.0,0.2491,4.0,0.0988
+81.05.02.2048,Kwawor Besar Ena,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,209,51,13.46,89658.0,108477.0,0.2386,0.1101,0.1743,1928.0,108102.0,0.249,4.0,0.0988
+81.05.02.2049,Kwawor Besar Witau,Seram Timur,Seram Bagian Timur,solar_battery,intermittent,486,148,39.07,260183.0,314873.0,0.2386,0.1101,0.1743,5594.0,313863.0,0.2491,4.0,0.0988
+81.05.02.2050,Guli-Guli,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,733,197,52.01,222208.0,419159.0,0.2402,0.1478,0.194,4944.0,624974.0,0.4257,3.0,0.0638
+81.05.02.2051,Manggis,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,326,87,22.97,99387.0,185120.0,0.2402,0.1478,0.194,2211.0,274484.0,0.4198,3.0,0.0646
+81.05.02.2052,Ainena,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,612,157,41.45,188908.0,334054.0,0.2402,0.1478,0.194,4203.0,483584.0,0.3965,3.0,0.0681
+81.05.02.2053,Mugusinis,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,274,74,19.54,89322.0,157477.0,0.2402,0.1478,0.194,1987.0,227637.0,0.3952,3.0,0.0683
+81.05.02.2054,Akatfadedo,Seram Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,137,34,8.98,38564.0,72372.0,0.2402,0.1478,0.194,858.0,107665.0,0.4233,3.0,0.0641
+81.05.03.2001,Batuasa,Werinama,Seram Bagian Timur,micro_hydro,dark_settled,847,253,66.79,801918.0,538274.0,0.146,0.0702,0.1081,16038.0,-300178.0,0.0063,19.0,0.1759
+81.05.03.2002,Hatuimeten,Werinama,Seram Bagian Timur,micro_hydro,dark_settled,368,115,30.36,372086.0,244677.0,0.146,0.0702,0.1081,7442.0,-145558.0,0.0027,20.0,0.1796
+81.05.03.2003,Werinama,Werinama,Seram Bagian Timur,micro_hydro,dark_settled,2344,751,198.26,2402355.0,1597817.0,0.146,0.0702,0.1081,48047.0,-917458.0,0.0047,19.0,0.1776
+81.05.03.2004,Bemo,Werinama,Seram Bagian Timur,solar_biomass_hybrid,intermittent,859,281,74.18,341237.0,597831.0,0.2402,0.1478,0.194,7593.0,861554.0,0.3924,3.0,0.0687
+81.05.03.2015,Tum,Werinama,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,609,182,48.05,205289.0,387245.0,0.2402,0.1478,0.194,4568.0,577389.0,0.4257,3.0,0.0638
+81.05.03.2016,Gusalaut,Werinama,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,497,131,34.58,149686.0,278687.0,0.2402,0.1478,0.194,3331.0,413140.0,0.4196,3.0,0.0646
+81.05.03.2018,Tobo,Werinama,Seram Bagian Timur,micro_hydro,dark_settled,306,88,23.23,270035.0,187215.0,0.146,0.0702,0.1081,5401.0,-93716.0,0.0119,17.0,0.1703
+81.05.03.2021,Bemo Perak,Werinama,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,376,142,37.49,160340.0,302139.0,0.2402,0.1478,0.194,3568.0,450290.0,0.4252,3.0,0.0639
+81.05.04.2003,Amarsekaru,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,8469,2128,561.79,2488206.0,4527578.0,0.2402,0.1478,0.194,55363.0,6642732.0,0.4092,3.0,0.0661
+81.05.04.2006,Mida,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,446,147,38.81,166219.0,312778.0,0.2402,0.1478,0.194,3698.0,465858.0,0.4245,3.0,0.064
+81.05.04.2032,Ilili,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,341,102,26.93,115809.0,217034.0,0.2402,0.1478,0.194,2577.0,322678.0,0.4227,3.0,0.0642
+81.05.04.2048,Arewang,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,119,33,8.71,37620.0,70196.0,0.2402,0.1478,0.194,837.0,104163.0,0.4206,3.0,0.0645
+81.05.04.2052,Sikaro Kataloka,Pulau Gorom,Seram Bagian Timur,solar_biomass_hybrid,intermittent,425,127,33.53,145089.0,270225.0,0.2402,0.1478,0.194,3228.0,400659.0,0.4198,3.0,0.0646
+81.05.05.2001,Ilili,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,614,175,46.2,219437.0,372335.0,0.2402,0.1478,0.194,4882.0,528105.0,0.3787,3.0,0.0709
+81.05.05.2002,Effa,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,576,149,39.34,185623.0,317049.0,0.2402,0.1478,0.194,4130.0,451200.0,0.3815,3.0,0.0705
+81.05.05.2004,Utta,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,640,192,50.69,226179.0,408521.0,0.2402,0.1478,0.194,5032.0,597322.0,0.4059,3.0,0.0666
+81.05.05.2005,Kelangan,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,410,113,29.83,137713.0,240406.0,0.2402,0.1478,0.194,3064.0,345854.0,0.3909,3.0,0.0689
+81.05.05.2006,Amarlaut,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1029,313,82.63,378204.0,665932.0,0.2402,0.1478,0.194,8415.0,962032.0,0.3946,3.0,0.0683
+81.05.05.2008,Tamher Timur,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,754,212,55.97,257214.0,451073.0,0.2402,0.1478,0.194,5723.0,650369.0,0.3928,3.0,0.0686
+81.05.05.2010,Wunin Eldedora,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,285,84,22.18,103843.0,178753.0,0.2402,0.1478,0.194,2311.0,255383.0,0.3848,3.0,0.0699
+81.05.05.2021,Tanah Baru,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1108,308,81.31,379137.0,655294.0,0.2402,0.1478,0.194,8436.0,938106.0,0.3866,3.0,0.0696
+81.05.05.2022,Guliar,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,610,195,51.48,255950.0,414888.0,0.2402,0.1478,0.194,5695.0,574432.0,0.3598,3.0,0.0742
+81.05.05.2023,Karlomin,Wakate,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,411,135,35.64,161355.0,287230.0,0.2402,0.1478,0.194,3590.0,417118.0,0.3994,3.0,0.0676
+81.05.05.2024,Otademan,Wakate,Seram Bagian Timur,solar_biomass_hybrid,intermittent,416,107,28.25,130218.0,227672.0,0.2402,0.1478,0.194,2897.0,327781.0,0.3915,3.0,0.0688
+81.05.06.2001,Danama,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1129,324,85.54,378546.0,689384.0,0.2402,0.1478,0.194,8423.0,1011833.0,0.4096,3.0,0.0661
+81.05.06.2002,Kilmoy,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,614,172,45.41,199483.0,365968.0,0.2402,0.1478,0.194,4438.0,538951.0,0.4129,3.0,0.0656
+81.05.06.2003,Kilbat,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,991,297,78.41,341662.0,631922.0,0.2402,0.1478,0.194,7602.0,934034.0,0.4166,3.0,0.0651
+81.05.06.2004,Sesar,Tutuk Tolu,Seram Bagian Timur,micro_hydro,intermittent,562,162,42.77,494951.0,344692.0,0.146,0.0702,0.1081,9899.0,-169868.0,0.0127,17.0,0.1696
+81.05.06.2005,Airkasar,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,252,89,23.5,100389.0,189391.0,0.2402,0.1478,0.194,2234.0,282401.0,0.4257,3.0,0.0638
+81.05.06.2006,Waras-Waras,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1159,352,92.93,397042.0,748941.0,0.2402,0.1478,0.194,8834.0,1116677.0,0.4257,3.0,0.0638
+81.05.06.2007,Gah,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1112,290,76.56,328318.0,617012.0,0.2402,0.1478,0.194,7305.0,918477.0,0.424,3.0,0.064
+81.05.06.2008,Walang Tenga,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,714,199,52.54,226944.0,423430.0,0.2402,0.1478,0.194,5050.0,628310.0,0.4206,3.0,0.0645
+81.05.06.2010,Taruy,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,663,197,52.01,231574.0,419159.0,0.2402,0.1478,0.194,5153.0,613484.0,0.4068,3.0,0.0665
+81.05.06.2011,Kufar,Tutuk Tolu,Seram Bagian Timur,solar_biomass_hybrid,intermittent,948,220,58.08,248151.0,468078.0,0.2402,0.1478,0.194,5521.0,697902.0,0.4257,3.0,0.0638
+81.05.07.2001,Dihil,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,491,136,35.9,428049.0,289325.0,0.146,0.0702,0.1081,8561.0,-157752.0,0.0075,18.0,0.1747
+81.05.07.2002,Liliama,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,425,128,33.79,424706.0,272320.0,0.146,0.0702,0.1081,8494.0,-174743.0,-0.0017,,0.1842
+81.05.07.2003,Naiwel Ahinulin,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,453,135,35.64,440578.0,287230.0,0.146,0.0702,0.1081,8812.0,-175425.0,0.0012,20.0,0.1811
+81.05.07.2004,Polin,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,890,249,65.74,826395.0,529812.0,0.146,0.0702,0.1081,16528.0,-340104.0,-0.0017,,0.1842
+81.05.07.2005,Tunsai,Siwalalat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,899,261,68.9,320758.0,555279.0,0.2402,0.1478,0.194,7137.0,795557.0,0.3872,3.0,0.0695
+81.05.07.2006,Lapela,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,469,124,32.74,402623.0,263858.0,0.146,0.0702,0.1081,8052.0,-158616.0,0.0021,20.0,0.1802
+81.05.07.2007,Nayet,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,258,60,15.84,194219.0,127658.0,0.146,0.0702,0.1081,3884.0,-76048.0,0.0026,20.0,0.1797
+81.05.07.2008,Elnusa,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,808,248,65.47,811164.0,527636.0,0.146,0.0702,0.1081,16223.0,-324456.0,0.0008,20.0,0.1815
+81.05.07.2009,Atiahu,Siwalalat,Seram Bagian Timur,micro_hydro,dark_settled,1559,480,126.72,1520855.0,1021262.0,0.146,0.0702,0.1081,30417.0,-568783.0,0.0063,19.0,0.1759
+81.05.07.2010,Sabuai,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,357,106,27.98,334359.0,225496.0,0.146,0.0702,0.1081,6687.0,-123844.0,0.0071,18.0,0.1751
+81.05.07.2011,Abulate,Siwalalat,Seram Bagian Timur,micro_hydro,intermittent,264,81,21.38,263923.0,172306.0,0.146,0.0702,0.1081,5278.0,-104785.0,0.0014,20.0,0.1809
+81.05.07.2012,Adabai,Siwalalat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,385,99,26.14,111668.0,210667.0,0.2402,0.1478,0.194,2485.0,314125.0,0.4257,3.0,0.0638
+81.05.08.2001,Selor,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,543,159,41.98,497694.0,338325.0,0.146,0.0702,0.1081,9954.0,-181039.0,0.0085,18.0,0.1737
+81.05.08.2002,Nekan,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,307,73,19.27,83713.0,155301.0,0.2402,0.1478,0.194,1863.0,229859.0,0.418,3.0,0.0649
+81.05.08.2003,Afang Kota,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,296,86,22.7,266128.0,182944.0,0.146,0.0702,0.1081,5323.0,-94292.0,0.0104,17.0,0.1718
+81.05.08.2004,Afang Defol,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,457,140,36.96,433170.0,297868.0,0.146,0.0702,0.1081,8663.0,-153359.0,0.0105,17.0,0.1717
+81.05.08.2005,Kumelang,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,388,93,24.55,289100.0,197853.0,0.146,0.0702,0.1081,5782.0,-103521.0,0.0097,18.0,0.1726
+81.05.08.2006,Undur,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,496,145,38.28,166523.0,308506.0,0.2402,0.1478,0.194,3705.0,456339.0,0.4174,3.0,0.065
+81.05.08.2007,Kamar,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,831,222,58.61,252567.0,472350.0,0.2402,0.1478,0.194,5620.0,701631.0,0.4217,3.0,0.0643
+81.05.08.2008,Gunak,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,687,198,52.27,225761.0,421254.0,0.2402,0.1478,0.194,5023.0,625102.0,0.4206,3.0,0.0645
+81.05.08.2009,Sumbawa,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,305,78,20.59,88133.0,165939.0,0.2402,0.1478,0.194,1961.0,247217.0,0.4248,3.0,0.0639
+81.05.08.2010,Kilmury,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,1230,348,91.87,1082862.0,740399.0,0.146,0.0702,0.1081,21657.0,-388601.0,0.0095,18.0,0.1727
+81.05.08.2012,Mising,Kilmury,Seram Bagian Timur,micro_hydro,intermittent,602,171,45.14,545148.0,363792.0,0.146,0.0702,0.1081,10903.0,-206694.0,0.0052,19.0,0.177
+81.05.08.2013,Bitorik,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,250,69,18.22,78042.0,146839.0,0.2402,0.1478,0.194,1736.0,218695.0,0.4245,3.0,0.064
+81.05.08.2014,Taa,Kilmury,Seram Bagian Timur,solar_biomass_hybrid,intermittent,375,98,25.87,113427.0,208492.0,0.2402,0.1478,0.194,2524.0,307307.0,0.4138,3.0,0.0655
+81.05.09.2001,Pulau Panjang,Pulau Panjang,Seram Bagian Timur,solar_battery,intermittent,1020,284,74.98,499270.0,604279.0,0.2386,0.1101,0.1743,10734.0,602405.0,0.2491,4.0,0.0988
+81.05.09.2002,Argam,Pulau Panjang,Seram Bagian Timur,solar_battery,intermittent,516,129,34.06,226781.0,274496.0,0.2386,0.1101,0.1743,4876.0,273663.0,0.2492,4.0,0.0988
+81.05.09.2003,Lalasa,Pulau Panjang,Seram Bagian Timur,solar_biomass_hybrid,intermittent,886,235,62.04,265071.0,499993.0,0.2402,0.1478,0.194,5898.0,745485.0,0.4257,3.0,0.0638
+81.05.09.2004,Magat,Pulau Panjang,Seram Bagian Timur,solar_biomass_hybrid,intermittent,142,47,12.41,53014.0,100015.0,0.2402,0.1478,0.194,1180.0,149132.0,0.4257,3.0,0.0638
+81.05.09.2006,Perik Basaranggi,Pulau Panjang,Seram Bagian Timur,solar_biomass_hybrid,intermittent,193,56,14.78,63166.0,119115.0,0.2402,0.1478,0.194,1405.0,177578.0,0.4255,3.0,0.0638
+81.05.10.2001,Teor,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,494,135,35.64,159726.0,287230.0,0.2402,0.1478,0.194,3554.0,419116.0,0.4039,3.0,0.0669
+81.05.10.2002,Kartutin Kartenga,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,204,53,13.99,69002.0,112748.0,0.2402,0.1478,0.194,1535.0,156785.0,0.363,3.0,0.0736
+81.05.10.2004,Duryar Rumoy,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,646,194,51.22,250401.0,412792.0,0.2402,0.1478,0.194,5571.0,576752.0,0.3667,3.0,0.073
+81.05.10.2005,Lapang Kampung Jawa,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,251,68,17.95,79806.0,144663.0,0.2402,0.1478,0.194,1776.0,211872.0,0.4075,3.0,0.0664
+81.05.10.2007,Kampung Baru,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,180,48,12.67,56924.0,102110.0,0.2402,0.1478,0.194,1267.0,148822.0,0.4028,3.0,0.0671
+81.05.10.2009,Kiliwouw,Teor,Seram Bagian Timur,solar_biomass_hybrid,intermittent,763,198,52.27,247800.0,421254.0,0.2402,0.1478,0.194,5514.0,598064.0,0.3795,3.0,0.0708
+81.05.11.2004,Amarwatu,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,950,269,71.02,305995.0,572364.0,0.2402,0.1478,0.194,6808.0,850255.0,0.4218,3.0,0.0643
+81.05.11.2005,Aran,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,548,133,35.11,154721.0,282959.0,0.2402,0.1478,0.194,3443.0,416110.0,0.4115,3.0,0.0658
+81.05.11.2008,Tunas Ilur,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,299,91,24.02,102644.0,193582.0,0.2402,0.1478,0.194,2284.0,288609.0,0.4256,3.0,0.0638
+81.05.11.2009,Sagey,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,643,187,49.37,213185.0,397883.0,0.2402,0.1478,0.194,4743.0,590483.0,0.4208,3.0,0.0645
+81.05.11.2012,Basarin,Gorom Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,399,117,30.89,131971.0,248949.0,0.2402,0.1478,0.194,2936.0,371192.0,0.4257,3.0,0.0638
+81.05.11.2013,Goha,Gorom Timur,Seram Bagian Timur,solar_battery,intermittent,202,50,13.2,87900.0,106381.0,0.2386,0.1101,0.1743,1890.0,106045.0,0.2491,4.0,0.0988
+81.05.12.2001,Hote,Bula Barat,Seram Bagian Timur,micro_hydro,intermittent,428,130,34.32,402440.0,276592.0,0.146,0.0702,0.1081,8049.0,-142659.0,0.0104,17.0,0.1718
+81.05.12.2002,Banggoi,Bula Barat,Seram Bagian Timur,micro_hydro,intermittent,544,160,42.24,495887.0,340421.0,0.146,0.0702,0.1081,9918.0,-176274.0,0.0102,18.0,0.172
+81.05.12.2003,Waematakabo,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,840,291,76.82,511576.0,619108.0,0.2386,0.1101,0.1743,10999.0,617122.0,0.2491,4.0,0.0988
+81.05.12.2004,Waiketam Baru,Bula Barat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1454,448,118.27,505327.0,953162.0,0.2402,0.1478,0.194,11244.0,1421146.0,0.4257,3.0,0.0638
+81.05.12.2005,Waisamet,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,992,306,80.78,537946.0,651022.0,0.2386,0.1101,0.1743,11566.0,648936.0,0.2491,4.0,0.0988
+81.05.12.2006,Aki Jaya,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,962,271,71.54,476416.0,576555.0,0.2386,0.1101,0.1743,10243.0,574704.0,0.2491,4.0,0.0988
+81.05.12.2009,Sumber Agung,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,927,268,70.75,471142.0,570188.0,0.2386,0.1101,0.1743,10130.0,568373.0,0.2491,4.0,0.0988
+81.05.12.2011,Jembatan Basah,Bula Barat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,725,218,57.55,245896.0,463807.0,0.2402,0.1478,0.194,5471.0,691522.0,0.4257,3.0,0.0638
+81.05.12.2012,Dreamland Hills,Bula Barat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,583,172,45.41,194009.0,365968.0,0.2402,0.1478,0.194,4317.0,545667.0,0.4257,3.0,0.0638
+81.05.12.2013,Banggoi Pancorang,Bula Barat,Seram Bagian Timur,solar_battery,intermittent,264,79,20.86,138881.0,168115.0,0.2386,0.1101,0.1743,2986.0,167618.0,0.2492,4.0,0.0988
+81.05.13.2005,Kelaba,Kian Darat,Seram Bagian Timur,solar_biomass_hybrid,dark_settled,736,189,49.9,213718.0,402154.0,0.2402,0.1478,0.194,4755.0,598976.0,0.4245,3.0,0.064
+81.05.13.2006,Kilga Kilwouw,Kian Darat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,945,243,64.15,274095.0,516998.0,0.2402,0.1478,0.194,6099.0,770829.0,0.4257,3.0,0.0638
+81.05.13.2007,Kilga Watubau,Kian Darat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,1091,294,77.62,331621.0,625555.0,0.2402,0.1478,0.194,7379.0,932719.0,0.4257,3.0,0.0638
+81.05.13.2009,Kileser,Kian Darat,Seram Bagian Timur,solar_biomass_hybrid,intermittent,440,117,30.89,134940.0,248949.0,0.2402,0.1478,0.194,3002.0,367549.0,0.4154,3.0,0.0652
+81.05.14.2002,Kuwaos,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,997,300,79.2,360230.0,638289.0,0.2402,0.1478,0.194,8015.0,924888.0,0.3974,3.0,0.0679
+81.05.14.2003,Salagor Air,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,794,214,56.5,251655.0,455345.0,0.2402,0.1478,0.194,5599.0,666336.0,0.4067,3.0,0.0665
+81.05.14.2004,Salagor Kota,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,831,240,63.36,286048.0,510631.0,0.2402,0.1478,0.194,6365.0,742531.0,0.4006,3.0,0.0674
+81.05.14.2005,Aruan Gaur,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,608,162,42.77,182730.0,344692.0,0.2402,0.1478,0.194,4066.0,513943.0,0.4257,3.0,0.0638
+81.05.14.2006,Keta Rumadan,Siritaun Wida Timur,Seram Bagian Timur,micro_hydro,dark_settled,429,124,32.74,379264.0,263858.0,0.146,0.0702,0.1081,7585.0,-130494.0,0.0125,17.0,0.1697
+81.05.14.2007,Lian Tasik,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,751,204,53.86,234495.0,434069.0,0.2402,0.1478,0.194,5218.0,641827.0,0.417,3.0,0.065
+81.05.14.2008,Keta,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,421,125,33.0,141305.0,265954.0,0.2402,0.1478,0.194,3144.0,396155.0,0.4246,3.0,0.0639
+81.05.14.2009,Air Nanang,Siritaun Wida Timur,Seram Bagian Timur,solar_biomass_hybrid,intermittent,697,197,52.01,222998.0,419159.0,0.2402,0.1478,0.194,4962.0,624005.0,0.424,3.0,0.064
+81.05.15.2002,Bellis,Teluk Waru,Seram Bagian Timur,micro_hydro,dark_settled,788,209,55.18,637145.0,444707.0,0.146,0.0702,0.1081,12743.0,-217447.0,0.0131,17.0,0.1692
+81.05.15.2003,Dawang,Teluk Waru,Seram Bagian Timur,micro_hydro,dark_settled,673,189,49.9,589077.0,402154.0,0.146,0.0702,0.1081,11782.0,-212169.0,0.0092,18.0,0.173
+81.05.15.2004,Solang,Teluk Waru,Seram Bagian Timur,micro_hydro,dark_settled,526,134,35.38,422084.0,285134.0,0.146,0.0702,0.1081,8442.0,-155750.0,0.0074,18.0,0.1748
+81.05.15.2005,Karay,Teluk Waru,Seram Bagian Timur,solar_biomass_hybrid,intermittent,887,207,54.65,233488.0,440435.0,0.2402,0.1478,0.194,5195.0,656696.0,0.4257,3.0,0.0638
+81.05.15.2007,Nama Andan,Teluk Waru,Seram Bagian Timur,solar_battery,intermittent,424,107,28.25,188105.0,227672.0,0.2386,0.1101,0.1743,4044.0,226971.0,0.2491,4.0,0.0988
+81.05.15.2009,Kampung Baru,Teluk Waru,Seram Bagian Timur,solar_biomass_hybrid,intermittent,313,75,19.8,84597.0,159572.0,0.2402,0.1478,0.194,1882.0,237921.0,0.4257,3.0,0.0638
+81.05.15.2010,Boinfia,Teluk Waru,Seram Bagian Timur,solar_biomass_hybrid,intermittent,296,77,20.33,86853.0,163844.0,0.2402,0.1478,0.194,1932.0,244300.0,0.4257,3.0,0.0638
+81.06.03.2001,Murnaten,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,2385,547,144.41,1800628.0,1163829.0,0.146,0.0702,0.1081,36013.0,-729402.0,-0.0003,,0.1827
+81.06.03.2002,Nikulukan,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,775,190,50.16,630722.0,404249.0,0.146,0.0702,0.1081,12614.0,-259715.0,-0.0018,,0.1843
+81.06.03.2003,Niwelehu,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,858,232,61.25,766920.0,493626.0,0.146,0.0702,0.1081,15338.0,-313224.0,-0.0011,,0.1835
+81.06.03.2004,Nuniali,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,746,181,47.78,581023.0,385069.0,0.146,0.0702,0.1081,11620.0,-223588.0,0.004,19.0,0.1782
+81.06.03.2005,Lisabata,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,1362,363,95.83,1236104.0,772313.0,0.146,0.0702,0.1081,24722.0,-533645.0,-0.0062,,0.189
+81.06.03.2006,Wakolo,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,393,108,28.51,354766.0,229768.0,0.146,0.0702,0.1081,7095.0,-143133.0,0.0,20.0,0.1823
+81.06.03.2007,Patahuwe,Taniwel,Seram Bagian Barat,micro_hydro,dark_settled,449,104,27.46,354620.0,221306.0,0.146,0.0702,0.1081,7092.0,-153416.0,-0.0064,,0.1892
+81.06.03.2008,Taniwel,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,2008,562,148.37,1796773.0,1195744.0,0.146,0.0702,0.1081,35935.0,-685319.0,0.0048,19.0,0.1775
+81.06.03.2009,Hulung,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,971,260,68.64,843698.0,553183.0,0.146,0.0702,0.1081,16874.0,-332050.0,0.0022,20.0,0.1801
+81.06.03.2010,Kasieh,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,1410,354,93.46,1165785.0,753213.0,0.146,0.0702,0.1081,23316.0,-472595.0,-0.0004,,0.1828
+81.06.03.2011,Nukuhai,Taniwel,Seram Bagian Barat,solar_biomass_hybrid,intermittent,399,111,29.3,147434.0,236135.0,0.2402,0.1478,0.194,3280.0,324781.0,0.3549,3.0,0.0751
+81.06.03.2012,Pasinalo,Taniwel,Seram Bagian Barat,solar_biomass_hybrid,intermittent,468,125,33.0,152182.0,265954.0,0.2402,0.1478,0.194,3386.0,382811.0,0.3913,3.0,0.0689
+81.06.03.2028,Uweth,Taniwel,Seram Bagian Barat,solar_biomass_hybrid,intermittent,812,205,54.12,231232.0,436164.0,0.2402,0.1478,0.194,5145.0,650317.0,0.4257,3.0,0.0638
+81.06.03.2029,Laturake,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,736,197,52.01,703217.0,419159.0,0.146,0.0702,0.1081,14064.0,-328565.0,-0.0144,,0.1981
+81.06.03.2030,Buria,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,2111,497,131.21,1755488.0,1057448.0,0.146,0.0702,0.1081,35110.0,-806534.0,-0.0126,,0.196
+81.06.03.2032,Rumahsoal,Taniwel,Seram Bagian Barat,micro_hydro,intermittent,391,101,26.66,348888.0,214858.0,0.146,0.0702,0.1081,6978.0,-154483.0,-0.0087,,0.1918
+81.06.03.2034,Niniari,Taniwel,Seram Bagian Barat,micro_hydro,dark_settled,735,157,41.45,528818.0,334054.0,0.146,0.0702,0.1081,10576.0,-223787.0,-0.0043,,0.1869
+81.06.04.2002,Allang Asaude,Huamual Belakang,Seram Bagian Barat,micro_hydro,intermittent,1366,363,95.83,1129891.0,772313.0,0.146,0.0702,0.1081,22598.0,-405776.0,0.0094,18.0,0.1728
+81.06.04.2003,Sole,Huamual Belakang,Seram Bagian Barat,solar_biomass_hybrid,intermittent,3499,877,231.53,1135323.0,1865947.0,0.2402,0.1478,0.194,25261.0,2602883.0,0.3654,3.0,0.0732
+81.06.04.2004,Tonu Jaya,Huamual Belakang,Seram Bagian Barat,solar_biomass_hybrid,intermittent,2512,621,163.94,829140.0,1321225.0,0.2402,0.1478,0.194,18448.0,1812053.0,0.3529,3.0,0.0755
+81.06.04.2005,Tahalupu,Huamual Belakang,Seram Bagian Barat,micro_hydro,intermittent,9029,2173,573.67,7383350.0,4623321.0,0.146,0.0702,0.1081,147667.0,-3174860.0,-0.0058,,0.1886
+81.06.05.2001,Tihulale,Amalatu,Seram Bagian Barat,micro_hydro,intermittent,2230,611,161.3,2165892.0,1299949.0,0.146,0.0702,0.1081,43318.0,-1000912.0,-0.0132,,0.1968
+81.06.05.2002,Rumahkay,Amalatu,Seram Bagian Barat,micro_hydro,dark_settled,2568,724,191.14,2650381.0,1540435.0,0.146,0.0702,0.1081,53008.0,-1286970.0,-0.0187,,0.2032
+81.06.05.2003,Latu,Amalatu,Seram Bagian Barat,micro_hydro,intermittent,5004,1385,365.64,4416606.0,2946766.0,0.146,0.0702,0.1081,88332.0,-1675252.0,0.0052,19.0,0.177
+81.06.05.2004,Tomalehu,Amalatu,Seram Bagian Barat,solar_biomass_hybrid,intermittent,938,249,65.74,309684.0,529812.0,0.2402,0.1478,0.194,6890.0,754607.0,0.3822,3.0,0.0703
+81.06.05.2005,Hualoy,Amalatu,Seram Bagian Barat,micro_hydro,intermittent,2530,678,178.99,2333678.0,1442516.0,0.146,0.0702,0.1081,46674.0,-1026711.0,-0.0081,,0.191
+81.06.05.2006,Seriholo,Amalatu,Seram Bagian Barat,solar_biomass_hybrid,dark_settled,1062,265,69.96,336037.0,563822.0,0.2402,0.1478,0.194,7477.0,795105.0,0.374,3.0,0.0717
+81.06.05.2007,Tala,Amalatu,Seram Bagian Barat,micro_hydro,intermittent,626,164,43.3,538620.0,348963.0,0.146,0.0702,0.1081,10772.0,-217162.0,0.0001,20.0,0.1823
+81.06.06.2002,Rambatu,Inamosol,Seram Bagian Barat,micro_hydro,intermittent,1207,307,81.05,1030627.0,653198.0,0.146,0.0702,0.1081,20613.0,-433486.0,-0.0037,,0.1863
+81.06.06.2005,Hukuanakota,Inamosol,Seram Bagian Barat,micro_hydro,intermittent,1020,248,65.47,826186.0,527636.0,0.146,0.0702,0.1081,16524.0,-342541.0,-0.0024,,0.1849
+81.06.08.2005,Kulur,Huamual,Seram Bagian Barat,solar_battery,intermittent,1097,298,78.67,535653.0,634017.0,0.2386,0.1101,0.1743,11517.0,617650.0,0.2421,4.0,0.101
+81.06.10.2001,Sohuwe,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,757,196,51.74,719887.0,416983.0,0.146,0.0702,0.1081,14398.0,-351323.0,-0.0193,,0.2039
+81.06.10.2003,Lumahlatal,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,509,133,35.11,478655.0,282959.0,0.146,0.0702,0.1081,9573.0,-226545.0,-0.0158,,0.1998
+81.06.10.2005,Seakasale,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,419,117,30.89,423553.0,248949.0,0.146,0.0702,0.1081,8471.0,-202240.0,-0.0168,,0.2009
+81.06.10.2006,Makububui,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,887,239,63.1,853262.0,508536.0,0.146,0.0702,0.1081,17065.0,-398744.0,-0.0144,,0.1981
+81.06.10.2007,Sukaraja,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,614,177,46.73,213000.0,376606.0,0.2402,0.1478,0.194,4739.0,545149.0,0.3964,3.0,0.0681
+81.06.10.2008,Uwen Pantai,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,602,179,47.26,637028.0,380878.0,0.146,0.0702,0.1081,12741.0,-296192.0,-0.0138,,0.1975
+81.06.10.2009,Tounussa,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,394,109,28.78,124893.0,231944.0,0.2402,0.1478,0.194,2779.0,343461.0,0.4185,3.0,0.0648
+81.06.10.2010,Musihuwey,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,592,164,43.3,190923.0,348963.0,0.2402,0.1478,0.194,4248.0,513039.0,0.4112,3.0,0.0658
+81.06.10.2011,Solea,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,754,213,56.23,240256.0,453169.0,0.2402,0.1478,0.194,5346.0,675661.0,0.4257,3.0,0.0638
+81.06.10.2012,Waraloin,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,350,110,29.04,390330.0,234039.0,0.146,0.0702,0.1081,7807.0,-180670.0,-0.0134,,0.197
+81.06.10.2013,Walakone,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,712,171,45.14,192881.0,363792.0,0.2402,0.1478,0.194,4292.0,542391.0,0.4256,3.0,0.0638
+81.06.10.2014,Hatunuru,Taniwel Timur,Seram Bagian Barat,micro_hydro,intermittent,534,136,35.9,431744.0,289325.0,0.146,0.0702,0.1081,8635.0,-162200.0,0.006,19.0,0.1762
+81.06.10.2015,Lumahpelu,Taniwel Timur,Seram Bagian Barat,solar_biomass_hybrid,intermittent,758,215,56.76,249371.0,457440.0,0.2402,0.1478,0.194,5549.0,673625.0,0.4128,3.0,0.0656
+81.06.11.2002,Sanahu,Elpaputih,Seram Bagian Barat,micro_hydro,dark_settled,1231,321,84.74,1085303.0,682937.0,0.146,0.0702,0.1081,21706.0,-462556.0,-0.005,,0.1877
+81.06.11.2003,Wasia,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,362,102,26.93,368267.0,217034.0,0.146,0.0702,0.1081,7365.0,-175124.0,-0.0163,,0.2004
+81.06.11.2004,Sumeith Pasinaro,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,316,74,19.54,249744.0,157477.0,0.146,0.0702,0.1081,4995.0,-106042.0,-0.0046,,0.1873
+81.06.11.2006,Abio Ahiolo,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,1280,276,72.86,935032.0,587193.0,0.146,0.0702,0.1081,18701.0,-399974.0,-0.0053,,0.188
+81.06.11.2007,Huku Kecil,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,457,100,26.4,355527.0,212763.0,0.146,0.0702,0.1081,7111.0,-165066.0,-0.0137,,0.1973
+81.06.11.2008,Elpaputih,Elpaputih,Seram Bagian Barat,micro_hydro,intermittent,2224,628,165.79,2154983.0,1336135.0,0.146,0.0702,0.1081,43100.0,-943057.0,-0.0076,,0.1905
+81.07.01.2003,Kobraur,Pulau-Pulau Aru,Kepulauan Aru,solar_biomass_hybrid,dark_settled,228,60,15.84,67678.0,127658.0,0.2402,0.1478,0.194,1506.0,190336.0,0.4257,3.0,0.0638
+81.07.01.2004,Lau-Lau,Pulau-Pulau Aru,Kepulauan Aru,solar_biomass_hybrid,dark_settled,592,167,44.09,188370.0,355330.0,0.2402,0.1478,0.194,4191.0,529805.0,0.4257,3.0,0.0638
+81.07.01.2005,Gorar,Pulau-Pulau Aru,Kepulauan Aru,solar_biomass_hybrid,dark_settled,514,152,40.13,171450.0,323416.0,0.2402,0.1478,0.194,3815.0,482221.0,0.4257,3.0,0.0638
+81.07.01.2006,Tungu,Pulau-Pulau Aru,Kepulauan Aru,solar_battery,intermittent,329,95,25.08,167009.0,202125.0,0.2386,0.1101,0.1743,3591.0,201487.0,0.2491,4.0,0.0988
+81.07.01.2007,Tunguwatu,Pulau-Pulau Aru,Kepulauan Aru,solar_biomass_hybrid,intermittent,795,222,58.61,250407.0,472350.0,0.2402,0.1478,0.194,5572.0,704281.0,0.4257,3.0,0.0638
+81.07.02.2001,Jerol,Aru Selatan,Kepulauan Aru,solar_battery,intermittent,841,209,55.18,367420.0,444707.0,0.2386,0.1101,0.1743,7900.0,443337.0,0.2491,4.0,0.0988
+81.07.02.2003,Kabalukin,Aru Selatan,Kepulauan Aru,solar_battery,intermittent,700,163,43.03,286553.0,346787.0,0.2386,0.1101,0.1743,6161.0,345677.0,0.2491,4.0,0.0988
+81.07.02.2004,Kalar-Kalar,Aru Selatan,Kepulauan Aru,solar_battery,intermittent,1519,362,95.57,636393.0,770218.0,0.2386,0.1101,0.1743,13682.0,767805.0,0.2491,4.0,0.0988
+81.07.02.2006,Ngaiguli,Aru Selatan,Kepulauan Aru,solar_biomass_hybrid,intermittent,264,76,20.06,85725.0,161668.0,0.2402,0.1478,0.194,1907.0,241024.0,0.4256,3.0,0.0638
+81.07.02.2008,Ngaibor,Aru Selatan,Kepulauan Aru,wind_solar_hybrid,intermittent,564,155,40.92,259537.0,329782.0,0.2334,0.1077,0.1705,6878.0,316897.0,0.2519,4.0,0.0981
+81.07.02.2026,Lor-lor,Aru Selatan,Kepulauan Aru,solar_biomass_hybrid,intermittent,900,251,66.26,283118.0,534003.0,0.2402,0.1478,0.194,6299.0,796173.0,0.4256,3.0,0.0638
+81.07.02.2027,Gaimar,Aru Selatan,Kepulauan Aru,solar_battery,intermittent,257,68,17.95,119543.0,144663.0,0.2386,0.1101,0.1743,2570.0,144191.0,0.2491,4.0,0.0988
+81.07.02.2029,Doka Barat,Aru Selatan,Kepulauan Aru,solar_biomass_hybrid,intermittent,515,148,39.07,166938.0,314873.0,0.2402,0.1478,0.194,3714.0,469463.0,0.4256,3.0,0.0638
+81.07.02.2031,Jelia,Aru Selatan,Kepulauan Aru,solar_biomass_hybrid,intermittent,346,89,23.5,100389.0,189391.0,0.2402,0.1478,0.194,2234.0,282401.0,0.4257,3.0,0.0638
+81.07.03.2003,Gardakau,Aru Tengah,Kepulauan Aru,solar_battery,dark_settled,1288,343,90.55,602991.0,729761.0,0.2386,0.1101,0.1743,12964.0,727443.0,0.2491,4.0,0.0988
+81.07.03.2006,Lorang,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,dark_settled,274,72,19.01,81213.0,153205.0,0.2402,0.1478,0.194,1807.0,228439.0,0.4257,3.0,0.0638
+81.07.03.2008,Manjau,Aru Tengah,Kepulauan Aru,solar_battery,dark_settled,407,127,33.53,223265.0,270225.0,0.2386,0.1101,0.1743,4800.0,269389.0,0.2491,4.0,0.0988
+81.07.03.2009,Kwarbola,Aru Tengah,Kepulauan Aru,solar_battery,intermittent,226,63,16.63,110754.0,134024.0,0.2386,0.1101,0.1743,2381.0,133585.0,0.2491,4.0,0.0988
+81.07.03.2030,Kobasel Timur,Aru Tengah,Kepulauan Aru,solar_battery,intermittent,283,129,34.06,226781.0,274496.0,0.2386,0.1101,0.1743,4876.0,273663.0,0.2492,4.0,0.0988
+81.07.03.2031,Fatlabata,Aru Tengah,Kepulauan Aru,solar_battery,intermittent,442,126,33.26,221507.0,268049.0,0.2386,0.1101,0.1743,4762.0,267171.0,0.2491,4.0,0.0988
+81.07.03.2033,Wakua,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,intermittent,1572,447,118.01,504199.0,951066.0,0.2402,0.1478,0.194,11218.0,1418043.0,0.4257,3.0,0.0638
+81.07.03.2037,Tanah Miring,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,intermittent,459,137,36.17,154531.0,291501.0,0.2402,0.1478,0.194,3438.0,434636.0,0.4257,3.0,0.0638
+81.07.03.2043,Maijuring,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,dark_settled,964,294,77.62,331621.0,625555.0,0.2402,0.1478,0.194,7379.0,932719.0,0.4257,3.0,0.0638
+81.07.03.2045,Selibata-bata,Aru Tengah,Kepulauan Aru,solar_biomass_hybrid,dark_settled,1087,332,87.65,374483.0,706389.0,0.2402,0.1478,0.194,8332.0,1053231.0,0.4257,3.0,0.0638
+81.07.04.2001,Marlasi,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,1925,525,138.6,879076.0,1117005.0,0.2334,0.1077,0.1705,23296.0,1073361.0,0.2519,4.0,0.0981
+81.07.04.2002,Kolamar,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,837,223,58.87,373398.0,474445.0,0.2334,0.1077,0.1705,9895.0,455891.0,0.2519,4.0,0.0981
+81.07.04.2004,Tasinwaha,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,537,120,31.68,200932.0,255315.0,0.2334,0.1077,0.1705,5325.0,245339.0,0.2519,4.0,0.0981
+81.07.04.2005,Foket,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,685,188,49.63,314793.0,399978.0,0.2334,0.1077,0.1705,8342.0,384334.0,0.2519,4.0,0.0981
+81.07.04.2006,Kaibolafin,Aru Utara,Kepulauan Aru,solar_battery,dark_settled,355,94,24.82,165251.0,200029.0,0.2386,0.1101,0.1743,3553.0,199431.0,0.2492,4.0,0.0988
+81.07.04.2007,Wahangula-Ngula,Aru Utara,Kepulauan Aru,wind_solar_hybrid,intermittent,262,78,20.59,130606.0,165939.0,0.2334,0.1077,0.1705,3461.0,159439.0,0.2519,4.0,0.0981
+81.07.04.2008,Wahayum,Aru Utara,Kepulauan Aru,solar_biomass_hybrid,dark_settled,489,129,34.06,145507.0,274496.0,0.2402,0.1478,0.194,3238.0,409293.0,0.4257,3.0,0.0638
+81.07.04.2009,Warialau,Aru Utara,Kepulauan Aru,solar_battery,dark_settled,835,245,64.68,451460.0,521269.0,0.2386,0.1101,0.1743,9706.0,494324.0,0.2343,4.0,0.1036
+81.07.04.2010,Jerwatu,Aru Utara,Kepulauan Aru,solar_biomass_hybrid,dark_settled,449,123,32.47,138739.0,261682.0,0.2402,0.1478,0.194,3087.0,390156.0,0.4256,3.0,0.0638
+81.07.04.2013,Selmona,Aru Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,558,149,39.34,168066.0,317049.0,0.2402,0.1478,0.194,3739.0,472739.0,0.4257,3.0,0.0638
+81.07.05.2001,Kabalsiang,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,intermittent,937,262,69.17,460594.0,557455.0,0.2386,0.1101,0.1743,9903.0,555713.0,0.2491,4.0,0.0988
+81.07.05.2002,Benjuring,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,intermittent,798,217,57.29,381484.0,461712.0,0.2386,0.1101,0.1743,8202.0,460272.0,0.2491,4.0,0.0988
+81.07.05.2003,Batuley,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,intermittent,358,107,28.25,188105.0,227672.0,0.2386,0.1101,0.1743,4044.0,226971.0,0.2491,4.0,0.0988
+81.07.05.2004,Kumul,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,intermittent,1039,276,72.86,485206.0,587193.0,0.2386,0.1101,0.1743,10432.0,585308.0,0.2491,4.0,0.0988
+81.07.05.2006,Sewer,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,dark_settled,536,154,40.66,270731.0,327687.0,0.2386,0.1101,0.1743,5821.0,326686.0,0.2491,4.0,0.0988
+81.07.05.2008,Kompane,Aru Utara Timur Batuley,Kepulauan Aru,solar_battery,dark_settled,588,172,45.41,302375.0,365968.0,0.2386,0.1101,0.1743,6501.0,364830.0,0.2491,4.0,0.0988
+81.07.05.2009,Kobamar,Aru Utara Timur Batuley,Kepulauan Aru,solar_biomass_hybrid,intermittent,335,99,26.14,111668.0,210667.0,0.2402,0.1478,0.194,2485.0,314125.0,0.4257,3.0,0.0638
+81.07.06.2006,Leiting,Sir-Sir,Kepulauan Aru,solar_biomass_hybrid,intermittent,773,203,53.59,228976.0,431893.0,0.2402,0.1478,0.194,5095.0,643938.0,0.4257,3.0,0.0638
+81.07.06.2007,Bardefan,Sir-Sir,Kepulauan Aru,solar_biomass_hybrid,dark_settled,266,80,21.12,90237.0,170210.0,0.2402,0.1478,0.194,2008.0,253782.0,0.4257,3.0,0.0638
+81.07.06.2008,Mohongsel,Sir-Sir,Kepulauan Aru,solar_battery,intermittent,336,93,24.55,163493.0,197853.0,0.2386,0.1101,0.1743,3515.0,197213.0,0.2491,4.0,0.0988
+81.07.06.2009,Kolaha,Sir-Sir,Kepulauan Aru,solar_biomass_hybrid,dark_settled,595,169,44.62,190625.0,359602.0,0.2402,0.1478,0.194,4241.0,536185.0,0.4257,3.0,0.0638
+81.07.06.2010,Goda-Goda,Sir-Sir,Kepulauan Aru,solar_biomass_hybrid,dark_settled,695,194,51.22,218824.0,412792.0,0.2402,0.1478,0.194,4869.0,615492.0,0.4257,3.0,0.0638
+81.07.07.2001,Koijabi,Aru Tengah Timur,Kepulauan Aru,solar_battery,intermittent,1135,289,76.3,508060.0,614917.0,0.2386,0.1101,0.1743,10923.0,613009.0,0.2491,4.0,0.0988
+81.07.07.2004,Warjukur,Aru Tengah Timur,Kepulauan Aru,solar_biomass_hybrid,dark_settled,570,134,35.38,151147.0,285134.0,0.2402,0.1478,0.194,3363.0,425154.0,0.4257,3.0,0.0638
+81.07.07.2008,Kaiwabar,Aru Tengah Timur,Kepulauan Aru,solar_battery,intermittent,252,65,17.16,114270.0,138296.0,0.2386,0.1101,0.1743,2457.0,137859.0,0.2491,4.0,0.0988
+81.07.07.2009,Ponom,Aru Tengah Timur,Kepulauan Aru,solar_battery,intermittent,268,68,17.95,119543.0,144663.0,0.2386,0.1101,0.1743,2570.0,144191.0,0.2491,4.0,0.0988
+81.07.07.2010,Lola,Aru Tengah Timur,Kepulauan Aru,solar_biomass_hybrid,intermittent,340,101,26.66,113924.0,214858.0,0.2402,0.1478,0.194,2535.0,320331.0,0.4256,3.0,0.0638
+81.07.07.2011,Mariri,Aru Tengah Timur,Kepulauan Aru,solar_battery,dark_settled,463,141,37.22,247877.0,299963.0,0.2386,0.1101,0.1743,5329.0,298985.0,0.2491,4.0,0.0988
+81.07.07.2012,Dosinamalau,Aru Tengah Timur,Kepulauan Aru,solar_biomass_hybrid,dark_settled,925,245,64.68,276350.0,521269.0,0.2402,0.1478,0.194,6149.0,777209.0,0.4257,3.0,0.0638
+81.07.07.2013,Karawai,Aru Tengah Timur,Kepulauan Aru,solar_battery,dark_settled,360,103,27.19,181073.0,219130.0,0.2386,0.1101,0.1743,3893.0,218422.0,0.2491,4.0,0.0988
+81.07.08.2006,Jambu Air,Aru Tengah Selatan,Kepulauan Aru,solar_battery,intermittent,552,162,42.77,284795.0,344692.0,0.2386,0.1101,0.1743,6123.0,343621.0,0.2491,4.0,0.0988
+81.07.08.2007,Warabal,Aru Tengah Selatan,Kepulauan Aru,wind_solar_hybrid,intermittent,466,154,40.66,257862.0,327687.0,0.2334,0.1077,0.1705,6833.0,314916.0,0.252,4.0,0.098
+81.07.09.2002,Dosimar,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,168,51,13.46,85396.0,108477.0,0.2334,0.1077,0.1705,2263.0,104206.0,0.2518,4.0,0.0981
+81.07.09.2003,Batugoyang,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,641,184,48.58,308095.0,391516.0,0.2334,0.1077,0.1705,8165.0,376251.0,0.2519,4.0,0.098
+81.07.09.2004,Salarem,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,550,146,38.54,244467.0,310602.0,0.2334,0.1077,0.1705,6478.0,298433.0,0.2519,4.0,0.0981
+81.07.09.2005,Siya,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,376,106,27.98,177490.0,225496.0,0.2334,0.1077,0.1705,4703.0,216653.0,0.2519,4.0,0.0981
+81.07.09.2006,Beltubur,Aru Selatan Timur,Kepulauan Aru,wind_solar_hybrid,intermittent,878,211,55.7,353305.0,448897.0,0.2334,0.1077,0.1705,9363.0,431325.0,0.2519,4.0,0.0981
+81.07.09.2009,Gomar Sungai,Aru Selatan Timur,Kepulauan Aru,solar_biomass_hybrid,intermittent,490,123,32.47,138739.0,261682.0,0.2402,0.1478,0.194,3087.0,390156.0,0.4256,3.0,0.0638
+81.07.10.2001,Tabarfane,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,919,292,77.09,329365.0,621284.0,0.2402,0.1478,0.194,7328.0,926340.0,0.4257,3.0,0.0638
+81.07.10.2002,Rebi,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,720,218,57.55,245896.0,463807.0,0.2402,0.1478,0.194,5471.0,691522.0,0.4257,3.0,0.0638
+81.07.10.2003,Lutur,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,655,197,52.01,222208.0,419159.0,0.2402,0.1478,0.194,4944.0,624974.0,0.4257,3.0,0.0638
+81.07.10.2004,Hokmar,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,386,102,26.93,115052.0,217034.0,0.2402,0.1478,0.194,2560.0,323607.0,0.4257,3.0,0.0638
+81.07.10.2005,Juring,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,630,174,45.94,196265.0,370240.0,0.2402,0.1478,0.194,4367.0,552046.0,0.4257,3.0,0.0638
+81.07.10.2006,Erersin,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,intermittent,405,103,27.19,116180.0,219130.0,0.2402,0.1478,0.194,2585.0,326710.0,0.4256,3.0,0.0638
+81.07.10.2007,Maekor,Aru Selatan Utara,Kepulauan Aru,solar_biomass_hybrid,dark_settled,790,228,60.19,257175.0,485083.0,0.2402,0.1478,0.194,5722.0,723245.0,0.4257,3.0,0.0638
+81.08.01.2001,Klis,Moa,Maluku Barat Daya,wind_solar_hybrid,intermittent,3211,843,222.55,1411545.0,1793575.0,0.2334,0.1077,0.1705,37406.0,1723479.0,0.2519,4.0,0.0981
+81.08.01.2005,Werwaru,Moa,Maluku Barat Daya,wind_solar_hybrid,intermittent,1103,311,82.1,520748.0,661660.0,0.2334,0.1077,0.1705,13800.0,635775.0,0.2519,4.0,0.0981
+81.08.01.2006,Tounwawan,Moa,Maluku Barat Daya,wind_solar_hybrid,intermittent,3482,932,246.05,1560570.0,1982966.0,0.2334,0.1077,0.1705,41355.0,1905501.0,0.2519,4.0,0.0981
+81.08.01.2007,Moain,Moa,Maluku Barat Daya,wind_solar_hybrid,intermittent,551,148,39.07,247816.0,314873.0,0.2334,0.1077,0.1705,6567.0,302553.0,0.2519,4.0,0.0981
+81.08.02.2003,Kuaimelu,Damer,Maluku Barat Daya,solar_biomass_hybrid,intermittent,428,125,33.0,154951.0,265954.0,0.2402,0.1478,0.194,3448.0,379413.0,0.3836,3.0,0.0701
+81.08.02.2004,Kumur,Damer,Maluku Barat Daya,solar_biomass_hybrid,intermittent,658,169,44.62,204725.0,359602.0,0.2402,0.1478,0.194,4555.0,518887.0,0.3935,3.0,0.0685
+81.08.02.2005,Bebar Timur,Damer,Maluku Barat Daya,solar_biomass_hybrid,intermittent,1132,318,83.95,395628.0,676570.0,0.2402,0.1478,0.194,8803.0,963436.0,0.382,3.0,0.0704
+81.08.02.2007,Kehli,Damer,Maluku Barat Daya,solar_biomass_hybrid,intermittent,1263,357,94.25,460677.0,759580.0,0.2402,0.1478,0.194,10250.0,1061389.0,0.3667,3.0,0.073
+81.08.03.2001,Luang Barat,Mdona Hyera,Maluku Barat Daya,solar_battery,intermittent,1011,318,83.95,597195.0,676570.0,0.2386,0.1101,0.1743,12840.0,627903.0,0.2285,5.0,0.1056
+81.08.03.2002,Luang Timur,Mdona Hyera,Maluku Barat Daya,solar_battery,intermittent,1368,371,97.94,657336.0,789318.0,0.2386,0.1101,0.1743,14133.0,780552.0,0.2466,4.0,0.0996
+81.08.03.2004,Rumkisar,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,336,97,25.61,111319.0,206396.0,0.2402,0.1478,0.194,2477.0,305406.0,0.4177,3.0,0.0649
+81.08.03.2005,Lelang,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,527,150,39.6,174622.0,319144.0,0.2402,0.1478,0.194,3885.0,469183.0,0.4112,3.0,0.0658
+81.08.03.2006,Mahaleta,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,498,141,37.22,170782.0,299963.0,0.2402,0.1478,0.194,3800.0,432820.0,0.3935,3.0,0.0685
+81.08.03.2008,Rotnama,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,283,88,23.23,106722.0,187215.0,0.2402,0.1478,0.194,2375.0,269972.0,0.393,3.0,0.0686
+81.08.03.2009,Batugajah,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,411,132,34.85,163052.0,280863.0,0.2402,0.1478,0.194,3628.0,401402.0,0.3851,3.0,0.0699
+81.08.03.2010,Pupliora,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,650,184,48.58,221650.0,391516.0,0.2402,0.1478,0.194,4932.0,566464.0,0.396,3.0,0.0681
+81.08.03.2011,Regoha,Mdona Hyera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,513,140,36.96,167524.0,297868.0,0.2402,0.1478,0.194,3727.0,432330.0,0.3989,3.0,0.0677
+81.08.04.2003,Tela,Babar Barat,Maluku Barat Daya,wind_solar_hybrid,intermittent,1715,495,130.68,875639.0,1053176.0,0.2334,0.1077,0.1705,23204.0,952588.0,0.2342,4.0,0.1036
+81.08.04.2004,Yaltubung,Babar Barat,Maluku Barat Daya,wind_solar_hybrid,intermittent,532,147,38.81,251148.0,312778.0,0.2334,0.1077,0.1705,6655.0,294213.0,0.2454,4.0,0.1
+81.08.04.2005,Wanuwui,Babar Barat,Maluku Barat Daya,wind_solar_hybrid,intermittent,663,181,47.78,311576.0,385069.0,0.2334,0.1077,0.1705,8257.0,359189.0,0.2429,4.0,0.1008
+81.08.04.2015,Lewah,Babar Barat,Maluku Barat Daya,solar_biomass_hybrid,intermittent,376,94,24.82,149150.0,200029.0,0.2402,0.1478,0.194,3319.0,245360.0,0.2891,4.0,0.0897
+81.08.04.2016,Hertuti,Babar Barat,Maluku Barat Daya,solar_biomass_hybrid,intermittent,317,82,21.65,117251.0,174482.0,0.2402,0.1478,0.194,2609.0,229787.0,0.3264,3.0,0.0809
+81.08.04.2017,Sinairusi,Babar Barat,Maluku Barat Daya,solar_biomass_hybrid,intermittent,465,125,33.0,184513.0,265954.0,0.2402,0.1478,0.194,4105.0,343146.0,0.3146,4.0,0.0835
+81.08.05.2002,Yatoke,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,728,216,57.02,383111.0,459536.0,0.2334,0.1077,0.1705,10152.0,414323.0,0.2334,4.0,0.1039
+81.08.05.2004,Nakarhamto,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,566,159,41.98,283757.0,338325.0,0.2334,0.1077,0.1705,7520.0,302882.0,0.2315,4.0,0.1045
+81.08.05.2005,Emplawas,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,427,124,32.74,215493.0,263858.0,0.2334,0.1077,0.1705,5711.0,243593.0,0.2399,4.0,0.1018
+81.08.05.2007,Ahanari,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,964,268,70.75,459720.0,570188.0,0.2334,0.1077,0.1705,12183.0,533956.0,0.244,4.0,0.1005
+81.08.05.2008,Wakpapapi,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,743,223,58.87,381041.0,474445.0,0.2334,0.1077,0.1705,10098.0,446183.0,0.2453,4.0,0.1001
+81.08.05.2009,Analutur,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,328,90,23.76,153530.0,191487.0,0.2334,0.1077,0.1705,4069.0,180409.0,0.2458,4.0,0.0999
+81.08.05.2010,Manuweri,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,498,137,36.17,236339.0,291501.0,0.2334,0.1077,0.1705,6263.0,271310.0,0.2422,4.0,0.101
+81.08.05.2011,Tutuwawang,Pulau-Pulau Babar Timur,Maluku Barat Daya,wind_solar_hybrid,intermittent,464,133,35.11,228711.0,282959.0,0.2334,0.1077,0.1705,6061.0,264251.0,0.2432,4.0,0.1007
+81.08.06.2004,Masapun,Wetar Selatan,Maluku Barat Daya,solar_biomass_hybrid,intermittent,630,167,44.09,236200.0,355330.0,0.2402,0.1478,0.194,5255.0,471125.0,0.3305,3.0,0.08
+81.08.06.2023,Hiay,Wetar Selatan,Maluku Barat Daya,solar_biomass_hybrid,intermittent,470,129,34.06,181861.0,274496.0,0.2402,0.1478,0.194,4046.0,364693.0,0.3318,3.0,0.0797
+81.08.09.2001,Latalola Besar,Pulau Masela,Maluku Barat Daya,solar_battery,intermittent,450,138,36.43,242603.0,293597.0,0.2386,0.1101,0.1743,5216.0,292654.0,0.2491,4.0,0.0988
+81.08.09.2002,Serili,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,346,96,25.34,108284.0,204220.0,0.2402,0.1478,0.194,2409.0,304470.0,0.4256,3.0,0.0638
+81.08.09.2003,Latalola Kecil,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,219,63,16.63,71062.0,134024.0,0.2402,0.1478,0.194,1581.0,199819.0,0.4256,3.0,0.0638
+81.08.09.2004,Telalora,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,203,69,18.22,79038.0,146839.0,0.2402,0.1478,0.194,1759.0,217473.0,0.4186,3.0,0.0648
+81.08.09.2005,Marsela,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,196,72,19.01,81943.0,153205.0,0.2402,0.1478,0.194,1823.0,227543.0,0.4216,3.0,0.0644
+81.08.09.2006,Babiotang,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,303,90,23.76,101517.0,191487.0,0.2402,0.1478,0.194,2259.0,285505.0,0.4257,3.0,0.0638
+81.08.09.2007,Iblatmuntah,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,139,46,12.14,52042.0,97839.0,0.2402,0.1478,0.194,1158.0,145665.0,0.4241,3.0,0.064
+81.08.09.2008,Ilbutung,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,192,65,17.16,74911.0,138296.0,0.2402,0.1478,0.194,1667.0,204243.0,0.4158,3.0,0.0652
+81.08.09.2009,Lawawang,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,300,93,24.55,104900.0,197853.0,0.2402,0.1478,0.194,2334.0,294988.0,0.4256,3.0,0.0638
+81.08.09.2010,Nura,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,596,186,49.1,209801.0,395707.0,0.2402,0.1478,0.194,4668.0,589975.0,0.4256,3.0,0.0638
+81.08.09.2011,Bululora,Pulau Masela,Maluku Barat Daya,solar_biomass_hybrid,intermittent,240,76,20.06,85725.0,161668.0,0.2402,0.1478,0.194,1907.0,241024.0,0.4256,3.0,0.0638
+81.08.10.2001,Watuwei,Dawelor Dawera,Maluku Barat Daya,solar_battery,intermittent,533,151,39.86,283914.0,321240.0,0.2386,0.1101,0.1743,6104.0,297691.0,0.2281,5.0,0.1057
+81.08.10.2002,Ilmarang,Dawelor Dawera,Maluku Barat Daya,solar_battery,intermittent,269,85,22.44,154976.0,180848.0,0.2386,0.1101,0.1743,3332.0,173516.0,0.2376,4.0,0.1025
+81.08.10.2003,Letmasa,Dawelor Dawera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,179,52,13.73,62781.0,110653.0,0.2402,0.1478,0.194,1397.0,159930.0,0.395,3.0,0.0683
+81.08.10.2004,Welora,Dawelor Dawera,Maluku Barat Daya,solar_battery,intermittent,202,74,19.54,141348.0,157477.0,0.2386,0.1101,0.1743,3039.0,143289.0,0.2235,5.0,0.1073
+81.08.10.2005,Wiratan,Dawelor Dawera,Maluku Barat Daya,solar_biomass_hybrid,intermittent,270,82,21.65,100710.0,174482.0,0.2402,0.1478,0.194,2241.0,250080.0,0.3876,3.0,0.0695
+81.08.10.2006,Nurnyaman,Dawelor Dawera,Maluku Barat Daya,solar_battery,intermittent,220,64,16.9,120061.0,136200.0,0.2386,0.1101,0.1743,2581.0,126599.0,0.2289,5.0,0.1054
+81.08.11.2003,Pota Besar,Pulau Wetang,Maluku Barat Daya,wind_solar_hybrid,intermittent,245,64,16.9,114940.0,136200.0,0.2334,0.1077,0.1705,3046.0,121034.0,0.2296,4.0,0.1051
+81.08.11.2004,Pota Kecil,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,247,75,19.8,137627.0,159572.0,0.2386,0.1101,0.1743,2959.0,152025.0,0.2356,4.0,0.1031
+81.08.11.2005,Wasarili,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,362,110,29.04,195685.0,234039.0,0.2386,0.1101,0.1743,4207.0,230490.0,0.2453,4.0,0.1
+81.08.11.2006,Rumahlewang Kecil,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,276,92,24.29,165757.0,195758.0,0.2386,0.1101,0.1743,3564.0,190253.0,0.2414,4.0,0.1013
+81.08.11.2007,Rumahlewang Besar,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,457,136,35.9,239087.0,289325.0,0.2386,0.1101,0.1743,5140.0,288380.0,0.2491,4.0,0.0988
+81.08.11.2008,Nusiata,Pulau Wetang,Maluku Barat Daya,solar_battery,intermittent,284,72,19.01,132938.0,153205.0,0.2386,0.1101,0.1743,2858.0,144981.0,0.2337,4.0,0.1038
+81.08.12.2001,Ketty,Pulau Lakor,Maluku Barat Daya,solar_battery,intermittent,587,161,42.5,283037.0,342516.0,0.2386,0.1101,0.1743,6085.0,341403.0,0.2491,4.0,0.0988
+81.08.12.2002,Letoda,Pulau Lakor,Maluku Barat Daya,wind_solar_hybrid,intermittent,1211,343,90.55,574330.0,729761.0,0.2334,0.1077,0.1705,15220.0,701230.0,0.2519,4.0,0.0981
+81.08.12.2003,Sera,Pulau Lakor,Maluku Barat Daya,solar_battery,intermittent,452,127,33.53,223265.0,270225.0,0.2386,0.1101,0.1743,4800.0,269389.0,0.2491,4.0,0.0988
+81.08.12.2004,Yamluli,Pulau Lakor,Maluku Barat Daya,solar_battery,intermittent,431,116,30.62,203927.0,246773.0,0.2386,0.1101,0.1743,4384.0,245962.0,0.2491,4.0,0.0988
+81.08.12.2005,Lolotuara,Pulau Lakor,Maluku Barat Daya,solar_battery,intermittent,549,151,39.86,265457.0,321240.0,0.2386,0.1101,0.1743,5707.0,320194.0,0.2491,4.0,0.0988
+81.08.14.2002,Karbubu,Wetar Barat,Maluku Barat Daya,wind_solar_hybrid,intermittent,584,142,37.49,290045.0,302139.0,0.2334,0.1077,0.1705,7686.0,223952.0,0.1913,5.0,0.1196
+81.08.15.2001,Moning,Wetar Timur,Maluku Barat Daya,solar_biomass_hybrid,intermittent,341,89,23.5,121831.0,189391.0,0.2402,0.1478,0.194,2711.0,256096.0,0.3431,3.0,0.0774
+81.08.15.2002,Arwala,Wetar Timur,Maluku Barat Daya,solar_biomass_hybrid,intermittent,390,108,28.51,140460.0,229768.0,0.2402,0.1478,0.194,3125.0,319703.0,0.3635,3.0,0.0736
+81.08.15.2003,Ilway,Wetar Timur,Maluku Barat Daya,solar_biomass_hybrid,intermittent,270,80,21.12,97557.0,170210.0,0.2402,0.1478,0.194,2171.0,244802.0,0.3906,3.0,0.069
+81.08.15.2004,Kahilin,Wetar Timur,Maluku Barat Daya,solar_biomass_hybrid,intermittent,661,165,43.56,217801.0,351059.0,0.2402,0.1478,0.194,4846.0,484551.0,0.3575,3.0,0.0747
+81.08.16.2001,Hila,Kepulauan Roma,Maluku Barat Daya,solar_biomass_hybrid,intermittent,1695,453,119.59,564756.0,963800.0,0.2402,0.1478,0.194,12566.0,1371017.0,0.3811,3.0,0.0705
+81.08.16.2002,Jerusu,Kepulauan Roma,Maluku Barat Daya,solar_biomass_hybrid,intermittent,2761,746,196.94,923165.0,1587179.0,0.2402,0.1478,0.194,20540.0,2266212.0,0.3843,3.0,0.07
+81.08.16.2003,Solath,Kepulauan Roma,Maluku Barat Daya,solar_biomass_hybrid,intermittent,645,191,50.42,245902.0,406345.0,0.2402,0.1478,0.194,5471.0,568465.0,0.3676,3.0,0.0728
+81.09.01.2001,Wamkana,Namrole,Buru Selatan,micro_hydro,dark_settled,1186,277,73.13,1011962.0,589369.0,0.146,0.0702,0.1081,20239.0,-489900.0,-0.0184,,0.2028
+81.09.01.2007,Oki Baru,Namrole,Buru Selatan,micro_hydro,dark_settled,1919,467,123.29,1646259.0,993619.0,0.146,0.0702,0.1081,32925.0,-753919.0,-0.0122,,0.1957
+81.09.01.2008,Oki Lama,Namrole,Buru Selatan,micro_hydro,intermittent,2324,555,146.52,1945105.0,1180834.0,0.146,0.0702,0.1081,38902.0,-882321.0,-0.0112,,0.1945
+81.09.01.2011,Tikbary,Namrole,Buru Selatan,micro_hydro,dark_settled,589,149,39.34,501438.0,317049.0,0.146,0.0702,0.1081,10029.0,-211841.0,-0.0042,,0.1868
+81.09.01.2017,Batu Tulis,Namrole,Buru Selatan,solar_biomass_hybrid,intermittent,305,101,26.66,122663.0,214858.0,0.2402,0.1478,0.194,2729.0,309610.0,0.3923,3.0,0.0687
+81.09.02.2001,Waetawa,Waesama,Buru Selatan,solar_biomass_hybrid,intermittent,1604,363,95.83,478404.0,772313.0,0.2402,0.1478,0.194,10644.0,1066908.0,0.3581,3.0,0.0745
+81.09.02.2002,Waesili,Waesama,Buru Selatan,micro_hydro,dark_settled,1787,482,127.25,1768578.0,1025533.0,0.146,0.0702,0.1081,35372.0,-861735.0,-0.0191,,0.2037
+81.09.02.2003,Lena,Waesama,Buru Selatan,micro_hydro,dark_settled,2035,489,129.1,1749889.0,1040443.0,0.146,0.0702,0.1081,34998.0,-820809.0,-0.0148,,0.1986
+81.09.02.2004,Simi,Waesama,Buru Selatan,micro_hydro,dark_settled,1999,448,118.27,1600707.0,953162.0,0.146,0.0702,0.1081,32014.0,-749080.0,-0.0145,,0.1983
+81.09.02.2005,Waelikut,Waesama,Buru Selatan,micro_hydro,dark_settled,1773,470,124.08,1669157.0,999986.0,0.146,0.0702,0.1081,33383.0,-773617.0,-0.0135,,0.1971
+81.09.02.2006,Wamsisi,Waesama,Buru Selatan,micro_hydro,dark_settled,3287,819,216.22,2865606.0,1742560.0,0.146,0.0702,0.1081,57312.0,-1296275.0,-0.0109,,0.1942
+81.09.02.2007,Pohon Batu,Waesama,Buru Selatan,micro_hydro,dark_settled,1542,367,96.89,1338125.0,780856.0,0.146,0.0702,0.1081,26762.0,-645909.0,-0.018,,0.2024
+81.09.02.2008,Waeteba,Waesama,Buru Selatan,micro_hydro,dark_settled,1009,230,60.72,801195.0,489355.0,0.146,0.0702,0.1081,16024.0,-359766.0,-0.0102,,0.1933
+81.09.02.2009,Hote,Waesama,Buru Selatan,micro_hydro,dark_settled,1023,235,62.04,804257.0,499993.0,0.146,0.0702,0.1081,16085.0,-350305.0,-0.0071,,0.19
+81.09.02.2010,Waemasing,Waesama,Buru Selatan,micro_hydro,intermittent,1375,347,91.61,1135434.0,738303.0,0.146,0.0702,0.1081,22709.0,-454482.0,0.0007,20.0,0.1816
+81.09.02.2011,Batu Kasa,Waesama,Buru Selatan,solar_biomass_hybrid,intermittent,1098,242,63.89,293430.0,514902.0,0.2402,0.1478,0.194,6529.0,742621.0,0.3931,3.0,0.0686
+81.09.03.2003,Ulima,Ambalau,Buru Selatan,solar_biomass_hybrid,intermittent,1359,353,93.19,436935.0,751037.0,0.2402,0.1478,0.194,9722.0,1072222.0,0.3842,3.0,0.07
+81.09.04.2001,Balpetu,Kepala Madan,Buru Selatan,solar_biomass_hybrid,intermittent,1231,298,78.67,363463.0,634017.0,0.2402,0.1478,0.194,8087.0,911775.0,0.3905,3.0,0.069
+81.09.04.2002,Waekeka,Kepala Madan,Buru Selatan,micro_hydro,dark_settled,860,227,59.93,796660.0,482988.0,0.146,0.0702,0.1081,15933.0,-362175.0,-0.0114,,0.1948
+81.09.04.2003,Biloro,Kepala Madan,Buru Selatan,solar_biomass_hybrid,dark_settled,927,241,63.62,311762.0,512726.0,0.2402,0.1478,0.194,6937.0,715471.0,0.3657,3.0,0.0732
+81.09.04.2004,Nanali,Kepala Madan,Buru Selatan,solar_biomass_hybrid,intermittent,1656,365,96.36,512193.0,776585.0,0.2402,0.1478,0.194,11396.0,1034602.0,0.3335,3.0,0.0794
+81.09.04.2005,Pasir Putih,Kepala Madan,Buru Selatan,solar_battery,intermittent,2869,705,186.12,1318653.0,1499978.0,0.2386,0.1101,0.1743,28351.0,1398604.0,0.2297,5.0,0.1051
+81.09.04.2006,Fogi,Kepala Madan,Buru Selatan,micro_hydro,intermittent,806,183,48.31,621125.0,389340.0,0.146,0.0702,0.1081,12422.0,-266588.0,-0.0057,,0.1884
+81.09.04.2007,Waepandan,Kepala Madan,Buru Selatan,micro_hydro,intermittent,1863,480,126.72,1616343.0,1021262.0,0.146,0.0702,0.1081,32327.0,-683740.0,-0.0043,,0.1869
+81.09.04.2008,Walbele,Kepala Madan,Buru Selatan,micro_hydro,intermittent,865,224,59.14,758635.0,476621.0,0.146,0.0702,0.1081,15173.0,-324266.0,-0.0053,,0.188
+81.09.04.2009,Air Ternate,Kepala Madan,Buru Selatan,micro_hydro,dark_settled,1000,232,61.25,829772.0,493626.0,0.146,0.0702,0.1081,16595.0,-388891.0,-0.0147,,0.1985
+81.09.04.2010,Sekat,Kepala Madan,Buru Selatan,solar_battery,intermittent,1116,310,81.84,575706.0,659565.0,0.2386,0.1101,0.1743,12378.0,620021.0,0.2319,4.0,0.1044
+81.09.04.2011,Waeha,Kepala Madan,Buru Selatan,micro_hydro,intermittent,304,76,20.06,264604.0,161668.0,0.146,0.0702,0.1081,5292.0,-118752.0,-0.0101,,0.1933
+81.09.04.2012,Bala-bala,Kepala Madan,Buru Selatan,solar_biomass_hybrid,intermittent,505,116,30.62,144499.0,246773.0,0.2402,0.1478,0.194,3215.0,351162.0,0.3814,3.0,0.0705
+81.09.04.2013,Batu Layar,Kepala Madan,Buru Selatan,solar_biomass_hybrid,intermittent,366,90,23.76,110191.0,191487.0,0.2402,0.1478,0.194,2452.0,274863.0,0.3889,3.0,0.0693
+81.09.04.2014,Siopot,Kepala Madan,Buru Selatan,micro_hydro,intermittent,488,102,26.93,331718.0,217034.0,0.146,0.0702,0.1081,6634.0,-131123.0,0.0018,20.0,0.1805
+81.09.04.2015,Emguhen,Kepala Madan,Buru Selatan,micro_hydro,intermittent,283,68,17.95,237416.0,144663.0,0.146,0.0702,0.1081,4748.0,-107037.0,-0.0106,,0.1938
+81.09.05.2001,Waemulang,Leksula,Buru Selatan,micro_hydro,intermittent,1483,365,96.36,1237790.0,776585.0,0.146,0.0702,0.1081,24756.0,-530396.0,-0.0055,,0.1882
+81.09.05.2002,Waeturen,Leksula,Buru Selatan,micro_hydro,intermittent,1129,258,68.11,868588.0,548912.0,0.146,0.0702,0.1081,17372.0,-367294.0,-0.0042,,0.1869
+81.09.05.2003,Waehaka,Leksula,Buru Selatan,micro_hydro,intermittent,508,139,36.7,469022.0,295773.0,0.146,0.0702,0.1081,9380.0,-199111.0,-0.0046,,0.1873
+81.09.05.2004,Waemala,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,727,201,53.06,226720.0,427621.0,0.2402,0.1478,0.194,5045.0,637559.0,0.4256,3.0,0.0638
+81.09.05.2005,Erwiri,Leksula,Buru Selatan,micro_hydro,intermittent,1599,364,96.1,1216811.0,774489.0,0.146,0.0702,0.1081,24336.0,-507729.0,-0.003,,0.1855
+81.09.05.2006,Tifu,Leksula,Buru Selatan,solar_battery,intermittent,434,110,29.04,220623.0,234039.0,0.2386,0.1101,0.1743,4743.0,200086.0,0.209,5.0,0.1127
+81.09.05.2007,Mepa,Leksula,Buru Selatan,micro_hydro,intermittent,620,155,40.92,551075.0,329782.0,0.146,0.0702,0.1081,11022.0,-255861.0,-0.0137,,0.1973
+81.09.05.2008,Leksula,Leksula,Buru Selatan,micro_hydro,intermittent,3785,1005,265.32,3293937.0,2138267.0,0.146,0.0702,0.1081,65879.0,-1322892.0,0.0004,20.0,0.1819
+81.09.05.2009,Nalbessy,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,1404,392,103.49,509978.0,834047.0,0.2402,0.1478,0.194,11347.0,1160368.0,0.3634,3.0,0.0736
+81.09.05.2010,Kase,Leksula,Buru Selatan,micro_hydro,dark_settled,599,140,36.96,520135.0,297868.0,0.146,0.0702,0.1081,10403.0,-258055.0,-0.0213,,0.2062
+81.09.05.2015,Neath,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,748,163,43.03,209428.0,346787.0,0.2402,0.1478,0.194,4660.0,485677.0,0.3685,3.0,0.0727
+81.09.05.2016,Liang,Leksula,Buru Selatan,micro_hydro,intermittent,779,173,45.67,624565.0,368064.0,0.146,0.0702,0.1081,12491.0,-297024.0,-0.0163,,0.2004
+81.09.05.2018,Slealale,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,741,169,44.62,208401.0,359602.0,0.2402,0.1478,0.194,4637.0,514377.0,0.3858,3.0,0.0697
+81.09.05.2023,Walunhelat,Leksula,Buru Selatan,solar_battery,intermittent,255,59,15.58,105146.0,125562.0,0.2386,0.1101,0.1743,2261.0,123462.0,0.2449,4.0,0.1001
+81.09.05.2024,Wahaolon,Leksula,Buru Selatan,micro_hydro,intermittent,357,67,17.69,227131.0,142567.0,0.146,0.0702,0.1081,4543.0,-97244.0,-0.0054,,0.1881
+81.09.05.2025,Waewali,Leksula,Buru Selatan,micro_hydro,intermittent,295,65,17.16,207507.0,138296.0,0.146,0.0702,0.1081,4150.0,-78898.0,0.005,19.0,0.1772
+81.09.05.2029,Grahwaen,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,397,86,22.7,105242.0,182944.0,0.2402,0.1478,0.194,2342.0,262641.0,0.389,3.0,0.0692
+81.09.05.2030,Terkuri,Leksula,Buru Selatan,solar_biomass_hybrid,intermittent,239,57,15.05,69788.0,121291.0,0.2402,0.1478,0.194,1553.0,174114.0,0.3889,3.0,0.0692
+81.09.06.2001,Nusarua,Fena Fafan,Buru Selatan,micro_hydro,intermittent,471,104,27.46,344231.0,221306.0,0.146,0.0702,0.1081,6885.0,-140909.0,-0.0013,,0.1837
+81.09.06.2002,Mangeswaen,Fena Fafan,Buru Selatan,micro_hydro,intermittent,1072,233,61.51,758033.0,495721.0,0.146,0.0702,0.1081,15161.0,-299935.0,0.0017,20.0,0.1806
+81.09.06.2003,Waekatin,Fena Fafan,Buru Selatan,micro_hydro,intermittent,815,194,51.22,612275.0,412792.0,0.146,0.0702,0.1081,12246.0,-226949.0,0.007,18.0,0.1752
+81.09.06.2004,Fakal,Fena Fafan,Buru Selatan,micro_hydro,intermittent,454,97,25.61,328489.0,206396.0,0.146,0.0702,0.1081,6570.0,-140383.0,-0.0052,,0.1879
+81.09.06.2005,Uneth,Fena Fafan,Buru Selatan,micro_hydro,intermittent,535,115,30.36,368409.0,244677.0,0.146,0.0702,0.1081,7368.0,-141132.0,0.0044,19.0,0.1778
+81.09.06.2006,Waeraman,Fena Fafan,Buru Selatan,micro_hydro,intermittent,649,136,35.9,450337.0,289325.0,0.146,0.0702,0.1081,9007.0,-184584.0,-0.0014,,0.1838
+81.09.06.2007,Waelo,Fena Fafan,Buru Selatan,micro_hydro,intermittent,520,121,31.94,389976.0,257411.0,0.146,0.0702,0.1081,7800.0,-151359.0,0.0033,19.0,0.1789
+81.09.06.2008,Siwatlahin,Fena Fafan,Buru Selatan,micro_hydro,intermittent,159,31,8.18,97841.0,65924.0,0.146,0.0702,0.1081,1957.0,-36315.0,0.0069,18.0,0.1753
+81.09.06.2009,Trukat,Fena Fafan,Buru Selatan,micro_hydro,intermittent,202,43,11.35,139043.0,91472.0,0.146,0.0702,0.1081,2781.0,-54344.0,0.0027,20.0,0.1795
+81.09.06.2010,Waeken,Fena Fafan,Buru Selatan,micro_hydro,intermittent,168,42,11.09,138149.0,89377.0,0.146,0.0702,0.1081,2763.0,-55857.0,-0.0002,,0.1825
+81.71.01.1013,Silale,Nusaniwe,Kota Ambon,wind_solar_hybrid,intermittent,3667,1233,325.51,2064573.0,2623350.0,0.2334,0.1077,0.1705,54711.0,2520832.0,0.2519,4.0,0.0981
+81.72.03.2001,Tam Ngurhir,Tayando Tam,Kota Tual,solar_biomass_hybrid,intermittent,2379,600,158.4,676777.0,1276577.0,0.2402,0.1478,0.194,15058.0,1903367.0,0.4257,3.0,0.0638
+81.72.03.2002,Tayando Langgiar,Tayando Tam,Kota Tual,solar_biomass_hybrid,dark_settled,1008,272,71.81,306805.0,578731.0,0.2402,0.1478,0.194,6826.0,862895.0,0.4257,3.0,0.0638
+81.72.03.2003,Tayando Yamtel,Tayando Tam,Kota Tual,solar_biomass_hybrid,intermittent,2951,850,224.4,958767.0,1808484.0,0.2402,0.1478,0.194,21333.0,2696437.0,0.4257,3.0,0.0638
+81.72.03.2004,Tayando Ohoiel,Tayando Tam,Kota Tual,solar_biomass_hybrid,intermittent,1668,448,118.27,505327.0,953162.0,0.2402,0.1478,0.194,11244.0,1421146.0,0.4257,3.0,0.0638
+81.72.03.2005,Tayando Yamru,Tayando Tam,Kota Tual,solar_biomass_hybrid,intermittent,773,219,57.82,247023.0,465983.0,0.2402,0.1478,0.194,5496.0,694799.0,0.4257,3.0,0.0638
+81.72.04.2001,Tubyal,Pulau-Pulau Kur,Kota Tual,solar_biomass_hybrid,intermittent,456,131,34.58,147763.0,278687.0,0.2402,0.1478,0.194,3288.0,415499.0,0.4256,3.0,0.0638
+81.72.04.2002,Kaimear,Pulau-Pulau Kur,Kota Tual,solar_battery,intermittent,740,210,55.44,385681.0,446802.0,0.2386,0.1101,0.1743,8292.0,425273.0,0.2354,4.0,0.1032
+81.72.04.2004,Lokwirin,Pulau-Pulau Kur,Kota Tual,solar_biomass_hybrid,intermittent,775,225,59.4,257753.0,478716.0,0.2402,0.1478,0.194,5735.0,708902.0,0.4185,3.0,0.0648
+81.72.05.2001,Kanara,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,495,136,35.9,157107.0,289325.0,0.2402,0.1478,0.194,3496.0,426816.0,0.4146,3.0,0.0653
+81.72.05.2002,Warkar,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,592,139,36.7,163033.0,295773.0,0.2402,0.1478,0.194,3627.0,433353.0,0.4078,3.0,0.0663
+81.72.05.2003,Yapas,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,231,58,15.31,68944.0,123386.0,0.2402,0.1478,0.194,1534.0,179636.0,0.4018,3.0,0.0672
+81.72.05.2004,Rumoin,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,1274,335,88.44,396596.0,712756.0,0.2402,0.1478,0.194,8824.0,1039736.0,0.4036,3.0,0.067
+81.72.05.2005,Hirit,Kur Selatan,Kota Tual,solar_biomass_hybrid,intermittent,409,110,29.04,132374.0,234039.0,0.2402,0.1478,0.194,2945.0,338770.0,0.3964,3.0,0.0681
+81.72.05.2006,Tiflen,Kur Selatan,Kota Tual,solar_biomass_hybrid,dark_settled,474,110,29.04,130541.0,234039.0,0.2402,0.1478,0.194,2905.0,341019.0,0.4026,3.0,0.0671
+81.72.05.2007,Niela,Kur Selatan,Kota Tual,solar_biomass_hybrid,dark_settled,664,171,45.14,192881.0,363792.0,0.2402,0.1478,0.194,4292.0,542391.0,0.4256,3.0,0.0638
